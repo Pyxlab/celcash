@@ -1,7 +1,7 @@
 {
     "name": "@cel_cash/client",
     "version": "1.0.3",
-    "description": "",
+    "description": "A client sdk for CelCash",
     "type": "module",
     "main": "dist/index.cjs",
     "module": "dist/index.js",
