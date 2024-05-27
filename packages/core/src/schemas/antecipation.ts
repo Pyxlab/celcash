@@ -29,8 +29,6 @@ export const antecipationSchema = z.object({
     createdAtFrom: z.string().datetime().describe('Data de criação inicial'),
 })
 
-export type Antecipation = z.infer<typeof antecipationSchema>
-
 export const listarAntecipacoesParamsSchema = z
     .object({
         limit: z.number().int().describe('Quantidade de registros por página'),
@@ -111,8 +109,6 @@ export const releasesSchema = z.object({
         .describe('Valor da taxa de antecipação'),
 })
 
-export type Releases = z.infer<typeof releasesSchema>
-
 export const operationSummarySchema = z.object({
     grossTotal: z.number().int().describe('Valor total bruto'),
     mdr: z.number().int().describe('Valor total das taxas'),
@@ -128,8 +124,6 @@ export const operationSummarySchema = z.object({
         .describe('Custo Efetivo Total. A soma de todas as taxas juntas.'),
     netValue: z.number().int().describe('Valor líquido'),
 })
-
-export type OperationSummary = z.infer<typeof operationSummarySchema>
 
 export const simulatarAntecipacaoResponseSchema = z
     .object({

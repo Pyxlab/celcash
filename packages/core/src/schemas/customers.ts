@@ -8,8 +8,6 @@ export const statusCustomerSchema = z.enum([
     'withoutSubscriptionOrCharge',
 ])
 
-export type StatusCustomer = z.infer<typeof statusCustomerSchema>
-
 export const createCustomerBodySchema = z.object({
     myId: z.string().uuid(),
     name: z.string(),
@@ -27,8 +25,6 @@ export const customerSchema = createCustomerBodySchema.extend({
     createdAt: z.string().datetime(),
     updatedAt: z.string().datetime(),
 })
-
-export type Customer = z.infer<typeof customerSchema>
 
 export const createCustomerResponseSchema = z.object({
     type: z.boolean(),

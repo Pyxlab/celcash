@@ -13,8 +13,6 @@ export const antifraudSchema = createAntifraudSchema.extend({
     approved: z.boolean(),
 })
 
-export type Antifraud = z.infer<typeof antifraudSchema>
-
 export const cardOperatorIdSchema = z.enum([
     'bin',
     'cielo',
@@ -28,8 +26,6 @@ export const cardOperatorIdSchema = z.enum([
     'adyen',
     'stone',
 ])
-
-export type CardOperatorId = z.infer<typeof cardOperatorIdSchema>
 
 export const paymentMethodCreditCardSchema = z.object({
     Card: cardSchema
@@ -51,16 +47,10 @@ export const paymentMethodCreditCardSchema = z.object({
     preAuthorize: z.boolean().optional(),
 })
 
-export type PaymentMethodCreditCard = z.infer<
-    typeof paymentMethodCreditCardSchema
->
-
 export const agreementSchema = z.object({
     name: z.string().optional(),
     document: z.string().optional(),
 })
-
-export type Agreement = z.infer<typeof agreementSchema>
 
 export const paymentMethodBoletoSchema = z.object({
     fine: z.number().int().optional(),
@@ -70,8 +60,6 @@ export const paymentMethodBoletoSchema = z.object({
     documentNumber: z.string().optional(),
     Aggrement: agreementSchema.optional(),
 })
-
-export type PaymentMethodBoleto = z.infer<typeof paymentMethodBoletoSchema>
 
 export const boletoSchema = z.object({
     pdf: z.string(),
@@ -83,14 +71,10 @@ export const boletoSchema = z.object({
     bankAccount: z.string(),
 })
 
-export type Boleto = z.infer<typeof boletoSchema>
-
 export const deadlineSchema = z.object({
     type: z.enum(['days']).optional(),
     value: z.number().int().optional(),
 })
-
-export type Deadline = z.infer<typeof deadlineSchema>
 
 export const paymentMethodPixSchema = z.object({
     fine: z.number().int().optional(),
@@ -99,13 +83,9 @@ export const paymentMethodPixSchema = z.object({
     Deadline: deadlineSchema.optional(),
 })
 
-export type PaymentMethodPix = z.infer<typeof paymentMethodPixSchema>
-
 export const pixSchema = z.object({
     qrCode: z.string(),
     reference: z.string(),
     image: z.string(),
     page: z.string(),
 })
-
-export type Pix = z.infer<typeof pixSchema>

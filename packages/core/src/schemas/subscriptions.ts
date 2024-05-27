@@ -18,7 +18,6 @@ export const subscriptionStatusSchema = z.enum([
     'waitingPayment',
     'inactive',
 ])
-export type SubscriptionStatus = z.infer<typeof subscriptionStatusSchema>
 
 export const listSubscriptionsParamsSchema = z.object({
     myIds: z.union([z.array(z.string()), z.string()]).optional(),
@@ -45,7 +44,6 @@ export const listSubscriptionsParamsSchema = z.object({
 })
 
 export const mainPaymentMethodIdSchema = z.enum(['creditcard', 'boleto', 'pix'])
-export type MainPaymentMethodId = z.infer<typeof mainPaymentMethodIdSchema>
 
 export const createSubscriptionWithPlanBodySchema = z.object({
     myId: z.string(),
@@ -81,8 +79,6 @@ export const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
     status: subscriptionStatusSchema,
     Transactions: z.array(createTransactionResponseSchema),
 })
-
-export type Subscription = z.infer<typeof subscriptionSchema>
 
 export const listSubscriptionsResponseSchema = z.object({
     totalQtdFoundInPage: z.number().int(),

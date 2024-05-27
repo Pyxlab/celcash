@@ -26,8 +26,6 @@ export const scopeSchema = z.enum([
     'releases.read',
 ])
 
-export type Scope = z.infer<typeof scopeSchema>
-
 export const authorizationBodySchema = z.object({
     grant_type: z.enum(['authorization_code', 'refresh_token']),
     scope: z.union([z.array(scopeSchema), z.string()]),
@@ -64,8 +62,6 @@ export const paymentSchema = z.object({
     createdAt: z.string().datetime(),
 })
 
-export type Payment = z.infer<typeof paymentSchema>
-
 export const pixPaymentResponseSchema = z.object({
     type: z.boolean(),
     Payment: paymentSchema,
@@ -98,5 +94,3 @@ export const addressSchema = z.object({
     city: z.string(),
     state: z.string(),
 })
-
-export type Address = z.infer<typeof addressSchema>

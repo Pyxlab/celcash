@@ -8,7 +8,6 @@ import {
 } from './payments'
 
 export const invoiceConfigTypeSchema = z.enum(['onePerTransaction', 'onlyOne'])
-export type InvoiceConfigType = z.infer<typeof invoiceConfigTypeSchema>
 
 export const invoiceStatusSchema = z.enum([
     'pending',
@@ -18,7 +17,6 @@ export const invoiceStatusSchema = z.enum([
     'cancel',
     'cancelOutSystem',
 ])
-export type InvoiceStatus = z.infer<typeof invoiceStatusSchema>
 
 export const invoiceSchema = z.object({
     description: z.string(),
@@ -29,8 +27,6 @@ export const invoiceSchema = z.object({
     statusDate: z.string().datetime(),
     xml: z.string(),
 })
-
-export type Invoice = z.infer<typeof invoiceSchema>
 
 export const invoiceConfigSchema = z
     .object({
@@ -52,15 +48,10 @@ export const invoiceConfigSchema = z
         return true
     })
 
-export type InvoiceConfig = z.infer<typeof invoiceConfigSchema>
-
 export const conciliationOccurrenceStatusSchema = z.enum([
     'payment',
     'canceled',
 ])
-export type ConciliationOccurrenceStatus = z.infer<
-    typeof conciliationOccurrenceStatusSchema
->
 
 export const conciliationOccurrenceSchema = z.object({
     type: conciliationOccurrenceStatusSchema,
@@ -74,15 +65,10 @@ export const conciliationOccurrenceSchema = z.object({
     account: z.string(),
 })
 
-export type ConciliationOccurrence = z.infer<
-    typeof conciliationOccurrenceSchema
->
-
 export const abecsReasonDeniedSchema = z.object({
     code: z.string().length(4),
     message: z.string(),
 })
-export type AbecsReasonDenied = z.infer<typeof abecsReasonDeniedSchema>
 
 export const createTransactionBodySchema = z.object({
     myId: z.string().uuid(),

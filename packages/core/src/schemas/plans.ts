@@ -2,8 +2,6 @@ import { z } from 'zod'
 
 export const statusPlansSchema = z.enum(['active', 'inactive'])
 
-export type StatusPlans = z.infer<typeof statusPlansSchema>
-
 export const listPlansParamsSchema = z.object({
     myIds: z.union([z.array(z.string()), z.string()]).optional(),
     galaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
@@ -29,8 +27,6 @@ export const planPricesSchema = z.object({
     value: z.number().int(),
 })
 
-export type PlanPrices = z.infer<typeof planPricesSchema>
-
 export type ListPlansParams = z.infer<typeof listPlansParamsSchema>
 
 export const periodicitySchema = z.enum([
@@ -42,8 +38,6 @@ export const periodicitySchema = z.enum([
     'biannual',
     'yearly',
 ])
-
-export type Periodicity = z.infer<typeof periodicitySchema>
 
 export const createPlanBodySchema = z.object({
     myId: z.string(),
@@ -71,7 +65,5 @@ export const createPlanResponseSchema = z.object({
 })
 
 export type CreatePlanBody = z.infer<typeof createPlanBodySchema>
-
-export type Plan = z.infer<typeof planSchema>
 
 export type CreatePlanResponse = z.infer<typeof createPlanResponseSchema>
