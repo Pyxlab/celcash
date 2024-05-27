@@ -32,6 +32,15 @@
     "keywords": [],
     "author": "Walaff Fernandes",
     "license": "ISC",
+    "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/core#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Pyxlab/celcash.git",
+        "directory": "packages/core"
+    },
+    "bugs": {
+        "url": "https://github.com/Pyxlab/celcash/issues"
+    },
     "peerDependencies": {
         "@ts-rest/core": "^3.45.2"
     },
