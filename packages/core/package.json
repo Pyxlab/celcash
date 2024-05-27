@@ -1,6 +1,6 @@
 {
-  "name": "@celcash/core",
-  "version": "1.0.0",
+  "name": "@cel_cash/core",
+  "version": "1.0.1",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs",
