@@ -10,6 +10,9 @@
     "build": "tsup",
     "release": "pnpm release-it"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [],
   "author": "Walaff Fernandes",
   "license": "ISC",
