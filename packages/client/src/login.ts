@@ -1,4 +1,4 @@
-import { contract } from '@celcash/core'
+import { contract } from '@cel_cash/core'
 import { initClient } from '@ts-rest/core'
 import { authorization } from './authorization'
 import type { Configure } from './types'
