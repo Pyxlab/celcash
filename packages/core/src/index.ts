@@ -1,5 +1,30 @@
 export * from './contract'
-export * as schemas from './schemas'
+export type {
+    AuthorizationBody,
+    AuthorizationResponse,
+    CancelSubscriptionResponse,
+    CreateAntifraud,
+    CreateCardBody,
+    CreateCardResponse,
+    CreateCustomerResponse,
+    CreatePlanBody,
+    CreatePlanResponse,
+    CreateSubscriptionManualBody,
+    CreateSubscriptionWithPlanBody,
+    CreateSubscriptionWithPlanResponse,
+    CreateSubscriptionWithoutPlanBody,
+    CreateTransactionResponse,
+    Empty,
+    ListCardsResponse,
+    ListCustomersResponse,
+    ListPlanResponse,
+    ListPlansParams,
+    PixPaymentBody,
+    PixPaymentResponse,
+    TransferInternalBody,
+    TransferInternalResponse,
+    UpdateTransactionBody,
+} from './schemas'
 export const STATUS_PAGO = [
     'captured',
     'payedBoleto',
