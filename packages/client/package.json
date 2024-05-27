@@ -11,16 +11,8 @@
         "build": "tsup",
         "release": "pnpm release-it"
     },
-    "files": [
-        "dist"
-    ],
-    "keywords": [
-        "celcash",
-        "client",
-        "sdk",
-        "api",
-        "typescript"
-    ],
+    "files": ["dist"],
+    "keywords": ["celcash", "client", "sdk", "api", "typescript"],
     "author": "Walaff Fernandes",
     "license": "ISC",
     "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/client#readme",
@@ -54,9 +46,7 @@
             "@release-it/bumper": {
                 "out": {
                     "file": "package.json",
-                    "path": [
-                        "devDependencies.@cel_cash/core"
-                    ]
+                    "path": ["devDependencies.@cel_cash/core"]
                 }
             }
         }
