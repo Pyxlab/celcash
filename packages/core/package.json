@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/core",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "",
     "type": "module",
     "main": "dist/index.cjs",
@@ -28,7 +28,9 @@
             "types": "./dist/schemas/index.d.ts"
         }
     },
-    "files": ["dist"],
+    "files": [
+        "dist"
+    ],
     "keywords": [],
     "author": "Walaff Fernandes",
     "license": "ISC",
