@@ -37,7 +37,7 @@
             "@release-it/bumper": {
                 "out": {
                     "file": "package.json",
-                    "path": ["devDependencies.@ts-rest/core"]
+                    "path": ["devDependencies.@cel_cash/core"]
                 }
             }
         }
