@@ -12,7 +12,7 @@
         "release": "pnpm release-it"
     },
     "files": ["dist"],
-    "keywords": [],
+    "keywords": ["celcash", "client", "sdk", "api", "typescript"],
     "author": "Walaff Fernandes",
     "license": "ISC",
     "devDependencies": {
