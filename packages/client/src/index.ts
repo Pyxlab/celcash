@@ -4,15 +4,15 @@ import { initClient, tsRestFetchApi } from '@ts-rest/core'
 import { login } from './login'
 import type { Configure } from './types'
 
-export async function initCelCashClient(config: Configure) {
+export function initCelCashClient(config: Configure) {
     const store = new AsyncLocalStorage<{ token: string; expiresAt: number }>()
     const baseURL = config.BASE_URL
 
-    const token = await login(config)
-
-    store.enterWith({
-        token: token.access_token,
-        expiresAt: Date.now() + token.expires_in * 1000,
+    login(config).then(token => {
+        store.enterWith({
+            token: token.access_token,
+            expiresAt: Date.now() + token.expires_in * 1000,
+        })
     })
 
     return initClient(contract, {
