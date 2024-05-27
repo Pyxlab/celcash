@@ -15,6 +15,15 @@
     "keywords": ["celcash", "client", "sdk", "api", "typescript"],
     "author": "Walaff Fernandes",
     "license": "ISC",
+    "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/client#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Pyxlab/celcash.git",
+        "directory": "packages/client"
+    },
+    "bugs": {
+        "url": "https://github.com/Pyxlab/celcash/issues"
+    },
     "devDependencies": {
         "@cel_cash/core": "workspace:*",
         "@swc/core": "^1.5.7",
