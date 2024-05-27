@@ -1,6 +1,6 @@
 {
   "name": "@cel_cash/client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "type": "module",
   "main": "dist/index.cjs",
@@ -18,7 +18,8 @@
     "@swc/core": "^1.5.7",
     "@types/node": "^20.12.12",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "@ts-rest/core": "1.0.1"
   },
   "peerDependencies": {
     "@celcash/core": "^1.0.0"
@@ -35,7 +36,9 @@
       "@release-it/bumper": {
         "out": {
           "file": "package.json",
-          "path": ["devDependencies.@ts-rest/core"]
+          "path": [
+            "devDependencies.@ts-rest/core"
+          ]
         }
       }
     }

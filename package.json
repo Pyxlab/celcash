@@ -1,12 +1,19 @@
 {
   "name": "cel_cash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "release": "pnpm -r release && pnpm release-it"
   },
-  "keywords": ["SDK", "API", "Celcoin", "Celcash", "typescript", "ts-rest"],
+  "keywords": [
+    "SDK",
+    "API",
+    "Celcoin",
+    "Celcash",
+    "typescript",
+    "ts-rest"
+  ],
   "author": "Walaff Fernandes",
   "license": "ISC",
   "devDependencies": {
