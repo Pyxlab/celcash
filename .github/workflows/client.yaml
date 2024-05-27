@@ -23,7 +23,7 @@ jobs:
           node-version: 20
           cache: 'pnpm'
       - name: Install
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       - name: Run lint
         run: pnpm biome check packages/client
 
@@ -41,7 +41,7 @@ jobs:
           node-version: 20
           cache: 'pnpm'
       - name: Install
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
       - name: Build @cel_cash/client dependencies
         run: pnpm --filter @cel_cash/core build
       - name: Run typecheck

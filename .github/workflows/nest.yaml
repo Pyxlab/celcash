@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'packages/core/**'
+      - 'packages/nest/**'
 
   workflow_dispatch:
 
@@ -25,7 +25,7 @@ jobs:
       - name: Install
         run: pnpm install --no-frozen-lockfile
       - name: Run lint
-        run: pnpm biome check packages/core
+        run: pnpm biome check packages/nest
 
   typecheck:
     runs-on: ubuntu-latest
@@ -43,4 +43,4 @@ jobs:
       - name: Install
         run: pnpm install --no-frozen-lockfile
       - name: Run typecheck
-        run: pnpm --filter @cel_cash/core type-check
+        run: pnpm --filter @cel_cash/nestjs type-check
