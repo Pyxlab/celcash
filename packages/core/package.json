@@ -28,15 +28,8 @@
             "types": "./dist/schemas/index.d.ts"
         }
     },
-    "files": [
-        "dist"
-    ],
-    "keywords": [
-        "celcash",
-        "sdk",
-        "api",
-        "typescript"
-    ],
+    "files": ["dist"],
+    "keywords": ["celcash", "sdk", "api", "typescript"],
     "author": "Walaff Fernandes",
     "license": "ISC",
     "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/core#readme",

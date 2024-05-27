@@ -10,14 +10,7 @@
         "build": "tsup",
         "release": "pnpm release-it"
     },
-    "keywords": [
-        "celcash",
-        "client",
-        "sdk",
-        "api",
-        "typescript",
-        "nestjs"
-    ],
+    "keywords": ["celcash", "client", "sdk", "api", "typescript", "nestjs"],
     "author": "Walaff Fernandes",
     "license": "ISC",
     "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/nestjs#readme",
@@ -54,9 +47,7 @@
             "@release-it/bumper": {
                 "out": {
                     "file": "package.json",
-                    "path": [
-                        "devDependencies.@cel_cash/core"
-                    ]
+                    "path": ["devDependencies.@cel_cash/core"]
                 }
             }
         }
