@@ -1,0 +1,21 @@
+{
+  "name": "celcash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "release": "pnpm -r release && pnpm release-it"
+  },
+  "keywords": ["SDK", "API", "Celcoin", "Celcash", "typescript", "ts-rest"],
+  "author": "Walaff Fernandes",
+  "license": "ISC",
+  "devDependencies": {
+    "@release-it/bumper": "^6.0.1",
+    "release-it": "^17.3.0"
+  },
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": false
+    }
+  }
+}

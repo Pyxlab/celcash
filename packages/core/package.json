@@ -1,0 +1,31 @@
+{
+  "name": "@celcash/core",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "release": "pnpm release-it"
+  },
+  "keywords": [],
+  "author": "Walaff Fernandes",
+  "license": "ISC",
+  "devDependencies": {
+    "@swc/core": "^1.5.7",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@ts-rest/core": "^3.45.2",
+    "zod": "^3.23.8"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "release-it": {
+    "git": false
+  }
+}
