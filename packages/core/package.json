@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/core",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Core ts-rest module for CelCash",
     "type": "module",
     "main": "dist/index.cjs",
@@ -28,8 +28,15 @@
             "types": "./dist/schemas/index.d.ts"
         }
     },
-    "files": ["dist"],
-    "keywords": ["celcash", "sdk", "api", "typescript"],
+    "files": [
+        "dist"
+    ],
+    "keywords": [
+        "celcash",
+        "sdk",
+        "api",
+        "typescript"
+    ],
     "author": "Walaff Fernandes",
     "license": "ISC",
     "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/core#readme",
