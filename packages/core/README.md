@@ -7,7 +7,7 @@ This package contains the core logic of the CelCash project built with [ts-rest]
 To install this package, you need to run the following command:
 
 ```bash
-npm install @cel_cash/core
+npm install @ts-rest/core @cel_cash/core
 ```
 
 ## Usage

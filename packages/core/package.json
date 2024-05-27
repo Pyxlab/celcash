@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/core",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "",
     "type": "module",
     "main": "dist/index.cjs",
@@ -32,13 +32,15 @@
     "keywords": [],
     "author": "Walaff Fernandes",
     "license": "ISC",
+    "peerDependencies": {
+        "@ts-rest/core": "^3.45.2"
+    },
     "devDependencies": {
         "@swc/core": "^1.5.7",
         "tsup": "^8.0.2",
         "typescript": "^5.4.5"
     },
     "dependencies": {
-        "@ts-rest/core": "^3.45.2",
         "zod": "^3.23.8"
     },
     "publishConfig": {
