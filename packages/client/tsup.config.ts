@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig } from 'tsup'
 
 export default defineConfig(({ watch }) => ({
     entryPoints: ['src/index.ts'],
@@ -12,4 +12,4 @@ export default defineConfig(({ watch }) => ({
     onSuccess: watch
         ? 'node --enable-source-maps dist/index ys.js --inspect'
         : undefined,
-}));
+}))

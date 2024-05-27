@@ -1,49 +1,45 @@
 {
-  "name": "@cel_cash/client",
-  "version": "1.0.3",
-  "description": "",
-  "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsup",
-    "release": "pnpm release-it"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [],
-  "author": "Walaff Fernandes",
-  "license": "ISC",
-  "devDependencies": {
-    "@celcash/core": "workspace:*",
-    "@swc/core": "^1.5.7",
-    "@types/node": "^20.12.12",
-    "tsup": "^8.0.2",
-    "typescript": "^5.4.5",
-    "@ts-rest/core": "1.0.3"
-  },
-  "peerDependencies": {
-    "@celcash/core": "^1.0.0"
-  },
-  "dependencies": {
-    "@ts-rest/core": "^3.45.2"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "release-it": {
-    "git": false,
-    "plugins": {
-      "@release-it/bumper": {
-        "out": {
-          "file": "package.json",
-          "path": [
-            "devDependencies.@ts-rest/core"
-          ]
+    "name": "@cel_cash/client",
+    "version": "1.0.3",
+    "description": "",
+    "type": "module",
+    "main": "dist/index.cjs",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup",
+        "release": "pnpm release-it"
+    },
+    "files": ["dist"],
+    "keywords": [],
+    "author": "Walaff Fernandes",
+    "license": "ISC",
+    "devDependencies": {
+        "@cel_cash/core": "workspace:*",
+        "@swc/core": "^1.5.7",
+        "@types/node": "^20.12.12",
+        "tsup": "^8.0.2",
+        "typescript": "^5.4.5",
+        "@ts-rest/core": "1.0.3"
+    },
+    "peerDependencies": {
+        "@cel_cash/core": "^1.0.0"
+    },
+    "dependencies": {
+        "@ts-rest/core": "^3.45.2"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "release-it": {
+        "git": false,
+        "plugins": {
+            "@release-it/bumper": {
+                "out": {
+                    "file": "package.json",
+                    "path": ["devDependencies.@ts-rest/core"]
+                }
+            }
         }
-      }
     }
-  }
 }
