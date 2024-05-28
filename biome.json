@@ -1,6 +1,6 @@
 {
     "$schema": "https://biomejs.dev/schemas/1.7.1/schema.json",
-    "organizeImports": { "enabled": true, "ignore": ["dist"] },
+    "organizeImports": { "enabled": true, "ignore": ["dist", "package.json"] },
     "formatter": {
         "enabled": true,
         "formatWithErrors": false,
@@ -9,7 +9,7 @@
         "lineEnding": "lf",
         "lineWidth": 80,
         "attributePosition": "auto",
-        "ignore": ["dist"]
+        "ignore": ["dist", "package.json"]
     },
     "linter": {
         "enabled": true,
@@ -31,7 +31,7 @@
                 "noUnsafeDeclarationMerging": "error"
             }
         },
-        "ignore": ["dist"]
+        "ignore": ["dist", "package.json"]
     },
     "javascript": {
         "formatter": {

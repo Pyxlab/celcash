@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/nestjs",
-    "version": "1.0.7",
+    "version": "1.0.8",
     "description": "",
     "type": "commonjs",
     "main": "dist/index.js",
@@ -10,7 +10,14 @@
         "build": "tsup",
         "release": "pnpm release-it"
     },
-    "keywords": ["celcash", "client", "sdk", "api", "typescript", "nestjs"],
+    "keywords": [
+        "celcash",
+        "client",
+        "sdk",
+        "api",
+        "typescript",
+        "nestjs"
+    ],
     "author": "Walaff Fernandes",
     "license": "ISC",
     "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/nestjs#readme",
@@ -29,7 +36,7 @@
         "@cel_cash/core": "^1.0.5"
     },
     "devDependencies": {
-        "@cel_cash/core": "1.0.7",
+        "@cel_cash/core": "1.0.8",
         "@nestjs/common": "^10.2.8",
         "@swc/core": "^1.5.7",
         "@types/cache-manager": "^4.0.1",
@@ -47,7 +54,9 @@
             "@release-it/bumper": {
                 "out": {
                     "file": "package.json",
-                    "path": ["devDependencies.@cel_cash/core"]
+                    "path": [
+                        "devDependencies.@cel_cash/core"
+                    ]
                 }
             }
         }
