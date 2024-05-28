@@ -11,7 +11,7 @@ import {
     statusCardsSchema,
 } from './schemas/cards'
 import { chargesSchema } from './schemas/charges'
-import { addressSchema, extraFieldSchema, paymentSchema, scopeSchema } from './schemas/common'
+import { addressSchema, extraFieldSchema, invoiceConfigSchema, invoiceConfigTypeSchema, invoiceSchema, invoiceStatusSchema, paymentSchema, scopeSchema } from './schemas/common'
 import { customerSchema, statusCustomerSchema } from './schemas/customers'
 import {
     agreementSchema,
@@ -39,10 +39,6 @@ import {
     abecsReasonDeniedSchema,
     conciliationOccurrenceSchema,
     conciliationOccurrenceStatusSchema,
-    invoiceConfigSchema,
-    invoiceConfigTypeSchema,
-    invoiceSchema,
-    invoiceStatusSchema,
 } from './schemas/transactions'
 import { contractSchema, splitSchema } from './schemas/contract'
 

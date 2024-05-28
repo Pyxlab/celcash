@@ -99,3 +99,45 @@ export const extraFieldSchema = z.object({
     tagName: z.string(),
     value: z.string(),
 })
+
+
+export const invoiceConfigTypeSchema = z.enum(['onePerTransaction', 'onlyOne'])
+
+export const invoiceStatusSchema = z.enum([
+    'pending',
+    'emitted',
+    'rejected',
+    'error',
+    'cancel',
+    'cancelOutSystem',
+])
+
+export const invoiceSchema = z.object({
+    description: z.string(),
+    number: z.string(),
+    status: invoiceStatusSchema,
+    statusDescription: z.string(),
+    pdf: z.string(),
+    statusDate: z.string().datetime(),
+    xml: z.string(),
+})
+
+export const invoiceConfigSchema = z
+    .object({
+        description: z.string(),
+        type: invoiceConfigTypeSchema,
+        createOn: z.enum([
+            'daysBeforePayDay',
+            'payment',
+            'notificationSend',
+            'daysAfterPayment',
+        ]),
+        qtdDaysBeforePayDay: z.number().int().optional(),
+        galaxPaySubAccountId: z.number().int().optional(),
+        qtdDaysAfterPay: z.number().int().optional(),
+    })
+    .refine(({ createOn, qtdDaysAfterPay, qtdDaysBeforePayDay }) => {
+        if (createOn === 'daysBeforePayDay') return !!qtdDaysBeforePayDay
+        if (createOn === 'daysAfterPayment') return !!qtdDaysAfterPay
+        return true
+    })

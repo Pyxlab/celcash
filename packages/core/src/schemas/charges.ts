@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { cardSchema } from './cards'
-import { extraFieldSchema } from './common'
+import { extraFieldSchema, invoiceConfigSchema, invoiceSchema } from './common'
 import { contractSchema, splitSchema } from './contract'
 import { customerSchema } from './customers'
 import {
@@ -16,8 +16,6 @@ import { mainPaymentMethodIdSchema, subscriptionSchema } from './subscriptions'
 import {
     abecsReasonDeniedSchema,
     conciliationOccurrenceSchema,
-    invoiceConfigSchema,
-    invoiceSchema,
     transactionStatusSchema,
 } from './transactions'
 

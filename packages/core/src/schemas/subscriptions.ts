@@ -8,9 +8,8 @@ import {
 import { periodicitySchema } from './plans'
 import {
     createOrUpdateTransactionResponseSchema,
-    invoiceConfigSchema,
 } from './transactions'
-import { extraFieldSchema } from './common'
+import { extraFieldSchema, invoiceConfigSchema } from './common'
 import { splitSchema } from './contract'
 
 export const subscriptionStatusSchema = z.enum([
