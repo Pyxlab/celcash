@@ -1,4 +1,3 @@
-export * from './contract'
 export type {
     AuthorizationBody,
     AuthorizationResponse,
