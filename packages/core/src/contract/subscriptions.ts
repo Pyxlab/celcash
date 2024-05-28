@@ -25,40 +25,58 @@ export const subscriptions = c.router(
             },
             query: listSubscriptionsParamsSchema,
         },
-        create: {
-            method: 'POST',
-            path: '/',
-            responses: {
-                200: createSubscriptionResponseSchema,
+        create: c.router({
+            withPlan: {
+                method: 'POST',
+                path: '/',
+                responses: {
+                    201: createSubscriptionResponseSchema,
+                },
+                body: createSubscriptionWithPlanBodySchema,
             },
-            body: z.union([
-                createSubscriptionWithotPlanBodySchema,
-                createSubscriptionWithPlanBodySchema,
-            ]),
-        },
-        manual: {
-            method: 'POST',
-            path: '/manual',
-            responses: {
-                201: createSubscriptionResponseSchema,
+            withoutPlan: {
+                method: 'POST',
+                path: '/',
+                responses: {
+                    201: createSubscriptionResponseSchema,
+                },
+                body: createSubscriptionWithotPlanBodySchema,
             },
-            body: createSubscriptionManualBodySchema,
-        },
-        update: {
-            method: 'PUT',
-            path: '/:subscriptionId/:typeId',
-            pathParams: z.object({
-                subscriptionId: z.string(),
-                typeId: z.enum(['galaxPayId', 'myId']),
-            }),
-            responses: {
-                200: createSubscriptionResponseSchema,
+            manual: {
+                method: 'POST',
+                path: '/manual',
+                responses: {
+                    201: createSubscriptionResponseSchema,
+                },
+                body: createSubscriptionManualBodySchema,
             },
-            body: z.union([
-                updateSubscriptionInfoBodySchema,
-                updateSubscriptionPaymentBodySchema,
-            ]),
-        },
+        }),
+        update: c.router({
+            info: {
+                method: 'PUT',
+                path: '/:subscriptionId/:typeId',
+                pathParams: z.object({
+                    subscriptionId: z.string(),
+                    typeId: z.enum(['galaxPayId', 'myId']),
+                }),
+                responses: {
+                    200: createSubscriptionResponseSchema,
+                },
+                body: updateSubscriptionInfoBodySchema
+            },
+            payment: {
+                method: 'PUT',
+                path: '/:subscriptionId/:typeId',
+                pathParams: z.object({
+                    subscriptionId: z.string(),
+                    typeId: z.enum(['galaxPayId', 'myId']),
+                }),
+                responses: {
+                    200: createSubscriptionResponseSchema,
+                },
+                body: updateSubscriptionPaymentBodySchema
+            },
+        }),
         cancel: {
             method: 'DELETE',
             path: '/:subscriptionId/:typeId',
