@@ -16,11 +16,47 @@ This package contains the contract with the cel_cash api and the validation sche
 
 ### Contract
 
-This package contains the contract with the cel_cash api.
+This package contains the contracts with the cel_cash api.
 
 ```typescript
-import { contract } from '@cel_cash/core'
-import { initClient } from '@ts-rest/core'
+import { initClient, initContract } from '@ts-rest/core'
+import { 
+  antecipation,
+  auth,
+  cards,
+  chargebacks,
+  charges,
+  companies,
+  customers,
+  plans,
+  subscriptions,
+  transactions,
+  pix,
+  transfer
+} from '@cel_cash/contracts'
+
+const c = initContract()
+
+export const contract = c.router(
+  {
+    subscriptions,
+    antecipation,
+    chargebacks,
+    companies,
+    pix,
+    transfer,
+    customers,
+    plans,
+    transactions,
+    charges,
+    auth,
+  },
+  {
+    pathPrefix: '',
+  },
+)
+
+
 
 const client = initClient(contract, {
   baseUrl: baseURL,
