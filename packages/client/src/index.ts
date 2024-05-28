@@ -1,8 +1,34 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
-import { contract } from '@cel_cash/core'
-import { initClient, tsRestFetchApi } from '@ts-rest/core'
+import {
+    antecipation,
+    cards,
+    chargebacks,
+    charges,
+    companies,
+    customers,
+    pix,
+    plans,
+    subscriptions,
+    transactions,
+    transfer,
+} from '@cel_cash/core/contracts'
+import { initClient, initContract, tsRestFetchApi } from '@ts-rest/core'
 import { login } from './login'
 import type { Configure } from './types'
+
+const contract = initContract().router({
+    antecipation,
+    cards,
+    chargebacks,
+    charges,
+    companies,
+    customers,
+    plans,
+    subscriptions,
+    transactions,
+    pix,
+    transfer,
+})
 
 export function initCelCashClient(config: Configure) {
     const store = new AsyncLocalStorage<{ token: string; expiresAt: number }>()
