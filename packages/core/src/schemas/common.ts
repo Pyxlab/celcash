@@ -94,3 +94,8 @@ export const addressSchema = z.object({
     city: z.string(),
     state: z.string(),
 })
+
+export const extraFieldSchema = z.object({
+    tagName: z.string(),
+    value: z.string(),
+})
