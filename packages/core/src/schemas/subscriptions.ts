@@ -7,9 +7,11 @@ import {
 } from './payments'
 import { periodicitySchema } from './plans'
 import {
-    createTransactionResponseSchema,
+    createOrUpdateTransactionResponseSchema,
     invoiceConfigSchema,
 } from './transactions'
+import { extraFieldSchema } from './common'
+import { splitSchema } from './contract'
 
 export const subscriptionStatusSchema = z.enum([
     'active',
@@ -48,6 +50,7 @@ export const mainPaymentMethodIdSchema = z.enum(['creditcard', 'boleto', 'pix'])
 export const createSubscriptionWithPlanBodySchema = z.object({
     myId: z.string(),
     planMyId: z.string(),
+    planGalaxPayId: z.number().int(),
     firstPayDayDate: z.string().datetime(),
     additionalInfo: z.string().optional(),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
@@ -77,7 +80,7 @@ export const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
     paymentLink: z.string().optional(),
     value: z.number().int(),
     status: subscriptionStatusSchema,
-    Transactions: z.array(createTransactionResponseSchema),
+    Transactions: z.array(createOrUpdateTransactionResponseSchema),
 })
 
 export const listSubscriptionsResponseSchema = z.object({
@@ -124,9 +127,37 @@ export type CreateSubscriptionWithoutPlanBody = z.infer<
 export const createSubscriptionManualBodySchema =
     createSubscriptionWithPlanBodySchema.omit({
         planMyId: true,
+        planGalaxPayId: true,
         firstPayDayDate: true,
     })
 
 export type CreateSubscriptionManualBody = z.infer<
     typeof createSubscriptionManualBodySchema
+>
+
+export const updateSubscriptionInfoBodySchema = z.object({
+    myId: z.string().optional(),
+    additionalInfo: z.string().optional(),
+    planMyId: z.string().optional(),
+    planGalaxPayId: z.number().int().optional(),
+    InvoiceConfig: invoiceConfigSchema.optional(),
+    ExtraFields: z.array(extraFieldSchema).optional(),
+    Split: splitSchema.optional(),
+})
+
+export type UpdateSubscriptionInfoBody = z.infer<
+    typeof updateSubscriptionInfoBodySchema
+>
+
+export const updateSubscriptionPaymentBodySchema = z.object({
+    value: z.number().int(),
+    mainPaymentMethodId: mainPaymentMethodIdSchema,
+    PaymentMethodCreditCard: paymentMethodCreditCardSchema.optional(),
+    PaymentMethodBoleto: paymentMethodBoletoSchema.optional(),
+    PaymentMethodPix: paymentMethodPixSchema.optional(),
+    Split: splitSchema.optional(),
+})
+
+export type UpdateSubscriptionPaymentBody = z.infer<
+    typeof updateSubscriptionPaymentBodySchema
 >

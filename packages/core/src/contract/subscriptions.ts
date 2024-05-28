@@ -2,12 +2,15 @@ import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
 import {
     cancelSubscriptionResponseSchema,
+    createSubscriptionManualBodySchema,
     createSubscriptionResponseSchema,
     createSubscriptionWithPlanBodySchema,
     createSubscriptionWithotPlanBodySchema,
     emptySchema,
     listSubscriptionsParamsSchema,
     listSubscriptionsResponseSchema,
+    updateSubscriptionInfoBodySchema,
+    updateSubscriptionPaymentBodySchema,
 } from '../schemas/subscriptions'
 
 const c = initContract()
@@ -22,21 +25,39 @@ export const subscriptions = c.router(
             },
             query: listSubscriptionsParamsSchema,
         },
-        createWithPlan: {
+        create: {
             method: 'POST',
             path: '/',
             responses: {
-                201: createSubscriptionResponseSchema,
+                200: createSubscriptionResponseSchema,
             },
-            body: createSubscriptionWithPlanBodySchema,
+            body: z.union([
+                createSubscriptionWithotPlanBodySchema,
+                createSubscriptionWithPlanBodySchema,
+            ]),
         },
-        createWithoutPlan: {
+        manual: {
             method: 'POST',
-            path: '/',
+            path: '/manual',
             responses: {
                 201: createSubscriptionResponseSchema,
             },
-            body: createSubscriptionWithotPlanBodySchema,
+            body: createSubscriptionManualBodySchema,
+        },
+        update: {
+            method: 'PUT',
+            path: '/:subscriptionId/:typeId',
+            pathParams: z.object({
+                subscriptionId: z.string(),
+                typeId: z.enum(['galaxPayId', 'myId']),
+            }),
+            responses: {
+                200: createSubscriptionResponseSchema,
+            },
+            body: z.union([
+                updateSubscriptionInfoBodySchema,
+                updateSubscriptionPaymentBodySchema,
+            ]),
         },
         cancel: {
             method: 'DELETE',
