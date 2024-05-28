@@ -2,8 +2,8 @@ import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
 import {
     addTransactionBodySchema,
-    createTransactionBodySchema,
     createOrUpdateTransactionResponseSchema,
+    createTransactionBodySchema,
     listTransactionsParamsSchema,
     listTransactionsResponseSchema,
     retryOrReverseTransactionResponseSchema,
@@ -66,9 +66,9 @@ export const transactions = c.router(
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
-                200: retryOrReverseTransactionResponseSchema
+                200: retryOrReverseTransactionResponseSchema,
             },
-            body: z.object({}), 
+            body: z.object({}),
         },
         reverse: {
             method: 'PUT',
@@ -78,7 +78,7 @@ export const transactions = c.router(
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
-                200: retryOrReverseTransactionResponseSchema
+                200: retryOrReverseTransactionResponseSchema,
             },
             body: z.object({
                 valueToReverse: z.number().int(),
@@ -109,7 +109,7 @@ export const transactions = c.router(
                 }),
             },
             body: z.object({}),
-        }
+        },
     },
     { pathPrefix: '/transactions' },
 )

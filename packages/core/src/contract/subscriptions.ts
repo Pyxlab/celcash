@@ -62,7 +62,7 @@ export const subscriptions = c.router(
                 responses: {
                     200: createSubscriptionResponseSchema,
                 },
-                body: updateSubscriptionInfoBodySchema
+                body: updateSubscriptionInfoBodySchema,
             },
             payment: {
                 method: 'PUT',
@@ -74,7 +74,7 @@ export const subscriptions = c.router(
                 responses: {
                     200: createSubscriptionResponseSchema,
                 },
-                body: updateSubscriptionPaymentBodySchema
+                body: updateSubscriptionPaymentBodySchema,
             },
         }),
         cancel: {
