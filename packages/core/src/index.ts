@@ -13,7 +13,7 @@ export type {
     CreateSubscriptionWithPlanBody,
     CreateSubscriptionWithPlanResponse,
     CreateSubscriptionWithoutPlanBody,
-    CreateTransactionResponse,
+    CreateOrUpdateTransactionResponse,
     Empty,
     ListCardsResponse,
     ListCustomersResponse,
@@ -24,7 +24,10 @@ export type {
     TransferInternalBody,
     TransferInternalResponse,
     UpdateTransactionBody,
+    UpdateSubscriptionInfoBody,
+    UpdateSubscriptionPaymentBody,
 } from './schemas'
+
 export const STATUS_PAGO = [
     'captured',
     'payedBoleto',
