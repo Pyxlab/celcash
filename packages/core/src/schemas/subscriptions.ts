@@ -1,16 +1,56 @@
 import { z } from 'zod'
+import { cardSchema } from './cards'
+import { extraFieldSchema, invoiceConfigSchema, invoiceSchema } from './common'
+import { splitSchema } from './contract'
 import { customerSchema } from './customers'
 import {
+    antifraudSchema,
+    boletoSchema,
+    cardOperatorIdSchema,
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
     paymentMethodPixSchema,
+    pixSchema,
 } from './payments'
 import { periodicitySchema } from './plans'
 import {
-    createOrUpdateTransactionResponseSchema,
+    abecsReasonDeniedSchema,
+    conciliationOccurrenceSchema,
+    transactionStatusSchema,
 } from './transactions'
-import { extraFieldSchema, invoiceConfigSchema } from './common'
-import { splitSchema } from './contract'
+
+const transactionsSchema = z.object({
+    myId: z.string().uuid(),
+    galaxPayId: z.number().int(),
+    chargeMyId: z.string().uuid(),
+    chargeGalaxPayId: z.number().int(),
+    subscriptionMyId: z.string().uuid(),
+    subscriptionGalaxPayId: z.number().int(),
+    value: z.number().int(),
+    payday: z.string().datetime(),
+    payedOutsideGalaxPay: z.boolean(),
+    additionalInfo: z.string().optional(),
+    installment: z.number().int(),
+    paydayDate: z.string().datetime(),
+    reasonDenied: z.string().optional(),
+    authorizationCode: z.string().optional(),
+    tid: z.string().optional(),
+    statusDate: z.string().datetime(),
+    cardOperatorId: cardOperatorIdSchema,
+    AbecsReasonDenied: abecsReasonDeniedSchema,
+    datetimeLastSentToOperator: z.string().datetime(),
+    status: transactionStatusSchema,
+    fee: z.number().int(),
+    statusDescription: z.string(),
+    Antifraud: antifraudSchema,
+    ConciliationOccurrences: z.array(conciliationOccurrenceSchema),
+    Invoice: invoiceSchema,
+    Boleto: boletoSchema,
+    Pix: pixSchema,
+    CreditCard: z.object({
+        Card: cardSchema,
+    }),
+})
 
 export const subscriptionStatusSchema = z.enum([
     'active',
@@ -79,7 +119,7 @@ export const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
     paymentLink: z.string().optional(),
     value: z.number().int(),
     status: subscriptionStatusSchema,
-    Transactions: z.array(createOrUpdateTransactionResponseSchema),
+    Transactions: z.array(transactionsSchema),
 })
 
 export const listSubscriptionsResponseSchema = z.object({

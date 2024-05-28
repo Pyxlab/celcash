@@ -12,12 +12,26 @@ import {
     paymentMethodPixSchema,
     pixSchema,
 } from './payments'
-import { mainPaymentMethodIdSchema, subscriptionSchema } from './subscriptions'
+import { periodicitySchema } from './plans'
+import {
+    createSubscriptionWithPlanBodySchema,
+    mainPaymentMethodIdSchema,
+    subscriptionStatusSchema,
+} from './subscriptions'
 import {
     abecsReasonDeniedSchema,
     conciliationOccurrenceSchema,
     transactionStatusSchema,
 } from './transactions'
+
+const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
+    galaxPayId: z.number().int(),
+    planGalaxPayId: z.number().int(),
+    periodicity: periodicitySchema,
+    paymentLink: z.string().optional(),
+    value: z.number().int(),
+    status: subscriptionStatusSchema,
+})
 
 const transactionsSchema = z.object({
     myId: z.string().uuid(),

@@ -100,7 +100,6 @@ export const extraFieldSchema = z.object({
     value: z.string(),
 })
 
-
 export const invoiceConfigTypeSchema = z.enum(['onePerTransaction', 'onlyOne'])
 
 export const invoiceStatusSchema = z.enum([

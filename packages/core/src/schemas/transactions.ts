@@ -1,6 +1,7 @@
 import { z } from 'zod'
 import { cardSchema } from './cards'
 import { chargesSchema } from './charges'
+import { invoiceConfigSchema, invoiceSchema } from './common'
 import { splitSchema } from './contract'
 import {
     antifraudSchema,
@@ -9,8 +10,20 @@ import {
     paymentMethodCreditCardSchema,
     pixSchema,
 } from './payments'
-import { subscriptionSchema } from './subscriptions'
-import { invoiceSchema, invoiceConfigSchema } from './common'
+import { periodicitySchema } from './plans'
+import {
+    createSubscriptionWithPlanBodySchema,
+    subscriptionStatusSchema,
+} from './subscriptions'
+
+const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
+    galaxPayId: z.number().int(),
+    planGalaxPayId: z.number().int(),
+    periodicity: periodicitySchema,
+    paymentLink: z.string().optional(),
+    value: z.number().int(),
+    status: subscriptionStatusSchema,
+})
 
 export const transactionStatusSchema = z.enum([
     'noSend',
@@ -246,8 +259,6 @@ export const updateTransactionBodySchema = createTransactionBodySchema
     .required({ myId: true })
 
 export type UpdateTransactionBody = z.infer<typeof updateTransactionBodySchema>
-
-
 
 export const addTransactionBodySchema = z.object({
     myId: z
