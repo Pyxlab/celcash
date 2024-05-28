@@ -27,46 +27,24 @@ export const customers = c.router(
             },
             body: createCustomerBodySchema,
         },
-        updateByGalaxPayId: {
+        update: {
             method: 'PUT',
-            path: '/:galaxPayId',
+            path: '/:customerId/:typeId',
             pathParams: z.object({
-                galaxPayId: z.number().positive(),
+                customerId: z.union([z.number().positive(), z.string().uuid()]),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
                 200: createCustomerResponseSchema,
             },
             body: createCustomerBodySchema,
         },
-        updateByMyId: {
-            method: 'PUT',
-            path: '/:myId',
-            pathParams: z.object({
-                myId: z.string().uuid(),
-            }),
-            responses: {
-                200: createCustomerResponseSchema,
-            },
-            body: createCustomerBodySchema,
-        },
-        deleteByGalaxPayId: {
+        delete: {
             method: 'DELETE',
-            path: '/:galaxPayId',
+            path: '/:customerId/:typeId',
             pathParams: z.object({
-                galaxPayId: z.number().positive(),
-            }),
-            responses: {
-                200: z.object({
-                    type: z.boolean(),
-                }),
-            },
-            body: z.object({}),
-        },
-        deleteByMyId: {
-            method: 'DELETE',
-            path: '/:myId',
-            pathParams: z.object({
-                myId: z.string().uuid(),
+                customerId: z.union([z.number().positive(), z.string().uuid()]),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
                 200: z.object({
