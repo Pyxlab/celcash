@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/nestjs",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "",
     "type": "commonjs",
     "main": "dist/index.js",
@@ -29,7 +29,7 @@
         "@cel_cash/core": "^1.0.5"
     },
     "devDependencies": {
-        "@cel_cash/core": "1.0.6",
+        "@cel_cash/core": "1.0.7",
         "@nestjs/common": "^10.2.8",
         "@swc/core": "^1.5.7",
         "@types/cache-manager": "^4.0.1",
