@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig(({ watch }) => ({
-    entryPoints: ['src/index.ts'],
+    entryPoints: ['src/**'],
     splitting: true,
     format: ['cjs', 'esm'],
     dts: true,
