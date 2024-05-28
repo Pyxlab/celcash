@@ -27,46 +27,24 @@ export const plans = c.router(
             },
             body: createPlanBodySchema,
         },
-        updateByGalaxPayId: {
+        update: {
             method: 'PUT',
-            path: '/:galaxPayId/galaxPayId',
+            path: '/:planId/:typeId',
             pathParams: z.object({
-                galaxPayId: z.number().positive(),
+                planId: z.union([z.number().positive(), z.string().uuid()]),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
                 200: createPlanResponseSchema,
             },
             body: createPlanBodySchema,
         },
-        updateByMyId: {
-            method: 'PUT',
-            path: '/:myId/myId',
-            pathParams: z.object({
-                myId: z.string().uuid(),
-            }),
-            responses: {
-                200: createPlanResponseSchema,
-            },
-            body: createPlanBodySchema,
-        },
-        deleteByGalaxPayId: {
+        delete: {
             method: 'DELETE',
-            path: '/:galaxPayId/galaxPayId',
+            path: '/:planId/:typeId',
             pathParams: z.object({
-                galaxPayId: z.number().positive(),
-            }),
-            responses: {
-                200: z.object({
-                    type: z.boolean(),
-                }),
-            },
-            body: z.object({}),
-        },
-        deleteByMyId: {
-            method: 'DELETE',
-            path: '/:myId/myId',
-            pathParams: z.object({
-                myId: z.string().uuid(),
+                planId: z.union([z.number().positive(), z.string().uuid()]),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
                 200: z.object({
