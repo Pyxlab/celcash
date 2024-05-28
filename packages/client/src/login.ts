@@ -1,7 +1,9 @@
-import { contract } from '@cel_cash/core'
-import { initClient } from '@ts-rest/core'
+import { auth } from '@cel_cash/core/contracts'
+import { initClient, initContract } from '@ts-rest/core'
 import { authorization } from './authorization'
 import type { Configure } from './types'
+
+const contract = initContract().router({ auth })
 
 export async function login(config: Configure) {
     const baseURL = config.BASE_URL
@@ -11,7 +13,7 @@ export async function login(config: Configure) {
         baseHeaders: {},
     })
 
-    const token = await client.token({
+    const token = await client.auth.token({
         body: {
             grant_type: 'authorization_code',
             scope: [
