@@ -11,7 +11,17 @@ import {
     statusCardsSchema,
 } from './schemas/cards'
 import { chargesSchema } from './schemas/charges'
-import { addressSchema, extraFieldSchema, invoiceConfigSchema, invoiceConfigTypeSchema, invoiceSchema, invoiceStatusSchema, paymentSchema, scopeSchema } from './schemas/common'
+import {
+    addressSchema,
+    extraFieldSchema,
+    invoiceConfigSchema,
+    invoiceConfigTypeSchema,
+    invoiceSchema,
+    invoiceStatusSchema,
+    paymentSchema,
+    scopeSchema,
+} from './schemas/common'
+import { contractSchema, splitSchema } from './schemas/contract'
 import { customerSchema, statusCustomerSchema } from './schemas/customers'
 import {
     agreementSchema,
@@ -40,7 +50,6 @@ import {
     conciliationOccurrenceSchema,
     conciliationOccurrenceStatusSchema,
 } from './schemas/transactions'
-import { contractSchema, splitSchema } from './schemas/contract'
 
 export type Antecipation = z.infer<typeof antecipationSchema>
 export type Releases = z.infer<typeof releasesSchema>
