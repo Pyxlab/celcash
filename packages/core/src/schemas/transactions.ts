@@ -1,11 +1,134 @@
 import { z } from 'zod'
 import { cardSchema } from './cards'
+import { chargesSchema } from './charges'
+import { splitSchema } from './contract'
 import {
     antifraudSchema,
     boletoSchema,
     cardOperatorIdSchema,
     paymentMethodCreditCardSchema,
+    pixSchema,
 } from './payments'
+import { subscriptionSchema } from './subscriptions'
+
+export const transactionStatusSchema = z.enum([
+    'noSend',
+    'authorized',
+    'captured',
+    'denied',
+    'reversed',
+    'chargeback',
+    'pendingBoleto',
+    'payedBoleto',
+    'notCompensated',
+    'lessValueBoleto',
+    'moreValueBoleto',
+    'paidDuplicityBoleto',
+    'pendingPix',
+    'payedPix',
+    'unavailablePix',
+    'cancel',
+    'payExternal',
+    'cancelByContract',
+    'free',
+])
+
+export const listTransactionsParamsSchema = z.object({
+    myIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .describe(
+            'Ids das transações no seu sistema. Separe cada id por vírgula.',
+        ),
+    galaxPayIds: z
+        .union([z.array(z.number().int()), z.number().int()])
+        .optional()
+        .describe(
+            'Ids das transações no cel_cash. Separe cada id por vírgula.',
+        ),
+    subscriptionGalaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .describe(
+            'Subscription.galaxPayId. Id da assinatura no cel_cash. Separe cada id por vírgula.',
+        ),
+    chargeMyIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .describe(
+            'Charge.myId. Id da cobrança no seu sistema. Separe cada id por vírgula.',
+        ),
+    customerMyIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .describe(
+            'Customer.myId. Id do cliente no seu sistema. Separe cada id por vírgula.',
+        ),
+    customerGalaxPayIds: z
+        .union([z.array(z.number().int()), z.number().int()])
+        .optional()
+        .describe(
+            'Customer.galaxPayId. Id do cliente no cel_cash. Separe cada id por vírgula.',
+        ),
+    chargeGalaxPayIds: z
+        .union([z.array(z.number().int()), z.number().int()])
+        .optional()
+        .describe(
+            'Charge.galaxPayId. Id da cobrança no cel_cash. Separe cada id por vírgula.',
+        ),
+    createdAtFrom: z
+        .string()
+        .datetime()
+        .optional()
+        .describe('Data de criação inicial'),
+    createdAtTo: z
+        .string()
+        .datetime()
+        .optional()
+        .describe('Data de criação final'),
+    payDayFrom: z
+        .string()
+        .datetime()
+        .optional()
+        .describe('Data de vencimento inicial'),
+    payDayTo: z
+        .string()
+        .datetime()
+        .optional()
+        .describe('Data de vencimento final'),
+    updateStatusFrom: z
+        .string()
+        .datetime()
+        .optional()
+        .describe('Data de atualização de status inicial'),
+    updateStatusTo: z
+        .string()
+        .datetime()
+        .optional()
+        .describe('Data de atualização de status final'),
+    status: z
+        .union([transactionStatusSchema, z.array(transactionStatusSchema)])
+        .optional()
+        .describe('Status da transação. Separe cada status por vírgula.'),
+    startAt: z
+        .number()
+        .int()
+        .describe('Ponteiro inicial para trazer os registros.'),
+    limit: z.number().int().describe('Qtd máxima de registros para trazer.'),
+    order: z
+        .union([
+            z.string(),
+            z.enum([
+                'createdAt.asc',
+                'createdAt.desc',
+                'payday.asc',
+                'payday.desc',
+            ]),
+        ])
+        .optional()
+        .describe(`Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem
+Caso queira passar mais de uma ordenação, separar por vírgula: campoDaEntidade.tipoDeOrdem, campoDaEntidade2.tipoDeOrd`),
+})
 
 export const invoiceConfigTypeSchema = z.enum(['onePerTransaction', 'onlyOne'])
 
@@ -70,6 +193,46 @@ export const abecsReasonDeniedSchema = z.object({
     message: z.string(),
 })
 
+export const transactionsSchema = z.object({
+    myId: z.string().uuid(),
+    galaxPayId: z.number().int(),
+    chargeMyId: z.string().uuid(),
+    chargeGalaxPayId: z.number().int(),
+    subscriptionMyId: z.string().uuid(),
+    subscriptionGalaxPayId: z.number().int(),
+    value: z.number().int(),
+    payday: z.string().datetime(),
+    payedOutsideGalaxPay: z.boolean(),
+    additionalInfo: z.string().optional(),
+    installment: z.number().int(),
+    paydayDate: z.string().datetime(),
+    reasonDenied: z.string().optional(),
+    authorizationCode: z.string().optional(),
+    tid: z.string().optional(),
+    statusDate: z.string().datetime(),
+    cardOperatorId: cardOperatorIdSchema,
+    AbecsReasonDenied: abecsReasonDeniedSchema,
+    datetimeLastSentToOperator: z.string().datetime(),
+    status: transactionStatusSchema,
+    fee: z.number().int(),
+    statusDescription: z.string(),
+    Antifraud: antifraudSchema,
+    ConciliationOccurrences: z.array(conciliationOccurrenceSchema),
+    Invoice: invoiceSchema,
+    Boleto: boletoSchema,
+    Pix: pixSchema,
+    Charge: z.array(chargesSchema),
+    Subscription: subscriptionSchema,
+    CreditCard: z.object({
+        Card: cardSchema,
+    }),
+})
+
+export const listTransactionsResponseSchema = z.object({
+    totalQtdFoundInPage: z.number().int(),
+    Transaction: z.array(transactionsSchema),
+})
+
 export const createTransactionBodySchema = z.object({
     myId: z.string().uuid(),
     value: z.number().int(),
@@ -80,30 +243,9 @@ export const createTransactionBodySchema = z.object({
     InvoiceConfig: invoiceConfigSchema.optional(),
 })
 
-export const transactionStatusSchema = z.enum([
-    'noSend',
-    'authorized',
-    'captured',
-    'denied',
-    'reversed',
-    'chargeback',
-    'pendingBoleto',
-    'payedBoleto',
-    'notCompensated',
-    'lessValueBoleto',
-    'moreValueBoleto',
-    'paidDuplicityBoleto',
-    'pendingPix',
-    'payedPix',
-    'unavailablePix',
-    'cancel',
-    'payExternal',
-    'cancelByContract',
-    'free',
-])
-
-export const createTransactionResponseSchema =
-    createTransactionBodySchema.extend({
+export const createOrUpdateTransactionResponseSchema = z.object({
+    type: z.boolean(),
+    Transaction: createTransactionBodySchema.extend({
         galaxPayId: z.number().int(),
         subscriptionMyId: z.string().uuid().optional(),
         subscriptionGalaxPayId: z.number().int().optional(),
@@ -124,10 +266,12 @@ export const createTransactionResponseSchema =
         CreditCard: z.object({
             Card: cardSchema,
         }),
-    })
+    }),
+    Split: splitSchema,
+})
 
-export type CreateTransactionResponse = z.infer<
-    typeof createTransactionResponseSchema
+export type CreateOrUpdateTransactionResponse = z.infer<
+    typeof createOrUpdateTransactionResponseSchema
 >
 
 export const updateTransactionBodySchema = createTransactionBodySchema
@@ -142,3 +286,37 @@ export const updateTransactionBodySchema = createTransactionBodySchema
     .required({ myId: true })
 
 export type UpdateTransactionBody = z.infer<typeof updateTransactionBodySchema>
+
+
+
+export const addTransactionBodySchema = z.object({
+    myId: z
+        .string()
+        .uuid()
+        .describe('Id referente no seu sistema, para salvar na cel_cash'),
+    value: z
+        .number()
+        .int()
+        .optional()
+        .describe(
+            'Valor a ser cobrado. Caso não seja informado, será considerado o valor da assinatura',
+        ),
+    payday: z
+        .string()
+        .datetime()
+        .optional()
+        .describe(`Data de vencimento do pagamento
+Caso não for passado, será calculada automaticamente pela data da último pagamento e periodicidade da assinatura.
+Se for a primeira transação da assinatura, irá pegar o valor definido em Subscription.firstPayDayDate.`),
+    payedOutsideGalaxPay: z
+        .boolean()
+        .optional()
+        .describe('Indica se a transação foi paga fora do cel_cash'),
+    PaymentMethodCreditCard: paymentMethodCreditCardSchema,
+    InvoiceConfig: invoiceConfigSchema,
+})
+
+export const retryOrReverseTransactionResponseSchema = z.object({
+    Transaction: transactionsSchema,
+    PaymentMethodCreditCard: paymentMethodCreditCardSchema,
+})

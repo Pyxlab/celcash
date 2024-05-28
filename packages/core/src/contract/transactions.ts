@@ -1,8 +1,12 @@
 import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
 import {
+    addTransactionBodySchema,
     createTransactionBodySchema,
-    createTransactionResponseSchema,
+    createOrUpdateTransactionResponseSchema,
+    listTransactionsParamsSchema,
+    listTransactionsResponseSchema,
+    retryOrReverseTransactionResponseSchema,
     updateTransactionBodySchema,
 } from '../schemas/transactions'
 
@@ -10,50 +14,102 @@ const c = initContract()
 
 export const transactions = c.router(
     {
-        createBySuscriptionMyId: {
+        list: {
+            method: 'GET',
+            path: '/',
+            pathParams: listTransactionsParamsSchema,
+            responses: {
+                200: listTransactionsResponseSchema,
+            },
+        },
+        add: {
             method: 'POST',
-            path: '/:subscriptionId/myId/add',
+            path: '/:subscriptionId/:typeId/add',
             pathParams: z.object({
                 subscriptionId: z.string().uuid(),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
-                201: createTransactionResponseSchema,
+                201: createOrUpdateTransactionResponseSchema,
+            },
+            body: addTransactionBodySchema,
+        },
+        create: {
+            method: 'POST',
+            path: '/:subscriptionId/:typeId/add',
+            pathParams: z.object({
+                subscriptionId: z.string().uuid(),
+                typeId: z.enum(['galaxPayId', 'myId']),
+            }),
+            responses: {
+                201: createOrUpdateTransactionResponseSchema,
             },
             body: createTransactionBodySchema,
         },
-        createBySuscriptionGalaxPayId: {
-            method: 'POST',
-            path: '/:subscriptionId/galaxPayId/add',
-            pathParams: z.object({
-                subscriptionId: z.number().positive(),
-            }),
-            responses: {
-                201: createTransactionResponseSchema,
-            },
-            body: createTransactionBodySchema,
-        },
-        updateBySuscriptionMyId: {
+        update: {
             method: 'PUT',
-            path: '/:subscriptionId/myId',
+            path: '/:subscriptionId/:typeId',
             pathParams: z.object({
                 subscriptionId: z.string().uuid(),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
-                200: createTransactionResponseSchema,
+                200: createOrUpdateTransactionResponseSchema,
             },
             body: updateTransactionBodySchema,
         },
-        updateBySuscriptionGalaxPayId: {
+        retry: {
             method: 'PUT',
-            path: '/:subscriptionId/galaxPayId',
+            path: '/:transactionId/:typeId/retry',
             pathParams: z.object({
-                subscriptionId: z.number().positive(),
+                transactionId: z.string().uuid(),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
-                200: createTransactionResponseSchema,
+                200: retryOrReverseTransactionResponseSchema
             },
-            body: updateTransactionBodySchema,
+            body: z.object({}), 
         },
+        reverse: {
+            method: 'PUT',
+            path: '/:transactionId/:typeId/reverse',
+            pathParams: z.object({
+                transactionId: z.string().uuid(),
+                typeId: z.enum(['galaxPayId', 'myId']),
+            }),
+            responses: {
+                200: retryOrReverseTransactionResponseSchema
+            },
+            body: z.object({
+                valueToReverse: z.number().int(),
+            }),
+        },
+        capture: {
+            method: 'PUT',
+            path: '/:transactionId/:typeId/capture',
+            pathParams: z.object({
+                transactionId: z.string().uuid(),
+                typeId: z.enum(['galaxPayId', 'myId']),
+            }),
+            responses: {
+                200: createOrUpdateTransactionResponseSchema,
+            },
+            body: z.object({}),
+        },
+        cancel: {
+            method: 'DELETE',
+            path: '/:transactionId/:typeId',
+            pathParams: z.object({
+                transactionId: z.string().uuid(),
+                typeId: z.enum(['galaxPayId', 'myId']),
+            }),
+            responses: {
+                200: z.object({
+                    type: z.boolean(),
+                }),
+            },
+            body: z.object({}),
+        }
     },
     { pathPrefix: '/transactions' },
 )
