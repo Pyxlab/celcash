@@ -1,4 +1,4 @@
-import { initClient, initContract } from '@ts-rest/core'
+import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
 import {
     authorizationBodySchema,
@@ -6,6 +6,7 @@ import {
 } from '../schemas/common'
 import { antecipation } from './antecipation'
 import { chargebacks } from './chargebacks'
+import { charges } from './charges'
 import { companies } from './companies'
 import { customers } from './customers'
 import { plans } from './plans'
@@ -25,6 +26,7 @@ export const contract = c.router({
     customers,
     plans,
     transactions,
+    charges,
     token: {
         method: 'POST',
         path: '/token',
