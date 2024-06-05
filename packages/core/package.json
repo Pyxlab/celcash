@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/core",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "Core ts-rest module for CelCash",
     "type": "module",
     "main": "dist/index.cjs",
