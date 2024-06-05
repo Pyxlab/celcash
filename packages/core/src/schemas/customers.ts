@@ -19,6 +19,8 @@ export const createCustomerBodySchema = z.object({
     Address: addressSchema,
 })
 
+export type CreateCustomerBody = z.infer<typeof createCustomerBodySchema>
+
 export const customerSchema = createCustomerBodySchema.extend({
     galaPayId: z.number().int(),
     status: statusCustomerSchema,

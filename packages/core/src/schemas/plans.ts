@@ -27,6 +27,8 @@ export const planPricesSchema = z.object({
     value: z.number().int(),
 })
 
+export type PlanPrices = z.infer<typeof planPricesSchema>
+
 export type ListPlansParams = z.infer<typeof listPlansParamsSchema>
 
 export const periodicitySchema = z.enum([
