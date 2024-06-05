@@ -36,7 +36,8 @@
     "files": [
         "dist",
         "schemas.d.ts",
-        "contracts.d.ts"
+        "contracts.d.ts",
+        "types.d.ts"
     ],
     "keywords": [
         "celcash",
