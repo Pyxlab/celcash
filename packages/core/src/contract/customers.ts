@@ -23,7 +23,7 @@ export const customers = c.router(
             method: 'POST',
             path: '/',
             responses: {
-                201: createCustomerResponseSchema,
+                200: createCustomerResponseSchema,
             },
             body: createCustomerBodySchema,
         },
