@@ -61,6 +61,8 @@ export const listCustomersParamsSchema = z.object({
         .optional(),
 })
 
+export type ListCustomersParams = z.infer<typeof listCustomersParamsSchema>
+
 export const listCustomersResponseSchema = z.object({
     totalQtdFoundInPage: z.number().int(),
     Customers: z.array(customerSchema),
