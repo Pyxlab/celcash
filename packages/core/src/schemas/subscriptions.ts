@@ -84,6 +84,8 @@ export const listSubscriptionsParamsSchema = z.object({
         .optional(),
 })
 
+export type ListSubscriptionsParams = z.infer<typeof listSubscriptionsParamsSchema>
+
 export const mainPaymentMethodIdSchema = z.enum(['creditcard', 'boleto', 'pix'])
 
 export const createSubscriptionWithPlanBodySchema = z.object({
@@ -126,6 +128,10 @@ export const listSubscriptionsResponseSchema = z.object({
     totalQtdFoundInPage: z.number().int(),
     Subscriptions: z.array(subscriptionSchema),
 })
+
+export type ListSubscriptionsResponse = z.infer<
+    typeof listSubscriptionsResponseSchema
+>
 
 export const createSubscriptionResponseSchema = z.object({
     type: z.boolean(),
