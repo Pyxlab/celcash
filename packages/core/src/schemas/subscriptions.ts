@@ -84,7 +84,9 @@ export const listSubscriptionsParamsSchema = z.object({
         .optional(),
 })
 
-export type ListSubscriptionsParams = z.infer<typeof listSubscriptionsParamsSchema>
+export type ListSubscriptionsParams = z.infer<
+    typeof listSubscriptionsParamsSchema
+>
 
 export const mainPaymentMethodIdSchema = z.enum(['creditcard', 'boleto', 'pix'])
 
