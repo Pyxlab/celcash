@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const statusCardsSchema = z.enum(['active', 'inactive'])
+export const cardStatusSchema = z.enum(['active', 'inactive'])
 
 export const listCardsParamsSchema = z.object({
     myIds: z.union([z.array(z.string()), z.string()]).optional(),
@@ -9,7 +9,7 @@ export const listCardsParamsSchema = z.object({
     customerGalaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
     createdAtFrom: z.string().datetime().optional(),
     createdAtTo: z.string().datetime().optional(),
-    status: statusCardsSchema,
+    status: cardStatusSchema,
     startAt: z.number().int(),
     limit: z.number().int(),
     order: z.enum(['createdAt.asc', 'createdAt.desc']).optional(),

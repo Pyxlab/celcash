@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const statusPlansSchema = z.enum(['active', 'inactive'])
+export const planStatusSchema = z.enum(['active', 'inactive'])
 
 export const listPlansParamsSchema = z.object({
     myIds: z.union([z.array(z.string()), z.string()]).optional(),
