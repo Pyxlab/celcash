@@ -19,7 +19,8 @@
     "devDependencies": {
         "@biomejs/biome": "1.7.3",
         "@release-it/bumper": "^6.0.1",
-        "release-it": "^17.3.0"
+        "release-it": "^17.3.0",
+        "turbo": "^2.0.1"
     },
     "release-it": {
         "npm": false,
