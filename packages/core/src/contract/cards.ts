@@ -21,7 +21,11 @@ export const cards = c.router(
         },
         create: {
             method: 'POST',
-            path: '/',
+            path: '/:customerId/:typeId',
+            pathParams: z.object({
+                customerId: z.union([z.number().positive(), z.string().uuid()]),
+                typeId: z.enum(['galaxPayId', 'myId']),
+            }),
             responses: {
                 200: createCardResponseSchema,
             },
