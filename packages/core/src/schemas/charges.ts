@@ -138,6 +138,8 @@ export const listChargesParamsSchema = z.object({
         ),
 })
 
+export type ListChargesParams = z.infer<typeof listChargesParamsSchema>
+
 export const chargesSchema = z.object({
     galaxPayId: z.string(),
     myId: z.string().nullable(),
@@ -164,6 +166,8 @@ export const listChargesResponseSchema = z.object({
     totalQtdFoundInPage: z.number().int(),
     Charges: z.array(chargesSchema),
 })
+
+export type ListChargesResponse = z.infer<typeof listChargesResponseSchema>
 
 export const createChargeBodySchema = z.object({
     myId: z
@@ -197,10 +201,14 @@ export const createChargeBodySchema = z.object({
     ExtraFields: z.array(extraFieldSchema),
 })
 
+export type CreateChargeBody = z.infer<typeof createChargeBodySchema>
+
 export const createChargeResponseSchema = z.object({
     type: z.boolean(),
     Charge: chargesSchema,
 })
+
+export type CreateChargeResponse = z.infer<typeof createChargeResponseSchema>
 
 export const updateChargeBodySchema = z.object({
     myId: z
@@ -233,3 +241,5 @@ export const updateChargeBodySchema = z.object({
         .optional()
         .describe('Plan.galaxPayId: Id do plano no cel_cash.'),
 })
+
+export type UpdateChargeBody = z.infer<typeof updateChargeBodySchema>
