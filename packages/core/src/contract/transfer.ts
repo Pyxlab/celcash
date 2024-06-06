@@ -14,7 +14,7 @@ export const pix = c.router(
             method: 'POST',
             path: '/payment',
             responses: {
-                201: pixPaymentResponseSchema,
+                200: pixPaymentResponseSchema,
             },
             body: pixPaymentBodySchema,
         },
@@ -28,7 +28,7 @@ export const transfer = c.router(
             method: 'POST',
             path: '/internal',
             responses: {
-                201: transferInternalResponseSchema,
+                200: transferInternalResponseSchema,
             },
             body: transferInternalBodySchema,
         },

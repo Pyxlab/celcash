@@ -23,7 +23,7 @@ export const cards = c.router(
             method: 'POST',
             path: '/',
             responses: {
-                201: createCardResponseSchema,
+                200: createCardResponseSchema,
             },
             body: createCardBodySchema,
         },

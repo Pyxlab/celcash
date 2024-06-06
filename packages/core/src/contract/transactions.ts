@@ -30,7 +30,7 @@ export const transactions = c.router(
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
-                201: createOrUpdateTransactionResponseSchema,
+                200: createOrUpdateTransactionResponseSchema,
             },
             body: addTransactionBodySchema,
         },
@@ -42,7 +42,7 @@ export const transactions = c.router(
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
-                201: createOrUpdateTransactionResponseSchema,
+                200: createOrUpdateTransactionResponseSchema,
             },
             body: createTransactionBodySchema,
         },

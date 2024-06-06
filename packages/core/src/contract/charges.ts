@@ -25,7 +25,7 @@ export const charges = c.router(
             method: 'POST',
             path: '/',
             responses: {
-                201: createChargeResponseSchema,
+                200: createChargeResponseSchema,
             },
             body: createChargeBodySchema,
         },

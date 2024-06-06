@@ -30,7 +30,7 @@ export const subscriptions = c.router(
                 method: 'POST',
                 path: '/',
                 responses: {
-                    201: createSubscriptionResponseSchema,
+                    200: createSubscriptionResponseSchema,
                 },
                 body: createSubscriptionWithPlanBodySchema,
             },
@@ -38,7 +38,7 @@ export const subscriptions = c.router(
                 method: 'POST',
                 path: '/',
                 responses: {
-                    201: createSubscriptionResponseSchema,
+                    200: createSubscriptionResponseSchema,
                 },
                 body: createSubscriptionWithotPlanBodySchema,
             },
@@ -46,7 +46,7 @@ export const subscriptions = c.router(
                 method: 'POST',
                 path: '/manual',
                 responses: {
-                    201: createSubscriptionResponseSchema,
+                    200: createSubscriptionResponseSchema,
                 },
                 body: createSubscriptionManualBodySchema,
             },

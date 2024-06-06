@@ -18,7 +18,7 @@ export const antecipation = c.router(
                     method: 'GET',
                     path: '/get-by-filters',
                     responses: {
-                        201: listarAntecipacoesResponseSchema,
+                        200: listarAntecipacoesResponseSchema,
                     },
                     query: listarAntecipacoesParamsSchema,
                     summary: 'Lista as simulações antecipação de transações',
@@ -27,7 +27,7 @@ export const antecipation = c.router(
                     method: 'POST',
                     path: '/',
                     responses: {
-                        201: simulatarAntecipacaoResponseSchema,
+                        200: simulatarAntecipacaoResponseSchema,
                     },
                     body: simulatarAntecipacaoBodySchema,
                     summary: 'Simula antecipação',
@@ -39,7 +39,7 @@ export const antecipation = c.router(
             method: 'POST',
             path: '/',
             responses: {
-                201: anteciparResponseSchema,
+                200: anteciparResponseSchema,
             },
             body: anteciparBodySchema,
             summary: 'Antecipar recebíveis',
