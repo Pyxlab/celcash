@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/client",
-    "version": "1.0.12",
+    "version": "1.0.14",
     "description": "A client sdk for CelCash",
     "type": "module",
     "main": "dist/index.cjs",
@@ -33,14 +33,14 @@
         "url": "https://github.com/Pyxlab/celcash/issues"
     },
     "devDependencies": {
-        "@cel_cash/core": "1.0.12",
+        "@cel_cash/core": "1.0.14",
         "@swc/core": "^1.5.7",
         "@types/node": "^20.12.12",
         "tsup": "^8.0.2",
         "typescript": "^5.4.5"
     },
     "peerDependencies": {
-        "@cel_cash/core": "^1.0.12"
+        "@cel_cash/core": "^1.0.14"
     },
     "dependencies": {
         "@ts-rest/core": "^3.45.2"

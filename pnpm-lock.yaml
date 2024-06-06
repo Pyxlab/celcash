@@ -25,8 +25,8 @@ importers:
         version: 3.45.2(zod@3.23.8)
     devDependencies:
       '@cel_cash/core':
-        specifier: workspace:*
-        version: link:../core
+        specifier: 1.0.12
+        version: 1.0.12(@ts-rest/core@3.45.2)
       '@swc/core':
         specifier: ^1.5.7
         version: 1.5.7
@@ -76,7 +76,7 @@ importers:
     devDependencies:
       '@cel_cash/core':
         specifier: 1.0.12
-        version: link:../core
+        version: 1.0.12(@ts-rest/core@3.45.2)
       '@nestjs/common':
         specifier: ^10.2.8
         version: 10.3.8(reflect-metadata@0.1.14)(rxjs@7.8.1)
@@ -208,6 +208,15 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@cel_cash/core@1.0.12(@ts-rest/core@3.45.2):
+    resolution: {integrity: sha512-xUvGfgGZELFQvwH6rLI2HZjS6oJdCo+P/EqRdFXPecmcsCeA9r6MwWGsw4o/p76W6NRiYEkwdlt8H2UKFNmE/g==}
+    peerDependencies:
+      '@ts-rest/core': ^3.45.2
+    dependencies:
+      '@ts-rest/core': 3.45.2(zod@3.23.8)
+      zod: 3.23.8
+    dev: true
 
   /@esbuild/aix-ppc64@0.19.12:
     resolution: {integrity: sha512-bmoCYyWdEL3wDQIVbcyzRyeKLgk2WtWLTWz1ZIAZF/EGbNOwSA6ew3PftJ1PqMiOOGu0OyFMzG53L0zqIpPeNA==}
@@ -1005,7 +1014,6 @@ packages:
         optional: true
     dependencies:
       zod: 3.23.8
-    dev: false
 
   /@types/cache-manager@4.0.6:
     resolution: {integrity: sha512-8qL93MF05/xrzFm/LSPtzNEOE1eQF3VwGHAcQEylgp5hDSTe41jtFwbSYAPfyYcVa28y1vYSjIt0c1fLLUiC/Q==}
@@ -4050,4 +4058,3 @@ packages:
 
   /zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
-    dev: false
