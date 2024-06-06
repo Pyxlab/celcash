@@ -16,8 +16,6 @@ import { CACHE_MANAGER } from '@nestjs/cache-manager'
 import { Inject, Injectable, Logger, type OnModuleInit } from '@nestjs/common'
 import {
     type ApiFetcherArgs,
-    AppRouter,
-    type InitClientReturn,
     initClient,
     initContract,
     tsRestFetchApi,
