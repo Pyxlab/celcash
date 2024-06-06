@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/nestjs",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "",
     "type": "commonjs",
     "main": "dist/index.js",
@@ -40,7 +40,7 @@
         "@cel_cash/core": "^1.0.16"
     },
     "devDependencies": {
-        "@cel_cash/core": "1.0.16",
+        "@cel_cash/core": "1.0.17",
         "@nestjs/common": "^10.2.8",
         "@swc/core": "^1.5.7",
         "@types/cache-manager": "^4.0.1",
@@ -70,8 +70,7 @@
                 "pnpm type-check"
             ],
             "after:bump": "npm run build",
-            "after:git:release": "echo After git push, before github release",
-            "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+            "after:git:release": "echo After git push, before github release"
         }
     }
 }
