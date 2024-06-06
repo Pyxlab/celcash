@@ -27,24 +27,12 @@ export const cards = c.router(
             },
             body: createCardBodySchema,
         },
-        deleteByMyId: {
+        delete: {
             method: 'DELETE',
-            path: '/:myId/myId',
+            path: '/:cardId/:typeId',
             pathParams: z.object({
-                myId: z.string().uuid(),
-            }),
-            responses: {
-                200: z.object({
-                    type: z.boolean(),
-                }),
-            },
-            body: z.object({}),
-        },
-        deleteByGalaxPayId: {
-            method: 'DELETE',
-            path: '/:galaxPayId/galaxPayId',
-            pathParams: z.object({
-                galaxPayId: z.number().positive(),
+                cardId: z.union([z.number().positive(), z.string().uuid()]),
+                typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
                 200: z.object({
