@@ -15,6 +15,8 @@ export const listCardsParamsSchema = z.object({
     order: z.enum(['createdAt.asc', 'createdAt.desc']).optional(),
 })
 
+export type ListCardsParams = z.infer<typeof listCardsParamsSchema>
+
 export const brandSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -30,6 +32,8 @@ export const createCardBodySchema = z.object({
     cvv: z.string().min(3).max(4),
 })
 
+export type CreateCardBody = z.infer<typeof createCardBodySchema>
+
 export const cardSchema = createCardBodySchema.extend({
     galaxPayId: z.number().int(),
     customerMyId: z.string(),
@@ -38,8 +42,6 @@ export const cardSchema = createCardBodySchema.extend({
     updatedAt: z.string().datetime(),
     Brand: brandSchema,
 })
-
-export type CreateCardBody = z.infer<typeof createCardBodySchema>
 
 export const createCardResponseSchema = z.object({
     type: z.boolean(),
