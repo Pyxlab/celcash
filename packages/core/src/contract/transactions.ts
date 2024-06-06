@@ -81,7 +81,7 @@ export const transactions = c.router(
                 200: retryOrReverseTransactionResponseSchema,
             },
             body: z.object({
-                valueToReverse: z.number().int(),
+                valueToReverse: z.number().int().optional(),
             }),
         },
         capture: {

@@ -64,7 +64,7 @@ export const charges = c.router(
                 200: createChargeResponseSchema,
             },
             body: z.object({
-                valueToReverse: z.number().int(),
+                valueToReverse: z.number().int().optional(),
             }),
         },
         capture: {
