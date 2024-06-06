@@ -160,6 +160,7 @@ export const createSubscriptionWithotPlanBodySchema =
     createSubscriptionWithPlanBodySchema
         .omit({
             planMyId: true,
+            planGalaxPayId: true,
         })
         .extend({
             value: z.number().int(),
