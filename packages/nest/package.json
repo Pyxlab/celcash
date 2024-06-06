@@ -6,6 +6,7 @@
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "scripts": {
+        "lint": "pnpm biome check src --apply",
         "type-check": "tsc --noEmit",
         "build": "tsup",
         "release": "pnpm release-it"
@@ -18,9 +19,12 @@
         "typescript",
         "nestjs"
     ],
+    "files": [
+        "dist"
+    ],
     "author": "Walaff Fernandes",
     "license": "ISC",
-    "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/nestjs#readme",
+    "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/nest#readme",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Pyxlab/celcash.git",
@@ -59,6 +63,15 @@
                     ]
                 }
             }
+        },
+        "hooks": {
+            "before:init": [
+                "pnpm lint",
+                "pnpm type-check"
+            ],
+            "after:bump": "npm run build",
+            "after:git:release": "echo After git push, before github release",
+            "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
         }
     }
 }
