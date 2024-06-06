@@ -5,6 +5,7 @@ import {
     createPlanResponseSchema,
     listPlansParamsSchema,
     listPlansResponseSchema,
+    updatePlanBodySchema,
 } from '../schemas/plans'
 
 const c = initContract()
@@ -37,7 +38,7 @@ export const plans = c.router(
             responses: {
                 200: createPlanResponseSchema,
             },
-            body: createPlanBodySchema,
+            body: updatePlanBodySchema,
         },
         delete: {
             method: 'DELETE',

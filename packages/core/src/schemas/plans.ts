@@ -69,3 +69,7 @@ export const createPlanResponseSchema = z.object({
 export type CreatePlanBody = z.infer<typeof createPlanBodySchema>
 
 export type CreatePlanResponse = z.infer<typeof createPlanResponseSchema>
+
+export const updatePlanBodySchema = createPlanBodySchema.deepPartial()
+
+export type UpdatePlanBody = z.infer<typeof updatePlanBodySchema>
