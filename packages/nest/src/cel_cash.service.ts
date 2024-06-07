@@ -26,20 +26,6 @@ import type { CelCashServiceOptions } from './interfaces'
 
 const c = initContract()
 
-const contract = initContract().router({
-    antecipation,
-    cards,
-    chargebacks,
-    charges,
-    companies,
-    customers,
-    plans,
-    subscriptions,
-    transactions,
-    pix,
-    transfer,
-})
-
 @Injectable()
 export class CelCashService implements OnModuleInit {
     public static readonly CACHE = {
