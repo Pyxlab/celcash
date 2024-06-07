@@ -28,7 +28,10 @@ export const scopeSchema = z.enum([
 
 export const authorizationBodySchema = z.object({
     grant_type: z.enum(['authorization_code', 'refresh_token']),
-    scope: z.union([z.array(scopeSchema), z.string()]),
+    scope: z.array(scopeSchema).transform(value => {
+        if (Array.isArray(value)) return value.join(' ')
+        return value
+    }),
 })
 
 export type AuthorizationBody = z.infer<typeof authorizationBodySchema>
