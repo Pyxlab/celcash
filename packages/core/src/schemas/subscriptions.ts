@@ -110,6 +110,7 @@ export type CreateSubscriptionWithPlanBody = z.infer<
 >
 
 export const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
+    quantity: z.number().int(),
     galaxPayId: z.number().int(),
     planGalaxPayId: z.number().int(),
     periodicity: periodicitySchema,
@@ -117,6 +118,8 @@ export const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
     value: z.number().int(),
     status: subscriptionStatusSchema,
     Transactions: z.array(transactionsSchema),
+    createdAt: z.string().datetime(),
+    updatedAt: z.string().datetime(),
 })
 
 export const listSubscriptionsResponseSchema = z.object({

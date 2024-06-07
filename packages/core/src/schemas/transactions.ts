@@ -238,7 +238,7 @@ export const createTransactionBodySchema = z.object({
 
 export const createOrUpdateTransactionResponseSchema = z.object({
     type: z.boolean(),
-    Transaction: createTransactionBodySchema.extend({
+    Transactions: createTransactionBodySchema.extend({
         galaxPayId: z.number().int(),
         subscriptionMyId: z.string().uuid().optional(),
         subscriptionGalaxPayId: z.number().int().optional(),
