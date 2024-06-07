@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { periodicitySchema } from './_/common'
 
 export const planStatusSchema = z.enum(['active', 'inactive'])
 
@@ -30,16 +31,6 @@ export const planPricesSchema = z.object({
 export type PlanPrices = z.infer<typeof planPricesSchema>
 
 export type ListPlansParams = z.infer<typeof listPlansParamsSchema>
-
-export const periodicitySchema = z.enum([
-    'weekly',
-    'biweekly',
-    'monthly',
-    'bimonthly',
-    'quarterly',
-    'biannual',
-    'yearly',
-])
 
 export const createPlanBodySchema = z.object({
     myId: z.string(),

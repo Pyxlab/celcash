@@ -1,23 +1,21 @@
 import { z } from 'zod'
+import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
+import {
+    antifraudSchema,
+    boletoSchema,
+    cardOperatorIdSchema,
+    pixSchema,
+} from './_/payments'
+import { subscriptionStatusSchema } from './_/subscription'
 import { cardSchema } from './cards'
 import { extraFieldSchema, invoiceConfigSchema, invoiceSchema } from './common'
 import { contractSchema, splitSchema } from './contract'
 import { customerSchema } from './customers'
 import {
-    antifraudSchema,
-    boletoSchema,
-    cardOperatorIdSchema,
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
     paymentMethodPixSchema,
-    pixSchema,
 } from './payments'
-import { periodicitySchema } from './plans'
-import {
-    createSubscriptionWithPlanBodySchema,
-    mainPaymentMethodIdSchema,
-    subscriptionStatusSchema,
-} from './subscriptions'
 import {
     abecsReasonDeniedSchema,
     conciliationOccurrenceSchema,

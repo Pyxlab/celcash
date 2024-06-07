@@ -4,25 +4,40 @@ import { chargesSchema } from './charges'
 import { invoiceConfigSchema, invoiceSchema } from './common'
 import { splitSchema } from './contract'
 import {
-    antifraudSchema,
-    boletoSchema,
-    cardOperatorIdSchema,
+    paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
-    pixSchema,
+    paymentMethodPixSchema,
 } from './payments'
-import { periodicitySchema } from './plans'
-import {
-    createSubscriptionWithPlanBodySchema,
-    subscriptionStatusSchema,
-} from './subscriptions'
+import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
+import { cardOperatorIdSchema, antifraudSchema, boletoSchema, pixSchema } from './_/payments'
+import { subscriptionStatusSchema } from './_/subscription'
+import { customerSchema } from './customers'
 
-const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
-    galaxPayId: z.number().int(),
+const subscriptionSchema = z.object({
+    myId: z.string(),
+    planMyId: z.string(),
     planGalaxPayId: z.number().int(),
+    firstPayDayDate: z.string().datetime(),
+    additionalInfo: z.string().optional(),
+    mainPaymentMethodId: mainPaymentMethodIdSchema,
+    galaxPayId: z.number().int(),
     periodicity: periodicitySchema,
     paymentLink: z.string().optional(),
     value: z.number().int(),
     status: subscriptionStatusSchema,
+    Customer: customerSchema
+        .deepPartial()
+        .refine(({ myId, galaPayId, document, name, emails }) => {
+            if (galaPayId) return true
+            if (!!myId && !document && !name && !emails) return true
+            if (!!document && !myId && !name && !emails) return true
+            if (!!myId && !!document && !!name && !!emails) return true
+            return false
+        }),
+    PaymentMethodCreditCard: paymentMethodCreditCardSchema.optional(),
+    PaymentMethodBoleto: paymentMethodBoletoSchema.optional(),
+    PaymentMethodPix: paymentMethodPixSchema.optional(),
+    InvoiceConfig: invoiceConfigSchema.optional(),
 })
 
 export const transactionStatusSchema = z.enum([

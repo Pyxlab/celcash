@@ -1,18 +1,21 @@
 import { z } from 'zod'
+import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
+import {
+    antifraudSchema,
+    boletoSchema,
+    cardOperatorIdSchema,
+    pixSchema,
+} from './_/payments'
+import { subscriptionStatusSchema } from './_/subscription'
 import { cardSchema } from './cards'
 import { extraFieldSchema, invoiceConfigSchema, invoiceSchema } from './common'
 import { splitSchema } from './contract'
 import { customerSchema } from './customers'
 import {
-    antifraudSchema,
-    boletoSchema,
-    cardOperatorIdSchema,
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
     paymentMethodPixSchema,
-    pixSchema,
 } from './payments'
-import { periodicitySchema } from './plans'
 import {
     abecsReasonDeniedSchema,
     conciliationOccurrenceSchema,
@@ -52,14 +55,6 @@ const transactionsSchema = z.object({
     }),
 })
 
-export const subscriptionStatusSchema = z.enum([
-    'active',
-    'canceled',
-    'stopped',
-    'waitingPayment',
-    'inactive',
-])
-
 export const listSubscriptionsParamsSchema = z.object({
     myIds: z.union([z.array(z.string()), z.string()]).optional(),
     galaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
@@ -87,8 +82,6 @@ export const listSubscriptionsParamsSchema = z.object({
 export type ListSubscriptionsParams = z.infer<
     typeof listSubscriptionsParamsSchema
 >
-
-export const mainPaymentMethodIdSchema = z.enum(['creditcard', 'boleto', 'pix'])
 
 export const createSubscriptionWithPlanBodySchema = z.object({
     myId: z.string(),
