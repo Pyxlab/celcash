@@ -1,17 +1,22 @@
 import { z } from 'zod'
+import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
+import {
+    antifraudSchema,
+    boletoSchema,
+    cardOperatorIdSchema,
+    pixSchema,
+} from './_/payments'
+import { subscriptionStatusSchema } from './_/subscription'
 import { cardSchema } from './cards'
 import { chargesSchema } from './charges'
 import { invoiceConfigSchema, invoiceSchema } from './common'
 import { splitSchema } from './contract'
+import { customerSchema } from './customers'
 import {
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
     paymentMethodPixSchema,
 } from './payments'
-import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
-import { cardOperatorIdSchema, antifraudSchema, boletoSchema, pixSchema } from './_/payments'
-import { subscriptionStatusSchema } from './_/subscription'
-import { customerSchema } from './customers'
 
 const subscriptionSchema = z.object({
     myId: z.string(),
