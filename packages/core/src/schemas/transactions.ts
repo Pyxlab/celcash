@@ -223,7 +223,7 @@ export const transactionsSchema = z.object({
 
 export const listTransactionsResponseSchema = z.object({
     totalQtdFoundInPage: z.number().int(),
-    Transaction: z.array(transactionsSchema),
+    Transactions: z.array(transactionsSchema),
 })
 
 export const createTransactionBodySchema = z.object({
@@ -238,7 +238,7 @@ export const createTransactionBodySchema = z.object({
 
 export const createOrUpdateTransactionResponseSchema = z.object({
     type: z.boolean(),
-    Transactions: createTransactionBodySchema.extend({
+    Transaction: createTransactionBodySchema.extend({
         galaxPayId: z.number().int(),
         subscriptionMyId: z.string().uuid().optional(),
         subscriptionGalaxPayId: z.number().int().optional(),
