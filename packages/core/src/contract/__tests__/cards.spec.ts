@@ -19,7 +19,7 @@ describe.concurrent('Cards', () => {
                 ...args,
                 headers: {
                     ...args.headers,
-                    Authorization: authorization
+                    Authorization: authorization,
                 },
             }),
     })
@@ -40,5 +40,19 @@ describe.concurrent('Cards', () => {
         })
 
         expect(response.status).toBe(200)
+    })
+
+    it('should not list cards if the query is not correct', async ({
+        expect,
+    }) => {
+        const response = await client.list({
+            query: {
+                status: 'active',
+                limit: 'banana' as any,
+                startAt: 10,
+            },
+        })
+
+        expect(response.status).toBe(400)
     })
 })

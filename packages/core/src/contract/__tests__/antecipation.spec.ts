@@ -19,7 +19,7 @@ describe('Antecipation', () => {
                 ...args,
                 headers: {
                     ...args.headers,
-                    Authorization: authorization
+                    Authorization: authorization,
                 },
             }),
     })
