@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core'
-import { z } from 'zod'
+import { z, ZodError } from 'zod'
 import {
     createCardBodySchema,
     createCardResponseSchema,
@@ -46,5 +46,10 @@ export const cards = c.router(
             body: z.object({}),
         },
     },
-    { pathPrefix: '/cards' },
+    {
+        pathPrefix: '/cards',
+        commonResponses: {
+            507: c.type<ZodError>(),
+        },
+    },
 )
