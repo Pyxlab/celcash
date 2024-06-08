@@ -46,6 +46,18 @@ describe('Antecipation', () => {
         expect(client).toHaveProperty('create')
     })
 
+    it('should be return status 507 error', async ({ expect }) => {
+        const response = await client.simulate.getByFilters({
+            query: {} as any
+        })
+
+        if(response.status === 507){
+            console.log(response.body.flatten())
+        }
+
+        expect(response.status).toBe(507)
+    })
+
     it.skip('should create antecipation', async ({ expect }) => {
         const response = await client.simulate.create({
             body: {
