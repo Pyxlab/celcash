@@ -4,6 +4,8 @@ export default defineConfig(({ watch }) => ({
     entryPoints: [
         'src/index.ts',
         'src/contract/**',
+        '!src/contract/__tests__/**',
+        'src/utils/**',
         'src/schemas/index.ts',
         'src/types.ts',
     ],
