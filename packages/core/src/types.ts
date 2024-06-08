@@ -1,3 +1,4 @@
+import { AppRouter, initClient } from '@ts-rest/core'
 import { z } from 'zod'
 import {
     mainPaymentMethodIdSchema,
@@ -50,6 +51,7 @@ import {
     transactionStatusSchema,
     transactionsSchema,
 } from './schemas/transactions'
+import { api } from './utils'
 
 export type Antecipation = z.infer<typeof antecipationSchema>
 export type Releases = z.infer<typeof releasesSchema>
@@ -107,3 +109,13 @@ export type Contract = z.infer<typeof contractSchema>
 export type Split = z.infer<typeof splitSchema>
 
 export type ExtraFields = z.infer<typeof extraFieldSchema>
+
+export type Client<T extends AppRouter> = ReturnType<
+    typeof initClient<
+        T,
+        {
+            baseUrl: string
+            api: typeof api
+        }
+    >
+>
