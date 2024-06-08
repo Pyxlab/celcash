@@ -15,11 +15,7 @@ import {
 import { api, basicAuthorization } from '@cel_cash/core/utils'
 import { CACHE_MANAGER } from '@nestjs/cache-manager'
 import { Inject, Injectable, Logger, type OnModuleInit } from '@nestjs/common'
-import {
-    type ApiFetcherArgs,
-    initClient,
-    initContract,
-} from '@ts-rest/core'
+import { type ApiFetcherArgs, initClient } from '@ts-rest/core'
 import type { Cache } from 'cache-manager'
 import { InjectCelCashConfig } from './cel_cash.config'
 import type { CelCashServiceOptions } from './interfaces'
@@ -127,13 +123,12 @@ export class CelCashService implements OnModuleInit {
     }
 
     private async getAccessToken() {
-        const contract = initContract().router(auth)
-
         const access_token = await this.cacheManage.get<string>(
             CelCashService.CACHE.ACCESS_TOKEN,
         )
+
         if (!access_token) {
-            const client = initClient(contract, {
+            const client = initClient(auth, {
                 baseUrl: this.cellCashServiceOptions.base_url,
                 baseHeaders: {},
                 api,
