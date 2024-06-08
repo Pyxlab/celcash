@@ -15,12 +15,12 @@ export const api = async (
     const path = new URL(args.path)
 
     if (
-        'body' in args.route &&
-        args.route.body !== undefined &&
-        args.route.body instanceof ZodObject ||
-        'body' in args.route &&
-        args.route.body !== undefined &&
-        args.route.body instanceof ZodEffects
+        ('body' in args.route &&
+            args.route.body !== undefined &&
+            args.route.body instanceof ZodObject) ||
+        ('body' in args.route &&
+            args.route.body !== undefined &&
+            args.route.body instanceof ZodEffects)
     ) {
         const validation = args.route.body.safeParse(args.rawBody)
 
@@ -45,14 +45,15 @@ export const api = async (
     }
 
     if (
-        !!args.route.query && args.route.query instanceof ZodObject ||
-        !!args.route.query && args.route.query instanceof ZodEffects
+        (!!args.route.query && args.route.query instanceof ZodObject) ||
+        (!!args.route.query && args.route.query instanceof ZodEffects)
     ) {
-
         const validation = args.route.query.safeParse(args.rawQuery)
 
         if (validation.success) {
-            const searchParams =  new URLSearchParams(validation.data as Record<string, string>)
+            const searchParams = new URLSearchParams(
+                validation.data as Record<string, string>,
+            )
             path.search = searchParams.toString()
         } else {
             const headers = new Headers()
