@@ -1,4 +1,5 @@
 import { initContract } from '@ts-rest/core'
+import { ZodError } from 'zod'
 import {
     anteciparBodySchema,
     anteciparResponseSchema,
@@ -45,5 +46,8 @@ export const antecipation = c.router(
             summary: 'Antecipar recebíveis',
         },
     },
-    { pathPrefix: '/antecipation' },
+    {
+        pathPrefix: '/antecipation',
+        commonResponses: { 507: c.type<ZodError>() },
+    },
 )
