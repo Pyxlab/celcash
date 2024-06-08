@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core'
-import { z, ZodError } from 'zod'
+import { ZodError, z } from 'zod'
 import {
     createCardBodySchema,
     createCardResponseSchema,
