@@ -1,9 +1,10 @@
 import { randomUUID } from 'node:crypto'
 import { initClient } from '@ts-rest/core'
 import { beforeEach, describe, it } from 'vitest'
+import { Client } from '../../types'
 import { api } from '../../utils/api'
 import { charges } from '../charges'
-import { Client, authenticate } from './_utils'
+import { authenticate } from './_utils'
 
 let client: Client<typeof charges>
 
