@@ -25,7 +25,10 @@ importers:
     dependencies:
       '@ts-rest/core':
         specifier: ^3.45.2
-        version: 3.45.2
+        version: 3.45.2(zod@3.23.8)
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@cel_cash/core':
         specifier: workspace:*
@@ -75,13 +78,16 @@ importers:
         version: 2.2.2(@nestjs/common@10.3.8)(@nestjs/core@10.3.8)(cache-manager@5.5.3)(rxjs@7.8.1)
       '@ts-rest/core':
         specifier: ^3.45.2
-        version: 3.45.2
+        version: 3.45.2(zod@3.23.8)
       reflect-metadata:
         specifier: ^0.1.12
         version: 0.1.14
       rxjs:
         specifier: ^6.0.0 || ^7.0.0
         version: 7.8.1
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@cel_cash/core':
         specifier: workspace:*
@@ -1222,15 +1228,6 @@ packages:
   /@tootallnate/quickjs-emscripten@0.23.0:
     resolution: {integrity: sha512-C5Mc6rdnsaJDjO3UpGW/CQTHtCKaYlScZTly4JIu97Jxo/odCiH0ITnDXSJPTOrEKk/ycSZ0AOgTmkDtkOsvIA==}
     dev: true
-
-  /@ts-rest/core@3.45.2:
-    resolution: {integrity: sha512-Eiv+Sa23MbsAd1Gx9vNJ+IFCDyLZNdJ+UuGMKbFvb+/NmgcBR1VL1UIVtEkd5DJxpYMMd8SLvW91RgB2TS8iPw==}
-    peerDependencies:
-      zod: ^3.22.3
-    peerDependenciesMeta:
-      zod:
-        optional: true
-    dev: false
 
   /@ts-rest/core@3.45.2(zod@3.23.8):
     resolution: {integrity: sha512-Eiv+Sa23MbsAd1Gx9vNJ+IFCDyLZNdJ+UuGMKbFvb+/NmgcBR1VL1UIVtEkd5DJxpYMMd8SLvW91RgB2TS8iPw==}
