@@ -24,6 +24,8 @@ export const scopeSchema = z.enum([
     'webhooks.read',
     'pos.write',
     'releases.read',
+    'antecipation.write',
+    'antecipation.read',
 ])
 
 export const authorizationBodySchema = z.object({
