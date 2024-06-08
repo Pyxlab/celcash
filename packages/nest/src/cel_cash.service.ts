@@ -12,17 +12,26 @@ import {
     transactions,
     transfer,
 } from '@cel_cash/core/contracts'
+import { api, basicAuthorization } from '@cel_cash/core/utils'
 import { CACHE_MANAGER } from '@nestjs/cache-manager'
 import { Inject, Injectable, Logger, type OnModuleInit } from '@nestjs/common'
 import {
     type ApiFetcherArgs,
     initClient,
     initContract,
-    tsRestFetchApi,
 } from '@ts-rest/core'
 import type { Cache } from 'cache-manager'
 import { InjectCelCashConfig } from './cel_cash.config'
 import type { CelCashServiceOptions } from './interfaces'
+
+interface CelCashServiceConfig {
+    baseUrl: string
+    api: (args: ApiFetcherArgs) => Promise<{
+        status: number
+        body: unknown
+        headers: Headers
+    }>
+}
 
 @Injectable()
 export class CelCashService implements OnModuleInit {
@@ -33,14 +42,7 @@ export class CelCashService implements OnModuleInit {
 
     private readonly logger = new Logger(CelCashService.name)
 
-    private readonly config: {
-        baseUrl: string
-        api: (args: ApiFetcherArgs) => Promise<{
-            status: number
-            body: unknown
-            headers: Headers
-        }>
-    }
+    private readonly config: CelCashServiceConfig
 
     constructor(
         @InjectCelCashConfig()
@@ -59,7 +61,7 @@ export class CelCashService implements OnModuleInit {
                 }
 
                 this.logger.log(`Requesting ${args.path}`)
-                return tsRestFetchApi(args)
+                return api(args)
                     .then(res => {
                         this.logger.log(`Response ${args.path}`)
                         return res
@@ -136,9 +138,10 @@ export class CelCashService implements OnModuleInit {
                 baseHeaders: {},
             })
 
-            const ID = this.cellCashServiceOptions.id
-            const HASH = this.cellCashServiceOptions.hash
-            const basic = Buffer.from(`${ID}:${HASH}`).toString('base64')
+            const basic = basicAuthorization({
+                ID: this.cellCashServiceOptions.id,
+                HASH: this.cellCashServiceOptions.hash,
+            })
 
             const authorization_code = await client.token({
                 body: {
