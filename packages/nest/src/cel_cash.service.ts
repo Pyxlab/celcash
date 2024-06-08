@@ -24,8 +24,6 @@ import type { Cache } from 'cache-manager'
 import { InjectCelCashConfig } from './cel_cash.config'
 import type { CelCashServiceOptions } from './interfaces'
 
-const c = initContract()
-
 @Injectable()
 export class CelCashService implements OnModuleInit {
     public static readonly CACHE = {
@@ -79,43 +77,35 @@ export class CelCashService implements OnModuleInit {
     }
 
     public get antecipation() {
-        const contract = c.router(antecipation)
-        return initClient(contract, this.config)
+        return initClient(antecipation, this.config)
     }
 
     public get cards() {
-        const contract = c.router(cards)
-        return initClient(contract, this.config)
+        return initClient(cards, this.config)
     }
 
     public get charges() {
-        const contract = c.router(charges)
-        return initClient(contract, this.config)
+        return initClient(charges, this.config)
     }
 
     public get chargebacks() {
-        const contract = c.router(chargebacks)
-        return initClient(contract, this.config)
+        return initClient(chargebacks, this.config)
     }
 
     public get companies() {
-        const contract = c.router(companies)
-        return initClient(contract, this.config)
+        return initClient(companies, this.config)
     }
 
     public get pix() {
-        const contract = c.router(pix)
-        return initClient(contract, this.config)
+        return initClient(pix, this.config)
     }
 
     public get transfer() {
-        const contract = c.router(transfer)
-        return initClient(contract, this.config)
+        return initClient(transfer, this.config)
     }
 
     public get transactions() {
-        const contract = c.router(transactions)
-        return initClient(contract, this.config)
+        return initClient(transactions, this.config)
     }
 
     // public get webhook() {
@@ -123,18 +113,15 @@ export class CelCashService implements OnModuleInit {
     // }
 
     public get plans() {
-        const contract = c.router(plans)
-        return initClient(contract, this.config)
+        return initClient(plans, this.config)
     }
 
     public get customers() {
-        const contract = c.router(customers)
-        return initClient(contract, this.config)
+        return initClient(customers, this.config)
     }
 
     public get subscriptions() {
-        const contract = c.router(subscriptions)
-        return initClient(contract, this.config)
+        return initClient(subscriptions, this.config)
     }
 
     private async getAccessToken() {
@@ -149,8 +136,9 @@ export class CelCashService implements OnModuleInit {
                 baseHeaders: {},
             })
 
-            const value = `${this.cellCashServiceOptions.id}:${this.cellCashServiceOptions.hash}`
-            const basic = Buffer.from(value).toString('base64')
+            const ID = this.cellCashServiceOptions.id
+            const HASH = this.cellCashServiceOptions.hash
+            const basic = Buffer.from(`${ID}:${HASH}`).toString('base64')
 
             const authorization_code = await client.token({
                 body: {
@@ -173,7 +161,9 @@ export class CelCashService implements OnModuleInit {
                         'boletos.read',
                         'carnes.read',
                         'payment-methods.read',
-                    ].join(' '),
+                        'antecipation.read',
+                        'antecipation.write',
+                    ],
                 },
                 headers: {
                     authorization: `Basic ${basic}`,
