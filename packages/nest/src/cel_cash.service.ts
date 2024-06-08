@@ -136,6 +136,7 @@ export class CelCashService implements OnModuleInit {
             const client = initClient(contract, {
                 baseUrl: this.cellCashServiceOptions.base_url,
                 baseHeaders: {},
+                api,
             })
 
             const basic = basicAuthorization({
