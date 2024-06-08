@@ -41,6 +41,7 @@ export async function authenticate() {
     })
 
     if (response.status !== 200) {
+        console.error(response.body)
         throw new Error('Error while fetching token')
     }
 
