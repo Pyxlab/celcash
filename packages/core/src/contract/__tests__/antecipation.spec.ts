@@ -35,10 +35,6 @@ describe('Antecipation', () => {
             query: {} as any,
         })
 
-        if (response.status === 507) {
-            console.log(response.body.flatten())
-        }
-
         expect(response.status).toBe(507)
     })
 
