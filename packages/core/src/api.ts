@@ -1,5 +1,5 @@
 import { ApiFetcherArgs, tsRestFetchApi } from '@ts-rest/core'
-import { ZodObject } from 'zod'
+import { ZodEffects, ZodObject } from 'zod'
 
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
 
@@ -17,7 +17,10 @@ export const api = async (
     if (
         'body' in args.route &&
         args.route.body !== undefined &&
-        args.route.body instanceof ZodObject
+        args.route.body instanceof ZodObject ||
+        'body' in args.route &&
+        args.route.body !== undefined &&
+        args.route.body instanceof ZodEffects
     ) {
         const validation = args.route.body.safeParse(args.rawBody)
 
@@ -29,6 +32,33 @@ export const api = async (
 
             headers.set('Content-Type', 'application/json')
             headers.set('X-Error-Message', 'Invalid body')
+            headers.set('X-Error-Code', '507')
+
+            return {
+                status: 507,
+                body: validation.error,
+                headers,
+                path: path.toString(),
+                method: args.method as Method,
+            }
+        }
+    }
+
+    if (
+        !!args.route.query && args.route.query instanceof ZodObject ||
+        !!args.route.query && args.route.query instanceof ZodEffects
+    ) {
+
+        const validation = args.route.query.safeParse(args.rawQuery)
+
+        if (validation.success) {
+            const searchParams =  new URLSearchParams(validation.data as Record<string, string>)
+            path.search = searchParams.toString()
+        } else {
+            const headers = new Headers()
+
+            headers.set('Content-Type', 'application/json')
+            headers.set('X-Error-Message', 'Invalid query')
             headers.set('X-Error-Code', '507')
 
             return {
