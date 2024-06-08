@@ -41,7 +41,6 @@ export type {
 
 export type Contract = {
     antecipation: Antecipation
-    auth: Auth
     cards: Cards
     chargebacks: Chargebacks
     charges: Charges
