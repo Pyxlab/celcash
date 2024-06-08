@@ -139,7 +139,7 @@ export class CelCashService implements OnModuleInit {
                 api,
             })
 
-            const basic = basicAuthorization({
+            const authorization = basicAuthorization({
                 ID: this.cellCashServiceOptions.id,
                 HASH: this.cellCashServiceOptions.hash,
             })
@@ -170,7 +170,7 @@ export class CelCashService implements OnModuleInit {
                     ],
                 },
                 headers: {
-                    authorization: `Basic ${basic}`,
+                    authorization,
                 },
             })
 
