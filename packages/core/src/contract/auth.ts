@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core'
-import { z } from 'zod'
+import { ZodError, z } from 'zod'
 import {
     authorizationBodySchema,
     authorizationResponseSchema,
@@ -7,16 +7,23 @@ import {
 
 const c = initContract()
 
-export const auth = c.router({
-    token: {
-        method: 'POST',
-        path: '/token',
-        responses: {
-            200: authorizationResponseSchema,
+export const auth = c.router(
+    {
+        token: {
+            method: 'POST',
+            path: '/token',
+            responses: {
+                200: authorizationResponseSchema,
+            },
+            body: authorizationBodySchema,
+            headers: z.object({
+                Authorization: z.string().regex(/^Basic .+$/),
+            }),
         },
-        body: authorizationBodySchema,
-        headers: z.object({
-            Authorization: z.string().regex(/^Basic .+$/),
-        }),
     },
-})
+    {
+        commonResponses: {
+            507: c.type<ZodError>(),
+        },
+    },
+)
