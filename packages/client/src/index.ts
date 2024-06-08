@@ -1,5 +1,6 @@
 import { AsyncLocalStorage } from 'node:async_hooks'
 import {
+    type Contract,
     antecipation,
     cards,
     chargebacks,
@@ -29,7 +30,7 @@ const contract = initContract().router({
     transfer,
 })
 
-export function initCelCashClient(config: Configure) {
+export function initCelCashClient(config: Configure): Contract {
     const store = new AsyncLocalStorage<{ token: string; expiresAt: number }>()
     const baseURL = config.BASE_URL
 
@@ -42,7 +43,6 @@ export function initCelCashClient(config: Configure) {
 
     return initClient(contract, {
         baseUrl: baseURL,
-        baseHeaders: {},
         api: async args => {
             const label = `${args.method.toUpperCase()} ${args.path} end in`
             console.time(label)
