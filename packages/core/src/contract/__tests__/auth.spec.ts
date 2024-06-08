@@ -1,7 +1,7 @@
 import { initClient } from '@ts-rest/core'
 import { describe, it } from 'vitest'
-import { api } from '../../api'
-import { basicAuthorization } from '../../authorization'
+import { api } from '../../utils/api'
+import { basicAuthorization } from '../../utils/basic'
 import { auth } from '../auth'
 
 describe.concurrent('auth', () => {
