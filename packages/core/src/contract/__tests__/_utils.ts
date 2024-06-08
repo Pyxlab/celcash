@@ -1,17 +1,7 @@
-import { AppRouter, initClient } from '@ts-rest/core'
+import { initClient } from '@ts-rest/core'
 import { api } from '../../utils/api'
 import { basicAuthorization } from '../../utils/basic'
 import { auth } from '../auth'
-
-export type Client<T extends AppRouter> = ReturnType<
-    typeof initClient<
-        T,
-        {
-            baseUrl: string
-            api: typeof api
-        }
-    >
->
 
 export async function authenticate() {
     const client = initClient(auth, {
