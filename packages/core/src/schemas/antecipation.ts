@@ -32,7 +32,7 @@ export const antecipationSchema = z.object({
 export const listarAntecipacoesParamsSchema = z
     .object({
         limit: z.number().int().describe('Quantidade de registros por página'),
-        startAt: z.string().optional().describe('Chave de paginação'),
+        startAt: z.number().int().optional().describe('Chave de paginação'),
         done: z.enum(['F', 'T']).optional().describe('Status da antecipação'),
         page: z.number().int().optional().describe('Número da página'),
         createdAtFrom: z
