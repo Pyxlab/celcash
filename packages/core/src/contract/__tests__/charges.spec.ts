@@ -30,6 +30,8 @@ describe.concurrent('Charges', () => {
         expect(client).toHaveProperty('update')
         expect(client).toHaveProperty('retry')
         expect(client).toHaveProperty('reverse')
+        expect(client).toHaveProperty('capture')
+        expect(client).toHaveProperty('cancel')
     })
 
     it('should list charges', async ({ expect }) => {
@@ -136,5 +138,59 @@ describe.concurrent('Charges', () => {
         })
 
         expect(response.status).toBe(200)
+    })
+
+    it('should retry a charge', async ({ expect }) => {
+        const charge = await client.create({
+            body: {
+                myId: randomUUID(),
+                payday: '2024-06-08',
+                value: 1000,
+                mainPaymentMethodId: 'creditcard',
+                PaymentMethodCreditCard: {
+                    Card: {
+                        myId: randomUUID(),
+                        number: '4211 1111 1111 1111',
+                        holder: 'JOAO J J DA SILVA',
+                        expiresAt: '2024-06',
+                        cvv: '363',
+                    },
+                },
+                Customer: {
+                    myId: '67b9f7e0-5995-4608-b5e0-83bd4db4d127',
+                    name: 'Lorem ipsum dolor sit amet.',
+                    document: '70932058523',
+                    emails: [
+                        'teste6446email5323@galaxpay.com.br',
+                        'teste7839email8838@galaxpay.com.br',
+                    ],
+                    phones: [3140201512, 31983890110],
+                    Address: {
+                        zipCode: '30411330',
+                        street: 'Rua platina',
+                        number: '1330',
+                        complement: '2º andar',
+                        neighborhood: 'Prado',
+                        city: 'Belo Horizonte',
+                        state: 'MG',
+                    },
+                },
+            },
+        })
+
+
+        if (charge.status !== 200) return
+
+        console.log(charge.body.Charge)
+
+        const response = await client.retry({
+            params: {
+                chargeId: charge.body.Charge.myId!,
+                typeId: 'myId',
+            },
+            body: {},
+        })
+
+        expect(response.status).toBe(404)
     })
 })
