@@ -1,10 +1,16 @@
 import { ApiFetcherArgs, tsRestFetchApi } from '@ts-rest/core'
 import { ZodObject } from 'zod'
 
-export const api = async (args: ApiFetcherArgs): Promise<{
-    status: number;
-    body: unknown;
-    headers: Headers;
+type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
+
+export const api = async (
+    args: ApiFetcherArgs,
+): Promise<{
+    status: number
+    body: unknown
+    headers: Headers
+    path: string
+    method: Method
 }> => {
     const path = new URL(args.path)
 
@@ -23,12 +29,14 @@ export const api = async (args: ApiFetcherArgs): Promise<{
 
             headers.set('Content-Type', 'application/json')
             headers.set('X-Error-Message', 'Invalid body')
-            headers.set('X-Error-Code', '512')
-            
+            headers.set('X-Error-Code', '507')
+
             return {
-                status: 512,
+                status: 507,
                 body: validation.error,
-                headers
+                headers,
+                path: path.toString(),
+                method: args.method as Method,
             }
         }
     }
@@ -36,5 +44,9 @@ export const api = async (args: ApiFetcherArgs): Promise<{
     return tsRestFetchApi({
         ...args,
         path: path.toString(),
-    })
+    }).then(response => ({
+        ...response,
+        path: path.toString(),
+        method: args.method as Method,
+    }))
 }

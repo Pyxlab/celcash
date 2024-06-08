@@ -52,17 +52,17 @@ describe.concurrent('auth', () => {
     it('should throw an error if the body is not correct', async ({
         expect,
     }) => {
-        expect(
-            client.token({
-                body: {
-                    grant_type: 'authorization_code',
-                    scope: ['banana'] as any,
-                },
-                headers: {
-                    authorization,
-                },
-            }),
-        ).rejects.toThrow()
+        const response = await client.token({
+            body: {
+                grant_type: 'authorization_code',
+                scope: ['banana'] as any,
+            },
+            headers: {
+                authorization,
+            },
+        })
+
+        expect(response.status).toBe(507)
     })
 
     it('should be access_token in the response if the body is correct', async ({
