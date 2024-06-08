@@ -44,7 +44,8 @@
         "@cel_cash/core": "1.1.5"
     },
     "dependencies": {
-        "@ts-rest/core": "^3.45.2"
+        "@ts-rest/core": "^3.45.2",
+        "zod": "^3.23.8"
     },
     "publishConfig": {
         "access": "public"

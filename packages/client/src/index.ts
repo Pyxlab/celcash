@@ -12,9 +12,8 @@ import {
     transactions,
     transfer,
 } from '@cel_cash/core/contracts'
+import { Configure, login } from '@cel_cash/core/utils'
 import { initClient, initContract, tsRestFetchApi } from '@ts-rest/core'
-import { login } from './login'
-import type { Configure } from './types'
 
 const contract = initContract().router({
     antecipation,

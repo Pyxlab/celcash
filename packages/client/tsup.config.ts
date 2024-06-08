@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig(({ watch }) => ({
-    entryPoints: ['src/**'],
+    entryPoints: ['src/index.ts'],
     splitting: true,
     format: ['cjs', 'esm'],
     dts: true,
@@ -9,6 +9,7 @@ export default defineConfig(({ watch }) => ({
     clean: true,
     sourcemap: true,
     minify: false,
+    external: ["zod"],
     onSuccess: watch
         ? 'node --enable-source-maps dist/index ys.js --inspect'
         : undefined,
