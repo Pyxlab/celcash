@@ -16,7 +16,7 @@ export const charges = c.router(
         list: {
             method: 'GET',
             path: '/',
-            pathParams: listCardsParamsSchema,
+            query: listCardsParamsSchema,
             responses: {
                 200: listChargesResponseSchema,
             },
