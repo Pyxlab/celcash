@@ -1,43 +1,27 @@
 import { initClient } from '@ts-rest/core'
 import { beforeEach, describe, it } from 'vitest'
-import { api } from '../../api'
-import { basicAuthorization } from '../../authorization'
+import { api } from '../../utils/api'
 import { antecipation } from '../antecipation'
-import { auth } from '../auth'
+import { authenticate } from './_utils'
 
 let authorization: string
 
 beforeEach(async () => {
-    const client = initClient(auth, {
-        baseUrl: 'https://api.sandbox.cel.cash/v2',
-        api,
-    })
-
-    const response = await client.token({
-        body: {
-            grant_type: 'authorization_code',
-            scope: ['antecipation.write', 'antecipation.read'],
-        },
-        headers: {
-            authorization: basicAuthorization({
-                ID: 5473,
-                HASH: '83Mw5u8988Qj6fZqS4Z8K7LzOo1j28S706R0BeFe',
-            }),
-        },
-    })
-
-    if (response.status === 200) {
-        authorization = `Bearer ${response.body.access_token}`
-    }
+    const { access_token } = await authenticate()
+    authorization = `Bearer ${access_token}`
 })
 
 describe('Antecipation', () => {
     const client = initClient(antecipation, {
         baseUrl: 'https://api.sandbox.cel.cash/v2',
-        api,
-        baseHeaders: {
-            authorization,
-        },
+        api: args =>
+            api({
+                ...args,
+                headers: {
+                    ...args.headers,
+                    Authorization: authorization
+                },
+            }),
     })
 
     it('should have the correct methods', ({ expect }) => {
@@ -48,10 +32,10 @@ describe('Antecipation', () => {
 
     it('should be return status 507 error', async ({ expect }) => {
         const response = await client.simulate.getByFilters({
-            query: {} as any
+            query: {} as any,
         })
 
-        if(response.status === 507){
+        if (response.status === 507) {
             console.log(response.body.flatten())
         }
 
