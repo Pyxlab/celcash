@@ -32,6 +32,11 @@
             "import": "./dist/contract/index.js",
             "require": "./dist/contract/index.cjs",
             "types": "./dist/contract/index.d.ts"
+        },
+        "./utils": {
+            "import": "./dist/utils/index.js",
+            "require": "./dist/utils/index.cjs",
+            "types": "./dist/utils/index.d.ts"
         }
     },
     "files": [
@@ -58,7 +63,8 @@
         "url": "https://github.com/Pyxlab/celcash/issues"
     },
     "peerDependencies": {
-        "@ts-rest/core": "^3.45.2"
+        "@ts-rest/core": "^3.45.2",
+        "zod": "^3.23.8"
     },
     "devDependencies": {
         "@swc/core": "^1.5.7",
@@ -66,9 +72,6 @@
         "tsup": "^8.0.2",
         "typescript": "^5.4.5",
         "vitest": "^1.6.0"
-    },
-    "dependencies": {
-        "zod": "^3.23.8"
     },
     "publishConfig": {
         "access": "public"
