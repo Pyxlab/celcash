@@ -178,7 +178,6 @@ describe.concurrent('Charges', () => {
             },
         })
 
-
         if (charge.status !== 200) return
 
         console.log(charge.body.Charge)
