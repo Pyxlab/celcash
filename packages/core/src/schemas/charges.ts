@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { transformArrayToString } from '../utils/transform'
 import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
 import {
     antifraudSchema,
@@ -50,11 +51,11 @@ const subscriptionSchema = z.object({
 })
 
 const transactionsSchema = z.object({
-    myId: z.string().uuid(),
+    myId: z.string(),
     galaxPayId: z.number().int(),
-    chargeMyId: z.string().uuid(),
+    chargeMyId: z.string(),
     chargeGalaxPayId: z.number().int(),
-    subscriptionMyId: z.string().uuid(),
+    subscriptionMyId: z.string(),
     subscriptionGalaxPayId: z.number().int(),
     value: z.number().int(),
     payday: z.string().datetime(),
@@ -97,25 +98,29 @@ export const listChargesParamsSchema = z.object({
         .optional()
         .describe(
             'Ids da cobrança avulsa no seu sistema. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     galaxPayIds: z
         .union([z.array(z.string()), z.string()])
         .optional()
         .describe(
             'Ids da cobrança avulsa no cel_cash. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     customerMyIds: z
         .union([z.array(z.string()), z.string()])
         .optional()
         .describe(
             'Customer.myId. Id do cliente no seu sistema. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     customerGalaxPayIds: z
         .union([z.array(z.string()), z.string()])
         .optional()
         .describe(
             'Customer.galaxPayId. Id do cliente no cel_cash. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     createdAtFrom: z.string().optional().describe('Data de criação inicial.'),
     createdAtTo: z.string().optional().describe('Data de criação final.'),
     createdOrUpdatedAtFrom: z
@@ -129,7 +134,8 @@ export const listChargesParamsSchema = z.object({
     status: z
         .union([chargesStatusSchema, z.array(chargesStatusSchema)])
         .optional()
-        .describe('Status da cobrança avulsa. Separe cada valor por vírgula.'),
+        .describe('Status da cobrança avulsa. Separe cada valor por vírgula.')
+        .transform(transformArrayToString),
     ExtraFields: z
         .array(z.string())
         .optional()
@@ -188,17 +194,18 @@ export type ListChargesResponse = z.infer<typeof listChargesResponseSchema>
 export const createChargeBodySchema = z.object({
     myId: z
         .string()
-        .uuid()
         .describe('Id referente no seu sistema, para salvar no cel_cash.'),
     value: z.number().int().describe('Preço em centavos.'),
     additionalInfo: z
         .string()
         .optional()
         .describe('Texto livre dedicado a informações adicionais internas.'),
-    payday: z.string().datetime().describe('Data de vencimento da cobrança.'),
+    payday: z
+        .string()
+        .regex(/^\d{4}-\d{2}-\d{2}$/, 'Data de vencimento inválida.')
+        .describe('Data de vencimento da cobrança.'),
     planMyId: z
         .string()
-        .uuid()
         .optional()
         .describe(
             'Plan.myId: Id do plano no seu sistema, para salvar no cel_cash.',
@@ -208,13 +215,10 @@ export const createChargeBodySchema = z.object({
         .optional()
         .describe('Indica se a cobrança foi paga fora do cel_cash.'),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
-    Customer: customerSchema,
+    Customer: customerSchema.deepPartial(),
     PaymentMethodCreditCard: paymentMethodCreditCardSchema.optional(),
     PaymentMethodBoleto: paymentMethodBoletoSchema.optional(),
     PaymentMethodPix: paymentMethodPixSchema.optional(),
-    Split: splitSchema,
-    InvoiceConfig: invoiceConfigSchema,
-    ExtraFields: z.array(extraFieldSchema),
 })
 
 export type CreateChargeBody = z.infer<typeof createChargeBodySchema>
@@ -229,10 +233,9 @@ export type CreateChargeResponse = z.infer<typeof createChargeResponseSchema>
 export const updateChargeBodySchema = z.object({
     myId: z
         .string()
-        .uuid()
         .optional()
         .describe('Id referente no seu sistema, para salvar no cel_cash.'),
-    value: z.number().int().describe('Preço em centavos.'),
+    value: z.number().int().optional().describe('Preço em centavos.'),
     additionalInfo: z
         .string()
         .optional()
@@ -244,14 +247,13 @@ export const updateChargeBodySchema = z.object({
         .describe('Data de vencimento da cobrança.'),
     planMyId: z
         .string()
-        .uuid()
         .optional()
         .describe('Id do plano no seu sistema, para salvar no cel_cash.'),
     payedOutsideGalaxPay: z
         .boolean()
         .optional()
         .describe('Indica se a cobrança foi paga fora do cel_cash.'),
-    mainPaymentMethodIdSchema: mainPaymentMethodIdSchema,
+    mainPaymentMethodId: mainPaymentMethodIdSchema,
     planGalaxPayId: z
         .string()
         .optional()
