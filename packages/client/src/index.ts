@@ -12,6 +12,7 @@ import {
     transactions,
     transfer,
 } from '@cel_cash/core/contracts'
+import type { Contract } from '@cel_cash/core/contracts'
 import { Configure, login } from '@cel_cash/core/utils'
 import { initClient, initContract, tsRestFetchApi } from '@ts-rest/core'
 
@@ -29,7 +30,7 @@ const contract = initContract().router({
     transfer,
 })
 
-export function initCelCashClient(config: Configure) {
+export function initCelCashClient(config: Configure): Contract {
     const store = new AsyncLocalStorage<{ token: string; expiresAt: number }>()
     const baseURL = config.BASE_URL
 
