@@ -23,5 +23,17 @@ export default await Env.create(new URL('../', import.meta.url), {
   | Variables for configuring session package
   |----------------------------------------------------------
   */
-  SESSION_DRIVER: Env.schema.enum(['cookie', 'memory'] as const)
+  SESSION_DRIVER: Env.schema.enum(['cookie', 'memory'] as const),
+
+  /*
+  |----------------------------------------------------------
+  | Variables for @cel_cash/adonisjs
+  |----------------------------------------------------------
+  */
+  CEL_CASH_BASE_URL: Env.schema.string(),
+  CEL_CASH_ID: Env.schema.number(),
+  CEL_CASH_HASH: Env.schema.string(),
+
+  REDIS_HOST: Env.schema.string({ format: 'host' }),
+  REDIS_PORT: Env.schema.number(),
 })
