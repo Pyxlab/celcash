@@ -24,7 +24,7 @@ export async function configure(command: ConfigureCommand) {
   })
 
   /**
-   * Define env variables for the selected store
+   * Define env variables for cel cash provider
    */
   await codemods.defineEnvVariables({
     CEL_CASH_BASE_URL: 'https://api.sandbox.cel.cash/v2',
@@ -36,7 +36,7 @@ export async function configure(command: ConfigureCommand) {
    * Define env variables validation for the selected store
    */
   await codemods.defineEnvValidations({
-    leadingComment: 'Variables for configuring the lock package',
+    leadingComment: 'Variables for configuring the cel cash provider',
     variables: {
       CEL_CASH_BASE_URL: 'Env.schema.string()',
       CEL_CASH_ID: 'Env.schema.number()',
