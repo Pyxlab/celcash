@@ -9,6 +9,7 @@ export default defineConfig(({ watch }) => ({
     clean: true,
     sourcemap: true,
     minify: false,
+    external: ["zod"],
     onSuccess: watch
         ? 'node --enable-source-maps dist/index ys.js --inspect'
         : undefined,

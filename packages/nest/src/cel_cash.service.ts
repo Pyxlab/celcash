@@ -12,6 +12,19 @@ import {
     transactions,
     transfer,
 } from '@cel_cash/core/contracts'
+import type {
+    Antecipation,
+    Cards,
+    Chargebacks,
+    Charges,
+    Companies,
+    Customers,
+    Pix,
+    Plans,
+    Subscriptions,
+    Transactions,
+    Transfer,
+} from '@cel_cash/core/contracts'
 import { api, basicAuthorization } from '@cel_cash/core/utils'
 import { CACHE_MANAGER } from '@nestjs/cache-manager'
 import { Inject, Injectable, Logger, type OnModuleInit } from '@nestjs/common'
@@ -39,7 +52,7 @@ export class CelCashService implements OnModuleInit {
     private readonly logger = new Logger(CelCashService.name)
 
     private readonly config: CelCashServiceConfig
-    
+
     constructor(
         @InjectCelCashConfig()
         private readonly cellCashServiceOptions: CelCashServiceOptions,
@@ -74,35 +87,35 @@ export class CelCashService implements OnModuleInit {
         this.logger.log('Initialized...')
     }
 
-    public get antecipation() {
+    public get antecipation(): Antecipation {
         return initClient(antecipation, this.config)
     }
 
-    public get cards() {
+    public get cards(): Cards {
         return initClient(cards, this.config)
     }
 
-    public get charges() {
+    public get charges(): Charges {
         return initClient(charges, this.config)
     }
 
-    public get chargebacks() {
+    public get chargebacks(): Chargebacks {
         return initClient(chargebacks, this.config)
     }
 
-    public get companies() {
+    public get companies(): Companies {
         return initClient(companies, this.config)
     }
 
-    public get pix() {
+    public get pix(): Pix {
         return initClient(pix, this.config)
     }
 
-    public get transfer() {
+    public get transfer(): Transfer {
         return initClient(transfer, this.config)
     }
 
-    public get transactions() {
+    public get transactions(): Transactions {
         return initClient(transactions, this.config)
     }
 
@@ -110,15 +123,15 @@ export class CelCashService implements OnModuleInit {
     //     return initClient()
     // }
 
-    public get plans() {
+    public get plans(): Plans {
         return initClient(plans, this.config)
     }
 
-    public get customers() {
+    public get customers(): Customers {
         return initClient(customers, this.config)
     }
 
-    public get subscriptions() {
+    public get subscriptions(): Subscriptions {
         return initClient(subscriptions, this.config)
     }
 
