@@ -102,8 +102,8 @@ importers:
         specifier: ^4.0.1
         version: 4.0.6
       '@types/node':
-        specifier: ^16.11.5
-        version: 16.18.97
+        specifier: ^20.12.12
+        version: 20.14.2
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(@swc/core@1.5.7)(typescript@5.4.5)
@@ -1250,10 +1250,6 @@ packages:
 
   /@types/http-cache-semantics@4.0.4:
     resolution: {integrity: sha512-1m0bIFVc7eJWyve9S0RnuRgcQqF/Xd5QsUZAZeQFr1Q3/p9JWoQQEqmVy+DPTNpGXwhgIetAoYF8JSc33q29QA==}
-    dev: true
-
-  /@types/node@16.18.97:
-    resolution: {integrity: sha512-4muilE1Lbfn57unR+/nT9AFjWk0MtWi5muwCEJqnOvfRQDbSfLCUdN7vCIg8TYuaANfhLOV85ve+FNpiUsbSRg==}
     dev: true
 
   /@types/node@20.12.12:
