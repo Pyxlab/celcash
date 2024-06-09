@@ -8,7 +8,21 @@
 import ConfigureCommand from '@adonisjs/core/commands/configure'
 import { stubsRoot } from './stubs/main.js'
 
+const packagesToInstall = [{ name: '@adonisjs/redis', isDevDependency: false }]
+
 export async function configure(command: ConfigureCommand) {
+  let shouldInstallPackages: boolean | undefined = command.parsedFlags.install
+
+  /**
+   * Prompt when `install` or `--no-install` flags are
+   * not used
+   */
+  if (shouldInstallPackages === undefined) {
+    shouldInstallPackages = await command.prompt.confirm(
+      'Do you want to install additional packages required by "@adonisjs/redis"?'
+    )
+  }
+
   const codemods = await command.createCodemods()
 
   /**
@@ -33,14 +47,30 @@ export async function configure(command: ConfigureCommand) {
   })
 
   /**
-   * Define env variables validation for the selected store
+   * Define env variables validation for cel cash provider
    */
   await codemods.defineEnvValidations({
-    leadingComment: 'Variables for configuring the cel cash provider',
+    leadingComment: 'Variables for @cel_cash/adonisjs',
     variables: {
       CEL_CASH_BASE_URL: 'Env.schema.string()',
       CEL_CASH_ID: 'Env.schema.number()',
       CEL_CASH_HASH: 'Env.schema.string()',
     },
   })
+
+  /**
+   * Install packages or share instructions to install them
+   */
+  if (shouldInstallPackages) {
+    await codemods.installPackages(packagesToInstall)
+  } else {
+    await codemods.listPackagesToInstall(packagesToInstall)
+  }
+
+  /**
+   * Print the instructions to complete the installation
+   */
+  command.logger.info(
+    'Make sure to run "node ace configure @adonisjs/redis" to complete the installation'
+  )
 }
