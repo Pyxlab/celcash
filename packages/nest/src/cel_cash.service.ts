@@ -12,19 +12,6 @@ import {
     transactions,
     transfer,
 } from '@cel_cash/core/contracts'
-import type {
-    Antecipation,
-    Cards,
-    Chargebacks,
-    Charges,
-    Companies,
-    Customers,
-    Pix,
-    Plans,
-    Subscriptions,
-    Transactions,
-    Transfer,
-} from '@cel_cash/core/contracts'
 import { api, basicAuthorization } from '@cel_cash/core/utils'
 import { CACHE_MANAGER } from '@nestjs/cache-manager'
 import { Inject, Injectable, Logger, type OnModuleInit } from '@nestjs/common'
@@ -52,7 +39,7 @@ export class CelCashService implements OnModuleInit {
     private readonly logger = new Logger(CelCashService.name)
 
     private readonly config: CelCashServiceConfig
-
+    
     constructor(
         @InjectCelCashConfig()
         private readonly cellCashServiceOptions: CelCashServiceOptions,
@@ -87,51 +74,51 @@ export class CelCashService implements OnModuleInit {
         this.logger.log('Initialized...')
     }
 
-    public get antecipation(): Antecipation {
+    public get antecipation() {
         return initClient(antecipation, this.config)
     }
 
-    public get cards(): Cards {
+    public get cards() {
         return initClient(cards, this.config)
     }
 
-    public get charges(): Charges {
+    public get charges() {
         return initClient(charges, this.config)
     }
 
-    public get chargebacks(): Chargebacks {
+    public get chargebacks() {
         return initClient(chargebacks, this.config)
     }
 
-    public get companies(): Companies {
+    public get companies() {
         return initClient(companies, this.config)
     }
 
-    public get pix(): Pix {
+    public get pix() {
         return initClient(pix, this.config)
     }
 
-    public get transfer(): Transfer {
+    public get transfer() {
         return initClient(transfer, this.config)
     }
 
-    public get transactions(): Transactions {
+    public get transactions() {
         return initClient(transactions, this.config)
     }
 
     // public get webhook() {
-    //     return this.client.webhook;
+    //     return initClient()
     // }
 
-    public get plans(): Plans {
+    public get plans() {
         return initClient(plans, this.config)
     }
 
-    public get customers(): Customers {
+    public get customers() {
         return initClient(customers, this.config)
     }
 
-    public get subscriptions(): Subscriptions {
+    public get subscriptions() {
         return initClient(subscriptions, this.config)
     }
 
