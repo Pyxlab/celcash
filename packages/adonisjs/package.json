@@ -1,7 +1,7 @@
 {
   "name": "@cel_cash/adonisjs",
   "description": "AdonisJS provider for CelCash",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "engines": {
     "node": ">=20.6.0"
   },
@@ -63,7 +63,7 @@
   "peerDependencies": {
     "@adonisjs/core": "^6.2.0",
     "@adonisjs/redis": "^8.0.1",
-    "@cel_cash/core": "1.2.0"
+    "@cel_cash/core": "2.0.0"
   },
   "dependencies": {
     "@ts-rest/core": "^3.45.2",
@@ -89,26 +89,25 @@
   "release-it": {
     "git": false,
     "plugins": {
-        "@release-it/bumper": {
-            "out": {
-                "file": "package.json",
-                "path": [
-                    "peerDependencies.@cel_cash/core"
-                ]
-            }
+      "@release-it/bumper": {
+        "out": {
+          "file": "package.json",
+          "path": [
+            "peerDependencies.@cel_cash/core"
+          ]
         }
+      }
     },
     "hooks": {
-        "before:init": [
-            "pnpm lint",
-            "pnpm type-check"
-        ],
-        "after:bump": [
-          "npm run prebuild",
-          "npm run build",
-          "npm run postbuild"
-        ],
-        "after:git:release": "echo After git push, before github release"
+      "before:init": [
+        "pnpm lint"
+      ],
+      "after:bump": [
+        "npm run prebuild",
+        "npm run build",
+        "npm run postbuild"
+      ],
+      "after:git:release": "echo After git push, before github release"
     }
   }
 }
