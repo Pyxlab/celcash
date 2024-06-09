@@ -35,9 +35,15 @@ importers:
       '@adonisjs/lucid':
         specifier: ^20.6.0
         version: 20.6.0(@adonisjs/assembler@7.7.0)(@adonisjs/core@6.10.1)(better-sqlite3@11.0.0)(luxon@3.4.4)
+      '@adonisjs/redis':
+        specifier: ^8.0.1
+        version: 8.0.1(@adonisjs/core@6.10.1)
       '@adonisjs/session':
         specifier: ^7.4.1
-        version: 7.4.1(@adonisjs/core@6.10.1)(@japa/api-client@2.0.3)
+        version: 7.4.1(@adonisjs/core@6.10.1)(@adonisjs/redis@8.0.1)(@japa/api-client@2.0.3)
+      '@cel_cash/adonisjs':
+        specifier: workspace:^
+        version: link:../../packages/adonis
       '@vinejs/vine':
         specifier: ^2.0.0
         version: 2.1.0
@@ -341,7 +347,7 @@ packages:
       '@adonisjs/core': 6.10.1(@adonisjs/assembler@7.7.0)(@vinejs/vine@2.1.0)
       '@adonisjs/lucid': 20.6.0(@adonisjs/assembler@7.7.0)(@adonisjs/core@6.10.1)(better-sqlite3@11.0.0)(luxon@3.4.4)
       '@adonisjs/presets': 2.4.1(@adonisjs/assembler@7.7.0)(@adonisjs/core@6.10.1)
-      '@adonisjs/session': 7.4.1(@adonisjs/core@6.10.1)(@japa/api-client@2.0.3)
+      '@adonisjs/session': 7.4.1(@adonisjs/core@6.10.1)(@adonisjs/redis@8.0.1)(@japa/api-client@2.0.3)
       '@japa/api-client': 2.0.3(@japa/assert@3.0.0)(@japa/runner@3.1.4)
       '@japa/plugin-adonisjs': 3.0.1(@adonisjs/core@6.10.1)(@japa/api-client@2.0.3)(@japa/runner@3.1.4)
       basic-auth: 2.0.1
@@ -646,7 +652,7 @@ packages:
       '@poppinss/colors': 4.1.3
       string-width: 7.1.0
 
-  /@adonisjs/session@7.4.1(@adonisjs/core@6.10.1)(@japa/api-client@2.0.3):
+  /@adonisjs/session@7.4.1(@adonisjs/core@6.10.1)(@adonisjs/redis@8.0.1)(@japa/api-client@2.0.3):
     resolution: {integrity: sha512-PfboIuZo6n0Y7YXkC3JNmWDtwZku88x4YzGqIZF4NSGPO9atT+sVw7Z4BJBmTrG/1RD+ufv+Y1ThxZfl6l+ecA==}
     engines: {node: '>=18.16.0'}
     peerDependencies:
@@ -666,6 +672,7 @@ packages:
         optional: true
     dependencies:
       '@adonisjs/core': 6.10.1(@adonisjs/assembler@7.7.0)(@vinejs/vine@2.1.0)
+      '@adonisjs/redis': 8.0.1(@adonisjs/core@6.10.1)
       '@japa/api-client': 2.0.3(@japa/assert@3.0.0)(@japa/runner@3.1.4)
       '@poppinss/macroable': 1.0.2
       '@poppinss/utils': 6.7.3
