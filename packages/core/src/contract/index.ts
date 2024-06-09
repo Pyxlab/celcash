@@ -11,33 +11,18 @@ import { subscriptions } from './subscriptions'
 import { transactions } from './transactions'
 import { pix, transfer } from './transfer'
 
-type Antecipation = Client<typeof antecipation>
-type Auth = Client<typeof auth>
-type Cards = Client<typeof cards>
-type Chargebacks = Client<typeof chargebacks>
-type Charges = Client<typeof charges>
-type Companies = Client<typeof companies>
-type Customers = Client<typeof customers>
-type Plans = Client<typeof plans>
-type Subscriptions = Client<typeof subscriptions>
-type Transactions = Client<typeof transactions>
-type Pix = Client<typeof pix>
-type Transfer = Client<typeof transfer>
-
-export type {
-    Antecipation,
-    Auth,
-    Cards,
-    Chargebacks,
-    Charges,
-    Companies,
-    Customers,
-    Plans,
-    Subscriptions,
-    Transactions,
-    Pix,
-    Transfer,
-}
+export type Antecipation = Client<typeof antecipation>
+export type Auth = Client<typeof auth>
+export type Cards = Client<typeof cards>
+export type Chargebacks = Client<typeof chargebacks>
+export type Charges = Client<typeof charges>
+export type Companies = Client<typeof companies>
+export type Customers = Client<typeof customers>
+export type Plans = Client<typeof plans>
+export type Subscriptions = Client<typeof subscriptions>
+export type Transactions = Client<typeof transactions>
+export type Pix = Client<typeof pix>
+export type Transfer = Client<typeof transfer>
 
 export type Contract = {
     antecipation: Antecipation
