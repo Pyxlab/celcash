@@ -27,6 +27,8 @@ export type {
     UpdateSubscriptionPaymentBody,
 } from './schemas'
 
+export * from './service'
+
 export const STATUS_PAGO = [
     'captured',
     'payedBoleto',
