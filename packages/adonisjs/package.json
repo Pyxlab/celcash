@@ -20,7 +20,7 @@
     ".": "./build/index.js",
     "./types": "./build/src/types.js",
     "./cel_cash_provider": "./build/providers/cel_cash_provider.js",
-    "./services/main": "./build/src/services/main.js"
+    "./services/main": "./build/services/main.js"
   },
   "scripts": {
     "clean": "del-cli build",

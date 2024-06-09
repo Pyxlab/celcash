@@ -8,10 +8,10 @@
 import app from '@adonisjs/core/services/app'
 import { CelCashService } from '../src/client.js'
 
-let client: CelCashService
+let celcash: CelCashService
 
 await app.booted(async () => {
-  client = await app.container.make('@cel_cash/adonisjs')
+  celcash = await app.container.make('@cel_cash/adonisjs')
 })
 
-export { client as default }
+export { celcash as default }
