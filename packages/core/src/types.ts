@@ -1,4 +1,4 @@
-import { AppRouter, initClient } from '@ts-rest/core'
+import { AppRouter, InitClientReturn } from '@ts-rest/core'
 import { z } from 'zod'
 import {
     mainPaymentMethodIdSchema,
@@ -110,12 +110,10 @@ export type Split = z.infer<typeof splitSchema>
 
 export type ExtraFields = z.infer<typeof extraFieldSchema>
 
-export type Client<T extends AppRouter> = ReturnType<
-    typeof initClient<
-        T,
-        {
-            baseUrl: string
-            api: typeof api
-        }
-    >
+export type Client<T extends AppRouter> = InitClientReturn<
+    T,
+    {
+        baseUrl: string
+        api: typeof api
+    }
 >
