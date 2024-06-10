@@ -5,19 +5,19 @@ export const cardStatusSchema = z.enum(['active', 'inactive'])
 
 export const listCardsParamsSchema = z.object({
     myIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.number()), z.number()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .transform(transformArrayToString),
     customerMyIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     customerGalaxPayIds: z
-        .union([z.array(z.number()), z.number()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),

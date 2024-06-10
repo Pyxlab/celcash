@@ -58,27 +58,27 @@ const transactionsSchema = z.object({
 
 export const listSubscriptionsParamsSchema = z.object({
     myIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     customerMyIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     customerGalaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     planMyIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     planGalaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),

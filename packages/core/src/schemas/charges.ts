@@ -94,28 +94,28 @@ export const chargesStatusSchema = z.enum([
 
 export const listChargesParamsSchema = z.object({
     myIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .describe(
             'Ids da cobrança avulsa no seu sistema. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.number()), z.number()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .describe(
             'Ids da cobrança avulsa no cel_cash. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     customerMyIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .describe(
             'Customer.myId. Id do cliente no seu sistema. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     customerGalaxPayIds: z
-        .union([z.array(z.number()), z.number()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .describe(
             'Customer.galaxPayId. Id do cliente no cel_cash. Separe cada id por vírgula.',

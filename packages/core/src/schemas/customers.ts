@@ -40,11 +40,11 @@ export type CreateCustomerResponse = z.input<
 
 export const listCustomersParamsSchema = z.object({
     documents: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     emails: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),
@@ -52,11 +52,11 @@ export const listCustomersParamsSchema = z.object({
     createdOrUpdatedFrom: z.string().datetime().optional(),
     createdOrUpdatedTo: z.string().datetime().optional(),
     myIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.number()), z.number()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .transform(transformArrayToString),
     startAt: z.number().optional(),

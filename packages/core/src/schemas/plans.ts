@@ -6,11 +6,11 @@ export const planStatusSchema = z.enum(['active', 'inactive'])
 
 export const listPlansParamsSchema = z.object({
     myIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),

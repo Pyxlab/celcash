@@ -70,47 +70,47 @@ export const transactionStatusSchema = z.enum([
 
 export const listTransactionsParamsSchema = z.object({
     myIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .describe(
             'Ids das transações no seu sistema. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.number().int()), z.number().int()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .describe('Ids das transações no cel_cash. Separe cada id por vírgula.')
         .transform(transformArrayToString),
     subscriptionGalaxPayIds: z
-        .union([z.array(z.number()), z.number()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .describe(
             'Subscription.galaxPayId. Id da assinatura no cel_cash. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     chargeMyIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .describe(
             'Charge.myId. Id da cobrança no seu sistema. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     customerMyIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .describe(
             'Customer.myId. Id do cliente no seu sistema. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     customerGalaxPayIds: z
-        .union([z.array(z.number().int()), z.number().int()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .describe(
             'Customer.galaxPayId. Id do cliente no cel_cash. Separe cada id por vírgula.',
         )
         .transform(transformArrayToString),
     chargeGalaxPayIds: z
-        .union([z.array(z.number().int()), z.number().int()])
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .describe(
             'Charge.galaxPayId. Id da cobrança no cel_cash. Separe cada id por vírgula.',
