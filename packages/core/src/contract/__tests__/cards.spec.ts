@@ -36,6 +36,7 @@ describe.concurrent('Cards', () => {
                 status: 'active',
                 limit: 10,
                 startAt: 10,
+                order: ['createdAt', 'asc'],
             },
         })
 
