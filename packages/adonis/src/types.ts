@@ -24,6 +24,6 @@ export interface CelCashConfig {
 
 export interface ResolvedConfig {
   baseUrl: string
-  id: string
+  id: string | number
   hash: string
 }
