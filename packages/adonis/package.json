@@ -92,7 +92,7 @@
       "@release-it/bumper": {
         "out": {
           "file": "package.json",
-          "prefix": "^",
+          "versionPrefix": "^",
           "path": [
             "peerDependencies.@cel_cash/core"
           ]

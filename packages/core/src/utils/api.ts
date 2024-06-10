@@ -48,16 +48,12 @@ export const api = async (
         (!!args.route.query && args.route.query instanceof ZodObject) ||
         (!!args.route.query && args.route.query instanceof ZodEffects)
     ) {
+        const entries = Object.entries(args.rawQuery || {}).filter(
+            ([_, v]) => !['', null, undefined].includes(v),
+        )
+
         const validation = args.route.query.safeParse(
-            Object.fromEntries(
-                Object.entries(args.rawQuery || {}).filter(([_, v]) =>
-                    typeof v === 'string'
-                        ? v.length > 0
-                        : typeof v === 'undefined'
-                          ? false
-                          : true,
-                ),
-            ),
+            Object.fromEntries(entries),
         )
 
         if (validation.success) {
