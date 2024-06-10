@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../README.md) / [@cel\_cash/nestjs](../README.md) / CelCashOptionsFactory
+[CelCash](../../../README.md) / [@cel\_cash/nestjs](../README.md) / CelCashOptionsFactory
 
 # Interface: CelCashOptionsFactory
 
@@ -18,4 +18,4 @@
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:31](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L31)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:31](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L31)

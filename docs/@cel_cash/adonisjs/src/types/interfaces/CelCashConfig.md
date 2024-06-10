@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../../../README.md) / [@cel\_cash/adonisjs](../../../README.md) / [src/types](../README.md) / CelCashConfig
+[CelCash](../../../../../README.md) / [@cel\_cash/adonisjs](../../../README.md) / [src/types](../README.md) / CelCashConfig
 
 # Interface: CelCashConfig
 
@@ -26,7 +26,7 @@ The base URL of the CelCash API
 
 #### Source
 
-[adonis/src/types.ts:12](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/types.ts#L12)
+[adonis/src/types.ts:12](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/types.ts#L12)
 
 ***
 
@@ -38,7 +38,7 @@ The API secret to use for requests
 
 #### Source
 
-[adonis/src/types.ts:22](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/types.ts#L22)
+[adonis/src/types.ts:22](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/types.ts#L22)
 
 ***
 
@@ -50,4 +50,4 @@ The API key to use for requests
 
 #### Source
 
-[adonis/src/types.ts:17](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/types.ts#L17)
+[adonis/src/types.ts:17](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/types.ts#L17)

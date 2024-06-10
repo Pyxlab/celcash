@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../README.md) / @cel\_cash/client
+[CelCash](../../README.md) / @cel\_cash/client
 
 # @cel_cash/client
 

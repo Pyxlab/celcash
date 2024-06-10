@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../../README.md) / [@cel\_cash/core](../../README.md) / [contract](../README.md) / chargebacks
+[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [contract](../README.md) / chargebacks
 
 # Variable: chargebacks
 
@@ -10,4 +10,4 @@
 
 ## Source
 
-[packages/core/src/contract/chargebacks.ts:5](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/contract/chargebacks.ts#L5)
+[packages/core/src/contract/chargebacks.ts:5](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/contract/chargebacks.ts#L5)

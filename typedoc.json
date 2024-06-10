@@ -2,7 +2,8 @@
     "entryPoints": [
         "packages/*"
     ],
-    "name": "Packages Example",
+    "name": "CelCash",
+    "pretty": true,
     "entryPointStrategy": "packages",
     "includeVersion": false,
     "out": "docs",
@@ -10,5 +11,5 @@
         "typedoc-plugin-rename-defaults",
         "typedoc-plugin-zod",
         "typedoc-plugin-markdown"
-    ]
+    ],
 }

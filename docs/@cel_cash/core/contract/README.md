@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../README.md) / [@cel\_cash/core](../README.md) / contract
+[CelCash](../../../README.md) / [@cel\_cash/core](../README.md) / contract
 
 # contract
 

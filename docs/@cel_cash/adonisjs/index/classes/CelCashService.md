@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../../README.md) / [@cel\_cash/adonisjs](../../README.md) / [index](../README.md) / CelCashService
+[CelCash](../../../../README.md) / [@cel\_cash/adonisjs](../../README.md) / [index](../README.md) / CelCashService
 
 # Class: CelCashService
 
@@ -34,7 +34,7 @@
 
 #### Source
 
-[adonis/src/client.ts:24](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/client.ts#L24)
+[adonis/src/client.ts:24](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/client.ts#L24)
 
 ## Properties
 
@@ -58,7 +58,7 @@ core/dist/index.d.ts:25
 
 #### Source
 
-[adonis/src/client.ts:14](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/client.ts#L14)
+[adonis/src/client.ts:14](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/client.ts#L14)
 
 ***
 
@@ -4792,7 +4792,7 @@ core/dist/index.d.ts:39
 
 #### Source
 
-[adonis/src/client.ts:16](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/client.ts#L16)
+[adonis/src/client.ts:16](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/client.ts#L16)
 
 ***
 
@@ -4816,4 +4816,4 @@ core/dist/index.d.ts:39
 
 #### Source
 
-[adonis/src/client.ts:20](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/client.ts#L20)
+[adonis/src/client.ts:20](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/client.ts#L20)

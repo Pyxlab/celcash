@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../../README.md) / [@cel\_cash/core](../../README.md) / [contract](../README.md) / Contract
+[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [contract](../README.md) / Contract
 
 # Type alias: Contract
 
@@ -56,4 +56,4 @@
 
 ## Source
 
-[packages/core/src/contract/index.ts:27](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/contract/index.ts#L27)
+[packages/core/src/contract/index.ts:27](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/contract/index.ts#L27)

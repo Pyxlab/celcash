@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../../README.md) / [@cel\_cash/core](../../README.md) / [index](../README.md) / CelCashServiceContract
+[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [index](../README.md) / CelCashServiceContract
 
 # Class: `abstract` CelCashServiceContract
 
@@ -24,7 +24,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:57](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L57)
+[packages/core/src/service.ts:57](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L57)
 
 ## Properties
 
@@ -34,7 +34,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:51](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L51)
+[packages/core/src/service.ts:51](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L51)
 
 ***
 
@@ -44,7 +44,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:53](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L53)
+[packages/core/src/service.ts:53](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L53)
 
 ***
 
@@ -54,7 +54,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:52](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L52)
+[packages/core/src/service.ts:52](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L52)
 
 ***
 
@@ -64,7 +64,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:55](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L55)
+[packages/core/src/service.ts:55](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L55)
 
 ***
 
@@ -82,7 +82,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:46](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L46)
+[packages/core/src/service.ts:46](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L46)
 
 ## Accessors
 
@@ -96,7 +96,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:92](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L92)
+[packages/core/src/service.ts:92](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L92)
 
 ***
 
@@ -110,7 +110,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:96](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L96)
+[packages/core/src/service.ts:96](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L96)
 
 ***
 
@@ -124,7 +124,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:104](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L104)
+[packages/core/src/service.ts:104](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L104)
 
 ***
 
@@ -138,7 +138,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:100](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L100)
+[packages/core/src/service.ts:100](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L100)
 
 ***
 
@@ -152,7 +152,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:108](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L108)
+[packages/core/src/service.ts:108](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L108)
 
 ***
 
@@ -166,7 +166,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:132](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L132)
+[packages/core/src/service.ts:132](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L132)
 
 ***
 
@@ -180,7 +180,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:112](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L112)
+[packages/core/src/service.ts:112](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L112)
 
 ***
 
@@ -194,7 +194,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:128](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L128)
+[packages/core/src/service.ts:128](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L128)
 
 ***
 
@@ -208,7 +208,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:136](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L136)
+[packages/core/src/service.ts:136](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L136)
 
 ***
 
@@ -222,7 +222,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:120](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L120)
+[packages/core/src/service.ts:120](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L120)
 
 ***
 
@@ -236,7 +236,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:116](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L116)
+[packages/core/src/service.ts:116](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L116)
 
 ## Methods
 
@@ -250,7 +250,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:140](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L140)
+[packages/core/src/service.ts:140](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L140)
 
 ***
 
@@ -264,7 +264,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:86](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L86)
+[packages/core/src/service.ts:86](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L86)
 
 ***
 
@@ -284,4 +284,4 @@
 
 #### Source
 
-[packages/core/src/service.ts:87](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/core/src/service.ts#L87)
+[packages/core/src/service.ts:87](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/service.ts#L87)

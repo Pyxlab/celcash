@@ -1,8 +1,8 @@
-**Packages Example** • **Docs**
+**CelCash** • **Docs**
 
 ***
 
-# Packages Example
+# CelCash
 
 ## Packages
 

@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../README.md) / @cel\_cash/nestjs
+[CelCash](../../README.md) / @cel\_cash/nestjs
 
 # @cel_cash/nestjs
 

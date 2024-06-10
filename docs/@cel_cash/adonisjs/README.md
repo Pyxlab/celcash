@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../README.md) / @cel\_cash/adonisjs
+[CelCash](../../README.md) / @cel\_cash/adonisjs
 
 # @cel_cash/adonisjs
 

@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../../README.md) / [@cel\_cash/adonisjs](../../README.md) / [index](../README.md) / defineConfig
+[CelCash](../../../../README.md) / [@cel\_cash/adonisjs](../../README.md) / [index](../README.md) / defineConfig
 
 # Function: defineConfig()
 
@@ -20,4 +20,4 @@ Define lock configuration
 
 ## Source
 
-[adonis/src/define\_config.ts:14](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/src/define_config.ts#L14)
+[adonis/src/define\_config.ts:14](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/define_config.ts#L14)

@@ -2,7 +2,7 @@
 
 ***
 
-[Packages Example](../../../../../README.md) / [@cel\_cash/adonisjs](../../../README.md) / [providers/cel\_cash\_provider](../README.md) / CelCashProvider
+[CelCash](../../../../../README.md) / [@cel\_cash/adonisjs](../../../README.md) / [providers/cel\_cash\_provider](../README.md) / CelCashProvider
 
 # Class: CelCashProvider
 
@@ -22,7 +22,7 @@
 
 #### Source
 
-[adonis/providers/cel\_cash\_provider.ts:21](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/providers/cel_cash_provider.ts#L21)
+[adonis/providers/cel\_cash\_provider.ts:21](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/providers/cel_cash_provider.ts#L21)
 
 ## Properties
 
@@ -32,7 +32,7 @@
 
 #### Source
 
-[adonis/providers/cel\_cash\_provider.ts:21](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/providers/cel_cash_provider.ts#L21)
+[adonis/providers/cel\_cash\_provider.ts:21](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/providers/cel_cash_provider.ts#L21)
 
 ## Methods
 
@@ -46,4 +46,4 @@
 
 #### Source
 
-[adonis/providers/cel\_cash\_provider.ts:23](https://github.com/Pyxlab/celcash/blob/a34e89ae69c9dcb41ba66226cb05c8c8b83b7cf4/packages/adonis/providers/cel_cash_provider.ts#L23)
+[adonis/providers/cel\_cash\_provider.ts:23](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/providers/cel_cash_provider.ts#L23)
