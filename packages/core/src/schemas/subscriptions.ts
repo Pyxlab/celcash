@@ -87,7 +87,7 @@ export const listSubscriptionsParamsSchema = z.object({
     createdAtOrUpdatedAtTo: z.string().datetime().optional(),
     status: subscriptionStatusSchema.optional(),
     startAt: z.number().int(),
-    limit: z.number().int(),
+    limit: z.coerce.number().min(0).max(100),
     order: z
         .enum([
             'createdAt.asc',

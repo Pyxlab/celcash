@@ -19,7 +19,7 @@ export const listPlansParamsSchema = z.object({
     createdAtOrUpdatedAtTo: z.string().datetime().optional(),
     status: z.enum(['active', 'inactive']).optional(),
     startAt: z.number().int(),
-    limit: z.number().int(),
+    limit: z.coerce.number().min(0).max(100),
     order: z
         .enum([
             'createdAt.asc',

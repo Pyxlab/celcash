@@ -63,7 +63,7 @@ export const listCustomersParamsSchema = z.object({
     status: z
         .enum(['active', 'delayed', 'inactive', 'withoutSubscriptionOrCharge'])
         .optional(),
-    limit: z.number(),
+    limit: z.coerce.number().min(0).max(100),
     order: z
         .enum([
             'createdAt.asc',

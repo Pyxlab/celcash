@@ -147,11 +147,11 @@ export const listChargesParamsSchema = z.object({
         .int()
         .describe('Ponteiro inicial para trazer os registros.')
         .min(0),
-    limit: z
+    limit: z.coerce
         .number()
-        .int()
-        .describe('Qtd máxima de registros para trazer.')
-        .min(1),
+        .min(0)
+        .max(100)
+        .describe('Qtd máxima de registros para trazer.'),
     order: z
         .enum([
             'createdAt.asc',

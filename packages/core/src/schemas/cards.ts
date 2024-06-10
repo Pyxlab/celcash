@@ -27,7 +27,7 @@ export const listCardsParamsSchema = z.object({
         .optional()
         .transform(transformArrayToString),
     startAt: z.number().int(),
-    limit: z.number().int(),
+    limit: z.coerce.number().min(0).max(100),
     order: z.enum(['createdAt.asc', 'createdAt.desc']).optional(),
 })
 

@@ -155,7 +155,11 @@ export const listTransactionsParamsSchema = z.object({
         .number()
         .int()
         .describe('Ponteiro inicial para trazer os registros.'),
-    limit: z.number().int().describe('Qtd máxima de registros para trazer.'),
+    limit: z.coerce
+        .number()
+        .min(0)
+        .max(100)
+        .describe('Qtd máxima de registros para trazer.'),
     order: z
         .enum(['createdAt.asc', 'createdAt.desc', 'payday.asc', 'payday.desc'])
         .optional()
