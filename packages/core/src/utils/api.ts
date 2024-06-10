@@ -51,7 +51,11 @@ export const api = async (
         const validation = args.route.query.safeParse(
             Object.fromEntries(
                 Object.entries(args.rawQuery || {}).filter(([_, v]) =>
-                    Boolean(v),
+                    typeof v === 'string'
+                        ? v.length > 0
+                        : typeof v === 'undefined'
+                          ? false
+                          : true,
                 ),
             ),
         )
