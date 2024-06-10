@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform'
-import { orderSchema, periodicitySchema } from './_/common'
+import { periodicitySchema } from './_/common'
 
 export const planStatusSchema = z.enum(['active', 'inactive'])
 
@@ -20,7 +20,14 @@ export const listPlansParamsSchema = z.object({
     status: z.enum(['active', 'inactive']).optional(),
     startAt: z.number().int(),
     limit: z.number().int(),
-    order: orderSchema.optional(),
+    order: z
+        .enum([
+            'createdAt.asc',
+            'createdAt.desc',
+            'updatedAt.asc',
+            'updatedAt.desc',
+        ])
+        .optional(),
 })
 
 export const planPricesSchema = z.object({

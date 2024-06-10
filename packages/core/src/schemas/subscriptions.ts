@@ -1,10 +1,6 @@
 import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform'
-import {
-    mainPaymentMethodIdSchema,
-    orderSchema,
-    periodicitySchema,
-} from './_/common'
+import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
 import {
     antifraudSchema,
     boletoSchema,
@@ -92,7 +88,14 @@ export const listSubscriptionsParamsSchema = z.object({
     status: subscriptionStatusSchema.optional(),
     startAt: z.number().int(),
     limit: z.number().int(),
-    order: orderSchema.optional(),
+    order: z
+        .enum([
+            'createdAt.asc',
+            'createdAt.desc',
+            'updatedAt.asc',
+            'updatedAt.desc',
+        ])
+        .optional(),
 })
 
 export type ListSubscriptionsParams = z.input<

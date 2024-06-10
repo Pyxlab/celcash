@@ -1,6 +1,5 @@
 import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform'
-import { orderSchema } from './_/common'
 
 export const cardStatusSchema = z.enum(['active', 'inactive'])
 
@@ -29,7 +28,7 @@ export const listCardsParamsSchema = z.object({
         .transform(transformArrayToString),
     startAt: z.number().int(),
     limit: z.number().int(),
-    order: orderSchema.optional(),
+    order: z.enum(['createdAt.asc', 'createdAt.desc']).optional(),
 })
 
 export type ListCardsParams = z.input<typeof listCardsParamsSchema>

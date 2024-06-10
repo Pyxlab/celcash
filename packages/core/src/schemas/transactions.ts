@@ -2,7 +2,6 @@ import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform'
 import {
     mainPaymentMethodIdSchema,
-    orderSchema,
     periodicitySchema,
 } from './_/common'
 import {
@@ -160,7 +159,10 @@ export const listTransactionsParamsSchema = z.object({
         .int()
         .describe('Ponteiro inicial para trazer os registros.'),
     limit: z.number().int().describe('Qtd máxima de registros para trazer.'),
-    order: orderSchema.optional().describe(`Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem
+    order: z
+        .enum(['createdAt.asc', 'createdAt.desc', 'payday.asc', 'payday.desc'])
+        .optional()
+        .describe(`Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem
 Caso queira passar mais de uma ordenação, separar por vírgula: campoDaEntidade.tipoDeOrdem, campoDaEntidade2.tipoDeOrd`),
 })
 

@@ -1,6 +1,5 @@
 import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform'
-import { orderSchema } from './_/common'
 import { addressSchema } from './common'
 
 export const statusCustomerSchema = z.enum([
@@ -65,7 +64,14 @@ export const listCustomersParamsSchema = z.object({
         .enum(['active', 'delayed', 'inactive', 'withoutSubscriptionOrCharge'])
         .optional(),
     limit: z.number(),
-    order: orderSchema.optional(),
+    order: z
+        .enum([
+            'createdAt.asc',
+            'createdAt.desc',
+            'updatedAt.asc',
+            'updatedAt.desc',
+        ])
+        .optional(),
 })
 
 export type ListCustomersParams = z.input<typeof listCustomersParamsSchema>

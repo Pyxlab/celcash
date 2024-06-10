@@ -153,7 +153,12 @@ export const listChargesParamsSchema = z.object({
         .describe('Qtd máxima de registros para trazer.')
         .min(1),
     order: z
-        .string()
+        .enum([
+            'createdAt.asc',
+            'createdAt.desc',
+            'updatedAt.asc',
+            'updatedAt.desc',
+        ])
         .optional()
         .describe(
             'Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem. Caso queira passar mais de uma ordenação, separar por vírgula: campoDaEntidade.tipoDeOrdem, campoDaEntidade2.tipoDeOrdem',
