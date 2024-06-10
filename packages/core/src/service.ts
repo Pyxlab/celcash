@@ -26,14 +26,14 @@ import type {
     Transactions,
     Transfer,
 } from './contract'
-import { Configure, api, basicAuthorization } from './utils'
+import { Configure, celCashRestFetchApi, basicAuthorization } from './utils'
 
-interface Logger {
+export interface loggingInterface {
     debug: (message: string) => void
     error: (message: string) => void
 }
 
-interface CelCashServiceConfig {
+export interface CelCashServiceConfig {
     baseUrl: string
     api: (args: ApiFetcherArgs) => Promise<{
         status: number
@@ -54,7 +54,7 @@ export abstract class CelCashServiceContract {
 
     readonly #config: CelCashServiceConfig
 
-    constructor(config: Configure, logger: Logger) {
+    constructor(config: Configure, logger: loggingInterface) {
         this.#cel_cash_base_url = config.BASE_URL
         this.#cel_cash_id = config.ID
         this.#cel_cash_hash = config.HASH
@@ -72,7 +72,7 @@ export abstract class CelCashServiceContract {
                 logger.debug(`Requesting ${args.path}`)
 
                 try {
-                    const response = await api(args)
+                    const response = await celCashRestFetchApi(args)
                     logger.debug(`Response ${args.path}`)
                     return response
                 } catch (error) {
@@ -144,7 +144,7 @@ export abstract class CelCashServiceContract {
             const client = initClient(auth, {
                 baseUrl: this.#cel_cash_base_url,
                 baseHeaders: {},
-                api,
+                api: celCashRestFetchApi,
             })
 
             const authorization = basicAuthorization({

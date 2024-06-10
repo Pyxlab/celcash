@@ -51,7 +51,7 @@ import {
     transactionStatusSchema,
     transactionsSchema,
 } from './schemas/transactions'
-import { api } from './utils'
+import { celCashRestFetchApi } from './utils'
 
 export type Antecipation = z.infer<typeof antecipationSchema>
 export type Releases = z.infer<typeof releasesSchema>
@@ -114,6 +114,6 @@ export type Client<T extends AppRouter> = InitClientReturn<
     T,
     {
         baseUrl: string
-        api: typeof api
+        api: typeof celCashRestFetchApi
     }
 >

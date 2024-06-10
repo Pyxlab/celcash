@@ -3,16 +3,16 @@ import { ZodEffects, ZodObject } from 'zod'
 
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH'
 
-export const api = async (
-    args: ApiFetcherArgs,
+export async function celCashRestFetchApi(
+    args: ApiFetcherArgs
 ): Promise<{
-    status: number
-    body: unknown
-    headers: Headers
-    path: string
-    method: Method
-}> => {
-    const path = new URL(args.path)
+    status: number;
+    body: unknown;
+    headers: Headers;
+    path: string;
+    method: Method;
+}> {
+    const path = new URL(args.path);
 
     if (
         ('body' in args.route &&

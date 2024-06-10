@@ -1,12 +1,12 @@
 import { initClient } from '@ts-rest/core'
-import { api } from '../../utils/api'
+import { celCashRestFetchApi } from '../../utils/api'
 import { basicAuthorization } from '../../utils/basic'
 import { auth } from '../auth'
 
 export async function authenticate() {
     const client = initClient(auth, {
         baseUrl: 'https://api.sandbox.cel.cash/v2',
-        api,
+        api: celCashRestFetchApi,
         baseHeaders: {},
     })
 

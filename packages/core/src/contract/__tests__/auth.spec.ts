@@ -1,13 +1,13 @@
 import { initClient } from '@ts-rest/core'
 import { describe, it } from 'vitest'
-import { api } from '../../utils/api'
+import { celCashRestFetchApi } from '../../utils/api'
 import { basicAuthorization } from '../../utils/basic'
 import { auth } from '../auth'
 
 describe.concurrent('auth', () => {
     const client = initClient(auth, {
         baseUrl: 'https://api.sandbox.cel.cash/v2',
-        api,
+        api: celCashRestFetchApi,
     })
 
     const authorization = basicAuthorization({

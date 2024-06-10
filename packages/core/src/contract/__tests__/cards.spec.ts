@@ -1,6 +1,6 @@
 import { initClient } from '@ts-rest/core'
 import { beforeEach, describe, it } from 'vitest'
-import { api } from '../../utils/api'
+import { celCashRestFetchApi } from '../../utils/api'
 import { cards } from '../cards'
 import { authenticate } from './_utils'
 
@@ -15,7 +15,7 @@ describe.concurrent('Cards', () => {
     const client = initClient(cards, {
         baseUrl: 'https://api.sandbox.cel.cash/v2',
         api: args =>
-            api({
+            celCashRestFetchApi({
                 ...args,
                 headers: {
                     ...args.headers,

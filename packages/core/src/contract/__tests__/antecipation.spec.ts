@@ -1,6 +1,6 @@
 import { initClient } from '@ts-rest/core'
 import { beforeEach, describe, it } from 'vitest'
-import { api } from '../../utils/api'
+import { celCashRestFetchApi } from '../../utils/api'
 import { antecipation } from '../antecipation'
 import { authenticate } from './_utils'
 
@@ -15,7 +15,7 @@ describe('Antecipation', () => {
     const client = initClient(antecipation, {
         baseUrl: 'https://api.sandbox.cel.cash/v2',
         api: args =>
-            api({
+            celCashRestFetchApi({
                 ...args,
                 headers: {
                     ...args.headers,

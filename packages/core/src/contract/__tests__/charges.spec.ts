@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto'
 import { initClient } from '@ts-rest/core'
 import { beforeEach, describe, it } from 'vitest'
 import { Client } from '../../types'
-import { api } from '../../utils/api'
+import { celCashRestFetchApi } from '../../utils/api'
 import { charges } from '../charges'
 import { authenticate } from './_utils'
 
@@ -14,7 +14,7 @@ beforeEach(async () => {
     client = initClient(charges, {
         baseUrl: 'https://api.sandbox.cel.cash/v2',
         api: args =>
-            api({
+            celCashRestFetchApi({
                 ...args,
                 headers: {
                     ...args.headers,
