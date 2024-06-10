@@ -14,7 +14,7 @@ export interface CelCashConfig {
   /**
    * The API key to use for requests
    */
-  id: string
+  id: string | number
 
   /**
    * The API secret to use for requests
