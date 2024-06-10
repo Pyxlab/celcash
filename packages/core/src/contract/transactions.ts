@@ -17,7 +17,7 @@ export const transactions = c.router(
         list: {
             method: 'GET',
             path: '/',
-            pathParams: listTransactionsParamsSchema,
+            query: listTransactionsParamsSchema,
             responses: {
                 200: listTransactionsResponseSchema,
             },
