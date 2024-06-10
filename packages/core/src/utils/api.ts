@@ -48,7 +48,13 @@ export const api = async (
         (!!args.route.query && args.route.query instanceof ZodObject) ||
         (!!args.route.query && args.route.query instanceof ZodEffects)
     ) {
-        const validation = args.route.query.safeParse(args.rawQuery)
+        const validation = args.route.query.safeParse(
+            Object.fromEntries(
+                Object.entries(args.rawQuery || {}).filter(([_, v]) =>
+                    Boolean(v),
+                ),
+            ),
+        )
 
         if (validation.success) {
             const searchParams = new URLSearchParams(
