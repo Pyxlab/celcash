@@ -1,11 +1,18 @@
 import { z } from 'zod'
-import { periodicitySchema } from './_/common'
+import { transformArrayToString } from '../utils/transform'
+import { orderSchema, periodicitySchema } from './_/common'
 
 export const planStatusSchema = z.enum(['active', 'inactive'])
 
 export const listPlansParamsSchema = z.object({
-    myIds: z.union([z.array(z.string()), z.string()]).optional(),
-    galaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
+    myIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    galaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),
     createdAtTo: z.string().datetime().optional(),
     createdAtOrUpdatedAtFrom: z.string().datetime().optional(),
@@ -13,14 +20,7 @@ export const listPlansParamsSchema = z.object({
     status: z.enum(['active', 'inactive']).optional(),
     startAt: z.number().int(),
     limit: z.number().int(),
-    order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'updatedAt.asc',
-            'updatedAt.desc',
-        ])
-        .optional(),
+    order: orderSchema.optional(),
 })
 
 export const planPricesSchema = z.object({

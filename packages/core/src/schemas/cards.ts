@@ -1,18 +1,35 @@
 import { z } from 'zod'
+import { transformArrayToString } from '../utils/transform'
+import { orderSchema } from './_/common'
 
 export const cardStatusSchema = z.enum(['active', 'inactive'])
 
 export const listCardsParamsSchema = z.object({
-    myIds: z.union([z.array(z.string()), z.string()]).optional(),
-    galaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
-    customerMyIds: z.union([z.array(z.string()), z.string()]).optional(),
-    customerGalaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
+    myIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    galaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    customerMyIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    customerGalaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),
     createdAtTo: z.string().datetime().optional(),
-    status: cardStatusSchema,
+    status: z
+        .union([z.array(cardStatusSchema), cardStatusSchema])
+        .optional()
+        .transform(transformArrayToString),
     startAt: z.number().int(),
     limit: z.number().int(),
-    order: z.enum(['createdAt.asc', 'createdAt.desc']).optional(),
+    order: orderSchema.optional(),
 })
 
 export type ListCardsParams = z.infer<typeof listCardsParamsSchema>

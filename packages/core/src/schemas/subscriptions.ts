@@ -1,5 +1,10 @@
 import { z } from 'zod'
-import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
+import { transformArrayToString } from '../utils/transform'
+import {
+    mainPaymentMethodIdSchema,
+    orderSchema,
+    periodicitySchema,
+} from './_/common'
 import {
     antifraudSchema,
     boletoSchema,
@@ -56,12 +61,30 @@ const transactionsSchema = z.object({
 })
 
 export const listSubscriptionsParamsSchema = z.object({
-    myIds: z.union([z.array(z.string()), z.string()]).optional(),
-    galaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
-    customerMyIds: z.union([z.array(z.string()), z.string()]).optional(),
-    customerGalaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
-    planMyIds: z.union([z.array(z.string()), z.string()]).optional(),
-    planGalaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
+    myIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    galaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    customerMyIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    customerGalaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    planMyIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    planGalaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),
     createdAtTo: z.string().datetime().optional(),
     createdAtOrUpdatedAtFrom: z.string().datetime().optional(),
@@ -69,14 +92,7 @@ export const listSubscriptionsParamsSchema = z.object({
     status: subscriptionStatusSchema.optional(),
     startAt: z.number().int(),
     limit: z.number().int(),
-    order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'updatedAt.asc',
-            'updatedAt.desc',
-        ])
-        .optional(),
+    order: orderSchema.optional(),
 })
 
 export type ListSubscriptionsParams = z.infer<

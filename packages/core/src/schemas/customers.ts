@@ -1,4 +1,6 @@
 import { z } from 'zod'
+import { transformArrayToString } from '../utils/transform'
+import { orderSchema } from './_/common'
 import { addressSchema } from './common'
 
 export const statusCustomerSchema = z.enum([
@@ -38,27 +40,32 @@ export type CreateCustomerResponse = z.infer<
 >
 
 export const listCustomersParamsSchema = z.object({
-    documents: z.union([z.array(z.string()), z.string()]).optional(),
-    emails: z.union([z.array(z.string()), z.string()]).optional(),
+    documents: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    emails: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),
     createdAtTo: z.string().datetime().optional(),
     createdOrUpdatedFrom: z.string().datetime().optional(),
     createdOrUpdatedTo: z.string().datetime().optional(),
-    myIds: z.union([z.array(z.string()), z.string()]).optional(),
-    galaxPayIds: z.union([z.array(z.string()), z.string()]).optional(),
+    myIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
+    galaxPayIds: z
+        .union([z.array(z.string()), z.string()])
+        .optional()
+        .transform(transformArrayToString),
     startAt: z.number().optional(),
     status: z
         .enum(['active', 'delayed', 'inactive', 'withoutSubscriptionOrCharge'])
         .optional(),
     limit: z.number(),
-    order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'updatedAt.asc',
-            'updatedAt.desc',
-        ])
-        .optional(),
+    order: orderSchema.optional(),
 })
 
 export type ListCustomersParams = z.infer<typeof listCustomersParamsSchema>

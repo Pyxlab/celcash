@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { transformArrayToString } from '../utils/transform'
 
 export const antecipationSchema = z.object({
     galaxPayId: z.number().int().describe('Id cel_cash da empresa'),
@@ -72,7 +73,8 @@ export const simulatarAntecipacaoBodySchema = z.object({
         ),
     transactionGalaxPayIds: z
         .array(z.number().int())
-        .describe('Transações desejadas para antecipar.'),
+        .describe('Transações desejadas para antecipar.')
+        .transform(transformArrayToString),
     brands: z
         .array(
             z.enum([
@@ -84,10 +86,10 @@ export const simulatarAntecipacaoBodySchema = z.object({
                 'visa',
             ]),
         )
-        .transform(value => value.join(','))
         .describe(
             'Bandeira do cartão. Informe apenas bandeiras e separe cada um por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
 })
 
 export const releasesSchema = z.object({

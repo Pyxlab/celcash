@@ -1,5 +1,10 @@
 import { z } from 'zod'
-import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
+import { transformArrayToString } from '../utils/transform'
+import {
+    mainPaymentMethodIdSchema,
+    orderSchema,
+    periodicitySchema,
+} from './_/common'
 import {
     antifraudSchema,
     boletoSchema,
@@ -73,43 +78,48 @@ export const listTransactionsParamsSchema = z.object({
         .optional()
         .describe(
             'Ids das transações no seu sistema. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     galaxPayIds: z
         .union([z.array(z.number().int()), z.number().int()])
         .optional()
-        .describe(
-            'Ids das transações no cel_cash. Separe cada id por vírgula.',
-        ),
+        .describe('Ids das transações no cel_cash. Separe cada id por vírgula.')
+        .transform(transformArrayToString),
     subscriptionGalaxPayIds: z
         .union([z.array(z.string()), z.string()])
         .optional()
         .describe(
             'Subscription.galaxPayId. Id da assinatura no cel_cash. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     chargeMyIds: z
         .union([z.array(z.string()), z.string()])
         .optional()
         .describe(
             'Charge.myId. Id da cobrança no seu sistema. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     customerMyIds: z
         .union([z.array(z.string()), z.string()])
         .optional()
         .describe(
             'Customer.myId. Id do cliente no seu sistema. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     customerGalaxPayIds: z
         .union([z.array(z.number().int()), z.number().int()])
         .optional()
         .describe(
             'Customer.galaxPayId. Id do cliente no cel_cash. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     chargeGalaxPayIds: z
         .union([z.array(z.number().int()), z.number().int()])
         .optional()
         .describe(
             'Charge.galaxPayId. Id da cobrança no cel_cash. Separe cada id por vírgula.',
-        ),
+        )
+        .transform(transformArrayToString),
     createdAtFrom: z
         .string()
         .datetime()
@@ -143,24 +153,14 @@ export const listTransactionsParamsSchema = z.object({
     status: z
         .union([transactionStatusSchema, z.array(transactionStatusSchema)])
         .optional()
-        .describe('Status da transação. Separe cada status por vírgula.'),
+        .describe('Status da transação. Separe cada status por vírgula.')
+        .transform(transformArrayToString),
     startAt: z
         .number()
         .int()
         .describe('Ponteiro inicial para trazer os registros.'),
     limit: z.number().int().describe('Qtd máxima de registros para trazer.'),
-    order: z
-        .union([
-            z.string(),
-            z.enum([
-                'createdAt.asc',
-                'createdAt.desc',
-                'payday.asc',
-                'payday.desc',
-            ]),
-        ])
-        .optional()
-        .describe(`Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem
+    order: orderSchema.optional().describe(`Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem
 Caso queira passar mais de uma ordenação, separar por vírgula: campoDaEntidade.tipoDeOrdem, campoDaEntidade2.tipoDeOrd`),
 })
 
