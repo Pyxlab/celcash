@@ -38,7 +38,23 @@
     "version": "npm run build",
     "prepublishOnly": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "adonisjs",
+    "celcash",
+    "client",
+    "sdk",
+    "api",
+    "typescript"
+  ],
+  "homepage": "https://github.com/Pyxlab/celcash/tree/main/packages/adonis#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pyxlab/celcash.git",
+    "directory": "packages/adonis"
+  },
+  "bugs": {
+    "url": "https://github.com/Pyxlab/celcash/issues"
+  },
   "author": "Walaff Fernandes",
   "license": "MIT",
   "devDependencies": {
