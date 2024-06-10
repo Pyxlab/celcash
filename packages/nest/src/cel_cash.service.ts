@@ -47,8 +47,10 @@ export class CelCashService
         value: string,
         expiresIn: number,
     ): Promise<void> {
-        await this.cacheManage.set(CelCashService.CACHE.ACCESS_TOKEN, value, {
-            ttl: expiresIn,
-        })
+        await this.cacheManage.set(
+            CelCashService.CACHE.ACCESS_TOKEN,
+            value,
+            expiresIn * 1000,
+        )
     }
 }
