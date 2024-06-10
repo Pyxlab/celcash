@@ -1,0 +1,17 @@
+{
+    "files": [],
+    "references": [
+        {
+            "path": "./packages/adonis"
+        },
+        {
+            "path": "./packages/client"
+        },
+        {
+            "path": "./packages/core"
+        },
+        {
+            "path": "./packages/nest"
+        },
+    ]
+}

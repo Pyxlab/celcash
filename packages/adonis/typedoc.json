@@ -1,0 +1,9 @@
+{
+  "extends": ["../../typedoc.base.json"],
+  "entryPoints": [
+    "./index.ts",
+    "./src/types.ts",
+    "./providers/cel_cash_provider.ts",
+    "./services/main.ts",
+  ]
+}

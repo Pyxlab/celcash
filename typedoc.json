@@ -1,0 +1,14 @@
+{
+    "entryPoints": [
+        "packages/*"
+    ],
+    "name": "Packages Example",
+    "entryPointStrategy": "packages",
+    "includeVersion": false,
+    "out": "docs",
+    "plugin": [
+        "typedoc-plugin-rename-defaults",
+        "typedoc-plugin-zod",
+        "typedoc-plugin-markdown"
+    ]
+}
