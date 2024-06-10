@@ -22,7 +22,7 @@ export const api = async (
             args.route.body !== undefined &&
             args.route.body instanceof ZodEffects)
     ) {
-        const validation = args.route.body.safeParse(args.rawBody)
+        const validation = args.route.body.safeParse(args.rawBody || {})
 
         if (validation.success) {
             args.body = JSON.stringify(validation.data)
