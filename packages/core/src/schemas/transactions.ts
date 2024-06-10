@@ -1,9 +1,6 @@
 import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform'
-import {
-    mainPaymentMethodIdSchema,
-    periodicitySchema,
-} from './_/common'
+import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
 import {
     antifraudSchema,
     boletoSchema,
