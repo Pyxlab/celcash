@@ -21,7 +21,7 @@ export const createCustomerBodySchema = z.object({
     Address: addressSchema,
 })
 
-export type CreateCustomerBody = z.infer<typeof createCustomerBodySchema>
+export type CreateCustomerBody = z.input<typeof createCustomerBodySchema>
 
 export const customerSchema = createCustomerBodySchema.extend({
     galaPayId: z.number().int(),
@@ -35,7 +35,7 @@ export const createCustomerResponseSchema = z.object({
     Customer: customerSchema,
 })
 
-export type CreateCustomerResponse = z.infer<
+export type CreateCustomerResponse = z.input<
     typeof createCustomerResponseSchema
 >
 
@@ -57,7 +57,7 @@ export const listCustomersParamsSchema = z.object({
         .optional()
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.number()), z.number()])
         .optional()
         .transform(transformArrayToString),
     startAt: z.number().optional(),
@@ -68,11 +68,11 @@ export const listCustomersParamsSchema = z.object({
     order: orderSchema.optional(),
 })
 
-export type ListCustomersParams = z.infer<typeof listCustomersParamsSchema>
+export type ListCustomersParams = z.input<typeof listCustomersParamsSchema>
 
 export const listCustomersResponseSchema = z.object({
     totalQtdFoundInPage: z.number().int(),
     Customers: z.array(customerSchema),
 })
 
-export type ListCustomersResponse = z.infer<typeof listCustomersResponseSchema>
+export type ListCustomersResponse = z.input<typeof listCustomersResponseSchema>

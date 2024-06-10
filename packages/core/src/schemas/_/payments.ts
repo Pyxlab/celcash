@@ -5,7 +5,7 @@ export const createAntifraudSchema = z.object({
     sessionId: z.string(),
 })
 
-export type CreateAntifraud = z.infer<typeof createAntifraudSchema>
+export type CreateAntifraud = z.input<typeof createAntifraudSchema>
 
 export const antifraudSchema = createAntifraudSchema.extend({
     sent: z.boolean(),

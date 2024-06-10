@@ -101,7 +101,7 @@ export const listChargesParamsSchema = z.object({
         )
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.number()), z.number()])
         .optional()
         .describe(
             'Ids da cobrança avulsa no cel_cash. Separe cada id por vírgula.',
@@ -115,7 +115,7 @@ export const listChargesParamsSchema = z.object({
         )
         .transform(transformArrayToString),
     customerGalaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.number()), z.number()])
         .optional()
         .describe(
             'Customer.galaxPayId. Id do cliente no cel_cash. Separe cada id por vírgula.',
@@ -160,7 +160,7 @@ export const listChargesParamsSchema = z.object({
         ),
 })
 
-export type ListChargesParams = z.infer<typeof listChargesParamsSchema>
+export type ListChargesParams = z.input<typeof listChargesParamsSchema>
 
 export const chargesSchema = z.object({
     galaxPayId: z.string(),
@@ -189,7 +189,7 @@ export const listChargesResponseSchema = z.object({
     Charges: z.array(chargesSchema),
 })
 
-export type ListChargesResponse = z.infer<typeof listChargesResponseSchema>
+export type ListChargesResponse = z.input<typeof listChargesResponseSchema>
 
 export const createChargeBodySchema = z.object({
     myId: z
@@ -221,14 +221,14 @@ export const createChargeBodySchema = z.object({
     PaymentMethodPix: paymentMethodPixSchema.optional(),
 })
 
-export type CreateChargeBody = z.infer<typeof createChargeBodySchema>
+export type CreateChargeBody = z.input<typeof createChargeBodySchema>
 
 export const createChargeResponseSchema = z.object({
     type: z.boolean(),
     Charge: chargesSchema,
 })
 
-export type CreateChargeResponse = z.infer<typeof createChargeResponseSchema>
+export type CreateChargeResponse = z.input<typeof createChargeResponseSchema>
 
 export const updateChargeBodySchema = z.object({
     myId: z
@@ -260,4 +260,4 @@ export const updateChargeBodySchema = z.object({
         .describe('Plan.galaxPayId: Id do plano no cel_cash.'),
 })
 
-export type UpdateChargeBody = z.infer<typeof updateChargeBodySchema>
+export type UpdateChargeBody = z.input<typeof updateChargeBodySchema>

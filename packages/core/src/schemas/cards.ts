@@ -10,7 +10,7 @@ export const listCardsParamsSchema = z.object({
         .optional()
         .transform(transformArrayToString),
     galaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.number()), z.number()])
         .optional()
         .transform(transformArrayToString),
     customerMyIds: z
@@ -18,7 +18,7 @@ export const listCardsParamsSchema = z.object({
         .optional()
         .transform(transformArrayToString),
     customerGalaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.number()), z.number()])
         .optional()
         .transform(transformArrayToString),
     createdAtFrom: z.string().datetime().optional(),
@@ -32,7 +32,7 @@ export const listCardsParamsSchema = z.object({
     order: orderSchema.optional(),
 })
 
-export type ListCardsParams = z.infer<typeof listCardsParamsSchema>
+export type ListCardsParams = z.input<typeof listCardsParamsSchema>
 
 export const brandSchema = z.object({
     id: z.string(),
@@ -49,7 +49,7 @@ export const createCardBodySchema = z.object({
     cvv: z.string().min(3).max(4),
 })
 
-export type CreateCardBody = z.infer<typeof createCardBodySchema>
+export type CreateCardBody = z.input<typeof createCardBodySchema>
 
 export const cardSchema = createCardBodySchema.extend({
     galaxPayId: z.number().int(),
@@ -65,11 +65,11 @@ export const createCardResponseSchema = z.object({
     Card: cardSchema,
 })
 
-export type CreateCardResponse = z.infer<typeof createCardResponseSchema>
+export type CreateCardResponse = z.input<typeof createCardResponseSchema>
 
 export const listCardsResponseSchema = z.object({
     totalQtdFoundInPage: z.number().int(),
     Cards: z.array(cardSchema),
 })
 
-export type ListCardsResponse = z.infer<typeof listCardsResponseSchema>
+export type ListCardsResponse = z.input<typeof listCardsResponseSchema>

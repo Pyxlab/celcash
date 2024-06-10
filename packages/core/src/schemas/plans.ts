@@ -28,9 +28,9 @@ export const planPricesSchema = z.object({
     value: z.number().int(),
 })
 
-export type PlanPrices = z.infer<typeof planPricesSchema>
+export type PlanPrices = z.input<typeof planPricesSchema>
 
-export type ListPlansParams = z.infer<typeof listPlansParamsSchema>
+export type ListPlansParams = z.input<typeof listPlansParamsSchema>
 
 export const createPlanBodySchema = z.object({
     myId: z.string(),
@@ -50,17 +50,17 @@ export const listPlansResponseSchema = z.object({
     Plans: z.array(planSchema),
 })
 
-export type ListPlanResponse = z.infer<typeof listPlansResponseSchema>
+export type ListPlanResponse = z.input<typeof listPlansResponseSchema>
 
 export const createPlanResponseSchema = z.object({
     type: z.boolean(),
     Plan: planSchema,
 })
 
-export type CreatePlanBody = z.infer<typeof createPlanBodySchema>
+export type CreatePlanBody = z.input<typeof createPlanBodySchema>
 
-export type CreatePlanResponse = z.infer<typeof createPlanResponseSchema>
+export type CreatePlanResponse = z.input<typeof createPlanResponseSchema>
 
 export const updatePlanBodySchema = createPlanBodySchema.deepPartial()
 
-export type UpdatePlanBody = z.infer<typeof updatePlanBodySchema>
+export type UpdatePlanBody = z.input<typeof updatePlanBodySchema>

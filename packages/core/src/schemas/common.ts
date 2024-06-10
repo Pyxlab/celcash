@@ -36,7 +36,7 @@ export const authorizationBodySchema = z.object({
     }),
 })
 
-export type AuthorizationBody = z.infer<typeof authorizationBodySchema>
+export type AuthorizationBody = z.input<typeof authorizationBodySchema>
 
 export const authorizationResponseSchema = z.object({
     access_token: z.string(),
@@ -45,7 +45,7 @@ export const authorizationResponseSchema = z.object({
     scope: z.string(),
 })
 
-export type AuthorizationResponse = z.infer<typeof authorizationResponseSchema>
+export type AuthorizationResponse = z.input<typeof authorizationResponseSchema>
 
 export const pixPaymentBodySchema = z.object({
     key: z.string(),
@@ -54,7 +54,7 @@ export const pixPaymentBodySchema = z.object({
     desc: z.string().optional(),
 })
 
-export type PixPaymentBody = z.infer<typeof pixPaymentBodySchema>
+export type PixPaymentBody = z.input<typeof pixPaymentBodySchema>
 
 export const paymentSchema = z.object({
     galaxPayId: z.number().int(),
@@ -72,7 +72,7 @@ export const pixPaymentResponseSchema = z.object({
     Payment: paymentSchema,
 })
 
-export type PixPaymentResponse = z.infer<typeof pixPaymentResponseSchema>
+export type PixPaymentResponse = z.input<typeof pixPaymentResponseSchema>
 
 export const transferInternalBodySchema = z.object({
     companyAccount: z.number().int(),
@@ -80,13 +80,13 @@ export const transferInternalBodySchema = z.object({
     value: z.number(),
 })
 
-export type TransferInternalBody = z.infer<typeof transferInternalBodySchema>
+export type TransferInternalBody = z.input<typeof transferInternalBodySchema>
 
 export const transferInternalResponseSchema = z.object({
     type: z.boolean(),
 })
 
-export type TransferInternalResponse = z.infer<
+export type TransferInternalResponse = z.input<
     typeof transferInternalResponseSchema
 >
 

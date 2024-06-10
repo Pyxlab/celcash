@@ -95,7 +95,7 @@ export const listSubscriptionsParamsSchema = z.object({
     order: orderSchema.optional(),
 })
 
-export type ListSubscriptionsParams = z.infer<
+export type ListSubscriptionsParams = z.input<
     typeof listSubscriptionsParamsSchema
 >
 
@@ -121,7 +121,7 @@ export const createSubscriptionWithPlanBodySchema = z.object({
     InvoiceConfig: invoiceConfigSchema.optional(),
 })
 
-export type CreateSubscriptionWithPlanBody = z.infer<
+export type CreateSubscriptionWithPlanBody = z.input<
     typeof createSubscriptionWithPlanBodySchema
 >
 
@@ -143,7 +143,7 @@ export const listSubscriptionsResponseSchema = z.object({
     Subscriptions: z.array(subscriptionSchema),
 })
 
-export type ListSubscriptionsResponse = z.infer<
+export type ListSubscriptionsResponse = z.input<
     typeof listSubscriptionsResponseSchema
 >
 
@@ -152,7 +152,7 @@ export const createSubscriptionResponseSchema = z.object({
     Subscription: subscriptionSchema,
 })
 
-export type CreateSubscriptionWithPlanResponse = z.infer<
+export type CreateSubscriptionWithPlanResponse = z.input<
     typeof createSubscriptionResponseSchema
 >
 
@@ -160,13 +160,13 @@ export const cancelSubscriptionResponseSchema = z.object({
     type: z.boolean(),
 })
 
-export type CancelSubscriptionResponse = z.infer<
+export type CancelSubscriptionResponse = z.input<
     typeof cancelSubscriptionResponseSchema
 >
 
 export const emptySchema = z.object({})
 
-export type Empty = z.infer<typeof emptySchema>
+export type Empty = z.input<typeof emptySchema>
 
 export const createSubscriptionWithotPlanBodySchema =
     createSubscriptionWithPlanBodySchema
@@ -180,7 +180,7 @@ export const createSubscriptionWithotPlanBodySchema =
             periodicity: periodicitySchema,
         })
 
-export type CreateSubscriptionWithoutPlanBody = z.infer<
+export type CreateSubscriptionWithoutPlanBody = z.input<
     typeof createSubscriptionWithotPlanBodySchema
 >
 
@@ -191,7 +191,7 @@ export const createSubscriptionManualBodySchema =
         firstPayDayDate: true,
     })
 
-export type CreateSubscriptionManualBody = z.infer<
+export type CreateSubscriptionManualBody = z.input<
     typeof createSubscriptionManualBodySchema
 >
 
@@ -205,7 +205,7 @@ export const updateSubscriptionInfoBodySchema = z.object({
     Split: splitSchema.optional(),
 })
 
-export type UpdateSubscriptionInfoBody = z.infer<
+export type UpdateSubscriptionInfoBody = z.input<
     typeof updateSubscriptionInfoBodySchema
 >
 
@@ -218,6 +218,6 @@ export const updateSubscriptionPaymentBodySchema = z.object({
     Split: splitSchema.optional(),
 })
 
-export type UpdateSubscriptionPaymentBody = z.infer<
+export type UpdateSubscriptionPaymentBody = z.input<
     typeof updateSubscriptionPaymentBodySchema
 >

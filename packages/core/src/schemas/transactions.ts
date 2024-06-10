@@ -86,7 +86,7 @@ export const listTransactionsParamsSchema = z.object({
         .describe('Ids das transações no cel_cash. Separe cada id por vírgula.')
         .transform(transformArrayToString),
     subscriptionGalaxPayIds: z
-        .union([z.array(z.string()), z.string()])
+        .union([z.array(z.number()), z.number()])
         .optional()
         .describe(
             'Subscription.galaxPayId. Id da assinatura no cel_cash. Separe cada id por vírgula.',
@@ -263,7 +263,7 @@ export const createOrUpdateTransactionResponseSchema = z.object({
     Split: splitSchema,
 })
 
-export type CreateOrUpdateTransactionResponse = z.infer<
+export type CreateOrUpdateTransactionResponse = z.input<
     typeof createOrUpdateTransactionResponseSchema
 >
 
@@ -278,7 +278,7 @@ export const updateTransactionBodySchema = createTransactionBodySchema
     .deepPartial()
     .required({ myId: true })
 
-export type UpdateTransactionBody = z.infer<typeof updateTransactionBodySchema>
+export type UpdateTransactionBody = z.input<typeof updateTransactionBodySchema>
 
 export const addTransactionBodySchema = z.object({
     myId: z
