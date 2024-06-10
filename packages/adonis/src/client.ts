@@ -18,7 +18,7 @@ export class CelCashService extends CelCashServiceContract {
   }
 
   protected async setCachedAccessToken(value: string, expiresIn: number): Promise<void> {
-    await this.#redis.set(CelCashService.CACHE.ACCESS_TOKEN, value, 'PX', expiresIn)
+    await this.#redis.set(CelCashService.CACHE.ACCESS_TOKEN, value, 'EX', expiresIn)
   }
 
   constructor(config: ResolvedConfig, logger: LoggerService, redis: RedisService) {
