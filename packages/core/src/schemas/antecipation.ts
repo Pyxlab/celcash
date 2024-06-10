@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { transformArrayToString } from '../utils/transform'
+import { transformArrayToString } from '../utils/transform.js'
 
 export const antecipationSchema = z.object({
     galaxPayId: z.number().int().describe('Id cel_cash da empresa'),

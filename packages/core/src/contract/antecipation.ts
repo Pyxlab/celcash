@@ -7,7 +7,7 @@ import {
     listarAntecipacoesResponseSchema,
     simulatarAntecipacaoBodySchema,
     simulatarAntecipacaoResponseSchema,
-} from '../schemas/antecipation'
+} from '../schemas/antecipation.js'
 
 const c = initContract()
 

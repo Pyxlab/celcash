@@ -6,7 +6,7 @@ import {
     listPlansParamsSchema,
     listPlansResponseSchema,
     updatePlanBodySchema,
-} from '../schemas/plans'
+} from '../schemas/plans.js'
 
 const c = initContract()
 

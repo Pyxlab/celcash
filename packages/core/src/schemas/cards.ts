@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { transformArrayToString } from '../utils/transform'
+import { transformArrayToString } from '../utils/transform.js'
 
 export const cardStatusSchema = z.enum(['active', 'inactive'])
 

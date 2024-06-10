@@ -25,9 +25,9 @@ export type {
     UpdateTransactionBody,
     UpdateSubscriptionInfoBody,
     UpdateSubscriptionPaymentBody,
-} from './schemas'
+} from './schemas/index.js'
 
-export * from './service'
+export * from './service.js'
 
 export const STATUS_PAGO = [
     'captured',

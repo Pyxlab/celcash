@@ -5,7 +5,7 @@ import {
     createCardResponseSchema,
     listCardsParamsSchema,
     listCardsResponseSchema,
-} from '../schemas/cards'
+} from '../schemas/cards.js'
 
 const c = initContract()
 

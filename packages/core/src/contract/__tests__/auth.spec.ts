@@ -1,8 +1,8 @@
 import { initClient } from '@ts-rest/core'
 import { describe, it } from 'vitest'
-import { celCashRestFetchApi } from '../../utils/api'
-import { basicAuthorization } from '../../utils/basic'
-import { auth } from '../auth'
+import { celCashRestFetchApi } from '../../utils/api.js'
+import { basicAuthorization } from '../../utils/basic.js'
+import { auth } from '../auth.js'
 
 describe.concurrent('auth', () => {
     const client = initClient(auth, {

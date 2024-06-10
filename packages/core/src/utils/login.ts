@@ -1,7 +1,7 @@
 import { initClient } from '@ts-rest/core'
-import { auth } from '../contract'
-import { basicAuthorization } from './basic'
-import { Configure } from './types'
+import { auth } from '../contract/auth.js'
+import { basicAuthorization } from './basic.js'
+import { Configure } from './types.js'
 
 export async function login(config: Configure) {
     const baseURL = config.BASE_URL

@@ -1,8 +1,8 @@
 import { initClient } from '@ts-rest/core'
 import { beforeEach, describe, it } from 'vitest'
-import { celCashRestFetchApi } from '../../utils/api'
-import { cards } from '../cards'
-import { authenticate } from './_utils'
+import { celCashRestFetchApi } from '../../utils/api.js'
+import { cards } from '../cards.js'
+import { authenticate } from './_utils.js'
 
 let authorization: string
 

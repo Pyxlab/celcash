@@ -1,23 +1,23 @@
 import { z } from 'zod'
-import { transformArrayToString } from '../utils/transform'
-import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common'
+import { transformArrayToString } from '../utils/transform.js'
+import { mainPaymentMethodIdSchema, periodicitySchema } from './_/common.js'
 import {
     antifraudSchema,
     boletoSchema,
     cardOperatorIdSchema,
     pixSchema,
-} from './_/payments'
-import { subscriptionStatusSchema } from './_/subscription'
-import { cardSchema } from './cards'
-import { chargesSchema } from './charges'
-import { invoiceConfigSchema, invoiceSchema } from './common'
-import { splitSchema } from './contract'
-import { customerSchema } from './customers'
+} from './_/payments.js'
+import { subscriptionStatusSchema } from './_/subscription.js'
+import { cardSchema } from './cards.js'
+import { chargesSchema } from './charges.js'
+import { invoiceConfigSchema, invoiceSchema } from './common.js'
+import { splitSchema } from './contract.js'
+import { customerSchema } from './customers.js'
 import {
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
     paymentMethodPixSchema,
-} from './payments'
+} from './payments.js'
 
 const subscriptionSchema = z.object({
     myId: z.string(),

@@ -3,7 +3,7 @@ import { ZodError, z } from 'zod'
 import {
     authorizationBodySchema,
     authorizationResponseSchema,
-} from '../schemas/common'
+} from '../schemas/common.js'
 
 const c = initContract()
 

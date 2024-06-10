@@ -1,7 +1,7 @@
 import { initContract } from '@ts-rest/core'
-import { balance } from './balance'
-import { fees } from './fees'
-import { subaccounts } from './subaccounts'
+import { balance } from './balance.js'
+import { fees } from './fees.js'
+import { subaccounts } from './subaccounts.js'
 
 const c = initContract()
 

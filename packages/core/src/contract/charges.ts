@@ -1,13 +1,13 @@
 import { initContract } from '@ts-rest/core'
 import { z } from 'zod'
-import { listCardsParamsSchema } from '../schemas'
 import {
     chargesSchema,
     createChargeBodySchema,
     createChargeResponseSchema,
     listChargesResponseSchema,
     updateChargeBodySchema,
-} from '../schemas/charges'
+} from '../schemas/charges.js'
+import { listCardsParamsSchema } from '../schemas/cards.js'
 
 const c = initContract()
 

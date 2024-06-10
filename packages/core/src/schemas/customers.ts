@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { transformArrayToString } from '../utils/transform'
-import { addressSchema } from './common'
+import { transformArrayToString } from '../utils/transform.js'
+import { addressSchema } from './common.js'
 
 export const statusCustomerSchema = z.enum([
     'active',

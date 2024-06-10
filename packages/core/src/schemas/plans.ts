@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { transformArrayToString } from '../utils/transform'
-import { periodicitySchema } from './_/common'
+import { transformArrayToString } from '../utils/transform.js'
+import { periodicitySchema } from './_/common.js'
 
 export const planStatusSchema = z.enum(['active', 'inactive'])
 

@@ -5,7 +5,7 @@ import {
     createCustomerResponseSchema,
     listCustomersParamsSchema,
     listCustomersResponseSchema,
-} from '../schemas/customers'
+} from '../schemas/customers.js'
 
 const c = initContract()
 

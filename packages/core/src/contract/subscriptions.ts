@@ -11,7 +11,7 @@ import {
     listSubscriptionsResponseSchema,
     updateSubscriptionInfoBodySchema,
     updateSubscriptionPaymentBodySchema,
-} from '../schemas/subscriptions'
+} from '../schemas/subscriptions.js'
 
 const c = initContract()
 

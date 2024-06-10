@@ -12,7 +12,7 @@ import {
     subscriptions,
     transactions,
     transfer,
-} from './contract'
+} from './contract/index.js'
 import type {
     Antecipation,
     Cards,
@@ -25,8 +25,8 @@ import type {
     Subscriptions,
     Transactions,
     Transfer,
-} from './contract'
-import { Configure, celCashRestFetchApi, basicAuthorization } from './utils'
+} from './contract/index.js'
+import { Configure, celCashRestFetchApi, basicAuthorization } from './utils/index.js'
 
 export interface loggingInterface {
     debug: (message: string) => void

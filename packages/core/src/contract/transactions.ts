@@ -8,7 +8,7 @@ import {
     listTransactionsResponseSchema,
     retryOrReverseTransactionResponseSchema,
     updateTransactionBodySchema,
-} from '../schemas/transactions'
+} from '../schemas/transactions.js'
 
 const c = initContract()
 

@@ -3,8 +3,8 @@ import {
     agreementSchema,
     cardOperatorIdSchema,
     deadlineSchema,
-} from './_/payments'
-import { cardSchema } from './cards'
+} from './_/payments.js'
+import { cardSchema } from './cards.js'
 
 export const paymentMethodCreditCardSchema = z.object({
     Card: cardSchema

@@ -3,7 +3,7 @@ import { z } from 'zod'
 import {
     mainPaymentMethodIdSchema,
     periodicitySchema,
-} from './schemas/_/common'
+} from './schemas/_/common.js'
 import {
     agreementSchema,
     antifraudSchema,
@@ -11,20 +11,20 @@ import {
     cardOperatorIdSchema,
     deadlineSchema,
     pixSchema,
-} from './schemas/_/payments'
-import { subscriptionStatusSchema } from './schemas/_/subscription'
+} from './schemas/_/payments.js'
+import { subscriptionStatusSchema } from './schemas/_/subscription.js'
 import {
     antecipationSchema,
     operationSummarySchema,
     releasesSchema,
-} from './schemas/antecipation'
+} from './schemas/antecipation.js'
 import {
     brandSchema,
     cardSchema,
     cardStatusSchema,
     listCardsParamsSchema,
-} from './schemas/cards'
-import { chargesSchema } from './schemas/charges'
+} from './schemas/cards.js'
+import { chargesSchema } from './schemas/charges.js'
 import {
     addressSchema,
     extraFieldSchema,
@@ -34,24 +34,24 @@ import {
     invoiceStatusSchema,
     paymentSchema,
     scopeSchema,
-} from './schemas/common'
-import { contractSchema, splitSchema } from './schemas/contract'
-import { customerSchema, statusCustomerSchema } from './schemas/customers'
+} from './schemas/common.js'
+import { contractSchema, splitSchema } from './schemas/contract.js'
+import { customerSchema, statusCustomerSchema } from './schemas/customers.js'
 import {
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
     paymentMethodPixSchema,
-} from './schemas/payments'
-import { planPricesSchema, planSchema, planStatusSchema } from './schemas/plans'
-import { subscriptionSchema } from './schemas/subscriptions'
+} from './schemas/payments.js'
+import { planPricesSchema, planSchema, planStatusSchema } from './schemas/plans.js'
+import { subscriptionSchema } from './schemas/subscriptions.js'
 import {
     abecsReasonDeniedSchema,
     conciliationOccurrenceSchema,
     conciliationOccurrenceStatusSchema,
     transactionStatusSchema,
     transactionsSchema,
-} from './schemas/transactions'
-import { celCashRestFetchApi } from './utils'
+} from './schemas/transactions.js'
+import { celCashRestFetchApi } from './utils/api.js'
 
 export type Antecipation = z.infer<typeof antecipationSchema>
 export type Releases = z.infer<typeof releasesSchema>
@@ -110,10 +110,14 @@ export type Split = z.infer<typeof splitSchema>
 
 export type ExtraFields = z.infer<typeof extraFieldSchema>
 
-export type Client<T extends AppRouter> = InitClientReturn<
+type Prettify<T> = {
+    [K in keyof T]: T[K]
+} & unknown
+
+export type Client<T extends AppRouter> = Prettify<InitClientReturn<
     T,
     {
         baseUrl: string
         api: typeof celCashRestFetchApi
     }
->
+>>

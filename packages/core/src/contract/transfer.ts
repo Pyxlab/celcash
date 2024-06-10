@@ -4,7 +4,7 @@ import {
     pixPaymentResponseSchema,
     transferInternalBodySchema,
     transferInternalResponseSchema,
-} from '../schemas/common'
+} from '../schemas/common.js'
 
 const c = initContract()
 
