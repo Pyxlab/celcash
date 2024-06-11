@@ -106,10 +106,10 @@ export type ListSubscriptionsParams = z.input<
     typeof listSubscriptionsParamsSchema
 >
 
-export const createSubscriptionWithPlanBodySchema = z.object({
+export const createSubscriptionWithPlanBodySchemaBase = z.object({
     myId: z.string(),
-    planMyId: z.string(),
-    planGalaxPayId: z.coerce.number(),
+    planMyId: z.string().optional(),
+    planGalaxPayId: z.coerce.number().optional(),
     firstPayDayDate: z.string(),
     additionalInfo: z.string().optional(),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
@@ -128,22 +128,33 @@ export const createSubscriptionWithPlanBodySchema = z.object({
     InvoiceConfig: invoiceConfigSchema.optional(),
 })
 
+export const createSubscriptionWithPlanBodySchema =
+    createSubscriptionWithPlanBodySchemaBase.refine(
+        ({ planMyId, planGalaxPayId }) => {
+            if (!planMyId && planGalaxPayId) return true
+            if (planMyId && !planGalaxPayId) return true
+            return false
+        },
+        'planMyId and planGalaxPayId must be informed together',
+    )
+
 export type CreateSubscriptionWithPlanBody = z.input<
-    typeof createSubscriptionWithPlanBodySchema
+    typeof createSubscriptionWithPlanBodySchemaBase
 >
 
-export const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
-    quantity: z.coerce.number(),
-    galaxPayId: z.coerce.number(),
-    planGalaxPayId: z.coerce.number(),
-    periodicity: periodicitySchema,
-    paymentLink: z.string().optional(),
-    value: z.coerce.number(),
-    status: subscriptionStatusSchema,
-    Transactions: z.array(transactionsSchema),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-})
+export const subscriptionSchema =
+    createSubscriptionWithPlanBodySchemaBase.extend({
+        quantity: z.coerce.number(),
+        galaxPayId: z.coerce.number(),
+        planGalaxPayId: z.coerce.number(),
+        periodicity: periodicitySchema,
+        paymentLink: z.string().optional(),
+        value: z.coerce.number(),
+        status: subscriptionStatusSchema,
+        Transactions: z.array(transactionsSchema),
+        createdAt: z.string(),
+        updatedAt: z.string(),
+    })
 
 export const listSubscriptionsResponseSchema = z.object({
     totalQtdFoundInPage: z.coerce.number(),
@@ -176,7 +187,7 @@ export const emptySchema = z.object({})
 export type Empty = z.input<typeof emptySchema>
 
 export const createSubscriptionWithotPlanBodySchema =
-    createSubscriptionWithPlanBodySchema
+    createSubscriptionWithPlanBodySchemaBase
         .omit({
             planMyId: true,
             planGalaxPayId: true,
@@ -192,7 +203,7 @@ export type CreateSubscriptionWithoutPlanBody = z.input<
 >
 
 export const createSubscriptionManualBodySchema =
-    createSubscriptionWithPlanBodySchema.omit({
+    createSubscriptionWithPlanBodySchemaBase.omit({
         planMyId: true,
         planGalaxPayId: true,
         firstPayDayDate: true,
