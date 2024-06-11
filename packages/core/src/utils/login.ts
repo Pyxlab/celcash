@@ -39,7 +39,7 @@ export async function login(config: Configure) {
     })
 
     if (token.status !== 200) {
-        throw new Error('Erro ao buscar token')
+        throw token.body
     }
 
     return token.body
