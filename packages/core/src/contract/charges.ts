@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core'
-import { z } from 'zod'
+import { ZodError, z } from 'zod'
 import { listCardsParamsSchema } from '../schemas/cards.js'
 import {
     chargesSchema,
@@ -13,6 +13,24 @@ const c = initContract()
 
 /**
  * Router for handling charge-related operations.
+ *
+ * @example
+ * ```ts
+ * import { initClient } from '@ts-rest/core'
+ * import { charges } from '@cel_cash/core/contract'
+ *
+ * const client = initClient(charges, {
+ *  baseUrl: 'https://api.celcoin.com.br'
+ * })
+ *
+ * const chargesList = await client.list({ ... })
+ * const createdCharge = await client.create({ ... })
+ * const updatedCharge = await client.update({ ... })
+ * const retriedCharge = await client.retry({ ... })
+ * const reversedCharge = await client.reverse({ ... })
+ * const capturedCharge = await client.capture({ ... })
+ * const canceledCharge = await client.cancel({ ... })
+ * ```
  */
 export const charges = c.router(
     {
@@ -77,7 +95,6 @@ export const charges = c.router(
          * @pathParams chargeId - The ID of the charge.
          * @pathParams typeId - The type ID of the charge.
          * @responses 200 - createChargeResponseSchema
-         * @body {}
          */
         retry: {
             method: 'PUT',
@@ -92,7 +109,7 @@ export const charges = c.router(
             responses: {
                 200: createChargeResponseSchema,
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
         /**
          * Reverses a charge.
@@ -127,7 +144,6 @@ export const charges = c.router(
          * @pathParams chargeId - The ID of the charge.
          * @pathParams typeId - The type ID of the charge.
          * @responses 200 - chargesSchema
-         * @body {}
          */
         capture: {
             method: 'PUT',
@@ -142,7 +158,7 @@ export const charges = c.router(
             responses: {
                 200: chargesSchema,
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
         /**
          * Cancels a charge.
@@ -151,7 +167,6 @@ export const charges = c.router(
          * @pathParams chargeId - The ID of the charge.
          * @pathParams typeId - The type ID of the charge.
          * @responses 200 - chargesSchema
-         * @body {}
          */
         cancel: {
             method: 'DELETE',
@@ -166,8 +181,13 @@ export const charges = c.router(
             responses: {
                 200: chargesSchema,
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
     },
-    { pathPrefix: '/charges' },
+    {
+        pathPrefix: '/charges',
+        commonResponses: {
+            507: c.type<ZodError>(),
+        },
+    },
 )
