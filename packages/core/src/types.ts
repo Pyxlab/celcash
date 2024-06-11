@@ -117,7 +117,7 @@ export type ExtraFields = z.infer<typeof extraFieldSchema>
 export type Client<T extends AppRouter> = InitClientReturn<
     T,
     {
-        baseUrl: string
+        baseUrl: 'https://api.sandbox.cel.cash/v2' | 'https://api.cel.cash/v2'
         api: typeof celCashRestFetchApi
     }
 >
