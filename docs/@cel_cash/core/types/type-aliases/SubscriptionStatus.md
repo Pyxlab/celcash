@@ -10,4 +10,4 @@
 
 ## Source
 
-[packages/core/src/types.ts:93](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/types.ts#L93)
+[packages/core/src/types.ts:93](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/types.ts#L93)

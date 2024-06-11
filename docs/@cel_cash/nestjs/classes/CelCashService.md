@@ -36,7 +36,7 @@
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:15](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L15)
+[packages/nest/src/cel\_cash.service.ts:15](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L15)
 
 ## Properties
 
@@ -60,7 +60,7 @@ packages/core/dist/index.d.ts:33
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:19](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L19)
+[packages/nest/src/cel\_cash.service.ts:19](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L19)
 
 ***
 
@@ -70,7 +70,7 @@ packages/core/dist/index.d.ts:33
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:13](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L13)
+[packages/nest/src/cel\_cash.service.ts:13](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L13)
 
 ***
 
@@ -2068,7 +2068,7 @@ Use `fetchOptions.cache` instead
 
 • **args.query.startAt**: `number`
 
-• **args.query.status?**: `"cancel"` \| `"noSend"` \| `"authorized"` \| `"captured"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"payedBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"payedPix"` \| `"unavailablePix"` \| `"payExternal"` \| `"cancelByContract"` \| `"free"` \| (`"cancel"` \| `"noSend"` \| `"authorized"` \| `"captured"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"payedBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"payedPix"` \| `"unavailablePix"` \| `"payExternal"` \| `"cancelByContract"` \| `"free"`)[]
+• **args.query.status?**: `"cancel"` \| `"captured"` \| `"payedBoleto"` \| `"payedPix"` \| `"payExternal"` \| `"noSend"` \| `"authorized"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"unavailablePix"` \| `"cancelByContract"` \| `"free"` \| (`"cancel"` \| `"captured"` \| `"payedBoleto"` \| `"payedPix"` \| `"payExternal"` \| `"noSend"` \| `"authorized"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"unavailablePix"` \| `"cancelByContract"` \| `"free"`)[]
 
 • **args.query.subscriptionGalaxPayIds?**: `number` \| `number`[]
 
@@ -2254,7 +2254,7 @@ packages/core/dist/index.d.ts:47
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:39](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L39)
+[packages/nest/src/cel\_cash.service.ts:39](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L39)
 
 ***
 
@@ -2272,7 +2272,7 @@ packages/core/dist/index.d.ts:47
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:35](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L35)
+[packages/nest/src/cel\_cash.service.ts:35](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L35)
 
 ***
 
@@ -2296,4 +2296,4 @@ packages/core/dist/index.d.ts:47
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:46](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L46)
+[packages/nest/src/cel\_cash.service.ts:46](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L46)

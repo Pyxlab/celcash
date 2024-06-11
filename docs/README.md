@@ -6,12 +6,12 @@
 
 This is a monorepo for the cel_cash project.
 
-## **Packages** • [ **Docs** ](docs/README.md)
+## **Packages** • [ **Docs** ](https://pyxlab.github.io/celcash/)
 
-- [Adonisjs](docs/@cel_cash/adonisjs/README.md)
-- [Client](docs/@cel_cash/client/README.md)
-- [Core](docs/@cel_cash/core/README.md)
-- [Nestjs](docs/@cel_cash/nestjs/README.md)
+- [Adonisjs](https://pyxlab.github.io/celcash/@cel_cash/adonisjs/)
+- [Client](https://pyxlab.github.io/celcash/@cel_cash/client/)
+- [Core](https://pyxlab.github.io/celcash/@cel_cash/core/)
+- [Nestjs](https://pyxlab.github.io/celcash/@cel_cash/nestjs/)
 
 ## Contributing
 

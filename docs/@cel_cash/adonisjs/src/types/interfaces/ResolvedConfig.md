@@ -14,7 +14,7 @@
 
 #### Source
 
-[packages/adonis/src/types.ts:26](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/adonis/src/types.ts#L26)
+[packages/adonis/src/types.ts:26](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/adonis/src/types.ts#L26)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Source
 
-[packages/adonis/src/types.ts:28](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/adonis/src/types.ts#L28)
+[packages/adonis/src/types.ts:28](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/adonis/src/types.ts#L28)
 
 ***
 
@@ -34,4 +34,4 @@
 
 #### Source
 
-[packages/adonis/src/types.ts:27](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/adonis/src/types.ts#L27)
+[packages/adonis/src/types.ts:27](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/adonis/src/types.ts#L27)

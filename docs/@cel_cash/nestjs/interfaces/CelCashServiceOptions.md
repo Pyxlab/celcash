@@ -16,7 +16,7 @@ See at https://docs-celcash.celcoin.com.br the current url base
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:17](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L17)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:17](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L17)
 
 ***
 
@@ -28,7 +28,7 @@ Refers to Galax hash for authentication using OAuth 2.0 protocol.
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:27](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L27)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:27](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L27)
 
 ***
 
@@ -40,4 +40,4 @@ Refers to Galax ID for authentication using OAuth 2.0 protocol.
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:22](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L22)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:22](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L22)
