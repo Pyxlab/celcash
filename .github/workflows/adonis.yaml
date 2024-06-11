@@ -1,10 +1,10 @@
-name: client
+name: adonisjs
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'packages/client/**'
+      - 'packages/adonis/**'
 
   workflow_dispatch:
 
@@ -25,7 +25,7 @@ jobs:
       - name: Install
         run: pnpm install --no-frozen-lockfile
       - name: Run lint
-        run: pnpm biome check packages/client/src
+        run: pnpm --filter @cel_cash/adonisjs lint
 
   typecheck:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
           cache: 'pnpm'
       - name: Install
         run: pnpm install --no-frozen-lockfile
-      - name: Build @cel_cash/client dependencies
+      - name: Build @cel_cash/adonisjs dependencies
         run: pnpm --filter @cel_cash/core build
       - name: Run typecheck
-        run: pnpm --filter @cel_cash/client type-check
+        run: pnpm --filter @cel_cash/adonisjs type-check

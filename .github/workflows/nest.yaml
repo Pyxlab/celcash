@@ -1,4 +1,4 @@
-name: core
+name: nestjs
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
       - name: Install
         run: pnpm install --no-frozen-lockfile
       - name: Run lint
-        run: pnpm biome check packages/nest
+        run: pnpm biome check packages/nest/src
 
   typecheck:
     runs-on: ubuntu-latest
