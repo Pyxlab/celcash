@@ -1,6 +1,6 @@
 {
     "name": "@cel_cash/client",
-    "version": "2.2.0",
+    "version": "2.2.1",
     "description": "A client sdk for CelCash",
     "type": "module",
     "main": "dist/index.cjs",
@@ -42,7 +42,7 @@
         "vitest": "^1.6.0"
     },
     "peerDependencies": {
-        "@cel_cash/core": "^2.2.0"
+        "@cel_cash/core": "^2.2.1"
     },
     "dependencies": {
         "@ts-rest/core": "^3.45.2",
