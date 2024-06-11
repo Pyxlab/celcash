@@ -13,19 +13,6 @@ import {
     transactions,
     transfer,
 } from './contract/index.js'
-import type {
-    Antecipation,
-    Cards,
-    Chargebacks,
-    Charges,
-    Companies,
-    Customers,
-    Pix,
-    Plans,
-    Subscriptions,
-    Transactions,
-    Transfer,
-} from './contract/index.js'
 import {
     Configure,
     basicAuthorization,
@@ -119,7 +106,7 @@ export abstract class CelCashServiceContract {
      * Gets the antecipation client.
      * @returns The antecipation client.
      */
-    get antecipation(): Antecipation {
+    get antecipation() {
         return initClient(antecipation, this.#config)
     }
 
@@ -156,7 +143,7 @@ export abstract class CelCashServiceContract {
      * ```
      * @returns The cards client.
      */
-    get cards(): Cards {
+    get cards() {
         return initClient(cards, this.#config)
     }
 
@@ -164,7 +151,7 @@ export abstract class CelCashServiceContract {
      * Gets the charges client.
      * @returns The charges client.
      */
-    get charges(): Charges {
+    get charges() {
         return initClient(charges, this.#config)
     }
 
@@ -172,7 +159,7 @@ export abstract class CelCashServiceContract {
      * Gets the chargebacks client.
      * @returns The chargebacks client.
      */
-    get chargebacks(): Chargebacks {
+    get chargebacks() {
         return initClient(chargebacks, this.#config)
     }
 
@@ -180,7 +167,7 @@ export abstract class CelCashServiceContract {
      * Gets the companies client.
      * @returns The companies client.
      */
-    get companies(): Companies {
+    get companies() {
         return initClient(companies, this.#config)
     }
 
@@ -188,7 +175,7 @@ export abstract class CelCashServiceContract {
      * Gets the pix client.
      * @returns The pix client.
      */
-    get pix(): Pix {
+    get pix() {
         return initClient(pix, this.#config)
     }
 
@@ -196,7 +183,7 @@ export abstract class CelCashServiceContract {
      * Gets the transfer client.
      * @returns The transfer client.
      */
-    get transfer(): Transfer {
+    get transfer() {
         return initClient(transfer, this.#config)
     }
 
@@ -204,7 +191,7 @@ export abstract class CelCashServiceContract {
      * Gets the transactions client.
      * @returns The transactions client.
      */
-    get transactions(): Transactions {
+    get transactions() {
         return initClient(transactions, this.#config)
     }
 
@@ -212,7 +199,7 @@ export abstract class CelCashServiceContract {
      * Gets the plans client.
      * @returns The plans client.
      */
-    get plans(): Plans {
+    get plans() {
         return initClient(plans, this.#config)
     }
 
@@ -220,7 +207,7 @@ export abstract class CelCashServiceContract {
      * Gets the customers client.
      * @returns The customers client.
      */
-    get customers(): Customers {
+    get customers() {
         return initClient(customers, this.#config)
     }
 
@@ -228,7 +215,7 @@ export abstract class CelCashServiceContract {
      * Gets the subscriptions client.
      * @returns The subscriptions client.
      */
-    get subscriptions(): Subscriptions {
+    get subscriptions() {
         return initClient(subscriptions, this.#config)
     }
 
