@@ -20,13 +20,13 @@ export const listCardsParamsSchema = z.object({
         .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .transform(transformArrayToString),
-    createdAtFrom: z.string().datetime().optional(),
-    createdAtTo: z.string().datetime().optional(),
+    createdAtFrom: z.string().optional(),
+    createdAtTo: z.string().optional(),
     status: z
         .union([z.array(cardStatusSchema), cardStatusSchema])
         .optional()
         .transform(transformArrayToString),
-    startAt: z.number().int(),
+    startAt: z.coerce.number(),
     limit: z.coerce.number().min(0).max(100),
     order: z.enum(['createdAt.asc', 'createdAt.desc']).optional(),
 })
@@ -36,7 +36,7 @@ export type ListCardsParams = z.input<typeof listCardsParamsSchema>
 export const brandSchema = z.object({
     id: z.string(),
     name: z.string(),
-    maxInstallment: z.number().int(),
+    maxInstallment: z.coerce.number(),
     operatorIds: z.string(),
 })
 
@@ -51,11 +51,11 @@ export const createCardBodySchema = z.object({
 export type CreateCardBody = z.input<typeof createCardBodySchema>
 
 export const cardSchema = createCardBodySchema.extend({
-    galaxPayId: z.number().int(),
+    galaxPayId: z.coerce.number(),
     customerMyId: z.string(),
-    customerGalaxPayId: z.number().int(),
-    createdAt: z.string().datetime(),
-    updatedAt: z.string().datetime(),
+    customerGalaxPayId: z.coerce.number(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
     Brand: brandSchema,
 })
 
@@ -67,7 +67,7 @@ export const createCardResponseSchema = z.object({
 export type CreateCardResponse = z.input<typeof createCardResponseSchema>
 
 export const listCardsResponseSchema = z.object({
-    totalQtdFoundInPage: z.number().int(),
+    totalQtdFoundInPage: z.coerce.number(),
     Cards: z.array(cardSchema),
 })
 

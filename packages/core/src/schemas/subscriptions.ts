@@ -29,26 +29,26 @@ import {
 
 const transactionsSchema = z.object({
     myId: z.string().uuid(),
-    galaxPayId: z.number().int(),
+    galaxPayId: z.coerce.number(),
     chargeMyId: z.string().uuid(),
-    chargeGalaxPayId: z.number().int(),
+    chargeGalaxPayId: z.coerce.number(),
     subscriptionMyId: z.string().uuid(),
-    subscriptionGalaxPayId: z.number().int(),
-    value: z.number().int(),
-    payday: z.string().datetime(),
+    subscriptionGalaxPayId: z.coerce.number(),
+    value: z.coerce.number(),
+    payday: z.string(),
     payedOutsideGalaxPay: z.boolean(),
     additionalInfo: z.string().optional(),
-    installment: z.number().int(),
-    paydayDate: z.string().datetime(),
+    installment: z.coerce.number(),
+    paydayDate: z.string(),
     reasonDenied: z.string().optional(),
     authorizationCode: z.string().optional(),
     tid: z.string().optional(),
-    statusDate: z.string().datetime(),
+    statusDate: z.string(),
     cardOperatorId: cardOperatorIdSchema,
     AbecsReasonDenied: abecsReasonDeniedSchema,
-    datetimeLastSentToOperator: z.string().datetime(),
+    datetimeLastSentToOperator: z.string(),
     status: transactionStatusSchema,
-    fee: z.number().int(),
+    fee: z.coerce.number(),
     statusDescription: z.string(),
     Antifraud: antifraudSchema,
     ConciliationOccurrences: z.array(conciliationOccurrenceSchema),
@@ -85,12 +85,12 @@ export const listSubscriptionsParamsSchema = z.object({
         .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
-    createdAtFrom: z.string().datetime().optional(),
-    createdAtTo: z.string().datetime().optional(),
-    createdAtOrUpdatedAtFrom: z.string().datetime().optional(),
-    createdAtOrUpdatedAtTo: z.string().datetime().optional(),
+    createdAtFrom: z.string().optional(),
+    createdAtTo: z.string().optional(),
+    createdAtOrUpdatedAtFrom: z.string().optional(),
+    createdAtOrUpdatedAtTo: z.string().optional(),
     status: subscriptionStatusSchema.optional(),
-    startAt: z.number().int(),
+    startAt: z.coerce.number(),
     limit: z.coerce.number().min(0).max(100),
     order: z
         .enum([
@@ -109,8 +109,8 @@ export type ListSubscriptionsParams = z.input<
 export const createSubscriptionWithPlanBodySchema = z.object({
     myId: z.string(),
     planMyId: z.string(),
-    planGalaxPayId: z.number().int(),
-    firstPayDayDate: z.string().datetime(),
+    planGalaxPayId: z.coerce.number(),
+    firstPayDayDate: z.string(),
     additionalInfo: z.string().optional(),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
     Customer: customerSchema
@@ -133,20 +133,20 @@ export type CreateSubscriptionWithPlanBody = z.input<
 >
 
 export const subscriptionSchema = createSubscriptionWithPlanBodySchema.extend({
-    quantity: z.number().int(),
-    galaxPayId: z.number().int(),
-    planGalaxPayId: z.number().int(),
+    quantity: z.coerce.number(),
+    galaxPayId: z.coerce.number(),
+    planGalaxPayId: z.coerce.number(),
     periodicity: periodicitySchema,
     paymentLink: z.string().optional(),
-    value: z.number().int(),
+    value: z.coerce.number(),
     status: subscriptionStatusSchema,
     Transactions: z.array(transactionsSchema),
-    createdAt: z.string().datetime(),
-    updatedAt: z.string().datetime(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
 })
 
 export const listSubscriptionsResponseSchema = z.object({
-    totalQtdFoundInPage: z.number().int(),
+    totalQtdFoundInPage: z.coerce.number(),
     Subscriptions: z.array(subscriptionSchema),
 })
 
@@ -182,8 +182,8 @@ export const createSubscriptionWithotPlanBodySchema =
             planGalaxPayId: true,
         })
         .extend({
-            value: z.number().int(),
-            quantity: z.number().int(),
+            value: z.coerce.number(),
+            quantity: z.coerce.number(),
             periodicity: periodicitySchema,
         })
 
@@ -206,7 +206,7 @@ export const updateSubscriptionInfoBodySchema = z.object({
     myId: z.string().optional(),
     additionalInfo: z.string().optional(),
     planMyId: z.string().optional(),
-    planGalaxPayId: z.number().int().optional(),
+    planGalaxPayId: z.coerce.number().optional(),
     InvoiceConfig: invoiceConfigSchema.optional(),
     ExtraFields: z.array(extraFieldSchema).optional(),
     Split: splitSchema.optional(),
@@ -217,7 +217,7 @@ export type UpdateSubscriptionInfoBody = z.input<
 >
 
 export const updateSubscriptionPaymentBodySchema = z.object({
-    value: z.number().int(),
+    value: z.coerce.number(),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
     PaymentMethodCreditCard: paymentMethodCreditCardSchema.optional(),
     PaymentMethodBoleto: paymentMethodBoletoSchema.optional(),

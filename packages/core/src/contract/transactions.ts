@@ -26,7 +26,7 @@ export const transactions = c.router(
             method: 'POST',
             path: '/:subscriptionId/:typeId/add',
             pathParams: z.object({
-                subscriptionId: z.string().uuid(),
+                subscriptionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -38,7 +38,7 @@ export const transactions = c.router(
             method: 'POST',
             path: '/:subscriptionId/:typeId/add',
             pathParams: z.object({
-                subscriptionId: z.string().uuid(),
+                subscriptionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -50,7 +50,7 @@ export const transactions = c.router(
             method: 'PUT',
             path: '/:subscriptionId/:typeId',
             pathParams: z.object({
-                subscriptionId: z.string().uuid(),
+                subscriptionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -62,7 +62,7 @@ export const transactions = c.router(
             method: 'PUT',
             path: '/:transactionId/:typeId/retry',
             pathParams: z.object({
-                transactionId: z.string().uuid(),
+                transactionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -74,21 +74,21 @@ export const transactions = c.router(
             method: 'PUT',
             path: '/:transactionId/:typeId/reverse',
             pathParams: z.object({
-                transactionId: z.string().uuid(),
+                transactionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
                 200: retryOrReverseTransactionResponseSchema,
             },
             body: z.object({
-                valueToReverse: z.number().int().optional(),
+                valueToReverse: z.coerce.number().optional(),
             }),
         },
         capture: {
             method: 'PUT',
             path: '/:transactionId/:typeId/capture',
             pathParams: z.object({
-                transactionId: z.string().uuid(),
+                transactionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -100,7 +100,7 @@ export const transactions = c.router(
             method: 'DELETE',
             path: '/:transactionId/:typeId',
             pathParams: z.object({
-                transactionId: z.string().uuid(),
+                transactionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {

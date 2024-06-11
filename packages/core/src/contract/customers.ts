@@ -31,7 +31,7 @@ export const customers = c.router(
             method: 'PUT',
             path: '/:customerId/:typeId',
             pathParams: z.object({
-                customerId: z.union([z.number().positive(), z.string().uuid()]),
+                customerId: z.union([z.coerce.number().positive(), z.coerce.string()]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -43,7 +43,7 @@ export const customers = c.router(
             method: 'DELETE',
             path: '/:customerId/:typeId',
             pathParams: z.object({
-                customerId: z.union([z.number().positive(), z.string().uuid()]),
+                customerId: z.union([z.coerce.number().positive(), z.coerce.string()]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {

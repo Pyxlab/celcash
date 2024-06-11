@@ -56,7 +56,7 @@ export const subscriptions = c.router(
                 method: 'PUT',
                 path: '/:subscriptionId/:typeId',
                 pathParams: z.object({
-                    subscriptionId: z.string(),
+                    subscriptionId: z.coerce.string(),
                     typeId: z.enum(['galaxPayId', 'myId']),
                 }),
                 responses: {
@@ -68,7 +68,7 @@ export const subscriptions = c.router(
                 method: 'PUT',
                 path: '/:subscriptionId/:typeId',
                 pathParams: z.object({
-                    subscriptionId: z.string(),
+                    subscriptionId: z.coerce.string(),
                     typeId: z.enum(['galaxPayId', 'myId']),
                 }),
                 responses: {
@@ -81,7 +81,7 @@ export const subscriptions = c.router(
             method: 'DELETE',
             path: '/:subscriptionId/:typeId',
             pathParams: z.object({
-                subscriptionId: z.string(),
+                subscriptionId: z.coerce.string(),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {

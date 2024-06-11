@@ -13,12 +13,12 @@ export const listPlansParamsSchema = z.object({
         .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
-    createdAtFrom: z.string().datetime().optional(),
-    createdAtTo: z.string().datetime().optional(),
-    createdAtOrUpdatedAtFrom: z.string().datetime().optional(),
-    createdAtOrUpdatedAtTo: z.string().datetime().optional(),
+    createdAtFrom: z.string().optional(),
+    createdAtTo: z.string().optional(),
+    createdAtOrUpdatedAtFrom: z.string().optional(),
+    createdAtOrUpdatedAtTo: z.string().optional(),
     status: z.enum(['active', 'inactive']).optional(),
-    startAt: z.number().int(),
+    startAt: z.coerce.number(),
     limit: z.coerce.number().min(0).max(100),
     order: z
         .enum([
@@ -32,7 +32,7 @@ export const listPlansParamsSchema = z.object({
 
 export const planPricesSchema = z.object({
     payment: z.enum(['creditcard', 'boleto']),
-    value: z.number().int(),
+    value: z.coerce.number(),
 })
 
 export type PlanPrices = z.input<typeof planPricesSchema>
@@ -43,17 +43,17 @@ export const createPlanBodySchema = z.object({
     myId: z.string(),
     name: z.string(),
     periodicity: periodicitySchema,
-    quantity: z.number().int(),
+    quantity: z.coerce.number(),
     additionalInfo: z.string().optional(),
     PlanPrices: z.array(planPricesSchema),
 })
 
 export const planSchema = createPlanBodySchema.extend({
-    galaxPayId: z.number().int(),
+    galaxPayId: z.coerce.number(),
 })
 
 export const listPlansResponseSchema = z.object({
-    totalQtdFoundInPage: z.number().int(),
+    totalQtdFoundInPage: z.coerce.number(),
     Plans: z.array(planSchema),
 })
 

@@ -14,7 +14,7 @@ export const createCustomerBodySchema = z.object({
     name: z.string(),
     document: z.string().min(11).max(14),
     emails: z.array(z.string()),
-    phones: z.array(z.number()).optional(),
+    phones: z.array(z.coerce.number()).optional(),
     invoiceHoldIss: z.boolean().optional(),
     municipalDocument: z.string().optional(),
     Address: addressSchema,
@@ -23,10 +23,10 @@ export const createCustomerBodySchema = z.object({
 export type CreateCustomerBody = z.input<typeof createCustomerBodySchema>
 
 export const customerSchema = createCustomerBodySchema.extend({
-    galaPayId: z.number().int(),
+    galaPayId: z.coerce.number(),
     status: statusCustomerSchema,
-    createdAt: z.string().datetime(),
-    updatedAt: z.string().datetime(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
 })
 
 export const createCustomerResponseSchema = z.object({
@@ -47,10 +47,10 @@ export const listCustomersParamsSchema = z.object({
         .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
         .transform(transformArrayToString),
-    createdAtFrom: z.string().datetime().optional(),
-    createdAtTo: z.string().datetime().optional(),
-    createdOrUpdatedFrom: z.string().datetime().optional(),
-    createdOrUpdatedTo: z.string().datetime().optional(),
+    createdAtFrom: z.string().optional(),
+    createdAtTo: z.string().optional(),
+    createdOrUpdatedFrom: z.string().optional(),
+    createdOrUpdatedTo: z.string().optional(),
     myIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
         .optional()
@@ -59,7 +59,7 @@ export const listCustomersParamsSchema = z.object({
         .union([z.array(z.coerce.number()), z.coerce.number()])
         .optional()
         .transform(transformArrayToString),
-    startAt: z.number().optional(),
+    startAt: z.coerce.number().optional(),
     status: z
         .enum(['active', 'delayed', 'inactive', 'withoutSubscriptionOrCharge'])
         .optional(),
@@ -77,7 +77,7 @@ export const listCustomersParamsSchema = z.object({
 export type ListCustomersParams = z.input<typeof listCustomersParamsSchema>
 
 export const listCustomersResponseSchema = z.object({
-    totalQtdFoundInPage: z.number().int(),
+    totalQtdFoundInPage: z.coerce.number(),
     Customers: z.array(customerSchema),
 })
 

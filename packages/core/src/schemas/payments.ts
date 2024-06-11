@@ -27,17 +27,17 @@ export const paymentMethodCreditCardSchema = z.object({
 })
 
 export const paymentMethodBoletoSchema = z.object({
-    fine: z.number().int().optional(),
-    interest: z.number().int().optional(),
+    fine: z.coerce.number().optional(),
+    interest: z.coerce.number().optional(),
     instructions: z.string().optional(),
-    deadlineDays: z.number().int().optional(),
+    deadlineDays: z.coerce.number().optional(),
     documentNumber: z.string().optional(),
     Aggrement: agreementSchema.optional(),
 })
 
 export const paymentMethodPixSchema = z.object({
-    fine: z.number().int().optional(),
-    interest: z.number().int().optional(),
+    fine: z.coerce.number().optional(),
+    interest: z.coerce.number().optional(),
     instructions: z.string().optional(),
     Deadline: deadlineSchema.optional(),
 })

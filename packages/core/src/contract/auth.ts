@@ -17,7 +17,7 @@ export const auth = c.router(
             },
             body: authorizationBodySchema,
             headers: z.object({
-                Authorization: z.string().regex(/^Basic .+$/),
+                Authorization: z.coerce.string().regex(/^Basic .+$/),
             }),
         },
     },

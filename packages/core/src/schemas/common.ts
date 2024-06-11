@@ -41,7 +41,7 @@ export type AuthorizationBody = z.input<typeof authorizationBodySchema>
 export const authorizationResponseSchema = z.object({
     access_token: z.string(),
     token_type: z.enum(['Bearer']),
-    expires_in: z.number(),
+    expires_in: z.coerce.number(),
     scope: z.string(),
 })
 
@@ -50,21 +50,21 @@ export type AuthorizationResponse = z.input<typeof authorizationResponseSchema>
 export const pixPaymentBodySchema = z.object({
     key: z.string(),
     type: z.enum(['cpf', 'cnpj', 'email', 'mobilePhone', 'random']),
-    value: z.number(),
+    value: z.coerce.number(),
     desc: z.string().optional(),
 })
 
 export type PixPaymentBody = z.input<typeof pixPaymentBodySchema>
 
 export const paymentSchema = z.object({
-    galaxPayId: z.number().int(),
+    galaxPayId: z.coerce.number(),
     key: z.string(),
-    value: z.number(),
-    taxValue: z.number(),
+    value: z.coerce.number(),
+    taxValue: z.coerce.number(),
     desc: z.string().optional(),
     endToEnd: z.string(),
     status: z.enum(['efectivated', 'error', 'confirm']),
-    createdAt: z.string().datetime(),
+    createdAt: z.string(),
 })
 
 export const pixPaymentResponseSchema = z.object({
@@ -75,9 +75,9 @@ export const pixPaymentResponseSchema = z.object({
 export type PixPaymentResponse = z.input<typeof pixPaymentResponseSchema>
 
 export const transferInternalBodySchema = z.object({
-    companyAccount: z.number().int(),
+    companyAccount: z.coerce.number(),
     companyDocument: z.string(),
-    value: z.number(),
+    value: z.coerce.number(),
 })
 
 export type TransferInternalBody = z.input<typeof transferInternalBodySchema>
@@ -122,7 +122,7 @@ export const invoiceSchema = z.object({
     status: invoiceStatusSchema,
     statusDescription: z.string(),
     pdf: z.string(),
-    statusDate: z.string().datetime(),
+    statusDate: z.string(),
     xml: z.string(),
 })
 
@@ -136,9 +136,9 @@ export const invoiceConfigSchema = z
             'notificationSend',
             'daysAfterPayment',
         ]),
-        qtdDaysBeforePayDay: z.number().int().optional(),
-        galaxPaySubAccountId: z.number().int().optional(),
-        qtdDaysAfterPay: z.number().int().optional(),
+        qtdDaysBeforePayDay: z.coerce.number().optional(),
+        galaxPaySubAccountId: z.coerce.number().optional(),
+        qtdDaysAfterPay: z.coerce.number().optional(),
     })
     .refine(({ createOn, qtdDaysAfterPay, qtdDaysBeforePayDay }) => {
         if (createOn === 'daysBeforePayDay') return !!qtdDaysBeforePayDay

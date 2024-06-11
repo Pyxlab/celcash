@@ -4,16 +4,16 @@ export const contractSchema = z.object({
     name: z.string(),
     document: z.string(),
     ip: z.string(),
-    acceptedAt: z.string().datetime(),
+    acceptedAt: z.string(),
     pdf: z.string().url(),
 })
 
 export const splitSchema = z.object({
-    galaxyPayId: z.number().int(),
-    companyGalaxyPayId: z.number().int(),
-    billGalaxyPayId: z.number().int(),
+    galaxyPayId: z.coerce.number(),
+    companyGalaxyPayId: z.coerce.number(),
+    billGalaxyPayId: z.coerce.number(),
     type: z.enum(['percent', 'fixed']),
     paymentMethod: z.string(),
-    value: z.number().int(),
-    groupGalaxyPayId: z.number().int(),
+    value: z.coerce.number(),
+    groupGalaxyPayId: z.coerce.number(),
 })

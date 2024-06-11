@@ -2,32 +2,30 @@ import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform.js'
 
 export const antecipationSchema = z.object({
-    galaxPayId: z.number().int().describe('Id cel_cash da empresa'),
-    companyGalaxPayId: z.number().int().describe('ID da empresa'),
+    galaxPayId: z.coerce.number().describe('Id cel_cash da empresa'),
+    companyGalaxPayId: z.coerce.number().describe('ID da empresa'),
     transactionsGalaxPayIds: z
-        .string()
+        .union([z.array(z.coerce.number()), z.coerce.number()])
+        .transform(transformArrayToString)
         .describe('Transações a serem antecipadas.'),
-    totalValue: z.number().int().describe('Valor total das transações'),
-    totalMdr: z.number().int().describe('Valor total das taxas'),
-    averageDays: z
+    totalValue: z.coerce.number().describe('Valor total das transações'),
+    totalMdr: z.coerce.number().describe('Valor total das taxas'),
+    averageDays: z.coerce
         .number()
-        .int()
         .describe('Média em dias das transações que serão antecipadas.'),
-    totalAntecipateTax: z
+    totalAntecipateTax: z.coerce
         .number()
-        .int()
         .describe('Valor total de taxa de antecipação'),
-    netValue: z.number().int().describe('Valor líquido'),
-    cet: z
+    netValue: z.coerce.number().describe('Valor líquido'),
+    cet: z.coerce
         .number()
-        .int()
         .describe('Custo Efetivo Total. A soma de todas as taxas juntas.'),
-    uuid: z
+    uuid: z.coerce
         .string()
         .describe('Id gerado aleatoriamente para realizar a antecipação.'),
     done: z.enum(['F', 'T']).describe('Status da antecipação'),
-    createdAtTo: z.string().datetime().describe('Data de criação final'),
-    createdAtFrom: z.string().datetime().describe('Data de criação inicial'),
+    createdAtTo: z.string().describe('Data de criação final'),
+    createdAtFrom: z.string().describe('Data de criação inicial'),
 })
 
 export const listarAntecipacoesParamsSchema = z
@@ -37,17 +35,16 @@ export const listarAntecipacoesParamsSchema = z
             .min(0)
             .max(100)
             .describe('Quantidade de registros por página'),
-        startAt: z.number().optional().describe('Chave de paginação'),
+        startAt: z.coerce.number().optional().describe('Chave de paginação'),
         done: z.enum(['F', 'T']).optional().describe('Status da antecipação'),
-        page: z.number().int().optional().describe('Número da página'),
+        page: z.coerce.number().optional().describe('Número da página'),
         createdAtFrom: z
             .string()
-            .datetime()
             .optional()
             .describe('Data de criação inicial'),
         createdAtTo: z
             .string()
-            .datetime()
+
             .optional()
             .describe('Data de criação final'),
     })
@@ -61,22 +58,21 @@ export const listarAntecipacoesParamsSchema = z
     )
 
 export const listarAntecipacoesResponseSchema = z.object({
-    totalQtdFoundInPage: z
+    totalQtdFoundInPage: z.coerce
         .number()
-        .int()
         .describe('Total de registros encontrados'),
     Antecipation: z.array(antecipationSchema).describe('Lista de antecipações'),
 })
 
 export const simulatarAntecipacaoBodySchema = z.object({
-    value: z
+    value: z.coerce
         .number()
-        .int()
+
         .describe(
             'Valor desejado para antecipar. O valor deverá ser em centavos.',
         ),
     transactionGalaxPayIds: z
-        .array(z.number().int())
+        .union([z.array(z.coerce.number()), z.coerce.number()])
         .describe('Transações desejadas para antecipar.')
         .transform(transformArrayToString),
     brands: z
@@ -97,38 +93,35 @@ export const simulatarAntecipacaoBodySchema = z.object({
 })
 
 export const releasesSchema = z.object({
-    galaxPayId: z.number().int().describe('Id cel_cash da empresa'),
-    transactionGalaxPayId: z.number().int().describe('ID da transação'),
-    createdAt: z.string().datetime().describe('Data de criação'),
-    installment: z.number().int().describe('Número da parcela'),
-    netValue: z.number().int().describe('Valor líquido'),
-    grossValue: z.number().int().describe('Valor bruto'),
-    expectedDate: z.string().datetime().describe('Data de vencimento'),
-    daysAntecipation: z.number().int().describe('Dias para antecipação'),
-    netValueAfterAntecipation: z
+    galaxPayId: z.coerce.number().describe('Id cel_cash da empresa'),
+    transactionGalaxPayId: z.coerce.number().describe('ID da transação'),
+    createdAt: z.string().describe('Data de criação'),
+    installment: z.coerce.number().describe('Número da parcela'),
+    netValue: z.coerce.number().describe('Valor líquido'),
+    grossValue: z.coerce.number().describe('Valor bruto'),
+    expectedDate: z.string().describe('Data de vencimento'),
+    daysAntecipation: z.coerce.number().describe('Dias para antecipação'),
+    netValueAfterAntecipation: z.coerce
         .number()
-        .int()
         .describe('Valor líquido após antecipação'),
-    taxValueAntecipation: z
+    taxValueAntecipation: z.coerce
         .number()
-        .int()
         .describe('Valor da taxa de antecipação'),
 })
 
 export const operationSummarySchema = z.object({
-    grossTotal: z.number().int().describe('Valor total bruto'),
-    mdr: z.number().int().describe('Valor total das taxas'),
-    mdrTax: z.number().int().describe('Valor total das taxas'),
-    averageDays: z
+    grossTotal: z.coerce.number().describe('Valor total bruto'),
+    mdr: z.coerce.number().describe('Valor total das taxas'),
+    mdrTax: z.coerce.number().describe('Valor total das taxas'),
+    averageDays: z.coerce
         .number()
-        .int()
+
         .describe('Média em dias das transações que serão antecipadas'),
-    finalTax: z.number().int().describe('Valor total da taxa de antecipação'),
-    cet: z
+    finalTax: z.coerce.number().describe('Valor total da taxa de antecipação'),
+    cet: z.coerce
         .number()
-        .int()
         .describe('Custo Efetivo Total. A soma de todas as taxas juntas.'),
-    netValue: z.number().int().describe('Valor líquido'),
+    netValue: z.coerce.number().describe('Valor líquido'),
 })
 
 export const simulatarAntecipacaoResponseSchema = z

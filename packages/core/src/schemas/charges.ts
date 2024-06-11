@@ -30,14 +30,14 @@ import {
 const subscriptionSchema = z.object({
     myId: z.string(),
     planMyId: z.string(),
-    planGalaxPayId: z.number().int(),
-    firstPayDayDate: z.string().datetime(),
+    planGalaxPayId: z.coerce.number(),
+    firstPayDayDate: z.string(),
     additionalInfo: z.string().optional(),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
-    galaxPayId: z.number().int(),
+    galaxPayId: z.coerce.number(),
     periodicity: periodicitySchema,
     paymentLink: z.string().optional(),
-    value: z.number().int(),
+    value: z.coerce.number(),
     status: subscriptionStatusSchema,
     Customer: customerSchema
         .deepPartial()
@@ -56,26 +56,26 @@ const subscriptionSchema = z.object({
 
 const transactionsSchema = z.object({
     myId: z.string(),
-    galaxPayId: z.number().int(),
+    galaxPayId: z.coerce.number(),
     chargeMyId: z.string(),
-    chargeGalaxPayId: z.number().int(),
+    chargeGalaxPayId: z.coerce.number(),
     subscriptionMyId: z.string(),
-    subscriptionGalaxPayId: z.number().int(),
-    value: z.number().int(),
-    payday: z.string().datetime(),
+    subscriptionGalaxPayId: z.coerce.number(),
+    value: z.coerce.number(),
+    payday: z.string(),
     payedOutsideGalaxPay: z.boolean(),
     additionalInfo: z.string().optional(),
-    installment: z.number().int(),
-    paydayDate: z.string().datetime(),
+    installment: z.coerce.number(),
+    paydayDate: z.string(),
     reasonDenied: z.string().optional(),
     authorizationCode: z.string().optional(),
     tid: z.string().optional(),
-    statusDate: z.string().datetime(),
+    statusDate: z.string(),
     cardOperatorId: cardOperatorIdSchema,
     AbecsReasonDenied: abecsReasonDeniedSchema,
-    datetimeLastSentToOperator: z.string().datetime(),
+    datetimeLastSentToOperator: z.string(),
     status: transactionStatusSchema,
-    fee: z.number().int(),
+    fee: z.coerce.number(),
     statusDescription: z.string(),
     Antifraud: antifraudSchema,
     ConciliationOccurrences: z.array(conciliationOccurrenceSchema),
@@ -127,11 +127,11 @@ export const listChargesParamsSchema = z.object({
         .transform(transformArrayToString),
     createdAtFrom: z.string().optional().describe('Data de criação inicial.'),
     createdAtTo: z.string().optional().describe('Data de criação final.'),
-    createdOrUpdatedAtFrom: z
+    createdOrUpdatedAtFrom: z.coerce
         .string()
         .optional()
         .describe('Data de criação/atualização inicial.'),
-    createdOrUpdatedAtTo: z
+    createdOrUpdatedAtTo: z.coerce
         .string()
         .optional()
         .describe('Data de criação/atualização final.'),
@@ -146,9 +146,9 @@ export const listChargesParamsSchema = z.object({
         .describe(
             'Buscar por um ou mais campos adicionais. String que deverá ser montada da seguinte maneira: NOME_DA_TAG.valor que quero buscar,NOME_DA_TAG2.valor1111',
         ),
-    startAt: z
+    startAt: z.coerce
         .number()
-        .int()
+
         .describe('Ponteiro inicial para trazer os registros.')
         .min(0),
     limit: z.coerce
@@ -179,7 +179,7 @@ export const chargesSchema = z.object({
     mainPaymentMethodId: mainPaymentMethodIdSchema,
     paymentLink: z.string().url(),
     additionalInfo: z.string().nullable(),
-    value: z.number(),
+    value: z.coerce.number(),
     status: chargesStatusSchema,
     payedOutsideGalaxPay: z.boolean(),
     Customer: customerSchema,
@@ -194,26 +194,26 @@ export const chargesSchema = z.object({
 })
 
 export const listChargesResponseSchema = z.object({
-    totalQtdFoundInPage: z.number().int(),
+    totalQtdFoundInPage: z.coerce.number(),
     Charges: z.array(chargesSchema),
 })
 
 export type ListChargesResponse = z.input<typeof listChargesResponseSchema>
 
 export const createChargeBodySchema = z.object({
-    myId: z
+    myId: z.coerce
         .string()
         .describe('Id referente no seu sistema, para salvar no cel_cash.'),
-    value: z.number().int().describe('Preço em centavos.'),
-    additionalInfo: z
+    value: z.coerce.number().describe('Preço em centavos.'),
+    additionalInfo: z.coerce
         .string()
         .optional()
         .describe('Texto livre dedicado a informações adicionais internas.'),
-    payday: z
+    payday: z.coerce
         .string()
         .regex(/^\d{4}-\d{2}-\d{2}$/, 'Data de vencimento inválida.')
         .describe('Data de vencimento da cobrança.'),
-    planMyId: z
+    planMyId: z.coerce
         .string()
         .optional()
         .describe(
@@ -240,21 +240,21 @@ export const createChargeResponseSchema = z.object({
 export type CreateChargeResponse = z.input<typeof createChargeResponseSchema>
 
 export const updateChargeBodySchema = z.object({
-    myId: z
+    myId: z.coerce
         .string()
         .optional()
         .describe('Id referente no seu sistema, para salvar no cel_cash.'),
-    value: z.number().int().optional().describe('Preço em centavos.'),
-    additionalInfo: z
+    value: z.coerce.number().optional().describe('Preço em centavos.'),
+    additionalInfo: z.coerce
         .string()
         .optional()
         .describe('Texto livre dedicado a informações adicionais internas.'),
-    payday: z
+    payday: z.coerce
         .string()
-        .datetime()
+
         .optional()
         .describe('Data de vencimento da cobrança.'),
-    planMyId: z
+    planMyId: z.coerce
         .string()
         .optional()
         .describe('Id do plano no seu sistema, para salvar no cel_cash.'),
@@ -263,7 +263,7 @@ export const updateChargeBodySchema = z.object({
         .optional()
         .describe('Indica se a cobrança foi paga fora do cel_cash.'),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
-    planGalaxPayId: z
+    planGalaxPayId: z.coerce
         .string()
         .optional()
         .describe('Plan.galaxPayId: Id do plano no cel_cash.'),
