@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core'
-import { z } from 'zod'
+import { ZodError, z } from 'zod'
 import {
     cancelSubscriptionResponseSchema,
     createSubscriptionManualBodySchema,
@@ -17,6 +17,24 @@ const c = initContract()
 
 /**
  * Router for managing subscriptions.
+ *
+ * @example
+ * ```ts
+ * import { initClient } from '@ts-rest/core'
+ * import { subscriptions } from '@cel_cash/core/contract'
+ *
+ * const client = initClient(subscriptions, {
+ *   baseUrl: 'https://api.celcoin.com.br'
+ * })
+ *
+ * const subscriptionsList = await client.list({ ... })
+ * const createdSubscriptionWithPlan = await client.create.withPlan({ ... })
+ * const createdSubscriptionWithoutPlan = await client.create.withoutPlan({ ... })
+ * const createdManualSubscription = await client.create.manual({ ... })
+ * const updatedSubscriptionInfo = await client.update.info({ ... })
+ * const updatedSubscriptionPayment = await client.update.payment({ ... })
+ * const canceledSubscription = await client.cancel({ ... })
+ * ```
  */
 export const subscriptions = c.router(
     {
@@ -145,5 +163,10 @@ export const subscriptions = c.router(
             body: emptySchema,
         },
     },
-    { pathPrefix: '/subscriptions' },
+    {
+        pathPrefix: '/subscriptions',
+        commonResponses: {
+            507: c.type<ZodError>(),
+        },
+    },
 )
