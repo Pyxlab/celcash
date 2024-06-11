@@ -188,7 +188,6 @@ describe.concurrent('Charges', () => {
                 chargeId: charge.body.Charge.myId!,
                 typeId: 'myId',
             },
-            body: {},
         })
 
         expect(response.status).toBe(404)
