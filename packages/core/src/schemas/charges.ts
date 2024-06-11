@@ -251,7 +251,6 @@ export const updateChargeBodySchema = z.object({
         .describe('Texto livre dedicado a informações adicionais internas.'),
     payday: z.coerce
         .string()
-
         .optional()
         .describe('Data de vencimento da cobrança.'),
     planMyId: z.coerce
