@@ -9,6 +9,18 @@ const c = initContract()
 
 /**
  * Represents the authentication router.
+ *
+ * @example
+ * ```ts
+ * import { initClient } from '@ts-rest/core'
+ * import { auth } from '@cel_cash/core/contract'
+ *
+ * const client = initClient(auth, {
+ *  baseUrl: 'https://api.celcoin.com.br'
+ * })
+ *
+ * const token = await client.token({ ... })
+ * ```
  */
 export const auth = c.router(
     {
