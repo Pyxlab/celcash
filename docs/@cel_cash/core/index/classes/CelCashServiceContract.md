@@ -6,17 +6,25 @@
 
 # Class: `abstract` CelCashServiceContract
 
+Abstract class representing the CelCash service contract.
+
 ## Constructors
 
 ### new CelCashServiceContract()
 
 > **new CelCashServiceContract**(`config`, `logger`): [`CelCashServiceContract`](CelCashServiceContract.md)
 
+Constructs a new instance of the CelCashServiceContract class.
+
 #### Parameters
 
 • **config**: [`Configure`](../../utils/type-aliases/Configure.md)
 
-• **logger**: [`loggingInterface`](../interfaces/loggingInterface.md)
+[Configure](https://pyxlab.github.io/celcash/@cel_cash/core/utils/types/Configure.html) - The configuration object for the CelCash service.
+
+• **logger**: [`LoggingInterface`](../interfaces/LoggingInterface.md)
+
+[LoggingInterface](../interfaces/LoggingInterface.md) - The logger object for logging.
 
 #### Returns
 
@@ -24,7 +32,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:61](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L61)
+[packages/core/src/service.ts:72](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L72)
 
 ## Properties
 
@@ -34,7 +42,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:55](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L55)
+[packages/core/src/service.ts:61](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L61)
 
 ***
 
@@ -44,7 +52,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:57](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L57)
+[packages/core/src/service.ts:63](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L63)
 
 ***
 
@@ -54,7 +62,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:56](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L56)
+[packages/core/src/service.ts:62](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L62)
 
 ***
 
@@ -64,13 +72,15 @@
 
 #### Source
 
-[packages/core/src/service.ts:59](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L59)
+[packages/core/src/service.ts:65](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L65)
 
 ***
 
 ### CACHE
 
 > `static` `readonly` **CACHE**: `object`
+
+Cache constants for CelCash service.
 
 #### ACCESS\_TOKEN
 
@@ -82,7 +92,7 @@
 
 #### Source
 
-[packages/core/src/service.ts:50](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L50)
+[packages/core/src/service.ts:56](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L56)
 
 ## Accessors
 
@@ -90,9 +100,13 @@
 
 > `get` **antecipation**(): `object`
 
+Gets the antecipation client.
+
 #### Returns
 
 `object`
+
+The antecipation client.
 
 ##### create()
 
@@ -128,7 +142,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:96](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L96)
+[packages/core/src/service.ts:122](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L122)
 
 ***
 
@@ -136,9 +150,44 @@ Use `fetchOptions.cache` instead
 
 > `get` **cards**(): `object`
 
+Gets the cards client.
+
+#### Examples
+
+```ts
+// List cards
+const cards = await service.cards.list({
+  query: {
+    limit: 10,
+    startAt: 0,
+  },
+})
+```
+
+```ts
+// Create a card
+const card = await service.create({
+ body: {
+     //...
+ }
+})
+```
+
+```ts
+// Delete a card
+const result = await service.delete({
+      params: {
+          cardId: 123,
+          typeId: 'galaxPayId'
+      }
+  })
+```
+
 #### Returns
 
 `object`
+
+The cards client.
 
 ##### create()
 
@@ -262,7 +311,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:100](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L100)
+[packages/core/src/service.ts:159](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L159)
 
 ***
 
@@ -270,13 +319,17 @@ Use `fetchOptions.cache` instead
 
 > `get` **chargebacks**(): `object`
 
+Gets the chargebacks client.
+
 #### Returns
 
 `object`
 
+The chargebacks client.
+
 #### Source
 
-[packages/core/src/service.ts:108](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L108)
+[packages/core/src/service.ts:175](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L175)
 
 ***
 
@@ -284,9 +337,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **charges**(): `object`
 
+Gets the charges client.
+
 #### Returns
 
 `object`
+
+The charges client.
 
 ##### cancel()
 
@@ -670,7 +727,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:104](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L104)
+[packages/core/src/service.ts:167](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L167)
 
 ***
 
@@ -678,9 +735,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **companies**(): `object`
 
+Gets the companies client.
+
 #### Returns
 
 `object`
+
+The companies client.
 
 ##### balance
 
@@ -696,7 +757,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:112](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L112)
+[packages/core/src/service.ts:183](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L183)
 
 ***
 
@@ -704,9 +765,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **customers**(): `object`
 
+Gets the customers client.
+
 #### Returns
 
 `object`
+
+The customers client.
 
 ##### create()
 
@@ -910,7 +975,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:136](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L136)
+[packages/core/src/service.ts:223](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L223)
 
 ***
 
@@ -918,9 +983,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **pix**(): `object`
 
+Gets the pix client.
+
 #### Returns
 
 `object`
+
+The pix client.
 
 ##### payment()
 
@@ -958,7 +1027,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:116](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L116)
+[packages/core/src/service.ts:191](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L191)
 
 ***
 
@@ -966,9 +1035,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **plans**(): `object`
 
+Gets the plans client.
+
 #### Returns
 
 `object`
+
+The plans client.
 
 ##### create()
 
@@ -1132,7 +1205,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:132](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L132)
+[packages/core/src/service.ts:215](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L215)
 
 ***
 
@@ -1140,9 +1213,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **subscriptions**(): `object`
 
+Gets the subscriptions client.
+
 #### Returns
 
 `object`
+
+The subscriptions client.
 
 ##### cancel()
 
@@ -1240,7 +1317,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:140](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L140)
+[packages/core/src/service.ts:231](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L231)
 
 ***
 
@@ -1248,9 +1325,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **transactions**(): `object`
 
+Gets the transactions client.
+
 #### Returns
 
 `object`
+
+The transactions client.
 
 ##### add()
 
@@ -1684,7 +1765,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:124](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L124)
+[packages/core/src/service.ts:207](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L207)
 
 ***
 
@@ -1692,9 +1773,13 @@ Use `fetchOptions.cache` instead
 
 > `get` **transfer**(): `object`
 
+Gets the transfer client.
+
 #### Returns
 
 `object`
+
+The transfer client.
 
 ##### internal()
 
@@ -1730,7 +1815,7 @@ Use `fetchOptions.cache` instead
 
 #### Source
 
-[packages/core/src/service.ts:120](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L120)
+[packages/core/src/service.ts:199](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L199)
 
 ## Methods
 
@@ -1738,13 +1823,21 @@ Use `fetchOptions.cache` instead
 
 > `private` **#getAccessToken**(): `Promise`\<`string`\>
 
+Retrieves the access token.
+
 #### Returns
 
 `Promise`\<`string`\>
 
+A promise that resolves to the access token.
+
+#### Throws
+
+An error if there is an error retrieving the access token.
+
 #### Source
 
-[packages/core/src/service.ts:144](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L144)
+[packages/core/src/service.ts:240](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L240)
 
 ***
 
@@ -1752,13 +1845,17 @@ Use `fetchOptions.cache` instead
 
 > `protected` `abstract` **getCachedAccessToken**(): `Promise`\<`null` \| `string`\>
 
+Retrieves the cached access token.
+
 #### Returns
 
 `Promise`\<`null` \| `string`\>
 
+A promise that resolves to the cached access token, or null if not found.
+
 #### Source
 
-[packages/core/src/service.ts:90](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L90)
+[packages/core/src/service.ts:105](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L105)
 
 ***
 
@@ -1766,16 +1863,24 @@ Use `fetchOptions.cache` instead
 
 > `protected` `abstract` **setCachedAccessToken**(`value`, `expiresIn`): `Promise`\<`void`\>
 
+Sets the cached access token.
+
 #### Parameters
 
 • **value**: `string`
 
+The access token value to be cached.
+
 • **expiresIn**: `number`
+
+The expiration time of the access token.
 
 #### Returns
 
 `Promise`\<`void`\>
 
+A promise that resolves when the access token is successfully cached.
+
 #### Source
 
-[packages/core/src/service.ts:91](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/service.ts#L91)
+[packages/core/src/service.ts:113](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/service.ts#L113)

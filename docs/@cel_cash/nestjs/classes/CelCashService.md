@@ -8,7 +8,7 @@
 
 ## Extends
 
-- `CelCashServiceContract`
+- [`CelCashServiceContract`](https://pyxlab.github.io/celcash/@cel_cash/core/index/classes/CelCashServiceContract.html)
 
 ## Implements
 
@@ -36,7 +36,7 @@
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:15](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L15)
+[packages/nest/src/cel\_cash.service.ts:15](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/cel_cash.service.ts#L15)
 
 ## Properties
 
@@ -60,7 +60,7 @@ packages/core/dist/index.d.ts:33
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:19](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L19)
+[packages/nest/src/cel\_cash.service.ts:19](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/cel_cash.service.ts#L19)
 
 ***
 
@@ -70,7 +70,7 @@ packages/core/dist/index.d.ts:33
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:13](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L13)
+[packages/nest/src/cel\_cash.service.ts:13](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/cel_cash.service.ts#L13)
 
 ***
 
@@ -2254,7 +2254,7 @@ packages/core/dist/index.d.ts:47
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:39](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L39)
+[packages/nest/src/cel\_cash.service.ts:39](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/cel_cash.service.ts#L39)
 
 ***
 
@@ -2272,7 +2272,7 @@ packages/core/dist/index.d.ts:47
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:35](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L35)
+[packages/nest/src/cel\_cash.service.ts:35](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/cel_cash.service.ts#L35)
 
 ***
 
@@ -2296,4 +2296,4 @@ packages/core/dist/index.d.ts:47
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:46](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/cel_cash.service.ts#L46)
+[packages/nest/src/cel\_cash.service.ts:46](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/cel_cash.service.ts#L46)

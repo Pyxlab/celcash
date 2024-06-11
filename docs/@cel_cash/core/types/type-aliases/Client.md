@@ -6,7 +6,7 @@
 
 # Type alias: Client\<T\>
 
-> **Client**\<`T`\>: `Prettify`\<`InitClientReturn`\<`T`, `object`\>\>
+> **Client**\<`T`\>: [`Prettify`](https://pyxlab.github.io/celcash/@cel_cash/core/index)\<`InitClientReturn`\<`T`, `object`\>\>
 
 ## Type parameters
 
@@ -14,4 +14,4 @@
 
 ## Source
 
-[packages/core/src/types.ts:121](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/types.ts#L121)
+[packages/core/src/types.ts:121](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/types.ts#L121)

@@ -28,4 +28,4 @@
 
 ## Source
 
-[packages/core/src/types.ts:83](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/core/src/types.ts#L83)
+[packages/core/src/types.ts:83](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/core/src/types.ts#L83)

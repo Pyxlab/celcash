@@ -35,7 +35,7 @@ node\_modules/.pnpm/@nestjs+common@10.3.8\_reflect-metadata@0.1.14\_rxjs@7.8.1/n
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:44](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L44)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:44](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L44)
 
 ***
 
@@ -45,7 +45,7 @@ node\_modules/.pnpm/@nestjs+common@10.3.8\_reflect-metadata@0.1.14\_rxjs@7.8.1/n
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:42](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L42)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:42](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L42)
 
 ***
 
@@ -55,4 +55,4 @@ node\_modules/.pnpm/@nestjs+common@10.3.8\_reflect-metadata@0.1.14\_rxjs@7.8.1/n
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:43](https://github.com/Pyxlab/celcash/blob/9e2eeefc75067a4b86d18d5bb144eb4446f097c2/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L43)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:43](https://github.com/Pyxlab/celcash/blob/f7cdc752c29f8a0dcef033e212602412d2050afc/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L43)

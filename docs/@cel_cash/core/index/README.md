@@ -15,7 +15,7 @@
 ### Interfaces
 
 - [CelCashServiceConfig](interfaces/CelCashServiceConfig.md)
-- [loggingInterface](interfaces/loggingInterface.md)
+- [LoggingInterface](interfaces/LoggingInterface.md)
 
 ### Type Aliases
 

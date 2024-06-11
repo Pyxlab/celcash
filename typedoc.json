@@ -10,6 +10,30 @@
     "plugin": [
         "typedoc-plugin-rename-defaults",
         "typedoc-plugin-zod",
-        "typedoc-plugin-markdown"
+        "typedoc-plugin-markdown",
+        "typedoc-plugin-external-resolver"
     ],
+    "jsDocCompatibility": true,
+    "externalDocumentation": {
+        "@cel_cash/core": {
+            "dtsPath": "packages/core/src/index.ts",
+            "externalBaseURL": "https://pyxlab.github.io/celcash/@cel_cash/core/index"
+        },
+        "@cel_cash/core/types": {
+            "dtsPath": "packages/core/src/types.ts",
+            "externalBaseURL": "https://pyxlab.github.io/celcash/@cel_cash/core/types"
+        },
+        "@cel_cash/core/schemas": {
+            "dtsPath": "packages/core/src/schemas/index.ts",
+            "externalBaseURL": "https://pyxlab.github.io/celcash/@cel_cash/core/schemas"
+        },
+        "@cel_cash/core/contract": {
+            "dtsPath": "packages/core/src/contract/index.ts",
+            "externalBaseURL": "https://pyxlab.github.io/celcash/@cel_cash/core/contract"
+        },
+        "@cel_cash/core/utils": {
+            "dtsPath": "packages/core/src/utils/index.ts",
+            "externalBaseURL": "https://pyxlab.github.io/celcash/@cel_cash/core/utils"
+        },
+    }
 }
