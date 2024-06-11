@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core'
-import { z } from 'zod'
+import { ZodError, z } from 'zod'
 import {
     addTransactionBodySchema,
     createOrUpdateTransactionResponseSchema,
@@ -13,6 +13,24 @@ const c = initContract()
 
 /**
  * Represents the transactions router.
+ *
+ * @example
+ * ```ts
+ * import { initClient } from '@ts-rest/core'
+ * import { transactions } from '@cel_cash/core/contract'
+ *
+ * const client = initClient(transactions, {
+ *   baseUrl: 'https://api.celcoin.com.br'
+ * })
+ *
+ * const transactionsList = await client.list({ ... })
+ * const createdTransaction = await client.create({ ... })
+ * const updatedTransaction = await client.update({ ... })
+ * const retriedTransaction = await client.retry({ ... })
+ * const reversedTransaction = await client.reverse({ ... })
+ * const capturedTransaction = await client.capture({ ... })
+ * const canceledTransaction = await client.cancel({ ... })
+ * ```
  */
 export const transactions = c.router(
     {
@@ -80,7 +98,6 @@ export const transactions = c.router(
          * @pathParams transactionId - The transaction ID.
          * @pathParams typeId - The type ID (galaxPayId or myId).
          * @responses 200 - retryOrReverseTransactionResponseSchema
-         * @body {}
          */
         retry: {
             method: 'PUT',
@@ -92,7 +109,7 @@ export const transactions = c.router(
             responses: {
                 200: retryOrReverseTransactionResponseSchema,
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
         /**
          * Reverses a transaction.
@@ -124,7 +141,6 @@ export const transactions = c.router(
          * @pathParams transactionId - The transaction ID.
          * @pathParams typeId - The type ID (galaxPayId or myId).
          * @responses 200 - createOrUpdateTransactionResponseSchema
-         * @body {}
          */
         capture: {
             method: 'PUT',
@@ -136,7 +152,7 @@ export const transactions = c.router(
             responses: {
                 200: createOrUpdateTransactionResponseSchema,
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
         /**
          * Cancels a transaction.
@@ -145,7 +161,6 @@ export const transactions = c.router(
          * @pathParams transactionId - The transaction ID.
          * @pathParams typeId - The type ID (galaxPayId or myId).
          * @responses 200 - { type: boolean }
-         * @body {}
          */
         cancel: {
             method: 'DELETE',
@@ -159,8 +174,13 @@ export const transactions = c.router(
                     type: z.boolean(),
                 }),
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
     },
-    { pathPrefix: '/transactions' },
+    {
+        pathPrefix: '/transactions',
+        commonResponses: {
+            507: c.type<ZodError>(),
+        },
+    },
 )
