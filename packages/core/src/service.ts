@@ -32,7 +32,7 @@ import {
     celCashRestFetchApi,
 } from './utils/index.js'
 
-export interface loggingInterface {
+export interface LoggingInterface {
     debug: (message: string) => void
     error: (message: string) => void
 }
@@ -46,7 +46,13 @@ export interface CelCashServiceConfig {
     }>
 }
 
+/**
+ * Abstract class representing the CelCash service contract.
+ */
 export abstract class CelCashServiceContract {
+    /**
+     * Cache constants for CelCash service.
+     */
     static readonly CACHE = {
         ROOT: 'cel_cash',
         ACCESS_TOKEN: 'cel_cash:access_token',
@@ -58,7 +64,12 @@ export abstract class CelCashServiceContract {
 
     readonly #config: CelCashServiceConfig
 
-    constructor(config: Configure, logger: loggingInterface) {
+    /**
+     * Constructs a new instance of the CelCashServiceContract class.
+     * @param config {@link Configure} - The configuration object for the CelCash service.
+     * @param logger {@link LoggingInterface} - The logger object for logging.
+     */
+    constructor(config: Configure, logger: LoggingInterface) {
         this.#cel_cash_base_url = config.BASE_URL
         this.#cel_cash_id = config.ID
         this.#cel_cash_hash = config.HASH
@@ -87,60 +98,145 @@ export abstract class CelCashServiceContract {
         }
     }
 
+    /**
+     * Retrieves the cached access token.
+     * @returns A promise that resolves to the cached access token, or null if not found.
+     */
     protected abstract getCachedAccessToken(): Promise<string | null>
+
+    /**
+     * Sets the cached access token.
+     * @param value - The access token value to be cached.
+     * @param expiresIn - The expiration time of the access token.
+     * @returns A promise that resolves when the access token is successfully cached.
+     */
     protected abstract setCachedAccessToken(
         value: string,
         expiresIn: number,
     ): Promise<void>
 
+    /**
+     * Gets the antecipation client.
+     * @returns The antecipation client.
+     */
     get antecipation(): Antecipation {
         return initClient(antecipation, this.#config)
     }
 
+    /**
+     * Gets the cards client.
+     * @example
+     * ```ts
+     * // List cards
+     * const cards = await service.cards.list({
+     *   query: {
+     *     limit: 10,
+     *     startAt: 0,
+     *   },
+     * })
+     * ```
+     * @example
+     * ```ts
+     * // Create a card
+     * const card = await service.create({
+     *  body: {
+     *      //...
+     *  }
+     * })
+     * ```
+     * @example
+     * ```ts
+     * // Delete a card
+     * const result = await service.delete({
+     *       params: {
+     *           cardId: 123,
+     *           typeId: 'galaxPayId'
+     *       }
+     *   })
+     * ```
+     * @returns The cards client.
+     */
     get cards(): Cards {
         return initClient(cards, this.#config)
     }
 
+    /**
+     * Gets the charges client.
+     * @returns The charges client.
+     */
     get charges(): Charges {
         return initClient(charges, this.#config)
     }
 
+    /**
+     * Gets the chargebacks client.
+     * @returns The chargebacks client.
+     */
     get chargebacks(): Chargebacks {
         return initClient(chargebacks, this.#config)
     }
 
+    /**
+     * Gets the companies client.
+     * @returns The companies client.
+     */
     get companies(): Companies {
         return initClient(companies, this.#config)
     }
 
+    /**
+     * Gets the pix client.
+     * @returns The pix client.
+     */
     get pix(): Pix {
         return initClient(pix, this.#config)
     }
 
+    /**
+     * Gets the transfer client.
+     * @returns The transfer client.
+     */
     get transfer(): Transfer {
         return initClient(transfer, this.#config)
     }
 
+    /**
+     * Gets the transactions client.
+     * @returns The transactions client.
+     */
     get transactions(): Transactions {
         return initClient(transactions, this.#config)
     }
 
-    // public get webhook() {
-    //     return initClient()
-    // }
-
+    /**
+     * Gets the plans client.
+     * @returns The plans client.
+     */
     get plans(): Plans {
         return initClient(plans, this.#config)
     }
 
+    /**
+     * Gets the customers client.
+     * @returns The customers client.
+     */
     get customers(): Customers {
         return initClient(customers, this.#config)
     }
 
+    /**
+     * Gets the subscriptions client.
+     * @returns The subscriptions client.
+     */
     get subscriptions(): Subscriptions {
         return initClient(subscriptions, this.#config)
     }
 
+    /**
+     * Retrieves the access token.
+     * @returns A promise that resolves to the access token.
+     * @throws An error if there is an error retrieving the access token.
+     */
     async #getAccessToken() {
         const token = await this.getCachedAccessToken()
 
@@ -166,7 +262,6 @@ export abstract class CelCashServiceContract {
                         'plans.write',
                         'transactions.read',
                         'transactions.write',
-                        // "webhooks.write",
                         'cards.read',
                         'cards.write',
                         'card-brands.read',
