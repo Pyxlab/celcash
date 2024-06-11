@@ -40,7 +40,7 @@ export const customers = c.router(
             responses: {
                 200: createCustomerResponseSchema,
             },
-            body: createCustomerBodySchema,
+            body: createCustomerBodySchema.deepPartial(),
         },
         delete: {
             method: 'DELETE',
