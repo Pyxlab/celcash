@@ -10,7 +10,7 @@
     "plugin": [
         "typedoc-plugin-rename-defaults",
         "typedoc-plugin-zod",
-        "typedoc-plugin-markdown",
+        // "typedoc-plugin-markdown",
         "typedoc-plugin-external-resolver"
     ],
     "jsDocCompatibility": true,
