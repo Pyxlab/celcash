@@ -33,7 +33,10 @@ export const charges = c.router(
             method: 'PUT',
             path: '/:chargeId/:typeId',
             pathParams: z.object({
-                chargeId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                chargeId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -45,7 +48,10 @@ export const charges = c.router(
             method: 'PUT',
             path: '/:chargeId/:typeId/retry',
             pathParams: z.object({
-                chargeId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                chargeId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -57,7 +63,10 @@ export const charges = c.router(
             method: 'PUT',
             path: '/:chargeId/:typeId/reverse',
             pathParams: z.object({
-                chargeId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                chargeId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -71,7 +80,10 @@ export const charges = c.router(
             method: 'PUT',
             path: '/:chargeId/:typeId/capture',
             pathParams: z.object({
-                chargeId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                chargeId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -83,7 +95,10 @@ export const charges = c.router(
             method: 'DELETE',
             path: '/:chargeId/:typeId/',
             pathParams: z.object({
-                chargeId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                chargeId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {

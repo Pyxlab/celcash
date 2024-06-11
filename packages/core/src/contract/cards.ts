@@ -23,7 +23,10 @@ export const cards = c.router(
             method: 'POST',
             path: '/:customerId/:typeId',
             pathParams: z.object({
-                customerId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                customerId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -35,7 +38,10 @@ export const cards = c.router(
             method: 'DELETE',
             path: '/:cardId/:typeId',
             pathParams: z.object({
-                cardId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                cardId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {

@@ -32,7 +32,10 @@ export const plans = c.router(
             method: 'PUT',
             path: '/:planId/:typeId',
             pathParams: z.object({
-                planId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                planId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
@@ -44,7 +47,10 @@ export const plans = c.router(
             method: 'DELETE',
             path: '/:planId/:typeId',
             pathParams: z.object({
-                planId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+                planId: z.union([
+                    z.coerce.number().positive(),
+                    z.coerce.string(),
+                ]),
                 typeId: z.enum(['galaxPayId', 'myId']),
             }),
             responses: {
