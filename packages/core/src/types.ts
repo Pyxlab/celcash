@@ -42,7 +42,11 @@ import {
     paymentMethodCreditCardSchema,
     paymentMethodPixSchema,
 } from './schemas/payments.js'
-import { planPricesSchema, planSchema, planStatusSchema } from './schemas/plans.js'
+import {
+    planPricesSchema,
+    planSchema,
+    planStatusSchema,
+} from './schemas/plans.js'
 import { subscriptionSchema } from './schemas/subscriptions.js'
 import {
     abecsReasonDeniedSchema,
@@ -114,10 +118,12 @@ type Prettify<T> = {
     [K in keyof T]: T[K]
 } & unknown
 
-export type Client<T extends AppRouter> = Prettify<InitClientReturn<
-    T,
-    {
-        baseUrl: string
-        api: typeof celCashRestFetchApi
-    }
->>
+export type Client<T extends AppRouter> = Prettify<
+    InitClientReturn<
+        T,
+        {
+            baseUrl: string
+            api: typeof celCashRestFetchApi
+        }
+    >
+>

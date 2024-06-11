@@ -9,7 +9,11 @@ import {
 } from './_/payments.js'
 import { subscriptionStatusSchema } from './_/subscription.js'
 import { cardSchema } from './cards.js'
-import { extraFieldSchema, invoiceConfigSchema, invoiceSchema } from './common.js'
+import {
+    extraFieldSchema,
+    invoiceConfigSchema,
+    invoiceSchema,
+} from './common.js'
 import { splitSchema } from './contract.js'
 import { customerSchema } from './customers.js'
 import {

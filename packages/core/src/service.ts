@@ -26,7 +26,11 @@ import type {
     Transactions,
     Transfer,
 } from './contract/index.js'
-import { Configure, celCashRestFetchApi, basicAuthorization } from './utils/index.js'
+import {
+    Configure,
+    basicAuthorization,
+    celCashRestFetchApi,
+} from './utils/index.js'
 
 export interface loggingInterface {
     debug: (message: string) => void
