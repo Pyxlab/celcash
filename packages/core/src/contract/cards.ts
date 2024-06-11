@@ -11,6 +11,20 @@ const c = initContract()
 
 /**
  * Router for handling card-related operations.
+ *
+ * @example
+ * ```ts
+ * import { initClient } from '@ts-rest/core'
+ * import { cards } from '@cel_cash/core/contract'
+ *
+ * const client = initClient(cards, {
+ *   baseUrl: 'https://api.celcoin.com.br'
+ * })
+ *
+ * const cardsList = await client.list({ ... })
+ * const createdCard = await client.create({ ... })
+ * const deletedCard = await client.delete({ ... })
+ * ```
  */
 export const cards = c.router(
     {
@@ -60,7 +74,6 @@ export const cards = c.router(
          * @pathParams cardId - The ID of the card.
          * @pathParams typeId - The type of the card (galaxPayId or myId).
          * @responses 200 - { type: boolean }
-         * @body {}
          */
         delete: {
             method: 'DELETE',
@@ -77,7 +90,7 @@ export const cards = c.router(
                     type: z.boolean(),
                 }),
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
     },
     {
