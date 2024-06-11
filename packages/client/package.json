@@ -38,7 +38,8 @@
         "@swc/core": "^1.5.7",
         "@types/node": "^20.12.12",
         "tsup": "^8.0.2",
-        "typescript": "^5.4.5"
+        "typescript": "^5.4.5",
+        "vitest": "^1.6.0"
     },
     "peerDependencies": {
         "@cel_cash/core": "^2.2.0"
