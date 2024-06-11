@@ -1,5 +1,5 @@
 import { initContract } from '@ts-rest/core'
-import { z } from 'zod'
+import { ZodError, z } from 'zod'
 import {
     createPlanBodySchema,
     createPlanResponseSchema,
@@ -12,6 +12,21 @@ const c = initContract()
 
 /**
  * Defines the plans router object.
+ *
+ * @example
+ * ```ts
+ * import { initClient } from '@ts-rest/core'
+ * import { plans } from '@cel_cash/core/contract'
+ *
+ * const client = initClient(plans, {
+ *   baseUrl: 'https://api.celcoin.com.br'
+ * })
+ *
+ * const plansList = await client.list({ ... })
+ * const createdPlan = await client.create({ ... })
+ * const updatedPlan = await client.update({ ... })
+ * const deletedPlan = await client.delete({ ... })
+ * ```
  */
 export const plans = c.router(
     {
@@ -95,8 +110,13 @@ export const plans = c.router(
                     type: z.boolean(),
                 }),
             },
-            body: z.object({}),
+            body: c.noBody(),
         },
     },
-    { pathPrefix: '/plans' },
+    {
+        pathPrefix: '/plans',
+        commonResponses: {
+            507: c.type<ZodError>(),
+        },
+    },
 )
