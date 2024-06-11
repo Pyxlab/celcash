@@ -1,39 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / paymentMethodBoletoSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / paymentMethodBoletoSchema
 
 # Variable: paymentMethodBoletoSchema
 
-> `const` **paymentMethodBoletoSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### Aggrement
-
-> **Aggrement**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-### deadlineDays
-
-> **deadlineDays**: `ZodOptional`\<`ZodNumber`\>
-
-### documentNumber
-
-> **documentNumber**: `ZodOptional`\<`ZodString`\>
-
-### fine
-
-> **fine**: `ZodOptional`\<`ZodNumber`\>
-
-### instructions
-
-> **instructions**: `ZodOptional`\<`ZodString`\>
-
-### interest
-
-> **interest**: `ZodOptional`\<`ZodNumber`\>
+> `const` **paymentMethodBoletoSchema**: `ZodObject`\<[`PaymentMethodBoleto`](../../types/type-aliases/PaymentMethodBoleto.md)\>
 
 ## Source
 
-[packages/core/src/schemas/payments.ts:29](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/payments.ts#L29)
+[packages/core/src/schemas/payments.ts:29](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/payments.ts#L29)

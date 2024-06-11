@@ -1,8 +1,8 @@
-[**@cel_cash/nestjs v2.1.5**](README.md) • **Docs**
+[**@cel_cash/nestjs v2.2.0**](README.md) • **Docs**
 
 ***
 
-[CelCash](../../README.md) / @cel\_cash/nestjs
+[CelCash](../../packages.md) / @cel\_cash/nestjs
 
 # @cel\_cash/nestjs
 

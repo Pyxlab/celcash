@@ -1,51 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / conciliationOccurrenceSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / conciliationOccurrenceSchema
 
 # Variable: conciliationOccurrenceSchema
 
-> `const` **conciliationOccurrenceSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### account
-
-> **account**: `ZodString`
-
-### agency
-
-> **agency**: `ZodString`
-
-### bankName
-
-> **bankName**: `ZodString`
-
-### bankNumber
-
-> **bankNumber**: `ZodNumber`
-
-### depositDate
-
-> **depositDate**: `ZodString`
-
-### liquidValue
-
-> **liquidValue**: `ZodNumber`
-
-### taxPercent
-
-> **taxPercent**: `ZodNumber`
-
-### taxValue
-
-> **taxValue**: `ZodNumber`
-
-### type
-
-> **type**: `ZodEnum`\<[`"payment"`, `"canceled"`]\> = `conciliationOccurrenceStatusSchema`
+> `const` **conciliationOccurrenceSchema**: `ZodObject`\<[`ConciliationOccurrence`](../../types/type-aliases/ConciliationOccurrence.md)\>
 
 ## Source
 
-[packages/core/src/schemas/transactions.ts:175](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/transactions.ts#L175)
+[packages/core/src/schemas/transactions.ts:175](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/transactions.ts#L175)

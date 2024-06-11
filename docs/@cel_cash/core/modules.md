@@ -1,8 +1,8 @@
-[**@cel_cash/core v2.1.5-1**](README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](README.md) • **Docs**
 
 ***
 
-[CelCash](../../README.md) / @cel\_cash/core
+[CelCash](../../packages.md) / @cel\_cash/core
 
 # @cel\_cash/core
 
@@ -11,4 +11,5 @@
 - [contract](contract/README.md)
 - [index](index/README.md)
 - [schemas](schemas/README.md)
+- [types](types/README.md)
 - [utils](utils/README.md)

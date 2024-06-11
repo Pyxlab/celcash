@@ -1,8 +1,8 @@
-**@cel_cash/adonisjs v2.1.5-1** • [**Docs**](modules.md)
+**@cel_cash/adonisjs v2.2.0** • [**Docs**](modules.md)
 
 ***
 
-[CelCash](../../README.md) / @cel\_cash/adonisjs
+[CelCash](../../packages.md) / @cel\_cash/adonisjs
 
 # @cel_cash/adonisjs
 

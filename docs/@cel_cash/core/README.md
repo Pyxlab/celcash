@@ -1,8 +1,8 @@
-**@cel_cash/core v2.1.5-1** • [**Docs**](modules.md)
+**@cel_cash/core v2.2.0** • [**Docs**](modules.md)
 
 ***
 
-[CelCash](../../README.md) / @cel\_cash/core
+[CelCash](../../packages.md) / @cel\_cash/core
 
 # @cel_cash/core
 

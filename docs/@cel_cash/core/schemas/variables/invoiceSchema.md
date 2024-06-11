@@ -1,43 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / invoiceSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / invoiceSchema
 
 # Variable: invoiceSchema
 
-> `const` **invoiceSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### description
-
-> **description**: `ZodString`
-
-### number
-
-> **number**: `ZodString`
-
-### pdf
-
-> **pdf**: `ZodString`
-
-### status
-
-> **status**: `ZodEnum`\<[`"pending"`, `"emitted"`, `"rejected"`, `"error"`, `"cancel"`, `"cancelOutSystem"`]\> = `invoiceStatusSchema`
-
-### statusDate
-
-> **statusDate**: `ZodString`
-
-### statusDescription
-
-> **statusDescription**: `ZodString`
-
-### xml
-
-> **xml**: `ZodString`
+> `const` **invoiceSchema**: `ZodObject`\<[`Invoice`](../../types/type-aliases/Invoice.md)\>
 
 ## Source
 
-[packages/core/src/schemas/common.ts:119](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/common.ts#L119)
+[packages/core/src/schemas/common.ts:119](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/common.ts#L119)

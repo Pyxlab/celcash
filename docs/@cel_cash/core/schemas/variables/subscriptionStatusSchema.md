@@ -1,13 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / subscriptionStatusSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / subscriptionStatusSchema
 
 # Variable: subscriptionStatusSchema
 
-> `const` **subscriptionStatusSchema**: `ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"stopped"`, `"waitingPayment"`, `"inactive"`]\>
+> `const` **subscriptionStatusSchema**: `ZodEnum`\<[`SubscriptionStatus`](../../types/type-aliases/SubscriptionStatus.md)\>
 
 ## Source
 
-[packages/core/src/schemas/\_/subscription.ts:3](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/_/subscription.ts#L3)
+[packages/core/src/schemas/\_/subscription.ts:3](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/_/subscription.ts#L3)

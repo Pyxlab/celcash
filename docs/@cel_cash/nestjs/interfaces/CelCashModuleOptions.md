@@ -1,8 +1,8 @@
-[**@cel_cash/nestjs v2.1.5**](../README.md) • **Docs**
+[**@cel_cash/nestjs v2.2.0**](../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../README.md) / [@cel\_cash/nestjs](../README.md) / CelCashModuleOptions
+[CelCash](../../../packages.md) / [@cel\_cash/nestjs](../README.md) / CelCashModuleOptions
 
 # Interface: CelCashModuleOptions
 
@@ -14,7 +14,7 @@
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:10](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L10)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:10](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L10)
 
 ***
 
@@ -27,4 +27,4 @@ See: https://docs.nestjs.com/modules#global-modules
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:8](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L8)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:8](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L8)

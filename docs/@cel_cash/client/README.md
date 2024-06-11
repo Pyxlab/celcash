@@ -1,8 +1,8 @@
-**@cel_cash/client v2.1.5** • [**Docs**](globals.md)
+**@cel_cash/client v2.2.0** • [**Docs**](globals.md)
 
 ***
 
-[CelCash](../../README.md) / @cel\_cash/client
+[CelCash](../../packages.md) / @cel\_cash/client
 
 # @cel_cash/client
 

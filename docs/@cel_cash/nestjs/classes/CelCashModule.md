@@ -1,8 +1,8 @@
-[**@cel_cash/nestjs v2.1.5**](../README.md) • **Docs**
+[**@cel_cash/nestjs v2.2.0**](../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../README.md) / [@cel\_cash/nestjs](../README.md) / CelCashModule
+[CelCash](../../../packages.md) / [@cel\_cash/nestjs](../README.md) / CelCashModule
 
 # Class: CelCashModule
 
@@ -32,7 +32,7 @@
 
 #### Source
 
-[packages/nest/src/cel\_cash.module.ts:19](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.module.ts#L19)
+[packages/nest/src/cel\_cash.module.ts:19](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.module.ts#L19)
 
 ***
 
@@ -50,4 +50,4 @@
 
 #### Source
 
-[packages/nest/src/cel\_cash.module.ts:27](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.module.ts#L27)
+[packages/nest/src/cel\_cash.module.ts:27](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.module.ts#L27)

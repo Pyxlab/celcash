@@ -1,8 +1,8 @@
-**@cel_cash/nestjs v2.1.5** • [**Docs**](globals.md)
+**@cel_cash/nestjs v2.2.0** • [**Docs**](globals.md)
 
 ***
 
-[CelCash](../../README.md) / @cel\_cash/nestjs
+[CelCash](../../packages.md) / @cel\_cash/nestjs
 
 # @cel_cash/nestjs
 

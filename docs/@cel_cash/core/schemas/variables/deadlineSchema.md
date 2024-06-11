@@ -1,23 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / deadlineSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / deadlineSchema
 
 # Variable: deadlineSchema
 
-> `const` **deadlineSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### type
-
-> **type**: `ZodOptional`\<`ZodEnum`\<[`"days"`]\>\>
-
-### value
-
-> **value**: `ZodOptional`\<`ZodNumber`\>
+> `const` **deadlineSchema**: `ZodObject`\<[`Deadline`](../../types/type-aliases/Deadline.md)\>
 
 ## Source
 
-[packages/core/src/schemas/\_/payments.ts:44](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/_/payments.ts#L44)
+[packages/core/src/schemas/\_/payments.ts:44](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/_/payments.ts#L44)

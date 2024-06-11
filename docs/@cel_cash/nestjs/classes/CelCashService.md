@@ -1,8 +1,8 @@
-[**@cel_cash/nestjs v2.1.5**](../README.md) • **Docs**
+[**@cel_cash/nestjs v2.2.0**](../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../README.md) / [@cel\_cash/nestjs](../README.md) / CelCashService
+[CelCash](../../../packages.md) / [@cel\_cash/nestjs](../README.md) / CelCashService
 
 # Class: CelCashService
 
@@ -36,7 +36,7 @@
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:15](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.service.ts#L15)
+[packages/nest/src/cel\_cash.service.ts:15](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L15)
 
 ## Properties
 
@@ -50,7 +50,7 @@
 
 #### Source
 
-packages/core/dist/index.d.ts:25
+packages/core/dist/index.d.ts:33
 
 ***
 
@@ -60,7 +60,7 @@ packages/core/dist/index.d.ts:25
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:19](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.service.ts#L19)
+[packages/nest/src/cel\_cash.service.ts:19](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L19)
 
 ***
 
@@ -70,7 +70,7 @@ packages/core/dist/index.d.ts:25
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:13](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.service.ts#L13)
+[packages/nest/src/cel\_cash.service.ts:13](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L13)
 
 ***
 
@@ -92,71 +92,57 @@ packages/core/dist/index.d.ts:25
 
 #### Source
 
-packages/core/dist/index.d.ts:26
+packages/core/dist/index.d.ts:34
 
 ## Accessors
 
 ### antecipation
 
-> `get` **antecipation**(): `RecursiveProxyObj`\<`object`, `object`\>
+> `get` **antecipation**(): `object`
 
 #### Returns
 
-`RecursiveProxyObj`\<`object`, `object`\>
+`object`
 
-##### create
+##### create()
 
-> **create**: `object`
+> **create**: (`args`) => `Promise`\<`object` \| `object` \| `object`\>
 
-##### create.body
+###### Parameters
 
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args**
 
-###### Type declaration
+• **args.body**
 
-###### antecipationUuid
+• **args.body.antecipationUuid**: `string`
 
-> **antecipationUuid**: `ZodString`
+• **args.cache?**: `RequestCache`
 
-##### create.method
+**Deprecated**
 
-> **method**: `"POST"`
+Use `fetchOptions.cache` instead
 
-##### create.path
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-> **path**: `"/antecipation/"`
+• **args.fetchOptions?**: `FetchOptions`
 
-##### create.responses
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-> **responses**: `object`
+###### Returns
 
-##### create.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### create.responses.507
-
-> **507**: `ContractPlainType`\<`ZodError`\<`any`\>\>
-
-##### create.summary
-
-> **summary**: `"Antecipar recebíveis"`
+`Promise`\<`object` \| `object` \| `object`\>
 
 ##### simulate
 
-> **simulate**: `object`
+> **simulate**: `RecursiveProxyObj`\<`object`, `object`\>
 
-##### simulate.create
+###### Type declaration
+
+###### create
 
 > **create**: `object`
 
-##### simulate.create.body
+###### create.body
 
 > **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -174,19 +160,19 @@ packages/core/dist/index.d.ts:26
 
 > **value**: `ZodNumber`
 
-##### simulate.create.method
+###### create.method
 
 > **method**: `"POST"`
 
-##### simulate.create.path
+###### create.path
 
 > **path**: `"/antecipation/simulate/"`
 
-##### simulate.create.responses
+###### create.responses
 
 > **responses**: `object`
 
-##### simulate.create.responses.200
+###### create.responses.200
 
 > **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -292,35 +278,35 @@ packages/core/dist/index.d.ts:26
 
 > **type**: `ZodBoolean`
 
-##### simulate.create.responses.507
+###### create.responses.507
 
 > **507**: `ContractPlainType`\<`ZodError`\<`any`\>\>
 
-##### simulate.create.summary
+###### create.summary
 
 > **summary**: `"Simula antecipação"`
 
-##### simulate.getByFilters
+###### getByFilters
 
 > **getByFilters**: `object`
 
-##### simulate.getByFilters.method
+###### getByFilters.method
 
 > **method**: `"GET"`
 
-##### simulate.getByFilters.path
+###### getByFilters.path
 
 > **path**: `"/antecipation/simulate/get-by-filters"`
 
-##### simulate.getByFilters.query
+###### getByFilters.query
 
 > **query**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
 
-##### simulate.getByFilters.responses
+###### getByFilters.responses
 
 > **responses**: `object`
 
-##### simulate.getByFilters.responses.200
+###### getByFilters.responses.200
 
 > **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -334,2633 +320,13 @@ packages/core/dist/index.d.ts:26
 
 > **totalQtdFoundInPage**: `ZodNumber`
 
-##### simulate.getByFilters.responses.507
+###### getByFilters.responses.507
 
 > **507**: `ContractPlainType`\<`ZodError`\<`any`\>\>
 
-##### simulate.getByFilters.summary
+###### getByFilters.summary
 
 > **summary**: `"Lista as simulações antecipação de transações"`
-
-#### Source
-
-packages/core/dist/index.d.ts:33
-
-***
-
-### cards
-
-> `get` **cards**(): `RecursiveProxyObj`\<`object`, `object`\>
-
-#### Returns
-
-`RecursiveProxyObj`\<`object`, `object`\>
-
-##### create
-
-> **create**: `object`
-
-##### create.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### cvv
-
-> **cvv**: `ZodString`
-
-###### expiresAt
-
-> **expiresAt**: `ZodString`
-
-###### holder
-
-> **holder**: `ZodString`
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### number
-
-> **number**: `ZodString`
-
-##### create.method
-
-> **method**: `"POST"`
-
-##### create.path
-
-> **path**: `"/cards/:customerId/:typeId"`
-
-##### create.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### customerId
-
-> **customerId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### create.responses
-
-> **responses**: `object`
-
-##### create.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Card
-
-> **Card**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### create.responses.507
-
-> **507**: `ContractPlainType`\<`ZodError`\<`any`\>\>
-
-##### delete
-
-> **delete**: `object`
-
-##### delete.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-##### delete.method
-
-> **method**: `"DELETE"`
-
-##### delete.path
-
-> **path**: `"/cards/:cardId/:typeId"`
-
-##### delete.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### cardId
-
-> **cardId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### delete.responses
-
-> **responses**: `object`
-
-##### delete.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### delete.responses.507
-
-> **507**: `ContractPlainType`\<`ZodError`\<`any`\>\>
-
-##### list
-
-> **list**: `object`
-
-##### list.method
-
-> **method**: `"GET"`
-
-##### list.path
-
-> **path**: `"/cards/"`
-
-##### list.query
-
-> **query**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### createdAtFrom
-
-> **createdAtFrom**: `ZodOptional`\<`ZodString`\>
-
-###### createdAtTo
-
-> **createdAtTo**: `ZodOptional`\<`ZodString`\>
-
-###### customerGalaxPayIds
-
-> **customerGalaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
-
-###### customerMyIds
-
-> **customerMyIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### galaxPayIds
-
-> **galaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
-
-###### limit
-
-> **limit**: `ZodNumber`
-
-###### myIds
-
-> **myIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### order
-
-> **order**: `ZodOptional`\<`ZodEnum`\<[`"createdAt.asc"`, `"createdAt.desc"`]\>\>
-
-###### startAt
-
-> **startAt**: `ZodNumber`
-
-###### status
-
-> **status**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodEnum`\<...\>, `"many"`\>, `ZodEnum`\<[..., ...]\>]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `"active"` \| `"inactive"` \| (`"active"` \| `"inactive"`)[]\>
-
-##### list.responses
-
-> **responses**: `object`
-
-##### list.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Cards
-
-> **Cards**: `ZodArray`\<`ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### totalQtdFoundInPage
-
-> **totalQtdFoundInPage**: `ZodNumber`
-
-##### list.responses.507
-
-> **507**: `ContractPlainType`\<`ZodError`\<`any`\>\>
-
-#### Source
-
-packages/core/dist/index.d.ts:34
-
-***
-
-### chargebacks
-
-> `get` **chargebacks**(): `RecursiveProxyObj`\<`object`, `object`\>
-
-#### Returns
-
-`RecursiveProxyObj`\<`object`, `object`\>
-
-#### Source
-
-packages/core/dist/index.d.ts:36
-
-***
-
-### charges
-
-> `get` **charges**(): `RecursiveProxyObj`\<`object`, `object`\>
-
-#### Returns
-
-`RecursiveProxyObj`\<`object`, `object`\>
-
-##### cancel
-
-> **cancel**: `object`
-
-##### cancel.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-##### cancel.method
-
-> **method**: `"DELETE"`
-
-##### cancel.path
-
-> **path**: `"/charges/:chargeId/:typeId/"`
-
-##### cancel.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### chargeId
-
-> **chargeId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### cancel.responses
-
-> **responses**: `object`
-
-##### cancel.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Contract
-
-> **Contract**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### acceptedAt
-
-> **acceptedAt**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### ip
-
-> **ip**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### ExtraFields
-
-> **ExtraFields**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Aggrement
-
-> **Aggrement**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### deadlineDays
-
-> **deadlineDays**: `ZodOptional`\<`ZodNumber`\>
-
-###### documentNumber
-
-> **documentNumber**: `ZodOptional`\<`ZodString`\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<`ZodNumber`\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<`ZodString`\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<`ZodNumber`\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<`ZodEnum`\<[..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ...]\>\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<`ZodBoolean`\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Deadline
-
-> **Deadline**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<`ZodNumber`\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<`ZodString`\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<`ZodNumber`\>
-
-###### Split
-
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### billGalaxyPayId
-
-> **billGalaxyPayId**: `ZodNumber`
-
-###### companyGalaxyPayId
-
-> **companyGalaxyPayId**: `ZodNumber`
-
-###### galaxyPayId
-
-> **galaxyPayId**: `ZodNumber`
-
-###### groupGalaxyPayId
-
-> **groupGalaxyPayId**: `ZodNumber`
-
-###### paymentMethod
-
-> **paymentMethod**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<[`"percent"`, `"fixed"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### Transactions
-
-> **Transactions**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodNullable`\<`ZodString`\>
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodString`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodNullable`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### paymentLink
-
-> **paymentLink**: `ZodString`
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodString`
-
-###### planMyId
-
-> **planMyId**: `ZodNullable`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"waitingPayment"`, `"inactive"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-##### capture
-
-> **capture**: `object`
-
-##### capture.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-##### capture.method
-
-> **method**: `"PUT"`
-
-##### capture.path
-
-> **path**: `"/charges/:chargeId/:typeId/capture"`
-
-##### capture.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### chargeId
-
-> **chargeId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### capture.responses
-
-> **responses**: `object`
-
-##### capture.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Contract
-
-> **Contract**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### acceptedAt
-
-> **acceptedAt**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### ip
-
-> **ip**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### ExtraFields
-
-> **ExtraFields**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Aggrement
-
-> **Aggrement**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### deadlineDays
-
-> **deadlineDays**: `ZodOptional`\<`ZodNumber`\>
-
-###### documentNumber
-
-> **documentNumber**: `ZodOptional`\<`ZodString`\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<`ZodNumber`\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<`ZodString`\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<`ZodNumber`\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<`ZodEnum`\<[..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ...]\>\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<`ZodBoolean`\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Deadline
-
-> **Deadline**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<`ZodNumber`\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<`ZodString`\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<`ZodNumber`\>
-
-###### Split
-
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### billGalaxyPayId
-
-> **billGalaxyPayId**: `ZodNumber`
-
-###### companyGalaxyPayId
-
-> **companyGalaxyPayId**: `ZodNumber`
-
-###### galaxyPayId
-
-> **galaxyPayId**: `ZodNumber`
-
-###### groupGalaxyPayId
-
-> **groupGalaxyPayId**: `ZodNumber`
-
-###### paymentMethod
-
-> **paymentMethod**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<[`"percent"`, `"fixed"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### Transactions
-
-> **Transactions**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodNullable`\<`ZodString`\>
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodString`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodNullable`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### paymentLink
-
-> **paymentLink**: `ZodString`
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodString`
-
-###### planMyId
-
-> **planMyId**: `ZodNullable`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"waitingPayment"`, `"inactive"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-##### create
-
-> **create**: `object`
-
-##### create.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Address
-
-> **Address**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### createdAt
-
-> **createdAt**: `ZodOptional`\<`ZodString`\>
-
-###### document
-
-> **document**: `ZodOptional`\<`ZodString`\>
-
-###### emails
-
-> **emails**: `ZodOptional`\<`ZodArray`\<`ZodString`, `"many"`\>\>
-
-###### galaPayId
-
-> **galaPayId**: `ZodOptional`\<`ZodNumber`\>
-
-###### invoiceHoldIss
-
-> **invoiceHoldIss**: `ZodOptional`\<`ZodOptional`\<`ZodBoolean`\>\>
-
-###### municipalDocument
-
-> **municipalDocument**: `ZodOptional`\<`ZodOptional`\<`ZodString`\>\>
-
-###### myId
-
-> **myId**: `ZodOptional`\<`ZodString`\>
-
-###### name
-
-> **name**: `ZodOptional`\<`ZodString`\>
-
-###### phones
-
-> **phones**: `ZodOptional`\<`ZodOptional`\<`ZodArray`\<`ZodNumber`, `"many"`\>\>\>
-
-###### status
-
-> **status**: `ZodOptional`\<`ZodEnum`\<[`"active"`, `"delayed"`, `"inactive"`, `"withoutSubscriptionOrCharge"`]\>\>
-
-###### updatedAt
-
-> **updatedAt**: `ZodOptional`\<`ZodString`\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<`ZodString`\>
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### payday
-
-> **payday**: `ZodString`
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodOptional`\<`ZodBoolean`\>
-
-###### planMyId
-
-> **planMyId**: `ZodOptional`\<`ZodString`\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-##### create.method
-
-> **method**: `"POST"`
-
-##### create.path
-
-> **path**: `"/charges/"`
-
-##### create.responses
-
-> **responses**: `object`
-
-##### create.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Charge
-
-> **Charge**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Contract
-
-> **Contract**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### acceptedAt
-
-> **acceptedAt**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### ip
-
-> **ip**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### ExtraFields
-
-> **ExtraFields**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Aggrement
-
-> **Aggrement**: `ZodOptional`\<...\>
-
-###### deadlineDays
-
-> **deadlineDays**: `ZodOptional`\<...\>
-
-###### documentNumber
-
-> **documentNumber**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<...\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<..., ..., ...\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<...\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<...\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Deadline
-
-> **Deadline**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### Split
-
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### billGalaxyPayId
-
-> **billGalaxyPayId**: `ZodNumber`
-
-###### companyGalaxyPayId
-
-> **companyGalaxyPayId**: `ZodNumber`
-
-###### galaxyPayId
-
-> **galaxyPayId**: `ZodNumber`
-
-###### groupGalaxyPayId
-
-> **groupGalaxyPayId**: `ZodNumber`
-
-###### paymentMethod
-
-> **paymentMethod**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<...\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### Transactions
-
-> **Transactions**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodNullable`\<`ZodString`\>
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodString`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodNullable`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### paymentLink
-
-> **paymentLink**: `ZodString`
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodString`
-
-###### planMyId
-
-> **planMyId**: `ZodNullable`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"waitingPayment"`, `"inactive"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### list
-
-> **list**: `object`
-
-##### list.method
-
-> **method**: `"GET"`
-
-##### list.path
-
-> **path**: `"/charges/"`
-
-##### list.query
-
-> **query**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### createdAtFrom
-
-> **createdAtFrom**: `ZodOptional`\<`ZodString`\>
-
-###### createdAtTo
-
-> **createdAtTo**: `ZodOptional`\<`ZodString`\>
-
-###### customerGalaxPayIds
-
-> **customerGalaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
-
-###### customerMyIds
-
-> **customerMyIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### galaxPayIds
-
-> **galaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
-
-###### limit
-
-> **limit**: `ZodNumber`
-
-###### myIds
-
-> **myIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### order
-
-> **order**: `ZodOptional`\<`ZodEnum`\<[`"createdAt.asc"`, `"createdAt.desc"`]\>\>
-
-###### startAt
-
-> **startAt**: `ZodNumber`
-
-###### status
-
-> **status**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodEnum`\<...\>, `"many"`\>, `ZodEnum`\<[..., ...]\>]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `"active"` \| `"inactive"` \| (`"active"` \| `"inactive"`)[]\>
-
-##### list.responses
-
-> **responses**: `object`
-
-##### list.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Charges
-
-> **Charges**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### totalQtdFoundInPage
-
-> **totalQtdFoundInPage**: `ZodNumber`
-
-##### retry
-
-> **retry**: `object`
-
-##### retry.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-##### retry.method
-
-> **method**: `"PUT"`
-
-##### retry.path
-
-> **path**: `"/charges/:chargeId/:typeId/retry"`
-
-##### retry.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### chargeId
-
-> **chargeId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### retry.responses
-
-> **responses**: `object`
-
-##### retry.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Charge
-
-> **Charge**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Contract
-
-> **Contract**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### acceptedAt
-
-> **acceptedAt**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### ip
-
-> **ip**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### ExtraFields
-
-> **ExtraFields**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Aggrement
-
-> **Aggrement**: `ZodOptional`\<...\>
-
-###### deadlineDays
-
-> **deadlineDays**: `ZodOptional`\<...\>
-
-###### documentNumber
-
-> **documentNumber**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<...\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<..., ..., ...\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<...\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<...\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Deadline
-
-> **Deadline**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### Split
-
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### billGalaxyPayId
-
-> **billGalaxyPayId**: `ZodNumber`
-
-###### companyGalaxyPayId
-
-> **companyGalaxyPayId**: `ZodNumber`
-
-###### galaxyPayId
-
-> **galaxyPayId**: `ZodNumber`
-
-###### groupGalaxyPayId
-
-> **groupGalaxyPayId**: `ZodNumber`
-
-###### paymentMethod
-
-> **paymentMethod**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<...\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### Transactions
-
-> **Transactions**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodNullable`\<`ZodString`\>
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodString`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodNullable`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### paymentLink
-
-> **paymentLink**: `ZodString`
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodString`
-
-###### planMyId
-
-> **planMyId**: `ZodNullable`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"waitingPayment"`, `"inactive"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### reverse
-
-> **reverse**: `object`
-
-##### reverse.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### valueToReverse
-
-> **valueToReverse**: `ZodOptional`\<`ZodNumber`\>
-
-##### reverse.method
-
-> **method**: `"PUT"`
-
-##### reverse.path
-
-> **path**: `"/charges/:chargeId/:typeId/reverse"`
-
-##### reverse.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### chargeId
-
-> **chargeId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### reverse.responses
-
-> **responses**: `object`
-
-##### reverse.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Charge
-
-> **Charge**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Contract
-
-> **Contract**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### acceptedAt
-
-> **acceptedAt**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### ip
-
-> **ip**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### ExtraFields
-
-> **ExtraFields**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Aggrement
-
-> **Aggrement**: `ZodOptional`\<...\>
-
-###### deadlineDays
-
-> **deadlineDays**: `ZodOptional`\<...\>
-
-###### documentNumber
-
-> **documentNumber**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<...\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<..., ..., ...\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<...\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<...\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Deadline
-
-> **Deadline**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### Split
-
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### billGalaxyPayId
-
-> **billGalaxyPayId**: `ZodNumber`
-
-###### companyGalaxyPayId
-
-> **companyGalaxyPayId**: `ZodNumber`
-
-###### galaxyPayId
-
-> **galaxyPayId**: `ZodNumber`
-
-###### groupGalaxyPayId
-
-> **groupGalaxyPayId**: `ZodNumber`
-
-###### paymentMethod
-
-> **paymentMethod**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<...\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### Transactions
-
-> **Transactions**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodNullable`\<`ZodString`\>
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodString`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodNullable`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### paymentLink
-
-> **paymentLink**: `ZodString`
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodString`
-
-###### planMyId
-
-> **planMyId**: `ZodNullable`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"waitingPayment"`, `"inactive"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### update
-
-> **update**: `object`
-
-##### update.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<`ZodString`\>
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodOptional`\<`ZodString`\>
-
-###### payday
-
-> **payday**: `ZodOptional`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodOptional`\<`ZodBoolean`\>
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodOptional`\<`ZodString`\>
-
-###### planMyId
-
-> **planMyId**: `ZodOptional`\<`ZodString`\>
-
-###### value
-
-> **value**: `ZodOptional`\<`ZodNumber`\>
-
-##### update.method
-
-> **method**: `"PUT"`
-
-##### update.path
-
-> **path**: `"/charges/:chargeId/:typeId"`
-
-##### update.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### chargeId
-
-> **chargeId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### update.responses
-
-> **responses**: `object`
-
-##### update.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Charge
-
-> **Charge**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Contract
-
-> **Contract**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### acceptedAt
-
-> **acceptedAt**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### ip
-
-> **ip**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### ExtraFields
-
-> **ExtraFields**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Aggrement
-
-> **Aggrement**: `ZodOptional`\<...\>
-
-###### deadlineDays
-
-> **deadlineDays**: `ZodOptional`\<...\>
-
-###### documentNumber
-
-> **documentNumber**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<...\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<..., ..., ...\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<...\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<...\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Deadline
-
-> **Deadline**: `ZodOptional`\<...\>
-
-###### fine
-
-> **fine**: `ZodOptional`\<...\>
-
-###### instructions
-
-> **instructions**: `ZodOptional`\<...\>
-
-###### interest
-
-> **interest**: `ZodOptional`\<...\>
-
-###### Split
-
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### billGalaxyPayId
-
-> **billGalaxyPayId**: `ZodNumber`
-
-###### companyGalaxyPayId
-
-> **companyGalaxyPayId**: `ZodNumber`
-
-###### galaxyPayId
-
-> **galaxyPayId**: `ZodNumber`
-
-###### groupGalaxyPayId
-
-> **groupGalaxyPayId**: `ZodNumber`
-
-###### paymentMethod
-
-> **paymentMethod**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<...\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### Transactions
-
-> **Transactions**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodNullable`\<`ZodString`\>
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodString`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<[`"creditcard"`, `"boleto"`, `"pix"`]\>
-
-###### myId
-
-> **myId**: `ZodNullable`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### paymentLink
-
-> **paymentLink**: `ZodString`
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodString`
-
-###### planMyId
-
-> **planMyId**: `ZodNullable`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"waitingPayment"`, `"inactive"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### type
-
-> **type**: `ZodBoolean`
-
-#### Source
-
-packages/core/dist/index.d.ts:35
-
-***
-
-### companies
-
-> `get` **companies**(): `RecursiveProxyObj`\<`object`, `object`\>
-
-#### Returns
-
-`RecursiveProxyObj`\<`object`, `object`\>
-
-##### balance
-
-> **balance**: `object`
-
-###### Index signature
-
- \[`x`: `string`\]: `_ts_rest_core.AppRouter` \| `_ts_rest_core.AppRoute`
-
-##### fees
-
-> **fees**: `object`
-
-###### Index signature
-
- \[`x`: `string`\]: `_ts_rest_core.AppRouter` \| `_ts_rest_core.AppRoute`
-
-##### subaccounts
-
-> **subaccounts**: `object`
-
-###### Index signature
-
- \[`x`: `string`\]: `_ts_rest_core.AppRouter` \| `_ts_rest_core.AppRoute`
-
-#### Source
-
-packages/core/dist/index.d.ts:37
-
-***
-
-### customers
-
-> `get` **customers**(): `RecursiveProxyObj`\<`object`, `object`\>
-
-#### Returns
-
-`RecursiveProxyObj`\<`object`, `object`\>
-
-##### create
-
-> **create**: `object`
-
-##### create.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Address
-
-> **Address**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### city
-
-> **city**: `ZodString`
-
-###### complement
-
-> **complement**: `ZodOptional`\<`ZodString`\>
-
-###### neighborhood
-
-> **neighborhood**: `ZodString`
-
-###### number
-
-> **number**: `ZodString`
-
-###### state
-
-> **state**: `ZodString`
-
-###### street
-
-> **street**: `ZodString`
-
-###### zipCode
-
-> **zipCode**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### emails
-
-> **emails**: `ZodArray`\<`ZodString`, `"many"`\>
-
-###### invoiceHoldIss
-
-> **invoiceHoldIss**: `ZodOptional`\<`ZodBoolean`\>
-
-###### municipalDocument
-
-> **municipalDocument**: `ZodOptional`\<`ZodString`\>
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### phones
-
-> **phones**: `ZodOptional`\<`ZodArray`\<`ZodNumber`, `"many"`\>\>
-
-##### create.method
-
-> **method**: `"POST"`
-
-##### create.path
-
-> **path**: `"/customers/"`
-
-##### create.responses
-
-> **responses**: `object`
-
-##### create.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### delete
-
-> **delete**: `object`
-
-##### delete.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-##### delete.method
-
-> **method**: `"DELETE"`
-
-##### delete.path
-
-> **path**: `"/customers/:customerId/:typeId"`
-
-##### delete.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### customerId
-
-> **customerId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### delete.responses
-
-> **responses**: `object`
-
-##### delete.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### list
-
-> **list**: `object`
-
-##### list.method
-
-> **method**: `"GET"`
-
-##### list.path
-
-> **path**: `"/customers/"`
-
-##### list.query
-
-> **query**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### createdAtFrom
-
-> **createdAtFrom**: `ZodOptional`\<`ZodString`\>
-
-###### createdAtTo
-
-> **createdAtTo**: `ZodOptional`\<`ZodString`\>
-
-###### createdOrUpdatedFrom
-
-> **createdOrUpdatedFrom**: `ZodOptional`\<`ZodString`\>
-
-###### createdOrUpdatedTo
-
-> **createdOrUpdatedTo**: `ZodOptional`\<`ZodString`\>
-
-###### documents
-
-> **documents**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### emails
-
-> **emails**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### galaxPayIds
-
-> **galaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
-
-###### limit
-
-> **limit**: `ZodNumber`
-
-###### myIds
-
-> **myIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### order
-
-> **order**: `ZodOptional`\<`ZodEnum`\<[`"createdAt.asc"`, `"createdAt.desc"`, `"updatedAt.asc"`, `"updatedAt.desc"`]\>\>
-
-###### startAt
-
-> **startAt**: `ZodOptional`\<`ZodNumber`\>
-
-###### status
-
-> **status**: `ZodOptional`\<`ZodEnum`\<[`"active"`, `"delayed"`, `"inactive"`, `"withoutSubscriptionOrCharge"`]\>\>
-
-##### list.responses
-
-> **responses**: `object`
-
-##### list.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Customers
-
-> **Customers**: `ZodArray`\<`ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### totalQtdFoundInPage
-
-> **totalQtdFoundInPage**: `ZodNumber`
-
-##### update
-
-> **update**: `object`
-
-##### update.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Address
-
-> **Address**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### city
-
-> **city**: `ZodString`
-
-###### complement
-
-> **complement**: `ZodOptional`\<`ZodString`\>
-
-###### neighborhood
-
-> **neighborhood**: `ZodString`
-
-###### number
-
-> **number**: `ZodString`
-
-###### state
-
-> **state**: `ZodString`
-
-###### street
-
-> **street**: `ZodString`
-
-###### zipCode
-
-> **zipCode**: `ZodString`
-
-###### document
-
-> **document**: `ZodString`
-
-###### emails
-
-> **emails**: `ZodArray`\<`ZodString`, `"many"`\>
-
-###### invoiceHoldIss
-
-> **invoiceHoldIss**: `ZodOptional`\<`ZodBoolean`\>
-
-###### municipalDocument
-
-> **municipalDocument**: `ZodOptional`\<`ZodString`\>
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### phones
-
-> **phones**: `ZodOptional`\<`ZodArray`\<`ZodNumber`, `"many"`\>\>
-
-##### update.method
-
-> **method**: `"PUT"`
-
-##### update.path
-
-> **path**: `"/customers/:customerId/:typeId"`
-
-##### update.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### customerId
-
-> **customerId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### update.responses
-
-> **responses**: `object`
-
-##### update.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Customer
-
-> **Customer**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### type
-
-> **type**: `ZodBoolean`
-
-#### Source
-
-packages/core/dist/index.d.ts:42
-
-***
-
-### pix
-
-> `get` **pix**(): `RecursiveProxyObj`\<`object`, `object`\>
-
-#### Returns
-
-`RecursiveProxyObj`\<`object`, `object`\>
-
-##### payment
-
-> **payment**: `object`
-
-##### payment.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### desc
-
-> **desc**: `ZodOptional`\<`ZodString`\>
-
-###### key
-
-> **key**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<[`"cpf"`, `"cnpj"`, `"email"`, `"mobilePhone"`, `"random"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-##### payment.method
-
-> **method**: `"POST"`
-
-##### payment.path
-
-> **path**: `"/pix/payment"`
-
-##### payment.responses
-
-> **responses**: `object`
-
-##### payment.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Payment
-
-> **Payment**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### createdAt
-
-> **createdAt**: `ZodString`
-
-###### desc
-
-> **desc**: `ZodOptional`\<`ZodString`\>
-
-###### endToEnd
-
-> **endToEnd**: `ZodString`
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodNumber`
-
-###### key
-
-> **key**: `ZodString`
-
-###### status
-
-> **status**: `ZodEnum`\<[`"efectivated"`, `"error"`, `"confirm"`]\>
-
-###### taxValue
-
-> **taxValue**: `ZodNumber`
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### type
-
-> **type**: `ZodBoolean`
-
-#### Source
-
-packages/core/dist/index.d.ts:38
-
-***
-
-### plans
-
-> `get` **plans**(): `RecursiveProxyObj`\<`object`, `object`\>
-
-#### Returns
-
-`RecursiveProxyObj`\<`object`, `object`\>
-
-##### create
-
-> **create**: `object`
-
-##### create.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### PlanPrices
-
-> **PlanPrices**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<`ZodString`\>
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### name
-
-> **name**: `ZodString`
-
-###### periodicity
-
-> **periodicity**: `ZodEnum`\<[`"weekly"`, `"biweekly"`, `"monthly"`, `"bimonthly"`, `"quarterly"`, `"biannual"`, `"yearly"`]\>
-
-###### quantity
-
-> **quantity**: `ZodNumber`
-
-##### create.method
-
-> **method**: `"POST"`
-
-##### create.path
-
-> **path**: `"/plans/"`
-
-##### create.responses
-
-> **responses**: `object`
-
-##### create.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Plan
-
-> **Plan**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### delete
-
-> **delete**: `object`
-
-##### delete.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-##### delete.method
-
-> **method**: `"DELETE"`
-
-##### delete.path
-
-> **path**: `"/plans/:planId/:typeId"`
-
-##### delete.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### planId
-
-> **planId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### delete.responses
-
-> **responses**: `object`
-
-##### delete.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### type
-
-> **type**: `ZodBoolean`
-
-##### list
-
-> **list**: `object`
-
-##### list.method
-
-> **method**: `"GET"`
-
-##### list.path
-
-> **path**: `"/plans/"`
-
-##### list.query
-
-> **query**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### createdAtFrom
-
-> **createdAtFrom**: `ZodOptional`\<`ZodString`\>
-
-###### createdAtOrUpdatedAtFrom
-
-> **createdAtOrUpdatedAtFrom**: `ZodOptional`\<`ZodString`\>
-
-###### createdAtOrUpdatedAtTo
-
-> **createdAtOrUpdatedAtTo**: `ZodOptional`\<`ZodString`\>
-
-###### createdAtTo
-
-> **createdAtTo**: `ZodOptional`\<`ZodString`\>
-
-###### galaxPayIds
-
-> **galaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### limit
-
-> **limit**: `ZodNumber`
-
-###### myIds
-
-> **myIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### order
-
-> **order**: `ZodOptional`\<`ZodEnum`\<[`"createdAt.asc"`, `"createdAt.desc"`, `"updatedAt.asc"`, `"updatedAt.desc"`]\>\>
-
-###### startAt
-
-> **startAt**: `ZodNumber`
-
-###### status
-
-> **status**: `ZodOptional`\<`ZodEnum`\<[`"active"`, `"inactive"`]\>\>
-
-##### list.responses
-
-> **responses**: `object`
-
-##### list.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Plans
-
-> **Plans**: `ZodArray`\<`ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### totalQtdFoundInPage
-
-> **totalQtdFoundInPage**: `ZodNumber`
-
-##### update
-
-> **update**: `object`
-
-##### update.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### PlanPrices
-
-> **PlanPrices**: `ZodOptional`\<`ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<`ZodOptional`\<`ZodString`\>\>
-
-###### myId
-
-> **myId**: `ZodOptional`\<`ZodString`\>
-
-###### name
-
-> **name**: `ZodOptional`\<`ZodString`\>
-
-###### periodicity
-
-> **periodicity**: `ZodOptional`\<`ZodEnum`\<[`"weekly"`, `"biweekly"`, `"monthly"`, `"bimonthly"`, `"quarterly"`, `"biannual"`, `"yearly"`]\>\>
-
-###### quantity
-
-> **quantity**: `ZodOptional`\<`ZodNumber`\>
-
-##### update.method
-
-> **method**: `"PUT"`
-
-##### update.path
-
-> **path**: `"/plans/:planId/:typeId"`
-
-##### update.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### planId
-
-> **planId**: `ZodUnion`\<[`ZodNumber`, `ZodString`]\>
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### update.responses
-
-> **responses**: `object`
-
-##### update.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Plan
-
-> **Plan**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### type
-
-> **type**: `ZodBoolean`
 
 #### Source
 
@@ -2968,83 +334,1077 @@ packages/core/dist/index.d.ts:41
 
 ***
 
-### subscriptions
+### cards
 
-> `get` **subscriptions**(): `RecursiveProxyObj`\<`object`, `object`\>
+> `get` **cards**(): `object`
 
 #### Returns
 
-`RecursiveProxyObj`\<`object`, `object`\>
+`object`
 
-##### cancel
+##### create()
 
-> **cancel**: `object`
+> **create**: (`args`) => `Promise`\<`object` \| `object` \| `object`\>
 
-##### cancel.body
+###### Parameters
 
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args**
 
-##### cancel.method
+• **args.body**
 
-> **method**: `"DELETE"`
+• **args.body.cvv**: `string`
 
-##### cancel.path
+• **args.body.expiresAt**: `string`
 
-> **path**: `"/subscriptions/:subscriptionId/:typeId"`
+• **args.body.holder**: `string`
 
-##### cancel.pathParams
+• **args.body.myId**: `string`
 
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body.number**: `string`
 
-###### Type declaration
+• **args.cache?**: `RequestCache`
 
-###### subscriptionId
+**Deprecated**
 
-> **subscriptionId**: `ZodString`
+Use `fetchOptions.cache` instead
 
-###### typeId
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
+• **args.fetchOptions?**: `FetchOptions`
 
-##### cancel.responses
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-> **responses**: `object`
+• **args.params**
 
-##### cancel.responses.200
+• **args.params.customerId**: `string` \| `number`
 
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-###### Type declaration
+###### Returns
 
-###### type
+`Promise`\<`object` \| `object` \| `object`\>
 
-> **type**: `ZodBoolean`
+##### delete()
+
+> **delete**: (`args`) => `Promise`\<`object` \| `object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.cardId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object` \| `object`\>
+
+##### list()
+
+> **list**: (`args`) => `Promise`\<`object` \| `object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.query**
+
+• **args.query.createdAtFrom?**: `string`
+
+• **args.query.createdAtTo?**: `string`
+
+• **args.query.customerGalaxPayIds?**: `number` \| `number`[]
+
+• **args.query.customerMyIds?**: `string` \| `string`[]
+
+• **args.query.galaxPayIds?**: `number` \| `number`[]
+
+• **args.query.limit**: `number`
+
+• **args.query.myIds?**: `string` \| `string`[]
+
+• **args.query.order?**: `"createdAt.asc"` \| `"createdAt.desc"`
+
+• **args.query.startAt**: `number`
+
+• **args.query.status?**: `"active"` \| `"inactive"` \| (`"active"` \| `"inactive"`)[]
+
+###### Returns
+
+`Promise`\<`object` \| `object` \| `object`\>
+
+#### Source
+
+packages/core/dist/index.d.ts:42
+
+***
+
+### chargebacks
+
+> `get` **chargebacks**(): `object`
+
+#### Returns
+
+`object`
+
+#### Source
+
+packages/core/dist/index.d.ts:44
+
+***
+
+### charges
+
+> `get` **charges**(): `object`
+
+#### Returns
+
+`object`
+
+##### cancel()
+
+> **cancel**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.chargeId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### capture()
+
+> **capture**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.chargeId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### create()
+
+> **create**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body**
+
+• **args.body.Customer**
+
+• **args.body.Customer.Address?**
+
+• **args.body.Customer.Address.city?**: `string`
+
+• **args.body.Customer.Address.complement?**: `string`
+
+• **args.body.Customer.Address.neighborhood?**: `string`
+
+• **args.body.Customer.Address.number?**: `string`
+
+• **args.body.Customer.Address.state?**: `string`
+
+• **args.body.Customer.Address.street?**: `string`
+
+• **args.body.Customer.Address.zipCode?**: `string`
+
+• **args.body.Customer.createdAt?**: `string`
+
+• **args.body.Customer.document?**: `string`
+
+• **args.body.Customer.emails?**: `string`[]
+
+• **args.body.Customer.galaPayId?**: `number`
+
+• **args.body.Customer.invoiceHoldIss?**: `boolean`
+
+• **args.body.Customer.municipalDocument?**: `string`
+
+• **args.body.Customer.myId?**: `string`
+
+• **args.body.Customer.name?**: `string`
+
+• **args.body.Customer.phones?**: `number`[]
+
+• **args.body.Customer.status?**: `"active"` \| `"inactive"` \| `"delayed"` \| `"withoutSubscriptionOrCharge"`
+
+• **args.body.Customer.updatedAt?**: `string`
+
+• **args.body.PaymentMethodBoleto?**
+
+• **args.body.PaymentMethodBoleto.Aggrement?**
+
+• **args.body.PaymentMethodBoleto.Aggrement.document?**: `string`
+
+• **args.body.PaymentMethodBoleto.Aggrement.name?**: `string`
+
+• **args.body.PaymentMethodBoleto.deadlineDays?**: `number`
+
+• **args.body.PaymentMethodBoleto.documentNumber?**: `string`
+
+• **args.body.PaymentMethodBoleto.fine?**: `number`
+
+• **args.body.PaymentMethodBoleto.instructions?**: `string`
+
+• **args.body.PaymentMethodBoleto.interest?**: `number`
+
+• **args.body.PaymentMethodCreditCard?**
+
+• **args.body.PaymentMethodCreditCard.Antifraud?**
+
+• **args.body.PaymentMethodCreditCard.Antifraud.ip**: `string`
+
+• **args.body.PaymentMethodCreditCard.Antifraud.sessionId**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card**
+
+• **args.body.PaymentMethodCreditCard.Card.Brand?**
+
+• **args.body.PaymentMethodCreditCard.Card.Brand.id?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.Brand.maxInstallment?**: `number`
+
+• **args.body.PaymentMethodCreditCard.Card.Brand.name?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.Brand.operatorIds?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.createdAt?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.customerGalaxPayId?**: `number`
+
+• **args.body.PaymentMethodCreditCard.Card.customerMyId?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.cvv?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.expiresAt?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.galaxPayId?**: `number`
+
+• **args.body.PaymentMethodCreditCard.Card.holder?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.myId?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.number?**: `string`
+
+• **args.body.PaymentMethodCreditCard.Card.updatedAt?**: `string`
+
+• **args.body.PaymentMethodCreditCard.cardOperatorId?**: `"bin"` \| `"cielo"` \| `"getnet"` \| `"getnetNew"` \| `"globalpayments"` \| `"pagseguro"` \| `"rede"` \| `"zoop"` \| `"galaxpay"` \| `"adyen"` \| `"stone"`
+
+• **args.body.PaymentMethodCreditCard.preAuthorize?**: `boolean`
+
+• **args.body.PaymentMethodPix?**
+
+• **args.body.PaymentMethodPix.Deadline?**
+
+• **args.body.PaymentMethodPix.Deadline.type?**: `"days"`
+
+• **args.body.PaymentMethodPix.Deadline.value?**: `number`
+
+• **args.body.PaymentMethodPix.fine?**: `number`
+
+• **args.body.PaymentMethodPix.instructions?**: `string`
+
+• **args.body.PaymentMethodPix.interest?**: `number`
+
+• **args.body.additionalInfo?**: `string`
+
+• **args.body.mainPaymentMethodId**: `"creditcard"` \| `"boleto"` \| `"pix"`
+
+• **args.body.myId**: `string`
+
+• **args.body.payday**: `string`
+
+• **args.body.payedOutsideGalaxPay?**: `boolean`
+
+• **args.body.planMyId?**: `string`
+
+• **args.body.value**: `number`
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### list()
+
+> **list**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.query**
+
+• **args.query.createdAtFrom?**: `string`
+
+• **args.query.createdAtTo?**: `string`
+
+• **args.query.customerGalaxPayIds?**: `number` \| `number`[]
+
+• **args.query.customerMyIds?**: `string` \| `string`[]
+
+• **args.query.galaxPayIds?**: `number` \| `number`[]
+
+• **args.query.limit**: `number`
+
+• **args.query.myIds?**: `string` \| `string`[]
+
+• **args.query.order?**: `"createdAt.asc"` \| `"createdAt.desc"`
+
+• **args.query.startAt**: `number`
+
+• **args.query.status?**: `"active"` \| `"inactive"` \| (`"active"` \| `"inactive"`)[]
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### retry()
+
+> **retry**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.chargeId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### reverse()
+
+> **reverse**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.body.valueToReverse?**: `number`
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.chargeId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### update()
+
+> **update**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body**
+
+• **args.body.additionalInfo?**: `string`
+
+• **args.body.mainPaymentMethodId**: `"creditcard"` \| `"boleto"` \| `"pix"`
+
+• **args.body.myId?**: `string`
+
+• **args.body.payday?**: `string`
+
+• **args.body.payedOutsideGalaxPay?**: `boolean`
+
+• **args.body.planGalaxPayId?**: `string`
+
+• **args.body.planMyId?**: `string`
+
+• **args.body.value?**: `number`
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.chargeId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+#### Source
+
+packages/core/dist/index.d.ts:43
+
+***
+
+### companies
+
+> `get` **companies**(): `object`
+
+#### Returns
+
+`object`
+
+##### balance
+
+> **balance**: `RecursiveProxyObj`\<`object`, `object`\>
+
+##### fees
+
+> **fees**: `RecursiveProxyObj`\<`object`, `object`\>
+
+##### subaccounts
+
+> **subaccounts**: `RecursiveProxyObj`\<`object`, `object`\>
+
+#### Source
+
+packages/core/dist/index.d.ts:45
+
+***
+
+### customers
+
+> `get` **customers**(): `object`
+
+#### Returns
+
+`object`
+
+##### create()
+
+> **create**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body**
+
+• **args.body.Address**
+
+• **args.body.Address.city**: `string`
+
+• **args.body.Address.complement?**: `string`
+
+• **args.body.Address.neighborhood**: `string`
+
+• **args.body.Address.number**: `string`
+
+• **args.body.Address.state**: `string`
+
+• **args.body.Address.street**: `string`
+
+• **args.body.Address.zipCode**: `string`
+
+• **args.body.document**: `string`
+
+• **args.body.emails**: `string`[]
+
+• **args.body.invoiceHoldIss?**: `boolean`
+
+• **args.body.municipalDocument?**: `string`
+
+• **args.body.myId**: `string`
+
+• **args.body.name**: `string`
+
+• **args.body.phones?**: `number`[]
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### delete()
+
+> **delete**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.customerId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### list()
+
+> **list**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.query**
+
+• **args.query.createdAtFrom?**: `string`
+
+• **args.query.createdAtTo?**: `string`
+
+• **args.query.createdOrUpdatedFrom?**: `string`
+
+• **args.query.createdOrUpdatedTo?**: `string`
+
+• **args.query.documents?**: `string` \| `string`[]
+
+• **args.query.emails?**: `string` \| `string`[]
+
+• **args.query.galaxPayIds?**: `number` \| `number`[]
+
+• **args.query.limit**: `number`
+
+• **args.query.myIds?**: `string` \| `string`[]
+
+• **args.query.order?**: `"createdAt.asc"` \| `"createdAt.desc"` \| `"updatedAt.asc"` \| `"updatedAt.desc"`
+
+• **args.query.startAt?**: `number`
+
+• **args.query.status?**: `"active"` \| `"inactive"` \| `"delayed"` \| `"withoutSubscriptionOrCharge"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### update()
+
+> **update**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body**
+
+• **args.body.Address**
+
+• **args.body.Address.city**: `string`
+
+• **args.body.Address.complement?**: `string`
+
+• **args.body.Address.neighborhood**: `string`
+
+• **args.body.Address.number**: `string`
+
+• **args.body.Address.state**: `string`
+
+• **args.body.Address.street**: `string`
+
+• **args.body.Address.zipCode**: `string`
+
+• **args.body.document**: `string`
+
+• **args.body.emails**: `string`[]
+
+• **args.body.invoiceHoldIss?**: `boolean`
+
+• **args.body.municipalDocument?**: `string`
+
+• **args.body.myId**: `string`
+
+• **args.body.name**: `string`
+
+• **args.body.phones?**: `number`[]
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.customerId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+#### Source
+
+packages/core/dist/index.d.ts:50
+
+***
+
+### pix
+
+> `get` **pix**(): `object`
+
+#### Returns
+
+`object`
+
+##### payment()
+
+> **payment**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body**
+
+• **args.body.desc?**: `string`
+
+• **args.body.key**: `string`
+
+• **args.body.type**: `"cpf"` \| `"cnpj"` \| `"email"` \| `"mobilePhone"` \| `"random"`
+
+• **args.body.value**: `number`
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+#### Source
+
+packages/core/dist/index.d.ts:46
+
+***
+
+### plans
+
+> `get` **plans**(): `object`
+
+#### Returns
+
+`object`
+
+##### create()
+
+> **create**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body**
+
+• **args.body.PlanPrices**: `object`[]
+
+• **args.body.additionalInfo?**: `string`
+
+• **args.body.myId**: `string`
+
+• **args.body.name**: `string`
+
+• **args.body.periodicity**: `"weekly"` \| `"biweekly"` \| `"monthly"` \| `"bimonthly"` \| `"quarterly"` \| `"biannual"` \| `"yearly"`
+
+• **args.body.quantity**: `number`
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### delete()
+
+> **delete**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.planId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### list()
+
+> **list**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.query**
+
+• **args.query.createdAtFrom?**: `string`
+
+• **args.query.createdAtOrUpdatedAtFrom?**: `string`
+
+• **args.query.createdAtOrUpdatedAtTo?**: `string`
+
+• **args.query.createdAtTo?**: `string`
+
+• **args.query.galaxPayIds?**: `string` \| `string`[]
+
+• **args.query.limit**: `number`
+
+• **args.query.myIds?**: `string` \| `string`[]
+
+• **args.query.order?**: `"createdAt.asc"` \| `"createdAt.desc"` \| `"updatedAt.asc"` \| `"updatedAt.desc"`
+
+• **args.query.startAt**: `number`
+
+• **args.query.status?**: `"active"` \| `"inactive"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+##### update()
+
+> **update**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.body.PlanPrices?**: `object`[]
+
+• **args.body.additionalInfo?**: `string`
+
+• **args.body.myId?**: `string`
+
+• **args.body.name?**: `string`
+
+• **args.body.periodicity?**: `"weekly"` \| `"biweekly"` \| `"monthly"` \| `"bimonthly"` \| `"quarterly"` \| `"biannual"` \| `"yearly"`
+
+• **args.body.quantity?**: `number`
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.planId**: `string` \| `number`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
+
+#### Source
+
+packages/core/dist/index.d.ts:49
+
+***
+
+### subscriptions
+
+> `get` **subscriptions**(): `object`
+
+#### Returns
+
+`object`
+
+##### cancel()
+
+> **cancel**: (`args`) => `Promise`\<`object` \| `object`\>
+
+###### Parameters
+
+• **args**
+
+• **args.body?**
+
+• **args.cache?**: `RequestCache`
+
+**Deprecated**
+
+Use `fetchOptions.cache` instead
+
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
+
+• **args.fetchOptions?**: `FetchOptions`
+
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
+
+• **args.params**
+
+• **args.params.subscriptionId**: `string`
+
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
+
+###### Returns
+
+`Promise`\<`object` \| `object`\>
 
 ##### create
 
-> **create**: `object`
+> **create**: `RecursiveProxyObj`\<`object`, `object`\>
 
-##### create.manual
+###### Type declaration
+
+###### manual
 
 > **manual**: `object`
 
-##### create.manual.body
+###### manual.body
 
 > **body**: `ZodObject`\<`Omit`\<`object`, `"planMyId"` \| `"planGalaxPayId"` \| `"firstPayDayDate"`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
-##### create.manual.method
+###### manual.method
 
 > **method**: `"POST"`
 
-##### create.manual.path
+###### manual.path
 
 > **path**: `"/subscriptions/manual"`
 
-##### create.manual.responses
+###### manual.responses
 
 > **responses**: `object`
 
-##### create.manual.responses.200
+###### manual.responses.200
 
 > **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3058,11 +1418,11 @@ packages/core/dist/index.d.ts:41
 
 > **type**: `ZodBoolean`
 
-##### create.withPlan
+###### withPlan
 
 > **withPlan**: `object`
 
-##### create.withPlan.body
+###### withPlan.body
 
 > **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3112,19 +1472,19 @@ packages/core/dist/index.d.ts:41
 
 > **planMyId**: `ZodString`
 
-##### create.withPlan.method
+###### withPlan.method
 
 > **method**: `"POST"`
 
-##### create.withPlan.path
+###### withPlan.path
 
 > **path**: `"/subscriptions/"`
 
-##### create.withPlan.responses
+###### withPlan.responses
 
 > **responses**: `object`
 
-##### create.withPlan.responses.200
+###### withPlan.responses.200
 
 > **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3138,27 +1498,27 @@ packages/core/dist/index.d.ts:41
 
 > **type**: `ZodBoolean`
 
-##### create.withoutPlan
+###### withoutPlan
 
 > **withoutPlan**: `object`
 
-##### create.withoutPlan.body
+###### withoutPlan.body
 
 > **body**: `ZodObject`\<`extendShape`\<`Omit`\<`object`, `"planMyId"` \| `"planGalaxPayId"`\>, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
-##### create.withoutPlan.method
+###### withoutPlan.method
 
 > **method**: `"POST"`
 
-##### create.withoutPlan.path
+###### withoutPlan.path
 
 > **path**: `"/subscriptions/"`
 
-##### create.withoutPlan.responses
+###### withoutPlan.responses
 
 > **responses**: `object`
 
-##### create.withoutPlan.responses.200
+###### withoutPlan.responses.200
 
 > **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3172,107 +1532,71 @@ packages/core/dist/index.d.ts:41
 
 > **type**: `ZodBoolean`
 
-##### list
+##### list()
 
-> **list**: `object`
+> **list**: (`args`) => `Promise`\<`object` \| `object`\>
 
-##### list.method
+###### Parameters
 
-> **method**: `"GET"`
+• **args**
 
-##### list.path
+• **args.cache?**: `RequestCache`
 
-> **path**: `"/subscriptions/"`
+**Deprecated**
 
-##### list.query
+Use `fetchOptions.cache` instead
 
-> **query**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-###### Type declaration
+• **args.fetchOptions?**: `FetchOptions`
 
-###### createdAtFrom
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-> **createdAtFrom**: `ZodOptional`\<`ZodString`\>
+• **args.query**
 
-###### createdAtOrUpdatedAtFrom
+• **args.query.createdAtFrom?**: `string`
 
-> **createdAtOrUpdatedAtFrom**: `ZodOptional`\<`ZodString`\>
+• **args.query.createdAtOrUpdatedAtFrom?**: `string`
 
-###### createdAtOrUpdatedAtTo
+• **args.query.createdAtOrUpdatedAtTo?**: `string`
 
-> **createdAtOrUpdatedAtTo**: `ZodOptional`\<`ZodString`\>
+• **args.query.createdAtTo?**: `string`
 
-###### createdAtTo
+• **args.query.customerGalaxPayIds?**: `string` \| `string`[]
 
-> **createdAtTo**: `ZodOptional`\<`ZodString`\>
+• **args.query.customerMyIds?**: `string` \| `string`[]
 
-###### customerGalaxPayIds
+• **args.query.galaxPayIds?**: `string` \| `string`[]
 
-> **customerGalaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
+• **args.query.limit**: `number`
 
-###### customerMyIds
+• **args.query.myIds?**: `string` \| `string`[]
 
-> **customerMyIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
+• **args.query.order?**: `"createdAt.asc"` \| `"createdAt.desc"` \| `"updatedAt.asc"` \| `"updatedAt.desc"`
 
-###### galaxPayIds
+• **args.query.planGalaxPayIds?**: `string` \| `string`[]
 
-> **galaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
+• **args.query.planMyIds?**: `string` \| `string`[]
 
-###### limit
+• **args.query.startAt**: `number`
 
-> **limit**: `ZodNumber`
+• **args.query.status?**: `"active"` \| `"inactive"` \| `"canceled"` \| `"closed"` \| `"waitingPayment"` \| `"stopped"`
 
-###### myIds
+###### Returns
 
-> **myIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### order
-
-> **order**: `ZodOptional`\<`ZodEnum`\<[`"createdAt.asc"`, `"createdAt.desc"`, `"updatedAt.asc"`, `"updatedAt.desc"`]\>\>
-
-###### planGalaxPayIds
-
-> **planGalaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### planMyIds
-
-> **planMyIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### startAt
-
-> **startAt**: `ZodNumber`
-
-###### status
-
-> **status**: `ZodOptional`\<`ZodEnum`\<[`"active"`, `"canceled"`, `"closed"`, `"stopped"`, `"waitingPayment"`, `"inactive"`]\>\>
-
-##### list.responses
-
-> **responses**: `object`
-
-##### list.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Subscriptions
-
-> **Subscriptions**: `ZodArray`\<`ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### totalQtdFoundInPage
-
-> **totalQtdFoundInPage**: `ZodNumber`
+`Promise`\<`object` \| `object`\>
 
 ##### update
 
-> **update**: `object`
+> **update**: `RecursiveProxyObj`\<`object`, `object`\>
 
-##### update.info
+###### Type declaration
+
+###### info
 
 > **info**: `object`
 
-##### update.info.body
+###### info.body
 
 > **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3306,15 +1630,15 @@ packages/core/dist/index.d.ts:41
 
 > **planMyId**: `ZodOptional`\<`ZodString`\>
 
-##### update.info.method
+###### info.method
 
 > **method**: `"PUT"`
 
-##### update.info.path
+###### info.path
 
 > **path**: `"/subscriptions/:subscriptionId/:typeId"`
 
-##### update.info.pathParams
+###### info.pathParams
 
 > **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3328,11 +1652,11 @@ packages/core/dist/index.d.ts:41
 
 > **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
 
-##### update.info.responses
+###### info.responses
 
 > **responses**: `object`
 
-##### update.info.responses.200
+###### info.responses.200
 
 > **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3346,11 +1670,11 @@ packages/core/dist/index.d.ts:41
 
 > **type**: `ZodBoolean`
 
-##### update.payment
+###### payment
 
 > **payment**: `object`
 
-##### update.payment.body
+###### payment.body
 
 > **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3380,15 +1704,15 @@ packages/core/dist/index.d.ts:41
 
 > **value**: `ZodNumber`
 
-##### update.payment.method
+###### payment.method
 
 > **method**: `"PUT"`
 
-##### update.payment.path
+###### payment.path
 
 > **path**: `"/subscriptions/:subscriptionId/:typeId"`
 
-##### update.payment.pathParams
+###### payment.pathParams
 
 > **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3402,11 +1726,11 @@ packages/core/dist/index.d.ts:41
 
 > **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
 
-##### update.payment.responses
+###### payment.responses
 
 > **responses**: `object`
 
-##### update.payment.responses.200
+###### payment.responses.200
 
 > **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
 
@@ -3422,1371 +1746,497 @@ packages/core/dist/index.d.ts:41
 
 #### Source
 
-packages/core/dist/index.d.ts:43
+packages/core/dist/index.d.ts:51
 
 ***
 
 ### transactions
 
-> `get` **transactions**(): `RecursiveProxyObj`\<`object`, `object`\>
+> `get` **transactions**(): `object`
 
 #### Returns
 
-`RecursiveProxyObj`\<`object`, `object`\>
+`object`
 
-##### add
+##### add()
 
-> **add**: `object`
+> **add**: (`args`) => `Promise`\<`object` \| `object`\>
 
-##### add.body
+###### Parameters
 
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args**
 
-###### Type declaration
+• **args.body**
 
-###### InvoiceConfig
+• **args.body.InvoiceConfig**
 
-> **InvoiceConfig**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
+• **args.body.InvoiceConfig.createOn**: `"payment"` \| `"daysBeforePayDay"` \| `"notificationSend"` \| `"daysAfterPayment"`
 
-###### PaymentMethodCreditCard
+• **args.body.InvoiceConfig.description**: `string`
 
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body.InvoiceConfig.galaxPaySubAccountId?**: `number`
 
-###### Type declaration
+• **args.body.InvoiceConfig.qtdDaysAfterPay?**: `number`
 
-###### Antifraud
+• **args.body.InvoiceConfig.qtdDaysBeforePayDay?**: `number`
 
-> **Antifraud**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
+• **args.body.InvoiceConfig.type**: `"onePerTransaction"` \| `"onlyOne"`
 
-###### Card
+• **args.body.PaymentMethodCreditCard**
 
-> **Card**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
+• **args.body.PaymentMethodCreditCard.Antifraud?**
 
-###### cardOperatorId
+• **args.body.PaymentMethodCreditCard.Antifraud.ip**: `string`
 
-> **cardOperatorId**: `ZodOptional`\<`ZodEnum`\<[`"bin"`, `"cielo"`, `"getnet"`, `"getnetNew"`, `"globalpayments"`, `"pagseguro"`, `"rede"`, `"zoop"`, `"galaxpay"`, `"adyen"`, `"stone"`]\>\>
+• **args.body.PaymentMethodCreditCard.Antifraud.sessionId**: `string`
 
-###### preAuthorize
+• **args.body.PaymentMethodCreditCard.Card**
 
-> **preAuthorize**: `ZodOptional`\<`ZodBoolean`\>
+• **args.body.PaymentMethodCreditCard.Card.Brand?**
 
-###### myId
+• **args.body.PaymentMethodCreditCard.Card.Brand.id?**: `string`
 
-> **myId**: `ZodString`
+• **args.body.PaymentMethodCreditCard.Card.Brand.maxInstallment?**: `number`
 
-###### payday
+• **args.body.PaymentMethodCreditCard.Card.Brand.name?**: `string`
 
-> **payday**: `ZodOptional`\<`ZodString`\>
+• **args.body.PaymentMethodCreditCard.Card.Brand.operatorIds?**: `string`
 
-###### payedOutsideGalaxPay
+• **args.body.PaymentMethodCreditCard.Card.createdAt?**: `string`
 
-> **payedOutsideGalaxPay**: `ZodOptional`\<`ZodBoolean`\>
+• **args.body.PaymentMethodCreditCard.Card.customerGalaxPayId?**: `number`
 
-###### value
+• **args.body.PaymentMethodCreditCard.Card.customerMyId?**: `string`
 
-> **value**: `ZodOptional`\<`ZodNumber`\>
+• **args.body.PaymentMethodCreditCard.Card.cvv?**: `string`
 
-##### add.method
+• **args.body.PaymentMethodCreditCard.Card.expiresAt?**: `string`
 
-> **method**: `"POST"`
+• **args.body.PaymentMethodCreditCard.Card.galaxPayId?**: `number`
 
-##### add.path
+• **args.body.PaymentMethodCreditCard.Card.holder?**: `string`
 
-> **path**: `"/transactions/:subscriptionId/:typeId/add"`
+• **args.body.PaymentMethodCreditCard.Card.myId?**: `string`
 
-##### add.pathParams
+• **args.body.PaymentMethodCreditCard.Card.number?**: `string`
 
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body.PaymentMethodCreditCard.Card.updatedAt?**: `string`
 
-###### Type declaration
+• **args.body.PaymentMethodCreditCard.cardOperatorId?**: `"bin"` \| `"cielo"` \| `"getnet"` \| `"getnetNew"` \| `"globalpayments"` \| `"pagseguro"` \| `"rede"` \| `"zoop"` \| `"galaxpay"` \| `"adyen"` \| `"stone"`
 
-###### subscriptionId
+• **args.body.PaymentMethodCreditCard.preAuthorize?**: `boolean`
 
-> **subscriptionId**: `ZodString`
+• **args.body.myId**: `string`
 
-###### typeId
+• **args.body.payday?**: `string`
 
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
+• **args.body.payedOutsideGalaxPay?**: `boolean`
 
-##### add.responses
+• **args.body.value?**: `number`
 
-> **responses**: `object`
+• **args.cache?**: `RequestCache`
 
-##### add.responses.200
+**Deprecated**
 
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+Use `fetchOptions.cache` instead
 
-###### Type declaration
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-###### Split
+• **args.fetchOptions?**: `FetchOptions`
 
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-###### Type declaration
+• **args.params**
 
-###### billGalaxyPayId
+• **args.params.subscriptionId**: `string`
 
-> **billGalaxyPayId**: `ZodNumber`
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-###### companyGalaxyPayId
+###### Returns
 
-> **companyGalaxyPayId**: `ZodNumber`
+`Promise`\<`object` \| `object`\>
 
-###### galaxyPayId
+##### cancel()
 
-> **galaxyPayId**: `ZodNumber`
+> **cancel**: (`args`) => `Promise`\<`object` \| `object`\>
 
-###### groupGalaxyPayId
+###### Parameters
 
-> **groupGalaxyPayId**: `ZodNumber`
+• **args**
 
-###### paymentMethod
+• **args.body?**
 
-> **paymentMethod**: `ZodString`
+• **args.cache?**: `RequestCache`
 
-###### type
+**Deprecated**
 
-> **type**: `ZodEnum`\<[`"percent"`, `"fixed"`]\>
+Use `fetchOptions.cache` instead
 
-###### value
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-> **value**: `ZodNumber`
+• **args.fetchOptions?**: `FetchOptions`
 
-###### Transaction
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-> **Transaction**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.params**
 
-###### type
+• **args.params.transactionId**: `string`
 
-> **type**: `ZodBoolean`
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-##### cancel
+###### Returns
 
-> **cancel**: `object`
+`Promise`\<`object` \| `object`\>
 
-##### cancel.body
+##### capture()
 
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+> **capture**: (`args`) => `Promise`\<`object` \| `object`\>
 
-##### cancel.method
+###### Parameters
 
-> **method**: `"DELETE"`
+• **args**
 
-##### cancel.path
+• **args.body?**
 
-> **path**: `"/transactions/:transactionId/:typeId"`
+• **args.cache?**: `RequestCache`
 
-##### cancel.pathParams
+**Deprecated**
 
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+Use `fetchOptions.cache` instead
 
-###### Type declaration
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-###### transactionId
+• **args.fetchOptions?**: `FetchOptions`
 
-> **transactionId**: `ZodString`
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-###### typeId
+• **args.params**
 
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
+• **args.params.transactionId**: `string`
 
-##### cancel.responses
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-> **responses**: `object`
+###### Returns
 
-##### cancel.responses.200
+`Promise`\<`object` \| `object`\>
 
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+##### create()
 
-###### Type declaration
+> **create**: (`args`) => `Promise`\<`object` \| `object`\>
 
-###### type
+###### Parameters
 
-> **type**: `ZodBoolean`
+• **args**
 
-##### capture
+• **args.body**
 
-> **capture**: `object`
+• **args.body.InvoiceConfig?**
 
-##### capture.body
+• **args.body.InvoiceConfig.createOn**: `"payment"` \| `"daysBeforePayDay"` \| `"notificationSend"` \| `"daysAfterPayment"`
 
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body.InvoiceConfig.description**: `string`
 
-##### capture.method
+• **args.body.InvoiceConfig.galaxPaySubAccountId?**: `number`
 
-> **method**: `"PUT"`
+• **args.body.InvoiceConfig.qtdDaysAfterPay?**: `number`
 
-##### capture.path
+• **args.body.InvoiceConfig.qtdDaysBeforePayDay?**: `number`
 
-> **path**: `"/transactions/:transactionId/:typeId/capture"`
+• **args.body.InvoiceConfig.type**: `"onePerTransaction"` \| `"onlyOne"`
 
-##### capture.pathParams
+• **args.body.PaymentMethodCreditCard**
 
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body.PaymentMethodCreditCard.Antifraud?**
 
-###### Type declaration
+• **args.body.PaymentMethodCreditCard.Antifraud.ip**: `string`
 
-###### transactionId
+• **args.body.PaymentMethodCreditCard.Antifraud.sessionId**: `string`
 
-> **transactionId**: `ZodString`
+• **args.body.PaymentMethodCreditCard.Card**
 
-###### typeId
+• **args.body.PaymentMethodCreditCard.Card.Brand?**
 
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
+• **args.body.PaymentMethodCreditCard.Card.Brand.id?**: `string`
 
-##### capture.responses
+• **args.body.PaymentMethodCreditCard.Card.Brand.maxInstallment?**: `number`
 
-> **responses**: `object`
+• **args.body.PaymentMethodCreditCard.Card.Brand.name?**: `string`
 
-##### capture.responses.200
+• **args.body.PaymentMethodCreditCard.Card.Brand.operatorIds?**: `string`
 
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body.PaymentMethodCreditCard.Card.createdAt?**: `string`
 
-###### Type declaration
+• **args.body.PaymentMethodCreditCard.Card.customerGalaxPayId?**: `number`
 
-###### Split
+• **args.body.PaymentMethodCreditCard.Card.customerMyId?**: `string`
 
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body.PaymentMethodCreditCard.Card.cvv?**: `string`
 
-###### Type declaration
+• **args.body.PaymentMethodCreditCard.Card.expiresAt?**: `string`
 
-###### billGalaxyPayId
+• **args.body.PaymentMethodCreditCard.Card.galaxPayId?**: `number`
 
-> **billGalaxyPayId**: `ZodNumber`
+• **args.body.PaymentMethodCreditCard.Card.holder?**: `string`
 
-###### companyGalaxyPayId
+• **args.body.PaymentMethodCreditCard.Card.myId?**: `string`
 
-> **companyGalaxyPayId**: `ZodNumber`
+• **args.body.PaymentMethodCreditCard.Card.number?**: `string`
 
-###### galaxyPayId
+• **args.body.PaymentMethodCreditCard.Card.updatedAt?**: `string`
 
-> **galaxyPayId**: `ZodNumber`
+• **args.body.PaymentMethodCreditCard.cardOperatorId?**: `"bin"` \| `"cielo"` \| `"getnet"` \| `"getnetNew"` \| `"globalpayments"` \| `"pagseguro"` \| `"rede"` \| `"zoop"` \| `"galaxpay"` \| `"adyen"` \| `"stone"`
 
-###### groupGalaxyPayId
+• **args.body.PaymentMethodCreditCard.preAuthorize?**: `boolean`
 
-> **groupGalaxyPayId**: `ZodNumber`
+• **args.body.additionalInfo?**: `string`
 
-###### paymentMethod
+• **args.body.myId**: `string`
 
-> **paymentMethod**: `ZodString`
+• **args.body.payday**: `string`
 
-###### type
+• **args.body.payedOutsideGalaxPay**: `boolean`
 
-> **type**: `ZodEnum`\<[`"percent"`, `"fixed"`]\>
+• **args.body.value**: `number`
 
-###### value
+• **args.cache?**: `RequestCache`
 
-> **value**: `ZodNumber`
+**Deprecated**
 
-###### Transaction
+Use `fetchOptions.cache` instead
 
-> **Transaction**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-###### type
+• **args.fetchOptions?**: `FetchOptions`
 
-> **type**: `ZodBoolean`
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-##### create
+• **args.params**
 
-> **create**: `object`
+• **args.params.subscriptionId**: `string`
 
-##### create.body
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+###### Returns
 
-###### Type declaration
+`Promise`\<`object` \| `object`\>
 
-###### InvoiceConfig
+##### list()
 
-> **InvoiceConfig**: `ZodOptional`\<`ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>\>
+> **list**: (`args`) => `Promise`\<`object` \| `object`\>
 
-###### PaymentMethodCreditCard
+###### Parameters
 
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args**
 
-###### Type declaration
+• **args.cache?**: `RequestCache`
 
-###### Antifraud
+**Deprecated**
 
-> **Antifraud**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
+Use `fetchOptions.cache` instead
 
-###### Card
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-> **Card**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
+• **args.fetchOptions?**: `FetchOptions`
 
-###### cardOperatorId
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-> **cardOperatorId**: `ZodOptional`\<`ZodEnum`\<[`"bin"`, `"cielo"`, `"getnet"`, `"getnetNew"`, `"globalpayments"`, `"pagseguro"`, `"rede"`, `"zoop"`, `"galaxpay"`, `"adyen"`, `"stone"`]\>\>
+• **args.query**
 
-###### preAuthorize
+• **args.query.chargeGalaxPayIds?**: `number` \| `number`[]
 
-> **preAuthorize**: `ZodOptional`\<`ZodBoolean`\>
+• **args.query.chargeMyIds?**: `string` \| `string`[]
 
-###### additionalInfo
+• **args.query.createdAtFrom?**: `string`
 
-> **additionalInfo**: `ZodOptional`\<`ZodString`\>
+• **args.query.createdAtTo?**: `string`
 
-###### myId
+• **args.query.customerGalaxPayIds?**: `number` \| `number`[]
 
-> **myId**: `ZodString`
+• **args.query.customerMyIds?**: `string` \| `string`[]
 
-###### payday
+• **args.query.galaxPayIds?**: `number` \| `number`[]
 
-> **payday**: `ZodString`
+• **args.query.limit**: `number`
 
-###### payedOutsideGalaxPay
+• **args.query.myIds?**: `string` \| `string`[]
 
-> **payedOutsideGalaxPay**: `ZodBoolean`
+• **args.query.order?**: `"createdAt.asc"` \| `"createdAt.desc"` \| `"payday.asc"` \| `"payday.desc"`
 
-###### value
+• **args.query.payDayFrom?**: `string`
 
-> **value**: `ZodNumber`
+• **args.query.payDayTo?**: `string`
 
-##### create.method
+• **args.query.startAt**: `number`
 
-> **method**: `"POST"`
+• **args.query.status?**: `"cancel"` \| `"noSend"` \| `"authorized"` \| `"captured"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"payedBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"payedPix"` \| `"unavailablePix"` \| `"payExternal"` \| `"cancelByContract"` \| `"free"` \| (`"cancel"` \| `"noSend"` \| `"authorized"` \| `"captured"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"payedBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"payedPix"` \| `"unavailablePix"` \| `"payExternal"` \| `"cancelByContract"` \| `"free"`)[]
 
-##### create.path
+• **args.query.subscriptionGalaxPayIds?**: `number` \| `number`[]
 
-> **path**: `"/transactions/:subscriptionId/:typeId/add"`
+• **args.query.updateStatusFrom?**: `string`
 
-##### create.pathParams
+• **args.query.updateStatusTo?**: `string`
 
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+###### Returns
 
-###### Type declaration
+`Promise`\<`object` \| `object`\>
 
-###### subscriptionId
+##### retry()
 
-> **subscriptionId**: `ZodString`
+> **retry**: (`args`) => `Promise`\<`object` \| `object`\>
 
-###### typeId
+###### Parameters
 
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
+• **args**
 
-##### create.responses
+• **args.body?**
 
-> **responses**: `object`
+• **args.cache?**: `RequestCache`
 
-##### create.responses.200
+**Deprecated**
 
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+Use `fetchOptions.cache` instead
 
-###### Type declaration
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-###### Split
+• **args.fetchOptions?**: `FetchOptions`
 
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-###### Type declaration
+• **args.params**
 
-###### billGalaxyPayId
+• **args.params.transactionId**: `string`
 
-> **billGalaxyPayId**: `ZodNumber`
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-###### companyGalaxyPayId
+###### Returns
 
-> **companyGalaxyPayId**: `ZodNumber`
+`Promise`\<`object` \| `object`\>
 
-###### galaxyPayId
+##### reverse()
 
-> **galaxyPayId**: `ZodNumber`
+> **reverse**: (`args`) => `Promise`\<`object` \| `object`\>
 
-###### groupGalaxyPayId
+###### Parameters
 
-> **groupGalaxyPayId**: `ZodNumber`
+• **args**
 
-###### paymentMethod
+• **args.body?**
 
-> **paymentMethod**: `ZodString`
+• **args.body.valueToReverse?**: `number`
 
-###### type
+• **args.cache?**: `RequestCache`
 
-> **type**: `ZodEnum`\<[`"percent"`, `"fixed"`]\>
+**Deprecated**
 
-###### value
+Use `fetchOptions.cache` instead
 
-> **value**: `ZodNumber`
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-###### Transaction
+• **args.fetchOptions?**: `FetchOptions`
 
-> **Transaction**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-###### type
+• **args.params**
 
-> **type**: `ZodBoolean`
+• **args.params.transactionId**: `string`
 
-##### list
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-> **list**: `object`
+###### Returns
 
-##### list.method
+`Promise`\<`object` \| `object`\>
 
-> **method**: `"GET"`
+##### update()
 
-##### list.path
+> **update**: (`args`) => `Promise`\<`object` \| `object`\>
 
-> **path**: `"/transactions/"`
+###### Parameters
 
-##### list.query
+• **args**
 
-> **query**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args.body**
 
-###### Type declaration
+• **args.body.additionalInfo?**: `string`
 
-###### chargeGalaxPayIds
+• **args.body.myId**: `string`
 
-> **chargeGalaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
+• **args.body.payday?**: `string`
 
-###### chargeMyIds
+• **args.body.payedOutsideGalaxPay?**: `boolean`
 
-> **chargeMyIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
+• **args.body.value?**: `number`
 
-###### createdAtFrom
+• **args.cache?**: `RequestCache`
 
-> **createdAtFrom**: `ZodOptional`\<`ZodString`\>
+**Deprecated**
 
-###### createdAtTo
+Use `fetchOptions.cache` instead
 
-> **createdAtTo**: `ZodOptional`\<`ZodString`\>
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-###### customerGalaxPayIds
+• **args.fetchOptions?**: `FetchOptions`
 
-> **customerGalaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-###### customerMyIds
+• **args.params**
 
-> **customerMyIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
+• **args.params.subscriptionId**: `string`
 
-###### galaxPayIds
+• **args.params.typeId**: `"galaxPayId"` \| `"myId"`
 
-> **galaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
+###### Returns
 
-###### limit
-
-> **limit**: `ZodNumber`
-
-###### myIds
-
-> **myIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodString`, `"many"`\>, `ZodString`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `string` \| `string`[]\>
-
-###### order
-
-> **order**: `ZodOptional`\<`ZodEnum`\<[`"createdAt.asc"`, `"createdAt.desc"`, `"payday.asc"`, `"payday.desc"`]\>\>
-
-###### payDayFrom
-
-> **payDayFrom**: `ZodOptional`\<`ZodString`\>
-
-###### payDayTo
-
-> **payDayTo**: `ZodOptional`\<`ZodString`\>
-
-###### startAt
-
-> **startAt**: `ZodNumber`
-
-###### status
-
-> **status**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodEnum`\<[..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ...]\>, `ZodArray`\<`ZodEnum`\<...\>, `"many"`\>]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `"captured"` \| `"payedBoleto"` \| `"payedPix"` \| `"payExternal"` \| `"cancel"` \| `"noSend"` \| `"authorized"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"unavailablePix"` \| `"cancelByContract"` \| `"free"` \| (`"captured"` \| `"payedBoleto"` \| `"payedPix"` \| `"payExternal"` \| `"cancel"` \| `"noSend"` \| `"authorized"` \| `"denied"` \| `"reversed"` \| `"chargeback"` \| `"pendingBoleto"` \| `"notCompensated"` \| `"lessValueBoleto"` \| `"moreValueBoleto"` \| `"paidDuplicityBoleto"` \| `"pendingPix"` \| `"unavailablePix"` \| `"cancelByContract"` \| `"free"`)[]\>
-
-###### subscriptionGalaxPayIds
-
-> **subscriptionGalaxPayIds**: `ZodEffects`\<`ZodOptional`\<`ZodUnion`\<[`ZodArray`\<`ZodNumber`, `"many"`\>, `ZodNumber`]\>\>, `undefined` \| `string` \| `number`, `undefined` \| `number` \| `number`[]\>
-
-###### updateStatusFrom
-
-> **updateStatusFrom**: `ZodOptional`\<`ZodString`\>
-
-###### updateStatusTo
-
-> **updateStatusTo**: `ZodOptional`\<`ZodString`\>
-
-##### list.responses
-
-> **responses**: `object`
-
-##### list.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Transactions
-
-> **Transactions**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### totalQtdFoundInPage
-
-> **totalQtdFoundInPage**: `ZodNumber`
-
-##### retry
-
-> **retry**: `object`
-
-##### retry.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-##### retry.method
-
-> **method**: `"PUT"`
-
-##### retry.path
-
-> **path**: `"/transactions/:transactionId/:typeId/retry"`
-
-##### retry.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### transactionId
-
-> **transactionId**: `ZodString`
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### retry.responses
-
-> **responses**: `object`
-
-##### retry.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<`ZodEnum`\<[..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ...]\>\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<`ZodBoolean`\>
-
-###### Transaction
-
-> **Transaction**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### AbecsReasonDenied
-
-> **AbecsReasonDenied**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### code
-
-> **code**: `ZodString`
-
-###### message
-
-> **message**: `ZodString`
-
-###### Antifraud
-
-> **Antifraud**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Boleto
-
-> **Boleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### bankAccount
-
-> **bankAccount**: `ZodString`
-
-###### bankAgency
-
-> **bankAgency**: `ZodString`
-
-###### bankEmissor
-
-> **bankEmissor**: `ZodString`
-
-###### bankLine
-
-> **bankLine**: `ZodString`
-
-###### bankNumber
-
-> **bankNumber**: `ZodNumber`
-
-###### barCode
-
-> **barCode**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Charge
-
-> **Charge**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### ConciliationOccurrences
-
-> **ConciliationOccurrences**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### CreditCard
-
-> **CreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Card
-
-> **Card**: `ZodObject`\<..., ..., ..., ..., ...\>
-
-###### Invoice
-
-> **Invoice**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### description
-
-> **description**: `ZodString`
-
-###### number
-
-> **number**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### status
-
-> **status**: `ZodEnum`\<...\>
-
-###### statusDate
-
-> **statusDate**: `ZodString`
-
-###### statusDescription
-
-> **statusDescription**: `ZodString`
-
-###### xml
-
-> **xml**: `ZodString`
-
-###### Pix
-
-> **Pix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### image
-
-> **image**: `ZodString`
-
-###### page
-
-> **page**: `ZodString`
-
-###### qrCode
-
-> **qrCode**: `ZodString`
-
-###### reference
-
-> **reference**: `ZodString`
-
-###### Subscription
-
-> **Subscription**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Customer
-
-> **Customer**: `ZodEffects`\<..., ..., ...\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodOptional`\<...\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodOptional`\<...\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodOptional`\<...\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodOptional`\<...\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<...\>
-
-###### firstPayDayDate
-
-> **firstPayDayDate**: `ZodString`
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodNumber`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<...\>
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### paymentLink
-
-> **paymentLink**: `ZodOptional`\<...\>
-
-###### periodicity
-
-> **periodicity**: `ZodEnum`\<...\>
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodNumber`
-
-###### planMyId
-
-> **planMyId**: `ZodString`
-
-###### status
-
-> **status**: `ZodEnum`\<...\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<`ZodString`\>
-
-###### authorizationCode
-
-> **authorizationCode**: `ZodOptional`\<`ZodString`\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodEnum`\<[`"bin"`, `"cielo"`, `"getnet"`, `"getnetNew"`, `"globalpayments"`, `"pagseguro"`, `"rede"`, `"zoop"`, `"galaxpay"`, `"adyen"`, `"stone"`]\>
-
-###### chargeGalaxPayId
-
-> **chargeGalaxPayId**: `ZodNumber`
-
-###### chargeMyId
-
-> **chargeMyId**: `ZodString`
-
-###### datetimeLastSentToOperator
-
-> **datetimeLastSentToOperator**: `ZodString`
-
-###### fee
-
-> **fee**: `ZodNumber`
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodNumber`
-
-###### installment
-
-> **installment**: `ZodNumber`
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### payday
-
-> **payday**: `ZodString`
-
-###### paydayDate
-
-> **paydayDate**: `ZodString`
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### reasonDenied
-
-> **reasonDenied**: `ZodOptional`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"noSend"`, `"authorized"`, `"captured"`, `"denied"`, `"reversed"`, `"chargeback"`, `"pendingBoleto"`, `"payedBoleto"`, `"notCompensated"`, `"lessValueBoleto"`, `"moreValueBoleto"`, `"paidDuplicityBoleto"`, `"pendingPix"`, `"payedPix"`]\>
-
-###### statusDate
-
-> **statusDate**: `ZodString`
-
-###### statusDescription
-
-> **statusDescription**: `ZodString`
-
-###### subscriptionGalaxPayId
-
-> **subscriptionGalaxPayId**: `ZodNumber`
-
-###### subscriptionMyId
-
-> **subscriptionMyId**: `ZodString`
-
-###### tid
-
-> **tid**: `ZodOptional`\<`ZodString`\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-##### reverse
-
-> **reverse**: `object`
-
-##### reverse.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### valueToReverse
-
-> **valueToReverse**: `ZodOptional`\<`ZodNumber`\>
-
-##### reverse.method
-
-> **method**: `"PUT"`
-
-##### reverse.path
-
-> **path**: `"/transactions/:transactionId/:typeId/reverse"`
-
-##### reverse.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### transactionId
-
-> **transactionId**: `ZodString`
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### reverse.responses
-
-> **responses**: `object`
-
-##### reverse.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Antifraud
-
-> **Antifraud**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-###### Card
-
-> **Card**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<`ZodEnum`\<[..., ..., ..., ..., ..., ..., ..., ..., ..., ..., ...]\>\>
-
-###### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<`ZodBoolean`\>
-
-###### Transaction
-
-> **Transaction**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### AbecsReasonDenied
-
-> **AbecsReasonDenied**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### code
-
-> **code**: `ZodString`
-
-###### message
-
-> **message**: `ZodString`
-
-###### Antifraud
-
-> **Antifraud**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Boleto
-
-> **Boleto**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### bankAccount
-
-> **bankAccount**: `ZodString`
-
-###### bankAgency
-
-> **bankAgency**: `ZodString`
-
-###### bankEmissor
-
-> **bankEmissor**: `ZodString`
-
-###### bankLine
-
-> **bankLine**: `ZodString`
-
-###### bankNumber
-
-> **bankNumber**: `ZodNumber`
-
-###### barCode
-
-> **barCode**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### Charge
-
-> **Charge**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### ConciliationOccurrences
-
-> **ConciliationOccurrences**: `ZodArray`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `"many"`\>
-
-###### CreditCard
-
-> **CreditCard**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Card
-
-> **Card**: `ZodObject`\<..., ..., ..., ..., ...\>
-
-###### Invoice
-
-> **Invoice**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### description
-
-> **description**: `ZodString`
-
-###### number
-
-> **number**: `ZodString`
-
-###### pdf
-
-> **pdf**: `ZodString`
-
-###### status
-
-> **status**: `ZodEnum`\<...\>
-
-###### statusDate
-
-> **statusDate**: `ZodString`
-
-###### statusDescription
-
-> **statusDescription**: `ZodString`
-
-###### xml
-
-> **xml**: `ZodString`
-
-###### Pix
-
-> **Pix**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### image
-
-> **image**: `ZodString`
-
-###### page
-
-> **page**: `ZodString`
-
-###### qrCode
-
-> **qrCode**: `ZodString`
-
-###### reference
-
-> **reference**: `ZodString`
-
-###### Subscription
-
-> **Subscription**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Customer
-
-> **Customer**: `ZodEffects`\<..., ..., ...\>
-
-###### InvoiceConfig
-
-> **InvoiceConfig**: `ZodOptional`\<...\>
-
-###### PaymentMethodBoleto
-
-> **PaymentMethodBoleto**: `ZodOptional`\<...\>
-
-###### PaymentMethodCreditCard
-
-> **PaymentMethodCreditCard**: `ZodOptional`\<...\>
-
-###### PaymentMethodPix
-
-> **PaymentMethodPix**: `ZodOptional`\<...\>
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<...\>
-
-###### firstPayDayDate
-
-> **firstPayDayDate**: `ZodString`
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodNumber`
-
-###### mainPaymentMethodId
-
-> **mainPaymentMethodId**: `ZodEnum`\<...\>
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### paymentLink
-
-> **paymentLink**: `ZodOptional`\<...\>
-
-###### periodicity
-
-> **periodicity**: `ZodEnum`\<...\>
-
-###### planGalaxPayId
-
-> **planGalaxPayId**: `ZodNumber`
-
-###### planMyId
-
-> **planMyId**: `ZodString`
-
-###### status
-
-> **status**: `ZodEnum`\<...\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<`ZodString`\>
-
-###### authorizationCode
-
-> **authorizationCode**: `ZodOptional`\<`ZodString`\>
-
-###### cardOperatorId
-
-> **cardOperatorId**: `ZodEnum`\<[`"bin"`, `"cielo"`, `"getnet"`, `"getnetNew"`, `"globalpayments"`, `"pagseguro"`, `"rede"`, `"zoop"`, `"galaxpay"`, `"adyen"`, `"stone"`]\>
-
-###### chargeGalaxPayId
-
-> **chargeGalaxPayId**: `ZodNumber`
-
-###### chargeMyId
-
-> **chargeMyId**: `ZodString`
-
-###### datetimeLastSentToOperator
-
-> **datetimeLastSentToOperator**: `ZodString`
-
-###### fee
-
-> **fee**: `ZodNumber`
-
-###### galaxPayId
-
-> **galaxPayId**: `ZodNumber`
-
-###### installment
-
-> **installment**: `ZodNumber`
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### payday
-
-> **payday**: `ZodString`
-
-###### paydayDate
-
-> **paydayDate**: `ZodString`
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodBoolean`
-
-###### reasonDenied
-
-> **reasonDenied**: `ZodOptional`\<`ZodString`\>
-
-###### status
-
-> **status**: `ZodEnum`\<[`"noSend"`, `"authorized"`, `"captured"`, `"denied"`, `"reversed"`, `"chargeback"`, `"pendingBoleto"`, `"payedBoleto"`, `"notCompensated"`, `"lessValueBoleto"`, `"moreValueBoleto"`, `"paidDuplicityBoleto"`, `"pendingPix"`, `"payedPix"`]\>
-
-###### statusDate
-
-> **statusDate**: `ZodString`
-
-###### statusDescription
-
-> **statusDescription**: `ZodString`
-
-###### subscriptionGalaxPayId
-
-> **subscriptionGalaxPayId**: `ZodNumber`
-
-###### subscriptionMyId
-
-> **subscriptionMyId**: `ZodString`
-
-###### tid
-
-> **tid**: `ZodOptional`\<`ZodString`\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-##### update
-
-> **update**: `object`
-
-##### update.body
-
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### additionalInfo
-
-> **additionalInfo**: `ZodOptional`\<`ZodOptional`\<`ZodString`\>\>
-
-###### myId
-
-> **myId**: `ZodString`
-
-###### payday
-
-> **payday**: `ZodOptional`\<`ZodString`\>
-
-###### payedOutsideGalaxPay
-
-> **payedOutsideGalaxPay**: `ZodOptional`\<`ZodBoolean`\>
-
-###### value
-
-> **value**: `ZodOptional`\<`ZodNumber`\>
-
-##### update.method
-
-> **method**: `"PUT"`
-
-##### update.path
-
-> **path**: `"/transactions/:subscriptionId/:typeId"`
-
-##### update.pathParams
-
-> **pathParams**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### subscriptionId
-
-> **subscriptionId**: `ZodString`
-
-###### typeId
-
-> **typeId**: `ZodEnum`\<[`"galaxPayId"`, `"myId"`]\>
-
-##### update.responses
-
-> **responses**: `object`
-
-##### update.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### Split
-
-> **Split**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### billGalaxyPayId
-
-> **billGalaxyPayId**: `ZodNumber`
-
-###### companyGalaxyPayId
-
-> **companyGalaxyPayId**: `ZodNumber`
-
-###### galaxyPayId
-
-> **galaxyPayId**: `ZodNumber`
-
-###### groupGalaxyPayId
-
-> **groupGalaxyPayId**: `ZodNumber`
-
-###### paymentMethod
-
-> **paymentMethod**: `ZodString`
-
-###### type
-
-> **type**: `ZodEnum`\<[`"percent"`, `"fixed"`]\>
-
-###### value
-
-> **value**: `ZodNumber`
-
-###### Transaction
-
-> **Transaction**: `ZodObject`\<`extendShape`\<`object`, `object`\>, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### type
-
-> **type**: `ZodBoolean`
+`Promise`\<`object` \| `object`\>
 
 #### Source
 
-packages/core/dist/index.d.ts:40
+packages/core/dist/index.d.ts:48
 
 ***
 
 ### transfer
 
-> `get` **transfer**(): `RecursiveProxyObj`\<`object`, `object`\>
+> `get` **transfer**(): `object`
 
 #### Returns
 
-`RecursiveProxyObj`\<`object`, `object`\>
+`object`
 
-##### internal
+##### internal()
 
-> **internal**: `object`
+> **internal**: (`args`) => `Promise`\<`object` \| `object`\>
 
-##### internal.body
+###### Parameters
 
-> **body**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
+• **args**
 
-###### Type declaration
+• **args.body**
 
-###### companyAccount
+• **args.body.companyAccount**: `number`
 
-> **companyAccount**: `ZodNumber`
+• **args.body.companyDocument**: `string`
 
-###### companyDocument
+• **args.body.value**: `number`
 
-> **companyDocument**: `ZodString`
+• **args.cache?**: `RequestCache`
 
-###### value
+**Deprecated**
 
-> **value**: `ZodNumber`
+Use `fetchOptions.cache` instead
 
-##### internal.method
+• **args.extraHeaders?**: `Record`\<`string`, `undefined` \| `string`\>
 
-> **method**: `"POST"`
+• **args.fetchOptions?**: `FetchOptions`
 
-##### internal.path
+• **args.overrideClientOptions?**: `Partial`\<`OverrideableClientArgs`\>
 
-> **path**: `"/transfer/internal"`
+###### Returns
 
-##### internal.responses
-
-> **responses**: `object`
-
-##### internal.responses.200
-
-> **200**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-###### Type declaration
-
-###### type
-
-> **type**: `ZodBoolean`
+`Promise`\<`object` \| `object`\>
 
 #### Source
 
-packages/core/dist/index.d.ts:39
+packages/core/dist/index.d.ts:47
 
 ## Methods
 
@@ -4804,7 +2254,7 @@ packages/core/dist/index.d.ts:39
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:39](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.service.ts#L39)
+[packages/nest/src/cel\_cash.service.ts:39](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L39)
 
 ***
 
@@ -4822,7 +2272,7 @@ packages/core/dist/index.d.ts:39
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:35](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.service.ts#L35)
+[packages/nest/src/cel\_cash.service.ts:35](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L35)
 
 ***
 
@@ -4846,4 +2296,4 @@ packages/core/dist/index.d.ts:39
 
 #### Source
 
-[packages/nest/src/cel\_cash.service.ts:46](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/cel_cash.service.ts#L46)
+[packages/nest/src/cel\_cash.service.ts:46](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/cel_cash.service.ts#L46)

@@ -1,43 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / addressSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / addressSchema
 
 # Variable: addressSchema
 
-> `const` **addressSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### city
-
-> **city**: `ZodString`
-
-### complement
-
-> **complement**: `ZodOptional`\<`ZodString`\>
-
-### neighborhood
-
-> **neighborhood**: `ZodString`
-
-### number
-
-> **number**: `ZodString`
-
-### state
-
-> **state**: `ZodString`
-
-### street
-
-> **street**: `ZodString`
-
-### zipCode
-
-> **zipCode**: `ZodString`
+> `const` **addressSchema**: `ZodObject`\<[`Address`](../../types/type-aliases/Address.md)\>
 
 ## Source
 
-[packages/core/src/schemas/common.ts:93](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/common.ts#L93)
+[packages/core/src/schemas/common.ts:93](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/common.ts#L93)

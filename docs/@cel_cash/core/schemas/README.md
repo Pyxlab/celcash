@@ -1,8 +1,8 @@
-[**@cel_cash/core v2.1.5-1**](../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../README.md) / [@cel\_cash/core](../README.md) / schemas
+[CelCash](../../../packages.md) / [@cel\_cash/core](../README.md) / schemas
 
 # schemas
 

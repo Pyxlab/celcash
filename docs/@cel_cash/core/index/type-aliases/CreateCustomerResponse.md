@@ -1,8 +1,8 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [index](../README.md) / CreateCustomerResponse
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [index](../README.md) / CreateCustomerResponse
 
 # Type alias: CreateCustomerResponse
 
@@ -96,4 +96,4 @@
 
 ## Source
 
-[packages/core/src/schemas/customers.ts:37](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/customers.ts#L37)
+[packages/core/src/schemas/customers.ts:37](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/customers.ts#L37)

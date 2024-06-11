@@ -1,55 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / releasesSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / releasesSchema
 
 # Variable: releasesSchema
 
-> `const` **releasesSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### createdAt
-
-> **createdAt**: `ZodString`
-
-### daysAntecipation
-
-> **daysAntecipation**: `ZodNumber`
-
-### expectedDate
-
-> **expectedDate**: `ZodString`
-
-### galaxPayId
-
-> **galaxPayId**: `ZodNumber`
-
-### grossValue
-
-> **grossValue**: `ZodNumber`
-
-### installment
-
-> **installment**: `ZodNumber`
-
-### netValue
-
-> **netValue**: `ZodNumber`
-
-### netValueAfterAntecipation
-
-> **netValueAfterAntecipation**: `ZodNumber`
-
-### taxValueAntecipation
-
-> **taxValueAntecipation**: `ZodNumber`
-
-### transactionGalaxPayId
-
-> **transactionGalaxPayId**: `ZodNumber`
+> `const` **releasesSchema**: `ZodObject`\<[`Releases`](../../types/type-aliases/Releases.md)\>
 
 ## Source
 
-[packages/core/src/schemas/antecipation.ts:99](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/antecipation.ts#L99)
+[packages/core/src/schemas/antecipation.ts:99](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/antecipation.ts#L99)

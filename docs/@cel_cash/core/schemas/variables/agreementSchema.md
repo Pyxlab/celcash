@@ -1,23 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / agreementSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / agreementSchema
 
 # Variable: agreementSchema
 
-> `const` **agreementSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### document
-
-> **document**: `ZodOptional`\<`ZodString`\>
-
-### name
-
-> **name**: `ZodOptional`\<`ZodString`\>
+> `const` **agreementSchema**: `ZodObject`\<[`Agreement`](../../types/type-aliases/Agreement.md)\>
 
 ## Source
 
-[packages/core/src/schemas/\_/payments.ts:29](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/_/payments.ts#L29)
+[packages/core/src/schemas/\_/payments.ts:29](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/_/payments.ts#L29)

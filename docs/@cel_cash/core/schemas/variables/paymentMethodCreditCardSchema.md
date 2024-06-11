@@ -1,31 +1,13 @@
-[**@cel_cash/core v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/core v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / paymentMethodCreditCardSchema
+[CelCash](../../../../packages.md) / [@cel\_cash/core](../../README.md) / [schemas](../README.md) / paymentMethodCreditCardSchema
 
 # Variable: paymentMethodCreditCardSchema
 
-> `const` **paymentMethodCreditCardSchema**: `ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>
-
-## Type declaration
-
-### Antifraud
-
-> **Antifraud**: `ZodOptional`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>\>
-
-### Card
-
-> **Card**: `ZodEffects`\<`ZodObject`\<`object`, `"strip"`, `ZodTypeAny`, `object`, `object`\>, `object`, `object`\>
-
-### cardOperatorId
-
-> **cardOperatorId**: `ZodOptional`\<`ZodEnum`\<[`"bin"`, `"cielo"`, `"getnet"`, `"getnetNew"`, `"globalpayments"`, `"pagseguro"`, `"rede"`, `"zoop"`, `"galaxpay"`, `"adyen"`, `"stone"`]\>\>
-
-### preAuthorize
-
-> **preAuthorize**: `ZodOptional`\<`ZodBoolean`\>
+> `const` **paymentMethodCreditCardSchema**: `ZodObject`\<[`PaymentMethodCreditCard`](../../types/type-aliases/PaymentMethodCreditCard.md)\>
 
 ## Source
 
-[packages/core/src/schemas/payments.ts:9](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/core/src/schemas/payments.ts#L9)
+[packages/core/src/schemas/payments.ts:9](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/core/src/schemas/payments.ts#L9)

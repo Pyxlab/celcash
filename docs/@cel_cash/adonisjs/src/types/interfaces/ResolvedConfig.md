@@ -1,8 +1,8 @@
-[**@cel_cash/adonisjs v2.1.5-1**](../../../README.md) • **Docs**
+[**@cel_cash/adonisjs v2.2.0**](../../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../../README.md) / [@cel\_cash/adonisjs](../../../README.md) / [src/types](../README.md) / ResolvedConfig
+[CelCash](../../../../../packages.md) / [@cel\_cash/adonisjs](../../../README.md) / [src/types](../README.md) / ResolvedConfig
 
 # Interface: ResolvedConfig
 
@@ -14,7 +14,7 @@
 
 #### Source
 
-[adonis/src/types.ts:26](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/types.ts#L26)
+[packages/adonis/src/types.ts:26](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/adonis/src/types.ts#L26)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Source
 
-[adonis/src/types.ts:28](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/types.ts#L28)
+[packages/adonis/src/types.ts:28](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/adonis/src/types.ts#L28)
 
 ***
 
@@ -34,4 +34,4 @@
 
 #### Source
 
-[adonis/src/types.ts:27](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/src/types.ts#L27)
+[packages/adonis/src/types.ts:27](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/adonis/src/types.ts#L27)

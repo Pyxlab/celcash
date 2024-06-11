@@ -1,8 +1,8 @@
-[**@cel_cash/adonisjs v2.1.5-1**](../../README.md) • **Docs**
+[**@cel_cash/adonisjs v2.2.0**](../../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../../README.md) / [@cel\_cash/adonisjs](../../README.md) / [index](../README.md) / configure
+[CelCash](../../../../packages.md) / [@cel\_cash/adonisjs](../../README.md) / [index](../README.md) / configure
 
 # Function: configure()
 
@@ -18,4 +18,4 @@
 
 ## Source
 
-[adonis/configure.ts:13](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/adonis/configure.ts#L13)
+[packages/adonis/configure.ts:13](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/adonis/configure.ts#L13)

@@ -1,8 +1,8 @@
-[**@cel_cash/nestjs v2.1.5**](../README.md) • **Docs**
+[**@cel_cash/nestjs v2.2.0**](../README.md) • **Docs**
 
 ***
 
-[CelCash](../../../README.md) / [@cel\_cash/nestjs](../README.md) / CelCashModuleAsyncOptions
+[CelCash](../../../packages.md) / [@cel\_cash/nestjs](../README.md) / CelCashModuleAsyncOptions
 
 # Interface: CelCashModuleAsyncOptions
 
@@ -35,7 +35,7 @@ node\_modules/.pnpm/@nestjs+common@10.3.8\_reflect-metadata@0.1.14\_rxjs@7.8.1/n
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:44](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L44)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:44](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L44)
 
 ***
 
@@ -45,7 +45,7 @@ node\_modules/.pnpm/@nestjs+common@10.3.8\_reflect-metadata@0.1.14\_rxjs@7.8.1/n
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:42](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L42)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:42](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L42)
 
 ***
 
@@ -55,4 +55,4 @@ node\_modules/.pnpm/@nestjs+common@10.3.8\_reflect-metadata@0.1.14\_rxjs@7.8.1/n
 
 #### Source
 
-[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:43](https://github.com/Pyxlab/celcash/blob/9dbc7013720b05f34ded33140fbf1d827b403eea/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L43)
+[packages/nest/src/interfaces/cel\_cash-module-options.interface.ts:43](https://github.com/Pyxlab/celcash/blob/b57c7034bd65dcd5b083f272f9cfe6cc4ff73f7b/packages/nest/src/interfaces/cel_cash-module-options.interface.ts#L43)
