@@ -27,16 +27,9 @@ export type {
     UpdateSubscriptionPaymentBody,
 } from './schemas/index.js'
 
-// @internal
 export type { Client } from './types.js'
-
-// @internal
 export type { Configure } from './utils/types.js'
-
-// @internal
 export type { Method } from './utils/api.js'
-
-// @internal
 export type { Contract } from './contract/index.js'
 
 export * from './service.js'
