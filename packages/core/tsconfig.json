@@ -6,7 +6,6 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "isolatedModules": true,
-        "removeComments": true,
         "esModuleInterop": true,
         "strictNullChecks": true,
         "allowSyntheticDefaultImports": true,
