@@ -11,10 +11,21 @@ import {
 
 const c = initContract()
 
+/**
+ * Router for antecipation operations.
+ */
 export const antecipation = c.router(
     {
         simulate: c.router(
             {
+                /**
+                 * Get antecipations by filters.
+                 * @method GET
+                 * @path /antecipation/simulate/get-by-filters
+                 * @responses 200 - Success response with the list of antecipations
+                 * @query - Query parameters for filtering antecipations
+                 * @summary List antecipations simulations
+                 */
                 getByFilters: {
                     method: 'GET',
                     path: '/get-by-filters',
@@ -24,6 +35,14 @@ export const antecipation = c.router(
                     query: listarAntecipacoesParamsSchema,
                     summary: 'Lista as simulações antecipação de transações',
                 },
+                /**
+                 * Create antecipation simulation.
+                 * @method POST
+                 * @path /simulate
+                 * @responses 200 - Success response with the simulated antecipation
+                 * @body - Request body for simulating antecipation
+                 * @summary Simulate antecipation
+                 */
                 create: {
                     method: 'POST',
                     path: '/',
@@ -36,6 +55,14 @@ export const antecipation = c.router(
             },
             { pathPrefix: '/simulate' },
         ),
+        /**
+         * Create antecipation.
+         * @method POST
+         * @path /antecipation
+         * @responses 200 - Success response with the antecipated receivables
+         * @body - Request body for antecipating receivables
+         * @summary Antecipate receivables
+         */
         create: {
             method: 'POST',
             path: '/',

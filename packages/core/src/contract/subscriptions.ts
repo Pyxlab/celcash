@@ -4,7 +4,7 @@ import {
     cancelSubscriptionResponseSchema,
     createSubscriptionManualBodySchema,
     createSubscriptionResponseSchema,
-    createSubscriptionWithPlanBodySchema,
+    createSubscriptionWithPlanBodySchemaBase,
     createSubscriptionWithotPlanBodySchema,
     emptySchema,
     listSubscriptionsParamsSchema,
@@ -15,8 +15,18 @@ import {
 
 const c = initContract()
 
+/**
+ * Router for managing subscriptions.
+ */
 export const subscriptions = c.router(
     {
+        /**
+         * Get a list of subscriptions.
+         * @method GET
+         * @path /subscriptions
+         * @responses 200 - Success response with a list of subscriptions
+         * @query - Query parameters for filtering the list of subscriptions
+         */
         list: {
             method: 'GET',
             path: '/',
@@ -26,14 +36,28 @@ export const subscriptions = c.router(
             query: listSubscriptionsParamsSchema,
         },
         create: c.router({
+            /**
+             * Create a subscription with a plan.
+             * @method POST
+             * @path /subscriptions
+             * @responses 200 - Success response with the created subscription
+             * @body - Request body for creating a subscription with a plan
+             */
             withPlan: {
                 method: 'POST',
                 path: '/',
                 responses: {
                     200: createSubscriptionResponseSchema,
                 },
-                body: createSubscriptionWithPlanBodySchema,
+                body: createSubscriptionWithPlanBodySchemaBase,
             },
+            /**
+             * Create a subscription without a plan.
+             * @method POST
+             * @path /subscriptions
+             * @responses 200 - Success response with the created subscription
+             * @body - Request body for creating a subscription without a plan
+             */
             withoutPlan: {
                 method: 'POST',
                 path: '/',
@@ -42,6 +66,13 @@ export const subscriptions = c.router(
                 },
                 body: createSubscriptionWithotPlanBodySchema,
             },
+            /**
+             * Create a manual subscription.
+             * @method POST
+             * @path /subscriptions/manual
+             * @responses 200 - Success response with the created subscription
+             * @body - Request body for creating a manual subscription
+             */
             manual: {
                 method: 'POST',
                 path: '/manual',
@@ -53,6 +84,14 @@ export const subscriptions = c.router(
         }),
         update: c.router({
             info: {
+                /**
+                 * Update subscription information.
+                 * @method PUT
+                 * @path /subscriptions/:subscriptionId/:typeId
+                 * @pathParams - Path parameters for identifying the subscription and type
+                 * @responses 200 - Success response with the updated subscription
+                 * @body - Request body for updating subscription information
+                 */
                 method: 'PUT',
                 path: '/:subscriptionId/:typeId',
                 pathParams: z.object({
@@ -65,6 +104,14 @@ export const subscriptions = c.router(
                 body: updateSubscriptionInfoBodySchema,
             },
             payment: {
+                /**
+                 * Update subscription payment.
+                 * @method PUT
+                 * @path /subscriptions/:subscriptionId/:typeId
+                 * @pathParams - Path parameters for identifying the subscription and type
+                 * @responses 200 - Success response with the updated subscription
+                 * @body - Request body for updating subscription payment
+                 */
                 method: 'PUT',
                 path: '/:subscriptionId/:typeId',
                 pathParams: z.object({
@@ -78,6 +125,14 @@ export const subscriptions = c.router(
             },
         }),
         cancel: {
+            /**
+             * Cancel a subscription.
+             * @method DELETE
+             * @path /subscriptions/:subscriptionId/:typeId
+             * @pathParams - Path parameters for identifying the subscription and type
+             * @responses 200 - Success response with the canceled subscription
+             * @body - Empty request body
+             */
             method: 'DELETE',
             path: '/:subscriptionId/:typeId',
             pathParams: z.object({

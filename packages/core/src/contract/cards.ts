@@ -9,8 +9,18 @@ import {
 
 const c = initContract()
 
+/**
+ * Router for handling card-related operations.
+ */
 export const cards = c.router(
     {
+        /**
+         * Retrieves a list of cards.
+         * @method GET
+         * @path /cards
+         * @query listCardsParamsSchema
+         * @responses 200 - listCardsResponseSchema
+         */
         list: {
             method: 'GET',
             path: '/',
@@ -19,6 +29,15 @@ export const cards = c.router(
                 200: listCardsResponseSchema,
             },
         },
+        /**
+         * Creates a new card.
+         * @method POST
+         * @path /cards/:customerId/:typeId
+         * @pathParams customerId - The ID of the customer.
+         * @pathParams typeId - The type of the card (galaxPayId or myId).
+         * @responses 200 - createCardResponseSchema
+         * @body createCardBodySchema
+         */
         create: {
             method: 'POST',
             path: '/:customerId/:typeId',
@@ -34,6 +53,15 @@ export const cards = c.router(
             },
             body: createCardBodySchema,
         },
+        /**
+         * Deletes a card.
+         * @method DELETE
+         * @path /cards/:cardId/:typeId
+         * @pathParams cardId - The ID of the card.
+         * @pathParams typeId - The type of the card (galaxPayId or myId).
+         * @responses 200 - { type: boolean }
+         * @body {}
+         */
         delete: {
             method: 'DELETE',
             path: '/:cardId/:typeId',

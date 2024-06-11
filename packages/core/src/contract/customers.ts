@@ -9,8 +9,18 @@ import {
 
 const c = initContract()
 
+/**
+ * Represents the customers router.
+ */
 export const customers = c.router(
     {
+        /**
+         * Retrieves a list of customers.
+         * @method GET
+         * @path /customers
+         * @responses 200 - The list of customers.
+         * @query - The parameters for filtering the list of customers.
+         */
         list: {
             method: 'GET',
             path: '/',
@@ -19,6 +29,13 @@ export const customers = c.router(
             },
             query: listCustomersParamsSchema,
         },
+        /**
+         * Creates a new customer.
+         * @method POST
+         * @path /customers
+         * @responses 200 - The created customer.
+         * @body - The data for creating the customer.
+         */
         create: {
             method: 'POST',
             path: '/',
@@ -27,6 +44,14 @@ export const customers = c.router(
             },
             body: createCustomerBodySchema,
         },
+        /**
+         * Updates a customer.
+         * @method PUT
+         * @path /customers/:customerId/:typeId
+         * @pathParams - The parameters for identifying the customer and the type.
+         * @responses 200 - The updated customer.
+         * @body - The data for updating the customer.
+         */
         update: {
             method: 'PUT',
             path: '/:customerId/:typeId',
@@ -42,6 +67,14 @@ export const customers = c.router(
             },
             body: createCustomerBodySchema.deepPartial(),
         },
+        /**
+         * Deletes a customer.
+         * @method DELETE
+         * @path /customers/:customerId/:typeId
+         * @pathParams - The parameters for identifying the customer and the type.
+         * @responses 200 - The deletion status.
+         * @body - An empty object.
+         */
         delete: {
             method: 'DELETE',
             path: '/:customerId/:typeId',

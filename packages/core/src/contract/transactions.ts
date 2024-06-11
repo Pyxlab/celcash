@@ -3,7 +3,6 @@ import { z } from 'zod'
 import {
     addTransactionBodySchema,
     createOrUpdateTransactionResponseSchema,
-    createTransactionBodySchema,
     listTransactionsParamsSchema,
     listTransactionsResponseSchema,
     retryOrReverseTransactionResponseSchema,
@@ -12,8 +11,18 @@ import {
 
 const c = initContract()
 
+/**
+ * Represents the transactions router.
+ */
 export const transactions = c.router(
     {
+        /**
+         * Retrieves a list of transactions.
+         * @method GET
+         * @path /transactions
+         * @query listTransactionsParamsSchema
+         * @responses 200 - listTransactionsResponseSchema
+         */
         list: {
             method: 'GET',
             path: '/',
@@ -22,7 +31,16 @@ export const transactions = c.router(
                 200: listTransactionsResponseSchema,
             },
         },
-        add: {
+        /**
+         * Adds a new transaction.
+         * @method POST
+         * @path /transactions/:subscriptionId/:typeId/add
+         * @pathParams subscriptionId - The subscription ID.
+         * @pathParams typeId - The type ID (galaxPayId or myId).
+         * @responses 200 - createOrUpdateTransactionResponseSchema
+         * @body addTransactionBodySchema
+         */
+        create: {
             method: 'POST',
             path: '/:subscriptionId/:typeId/add',
             pathParams: z.object({
@@ -34,18 +52,15 @@ export const transactions = c.router(
             },
             body: addTransactionBodySchema,
         },
-        create: {
-            method: 'POST',
-            path: '/:subscriptionId/:typeId/add',
-            pathParams: z.object({
-                subscriptionId: z.coerce.string(),
-                typeId: z.enum(['galaxPayId', 'myId']),
-            }),
-            responses: {
-                200: createOrUpdateTransactionResponseSchema,
-            },
-            body: createTransactionBodySchema,
-        },
+        /**
+         * Updates an existing transaction.
+         * @method PUT
+         * @path /transactions/:subscriptionId/:typeId
+         * @pathParams subscriptionId - The subscription ID.
+         * @pathParams typeId - The type ID (galaxPayId or myId).
+         * @responses 200 - createOrUpdateTransactionResponseSchema
+         * @body updateTransactionBodySchema
+         */
         update: {
             method: 'PUT',
             path: '/:subscriptionId/:typeId',
@@ -58,6 +73,15 @@ export const transactions = c.router(
             },
             body: updateTransactionBodySchema,
         },
+        /**
+         * Retries a failed transaction.
+         * @method PUT
+         * @path /transactions/:transactionId/:typeId/retry
+         * @pathParams transactionId - The transaction ID.
+         * @pathParams typeId - The type ID (galaxPayId or myId).
+         * @responses 200 - retryOrReverseTransactionResponseSchema
+         * @body {}
+         */
         retry: {
             method: 'PUT',
             path: '/:transactionId/:typeId/retry',
@@ -70,6 +94,15 @@ export const transactions = c.router(
             },
             body: z.object({}),
         },
+        /**
+         * Reverses a transaction.
+         * @method PUT
+         * @path /transactions/:transactionId/:typeId/reverse
+         * @pathParams transactionId - The transaction ID.
+         * @pathParams typeId - The type ID (galaxPayId or myId).
+         * @responses 200 - retryOrReverseTransactionResponseSchema
+         * @body valueToReverse - The value to reverse (optional).
+         */
         reverse: {
             method: 'PUT',
             path: '/:transactionId/:typeId/reverse',
@@ -84,6 +117,15 @@ export const transactions = c.router(
                 valueToReverse: z.coerce.number().optional(),
             }),
         },
+        /**
+         * Captures a transaction.
+         * @method PUT
+         * @path /transactions/:transactionId/:typeId/capture
+         * @pathParams transactionId - The transaction ID.
+         * @pathParams typeId - The type ID (galaxPayId or myId).
+         * @responses 200 - createOrUpdateTransactionResponseSchema
+         * @body {}
+         */
         capture: {
             method: 'PUT',
             path: '/:transactionId/:typeId/capture',
@@ -96,6 +138,15 @@ export const transactions = c.router(
             },
             body: z.object({}),
         },
+        /**
+         * Cancels a transaction.
+         * @method DELETE
+         * @path /transactions/:transactionId/:typeId
+         * @pathParams transactionId - The transaction ID.
+         * @pathParams typeId - The type ID (galaxPayId or myId).
+         * @responses 200 - { type: boolean }
+         * @body {}
+         */
         cancel: {
             method: 'DELETE',
             path: '/:transactionId/:typeId',
