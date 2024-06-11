@@ -114,16 +114,10 @@ export type Split = z.infer<typeof splitSchema>
 
 export type ExtraFields = z.infer<typeof extraFieldSchema>
 
-type Prettify<T> = {
-    [K in keyof T]: T[K]
-} & unknown
-
-export type Client<T extends AppRouter> = Prettify<
-    InitClientReturn<
-        T,
-        {
-            baseUrl: string
-            api: typeof celCashRestFetchApi
-        }
-    >
+export type Client<T extends AppRouter> = InitClientReturn<
+    T,
+    {
+        baseUrl: string
+        api: typeof celCashRestFetchApi
+    }
 >
