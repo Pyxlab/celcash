@@ -13,9 +13,26 @@ const c = initContract()
 
 /**
  * Router for antecipation operations.
+ *
+ * @example
+ * ```ts
+ * import { initClient } from '@ts-rest/core'
+ * import { antecipation } from '@cel_cash/core/contract'
+ *
+ * const client = initClient(antecepation, {
+ *   baseUrl: 'https://api.celcoin.com.br'
+ * })
+ *
+ * const antecipations = await client.simulate.getByFilters({ ... })
+ * const simulatedAntecipation = await client.simulate.create({ ... })
+ * const antecipatedReceivables = await client.create({ ... })
+ * ````
  */
 export const antecipation = c.router(
     {
+        /**
+         * Operations for antecipation simulations.
+         */
         simulate: c.router(
             {
                 /**
