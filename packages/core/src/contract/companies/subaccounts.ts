@@ -1,20 +1,90 @@
-import { initContract } from '@ts-rest/core'
+import { initContract } from '@ts-rest/core';
+import { z } from 'zod';
+import { listPlansResponseSchema, listPlansParamsSchema, createPlanResponseSchema, createPlanBodySchema, updatePlanBodySchema } from '../../schemas/plans.js';
 
-const c = initContract()
+
+const c = initContract();
 
 export const subaccounts = c.router(
-    {
-        // Todo: Listar Subcontas
-        // Todo: Obter Documentos Necessários
-        // Todo: Criar Subconta CPF
-        // Todo: Criar Subconta CNPJ
-        // Todo: Enviar Documentos Necessários CPF
-        // Todo: Enviar Documentos Necessários CNPJ
-        // Todo: Editar Subconta
-        // Todo: Reativar Subconta
-        // Todo: Desativar Subconta
+  {
+    /**
+     * Retrieves a list of plans.
+     *
+     * @method GET
+     * @path /plans
+     * @responses 200 - The list of plans.
+     * @query - The query parameters for listing plans.
+     */
+    list: {
+      method: 'GET',
+      path: '/',
+      responses: {
+        200: listPlansResponseSchema,
+      },
+      query: listPlansParamsSchema,
     },
-    {
-        pathPrefix: '/subaccounts',
+    /**
+     * Creates a new plan.
+     *
+     * @method POST
+     * @path /plans
+     * @responses 200 - The created plan.
+     * @body - The request body for creating a plan.
+     */
+    create: {
+      method: 'POST',
+      path: '/',
+      responses: {
+        200: createPlanResponseSchema,
+      },
+      body: createPlanBodySchema,
     },
-)
+    /**
+     * Updates a plan.
+     *
+     * @method PUT
+     * @path /plans/:planId/:typeId
+     * @pathParams - The path parameters for updating a plan.
+     * @responses 200 - The updated plan.
+     * @body - The request body for updating a plan.
+     */
+    update: {
+      method: 'PUT',
+      path: '/:planId/:typeId',
+      pathParams: z.object({
+        planId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+        typeId: z.enum(['galaxPayId', 'myId']),
+      }),
+      responses: {
+        200: createPlanResponseSchema,
+      },
+      body: updatePlanBodySchema,
+    },
+    /**
+     * Deletes a plan.
+     *
+     * @method DELETE
+     * @path /plans/:planId/:typeId
+     * @pathParams - The path parameters for deleting a plan.
+     * @responses 200 - The deletion status.
+     * @body - An empty object.
+     */
+    delete: {
+      method: 'DELETE',
+      path: '/:planId/:typeId',
+      pathParams: z.object({
+        planId: z.union([z.coerce.number().positive(), z.coerce.string()]),
+        typeId: z.enum(['galaxPayId', 'myId']),
+      }),
+      responses: {
+        200: z.object({
+          type: z.boolean(),
+        }),
+      },
+      body: c.noBody(),
+    },
+  },
+  {
+    pathPrefix: '/subaccounts',
+  },
+);
