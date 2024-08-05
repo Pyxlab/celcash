@@ -100,6 +100,38 @@ export const addressSchema = z.object({
     state: z.string(),
 })
 
+export const professionalSchema = z.object({
+    internalName: z.enum([
+        'lawyer',
+        'doctor',
+        'accountant',
+        'realtor',
+        'broker',
+        'physicalEducator',
+        'physiotherapist',
+        'others',
+    ]),
+    street: z.string(),
+    number: z.string(),
+    complement: z.string().optional(),
+    neighborhood: z.string(),
+    city: z.string(),
+    state: z.string(),
+});
+
+export const apiAuthSchema = z.object({
+    galaxId: z.string(),
+    galaxHash: z.string(),
+    publicToken: z.string(),
+    confirmHashWebhook: z.string(),
+});
+
+export const verificationSchema = z.object({
+    status: z.string(),
+    Reasons: z.array(z.string()),
+});
+
+
 export const extraFieldSchema = z.object({
     tagName: z.string(),
     value: z.string(),

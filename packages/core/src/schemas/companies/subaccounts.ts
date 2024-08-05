@@ -1,73 +1,190 @@
 import { z } from 'zod';
-import { transformArrayToString } from '../../utils';
-import { periodicitySchema } from '../_/common';
-
-export const planStatusSchema = z.enum(['active', 'inactive']);
-
-export const listPlansParamsSchema = z.object({
-  myIds: z
-    .union([z.array(z.coerce.string()), z.coerce.string()])
-    .optional()
-    .transform(transformArrayToString),
+import { addressSchema, apiAuthSchema, professionalSchema, verificationSchema } from '../../schemas/common.js';
+import { transformArrayToString } from '../../utils/transform.js';
+import { companyBaseSchema, configBaseSchema, userBaseSchema } from './common.js';
+export const listSubAccountsParamsSchema = z.object({
   galaxPayIds: z
     .union([z.array(z.coerce.string()), z.coerce.string()])
     .optional()
     .transform(transformArrayToString),
-  createdAtFrom: z.string().optional(),
-  createdAtTo: z.string().optional(),
-  createdAtOrUpdatedAtFrom: z.string().optional(),
-  createdAtOrUpdatedAtTo: z.string().optional(),
-  status: z.enum(['active', 'inactive']).optional(),
-  startAt: z.coerce.number(),
+  documents: z
+    .union([z.array(z.coerce.string()), z.coerce.string()])
+    .optional()
+    .transform(transformArrayToString),
   limit: z.coerce.number().min(0).max(100),
+  startAt: z.coerce.number(),
   order: z
     .enum([
       'createdAt.asc',
       'createdAt.desc',
-      'updatedAt.asc',
-      'updatedAt.desc',
+      'galaxPayId.asc',
+      'galaxPayId.desc',
     ])
     .optional(),
 });
 
-export const planPricesSchema = z.object({
-  payment: z.enum(['creditcard', 'boleto']),
-  value: z.coerce.number(),
-});
+export type ListSubAccountsParams = z.input<typeof listSubAccountsParamsSchema>;
 
-export type PlanPrices = z.input<typeof planPricesSchema>;
-
-export type ListPlansParams = z.input<typeof listPlansParamsSchema>;
-
-export const createPlanBodySchema = z.object({
-  myId: z.string(),
+export const createSubAccountBaseSchema = z.object({
   name: z.string(),
-  periodicity: periodicitySchema,
-  quantity: z.coerce.number(),
-  additionalInfo: z.string().optional(),
-  PlanPrices: z.array(planPricesSchema),
+  document: z.string(),
+  phone: z.string(),
+  emailContact: z.string(),
+  logo: z.string().optional(),
+  canAccessPlatform: z.boolean().optional(),
+  softDescriptor: z.string(),
+  Address: addressSchema,
 });
 
-export const planSchema = createPlanBodySchema.extend({
+export const createSubAccountCpfBodySchema = createSubAccountBaseSchema.extend({
+  Professional: professionalSchema,
+});
+
+export const createSubAccountCnpjBodySchema = createSubAccountBaseSchema.extend(
+  {
+    responsibleDocument: z.string(),
+    typeCompany: z.enum([
+      'ltda',
+      'eireli',
+      'association',
+      'individualEntrepreneur',
+      'mei',
+      'sa',
+      'slu',
+    ]),
+    cnae: z.string(),
+  },
+);
+
+export const createSubAccounResponseSchema = z.object({
+  type: z.boolean(),
+  Company: z.object({
+    galaxPayId: z.number(),
+    galaxHash: z.string(),
+    name: z.string(),
+    document: z.string(),
+    nameDisplay: z.string(),
+    active: z.boolean(),
+    emailContact: z.string(),
+    urlLogo: z.string(),
+    publicToken: z.string(),
+    canAccessPlatform: z.boolean(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
+    Address: addressSchema,
+    Professional: professionalSchema,
+    ApiAuth: apiAuthSchema,
+    Verification: verificationSchema,
+  }),
+});
+
+export const subAccountsSchema = createSubAccountCpfBodySchema.extend({
   galaxPayId: z.coerce.number(),
 });
 
-export const listPlansResponseSchema = z.object({
+export const listSubAccountsResponseSchema = z.object({
   totalQtdFoundInPage: z.coerce.number(),
-  Plans: z.array(planSchema),
+  SubAccounts: z.array(subAccountsSchema),
 });
 
-export type ListPlanResponse = z.input<typeof listPlansResponseSchema>;
+export type ListSubAccountsResponse = z.input<
+  typeof listSubAccountsResponseSchema
+>;
 
-export const createPlanResponseSchema = z.object({
+export type CreateSubAccountsCpfBody = z.input<
+  typeof createSubAccountCpfBodySchema
+>;
+
+export type CreateSubAccountsResponse = z.input<
+  typeof createSubAccounResponseSchema
+>;
+
+export const updateSubAccountsBodySchema = z.object({
+  Address: addressSchema,
+  logo: z.string(),
+  canAccessPlatform: z.boolean(),
+});
+
+export const updateSubAccountResponseSchema = z.object({
   type: z.boolean(),
-  Plan: planSchema,
+  Company: companyBaseSchema.extend({
+    galaxHash: z.string(),
+    publicToken: z.string(),
+    Users: z.array(userBaseSchema),
+    BoletoDays: z.array(z.object({ day: z.number(), value: z.number() })),
+    Config: configBaseSchema,
+  }),
 });
 
-export type CreatePlanBody = z.input<typeof createPlanBodySchema>;
+export const listMandatoryDocumentsResponseSchema = z.object({
+  type: z.boolean(),
+  Info: z.object({
+    Fields: z.object({ name: z.string(), description: z.string() }),
+    Associate: z.array(z.object({ name: z.string(), description: z.string() })),
+    Documents: z.object({
+      Company: z.object({ name: z.string(), description: z.string() }),
+      Personal: z.object({
+        CNH: z.array(z.object({ name: z.string(), description: z.string() })),
+        RG: z.array(z.object({ name: z.string(), description: z.string() })),
+      }),
+    }),
+  }),
+});
 
-export type CreatePlanResponse = z.input<typeof createPlanResponseSchema>;
+export const sendMandatoryDocumentsCpfRequestSchema = z.object({
+  Fields: z.object({
+    motherName: z.string(),
+    birthDate: z.string(),
+    monthlyIncome: z.number(),
+    about: z.string(),
+    socialMediaLink: z.string(),
+  }),
+  Documents: z.object({
+    Personal: z.object({
+      CNH: z.object({
+        selfie: z.string(),
+        picture: z.array(z.string()),
+        address: z.string(),
+      }),
+      RG: z.object({
+        selfie: z.string(),
+        front: z.string(),
+        back: z.string(),
+        address: z.string(),
+      }),
+    }),
+  }),
+});
 
-export const updatePlanBodySchema = createPlanBodySchema.deepPartial();
+export const sendMandatoryDocumentsCnpjRequestSchema = z.object({
+  Fields: z.object({
+    monthlyIncome: z.number(),
+    about: z.string(),
+    socialMediaLink: z.string(),
+  }),
+  Associate: z.array(
+    z.object({
+      document: z.string(),
+      name: z.string(),
+      motherName: z.string(),
+      birthDate: z.string(),
+      type: z.string(),
+    }),
+  ),
+  Documents: z.object({
+    Company: z.object({
+      lastContract: z.string(),
+      cnpjCard: z.string(),
+      electionRecord: z.string(),
+      statute: z.string(),
+    }),
+    Personal: z.object({
+      CNH: z.object({ selfie: z.string(), picture: z.array(z.string()) }),
+      RG: z.object({ selfie: z.string(), front: z.string(), back: z.string() }),
+    }),
+  }),
+});
 
-export type UpdatePlanBody = z.input<typeof updatePlanBodySchema>;
+export const sendMandatoryDocumentsResponseSchema = z.object({
+  type: z.boolean(),
+});
