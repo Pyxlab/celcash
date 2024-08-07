@@ -94,6 +94,9 @@ export type ListSubAccountsResponse = z.input<
 export type CreateSubAccountsCpfBody = z.input<
   typeof createSubAccountCpfBodySchema
 >;
+export type CreateSubAccountsCnpjBody = z.input<
+  typeof createSubAccountCnpjBodySchema
+>;
 
 export type CreateSubAccountsResponse = z.input<
   typeof createSubAccounResponseSchema
