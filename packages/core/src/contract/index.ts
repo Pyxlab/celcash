@@ -5,12 +5,12 @@ import { cards } from './cards.js'
 import { chargebacks } from './chargebacks.js'
 import { charges } from './charges.js'
 import { companies } from './companies/index.js'
+import { subaccounts } from './companies/subaccounts.js'
 import { customers } from './customers.js'
 import { plans } from './plans.js'
 import { subscriptions } from './subscriptions.js'
 import { transactions } from './transactions.js'
 import { pix, transfer } from './transfer.js'
-import { subaccounts } from './companies/subaccounts.js'
 
 export type Antecipation = Client<typeof antecipation>
 export type Auth = Client<typeof auth>
@@ -54,5 +54,5 @@ export {
     transactions,
     pix,
     transfer,
-    subaccounts
+    subaccounts,
 }

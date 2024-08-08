@@ -117,20 +117,19 @@ export const professionalSchema = z.object({
     neighborhood: z.string(),
     city: z.string(),
     state: z.string(),
-});
+})
 
 export const apiAuthSchema = z.object({
     galaxId: z.string(),
     galaxHash: z.string(),
     publicToken: z.string(),
     confirmHashWebhook: z.string(),
-});
+})
 
 export const verificationSchema = z.object({
     status: z.string(),
     Reasons: z.array(z.string()),
-});
-
+})
 
 export const extraFieldSchema = z.object({
     tagName: z.string(),
