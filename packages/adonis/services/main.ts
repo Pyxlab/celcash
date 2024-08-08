@@ -11,7 +11,7 @@ import { CelCashService } from '../src/client.js'
 let celcash: CelCashService
 
 await app.booted(async () => {
-  celcash = await app.container.make('@cel_cash/adonisjs')
+    celcash = await app.container.make('@cel_cash/adonisjs')
 })
 
 export { celcash as default }
