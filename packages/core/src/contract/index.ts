@@ -39,6 +39,7 @@ export type Contract = {
     pix: Pix
     transfer: Transfer
     subaccounts: Subaccounts
+    auth: Auth
 }
 
 export {
