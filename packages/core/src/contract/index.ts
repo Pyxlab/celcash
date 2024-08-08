@@ -10,6 +10,7 @@ import { plans } from './plans.js'
 import { subscriptions } from './subscriptions.js'
 import { transactions } from './transactions.js'
 import { pix, transfer } from './transfer.js'
+import { subaccounts } from './companies/subaccounts.js'
 
 export type Antecipation = Client<typeof antecipation>
 export type Auth = Client<typeof auth>
@@ -23,6 +24,7 @@ export type Subscriptions = Client<typeof subscriptions>
 export type Transactions = Client<typeof transactions>
 export type Pix = Client<typeof pix>
 export type Transfer = Client<typeof transfer>
+export type Subaccounts = Client<typeof subaccounts>
 
 export type Contract = {
     antecipation: Antecipation
@@ -36,6 +38,7 @@ export type Contract = {
     transactions: Transactions
     pix: Pix
     transfer: Transfer
+    subaccounts: Subaccounts
 }
 
 export {
@@ -51,4 +54,5 @@ export {
     transactions,
     pix,
     transfer,
+    subaccounts
 }
