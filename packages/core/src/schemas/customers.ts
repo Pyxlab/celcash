@@ -23,7 +23,7 @@ export const createCustomerBodySchema = z.object({
 export type CreateCustomerBody = z.input<typeof createCustomerBodySchema>
 
 export const customerSchema = createCustomerBodySchema.extend({
-    galaPayId: z.coerce.number(),
+    galaxPayId: z.coerce.number(),
     status: statusCustomerSchema,
     createdAt: z.string(),
     updatedAt: z.string(),

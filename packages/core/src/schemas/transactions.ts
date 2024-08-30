@@ -33,8 +33,8 @@ const subscriptionSchema = z.object({
     status: subscriptionStatusSchema,
     Customer: customerSchema
         .deepPartial()
-        .refine(({ myId, galaPayId, document, name, emails }) => {
-            if (galaPayId) return true
+        .refine(({ myId, galaxPayId, document, name, emails }) => {
+            if (galaxPayId) return true
             if (!!myId && !document && !name && !emails) return true
             if (!!document && !myId && !name && !emails) return true
             if (!!myId && !!document && !!name && !!emails) return true
