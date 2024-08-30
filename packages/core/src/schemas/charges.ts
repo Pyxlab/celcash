@@ -15,7 +15,7 @@ import {
     invoiceSchema,
 } from './common.js'
 import { contractSchema, splitSchema } from './contract.js'
-import { customerSchema } from './customers.js'
+import { customerSchema, partialCustomerSchema } from './customers.js'
 import {
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
@@ -39,15 +39,14 @@ const subscriptionSchema = z.object({
     paymentLink: z.string().optional(),
     value: z.coerce.number(),
     status: subscriptionStatusSchema,
-    Customer: customerSchema
-        .deepPartial()
-        .refine(({ myId, galaxPayId, document, name, emails }) => {
-            if (galaxPayId) return true
-            if (!!myId && !document && !name && !emails) return true
-            if (!!document && !myId && !name && !emails) return true
-            if (!!myId && !!document && !!name && !!emails) return true
-            return false
-        }),
+    Customer: partialCustomerSchema,
+    // .refine(({ myId, galaxPayId, document, name, emails }) => {
+    //     if (galaxPayId) return true
+    //     if (!!myId && !document && !name && !emails) return true
+    //     if (!!document && !myId && !name && !emails) return true
+    //     if (!!myId && !!document && !!name && !!emails) return true
+    //     return false
+    // }),
     PaymentMethodCreditCard: paymentMethodCreditCardSchema.optional(),
     PaymentMethodBoleto: paymentMethodBoletoSchema.optional(),
     PaymentMethodPix: paymentMethodPixSchema.optional(),

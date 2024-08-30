@@ -15,7 +15,7 @@ import {
     invoiceSchema,
 } from './common.js'
 import { splitSchema } from './contract.js'
-import { customerSchema } from './customers.js'
+import { partialCustomerSchema } from './customers.js'
 import {
     paymentMethodBoletoSchema,
     paymentMethodCreditCardSchema,
@@ -113,15 +113,7 @@ export const createSubscriptionWithPlanBodySchemaBase = z.object({
     firstPayDayDate: z.string(),
     additionalInfo: z.string().optional(),
     mainPaymentMethodId: mainPaymentMethodIdSchema,
-    Customer: customerSchema
-        .deepPartial()
-        .refine(({ myId, galaxPayId, document, name, emails }) => {
-            if (galaxPayId) return true
-            if (!!myId && !document && !name && !emails) return true
-            if (!!document && !myId && !name && !emails) return true
-            if (!!myId && !!document && !!name && !!emails) return true
-            return false
-        }),
+    Customer: partialCustomerSchema,
     PaymentMethodCreditCard: paymentMethodCreditCardSchema.optional(),
     PaymentMethodBoleto: paymentMethodBoletoSchema.optional(),
     PaymentMethodPix: paymentMethodPixSchema.optional(),

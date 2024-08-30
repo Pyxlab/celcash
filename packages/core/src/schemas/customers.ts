@@ -1,3 +1,4 @@
+import { P, match } from 'ts-pattern'
 import { z } from 'zod'
 import { transformArrayToString } from '../utils/transform.js'
 import { addressSchema } from './common.js'
@@ -28,6 +29,25 @@ export const customerSchema = createCustomerBodySchema.extend({
     createdAt: z.string(),
     updatedAt: z.string(),
 })
+
+export const partialCustomerSchema = customerSchema
+    .deepPartial()
+    .refine(props =>
+        match(props)
+            .with(
+                {
+                    myId: P.nonNullable,
+                    document: P.nonNullable,
+                    name: P.nonNullable,
+                    emails: P.nonNullable,
+                },
+                () => true,
+            )
+            .with({ galaxPayId: P.nonNullable }, () => true)
+            .with({ myId: P.nonNullable }, () => true)
+            .with({ document: P.nonNullable }, () => true)
+            .otherwise(() => false),
+    )
 
 export const createCustomerResponseSchema = z.object({
     type: z.boolean(),
