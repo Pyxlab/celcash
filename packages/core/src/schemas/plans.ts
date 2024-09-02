@@ -4,6 +4,12 @@ import { periodicitySchema } from './_/common.js'
 
 export const planStatusSchema = z.enum(['active', 'inactive'])
 
+const listPlansOrderEnum = z.enum([
+    'createdAt.asc',
+    'createdAt.desc',
+    'updatedAt.asc',
+    'updatedAt.desc',
+])
 export const listPlansParamsSchema = z.object({
     myIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
@@ -21,13 +27,9 @@ export const listPlansParamsSchema = z.object({
     startAt: z.coerce.number(),
     limit: z.coerce.number().min(0).max(100),
     order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'updatedAt.asc',
-            'updatedAt.desc',
-        ])
-        .optional(),
+        .union([listPlansOrderEnum, z.array(listPlansOrderEnum)])
+        .optional()
+        .transform(transformArrayToString),
 })
 
 export const planPricesSchema = z.object({

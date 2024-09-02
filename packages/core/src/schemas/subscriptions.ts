@@ -60,6 +60,12 @@ const transactionsSchema = z.object({
     }),
 })
 
+const listSubscriptionsOrderEnum = z.enum([
+    'createdAt.asc',
+    'createdAt.desc',
+    'updatedAt.asc',
+    'updatedAt.desc',
+])
 export const listSubscriptionsParamsSchema = z.object({
     myIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
@@ -93,13 +99,9 @@ export const listSubscriptionsParamsSchema = z.object({
     startAt: z.coerce.number(),
     limit: z.coerce.number().min(0).max(100),
     order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'updatedAt.asc',
-            'updatedAt.desc',
-        ])
-        .optional(),
+        .union([listSubscriptionsOrderEnum, z.array(listSubscriptionsOrderEnum)])
+        .optional()
+        .transform(transformArrayToString),
 })
 
 export type ListSubscriptionsParams = z.input<

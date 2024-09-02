@@ -58,6 +58,12 @@ export type CreateCustomerResponse = z.input<
     typeof createCustomerResponseSchema
 >
 
+const listCustomersOrderEnum = z.enum([
+    'createdAt.asc',
+    'createdAt.desc',
+    'updatedAt.asc',
+    'updatedAt.desc',
+])
 export const listCustomersParamsSchema = z.object({
     documents: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
@@ -85,13 +91,9 @@ export const listCustomersParamsSchema = z.object({
         .optional(),
     limit: z.coerce.number().min(0).max(100),
     order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'updatedAt.asc',
-            'updatedAt.desc',
-        ])
-        .optional(),
+        .union([listCustomersOrderEnum, z.array(listCustomersOrderEnum)])
+        .optional()
+        .transform(transformArrayToString),
 })
 
 export type ListCustomersParams = z.input<typeof listCustomersParamsSchema>

@@ -11,6 +11,13 @@ import {
     configBaseSchema,
     userBaseSchema,
 } from './common.js'
+
+const listSubAccountsOrderEnum = z.enum([
+    'createdAt.asc',
+    'createdAt.desc',
+    'galaxPayId.asc',
+    'galaxPayId.desc',
+])
 export const listSubAccountsParamsSchema = z.object({
     galaxPayIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
@@ -23,13 +30,9 @@ export const listSubAccountsParamsSchema = z.object({
     limit: z.coerce.number().min(0).max(100),
     startAt: z.coerce.number(),
     order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'galaxPayId.asc',
-            'galaxPayId.desc',
-        ])
-        .optional(),
+        .union([listSubAccountsOrderEnum, z.array(listSubAccountsOrderEnum)])
+        .optional()
+        .transform(transformArrayToString),
 })
 
 export type ListSubAccountsParams = z.input<typeof listSubAccountsParamsSchema>

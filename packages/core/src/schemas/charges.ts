@@ -95,6 +95,7 @@ export const chargesStatusSchema = z.enum([
     'inactive',
 ])
 
+const listChargesOrderEnum = z.enum(['createdAt.asc', 'createdAt.desc', 'updatedAt.asc', 'updatedAt.desc'])
 export const listChargesParamsSchema = z.object({
     myIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
@@ -156,16 +157,12 @@ export const listChargesParamsSchema = z.object({
         .max(100)
         .describe('Qtd máxima de registros para trazer.'),
     order: z
-        .enum([
-            'createdAt.asc',
-            'createdAt.desc',
-            'updatedAt.asc',
-            'updatedAt.desc',
-        ])
+        .union([listChargesOrderEnum, z.array(listChargesOrderEnum)])
         .optional()
         .describe(
             'Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem. Caso queira passar mais de uma ordenação, separar por vírgula: campoDaEntidade.tipoDeOrdem, campoDaEntidade2.tipoDeOrdem',
-        ),
+        )
+        .transform(transformArrayToString),
 })
 
 export type ListChargesParams = z.input<typeof listChargesParamsSchema>
