@@ -60,6 +60,7 @@ export const transactionStatusSchema = z.enum([
     'free',
 ])
 
+const listTransactionsOrderEnum = z.enum(['createdAt.asc', 'createdAt.desc', 'payday.asc', 'payday.desc'])
 export const listTransactionsParamsSchema = z.object({
     myIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
@@ -153,10 +154,11 @@ export const listTransactionsParamsSchema = z.object({
         .max(100)
         .describe('Qtd máxima de registros para trazer.'),
     order: z
-        .enum(['createdAt.asc', 'createdAt.desc', 'payday.asc', 'payday.desc'])
+        .union([listTransactionsOrderEnum, z.array(listTransactionsOrderEnum)])
         .optional()
         .describe(`Ordenação do resultado. String que deverá ser montada da seguinte maneira: campoDaEntidade.tipoDeOrdem
-Caso queira passar mais de uma ordenação, separar por vírgula: campoDaEntidade.tipoDeOrdem, campoDaEntidade2.tipoDeOrd`),
+Caso queira passar mais de uma ordenação, separar por vírgula: campoDaEntidade.tipoDeOrdem, campoDaEntidade2.tipoDeOrd`)
+        .transform(transformArrayToString),
 })
 
 export const conciliationOccurrenceStatusSchema = z.enum([
