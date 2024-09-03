@@ -60,7 +60,12 @@ export const transactionStatusSchema = z.enum([
     'free',
 ])
 
-const listTransactionsOrderEnum = z.enum(['createdAt.asc', 'createdAt.desc', 'payday.asc', 'payday.desc'])
+const listTransactionsOrderEnum = z.enum([
+    'createdAt.asc',
+    'createdAt.desc',
+    'payday.asc',
+    'payday.desc',
+])
 export const listTransactionsParamsSchema = z.object({
     myIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])

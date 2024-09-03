@@ -99,7 +99,10 @@ export const listSubscriptionsParamsSchema = z.object({
     startAt: z.coerce.number(),
     limit: z.coerce.number().min(0).max(100),
     order: z
-        .union([listSubscriptionsOrderEnum, z.array(listSubscriptionsOrderEnum)])
+        .union([
+            listSubscriptionsOrderEnum,
+            z.array(listSubscriptionsOrderEnum),
+        ])
         .optional()
         .transform(transformArrayToString),
 })

@@ -95,7 +95,12 @@ export const chargesStatusSchema = z.enum([
     'inactive',
 ])
 
-const listChargesOrderEnum = z.enum(['createdAt.asc', 'createdAt.desc', 'updatedAt.asc', 'updatedAt.desc'])
+const listChargesOrderEnum = z.enum([
+    'createdAt.asc',
+    'createdAt.desc',
+    'updatedAt.asc',
+    'updatedAt.desc',
+])
 export const listChargesParamsSchema = z.object({
     myIds: z
         .union([z.array(z.coerce.string()), z.coerce.string()])
