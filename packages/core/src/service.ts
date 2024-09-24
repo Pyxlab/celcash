@@ -277,7 +277,7 @@ export abstract class CelCashServiceContract {
                 return authorizationCode.body.access_token
             }
 
-            throw new Error('Error on get access_token')
+            throw authorizationCode.body
         }
 
         return token
